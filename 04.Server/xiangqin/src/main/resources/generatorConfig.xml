@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+		
+<generatorConfiguration>
+	<context id="MySqlContext" targetRuntime="jp.frontierinfo.utils.TkMyBatis3Impl"
+				defaultModelType="conditional">
+		<property name="beginningDelimiter" value="'"/>
+		<property name="endingDelimiter" value="'"/>
+		<property name="javaFileEncoding" value="UTF-8"/>
+ 
+        <!--optional,旨在创建class时，对注释进行控制-->
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+			<property name="addRemarkComments" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="org.postgresql.Driver" 
+						connectionURL="jdbc:postgresql://localhost:5432/postgres"
+						userId="postgres"
+						password="root">
+		</jdbcConnection>
+		
+		<javaModelGenerator targetPackage="jp.frontierinfo.db.entity" 
+							targetProject="C:\songsong\Frontier-info\xiangqin\04.Server\xiangqin\src\main\java">
+            <!-- 是否允许子包 -->
+			<property name="enableSubPackages" value="false"/>
+            <!-- 是否对modal添加构造函数 -->
+            <property name="constructorBased" value="true" />
+            <!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
+            <property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		<sqlMapGenerator targetPackage="jp.frontierinfo.db.mapper" targetProject="C:\songsong\Frontier-info\xiangqin\04.Server\xiangqin\src\main\java"/>
+		
+		<javaClientGenerator type="XMLMAPPER" targetPackage="jp.frontierinfo.db.dao" targetProject="C:\songsong\Frontier-info\xiangqin\04.Server\xiangqin\src\main\java">
+            <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
+			<property name="enableSubPackages" value="false"/>
+		</javaClientGenerator>
+		
+<!-- 		<table tableName="m01_operate_history" mapperName="{0}Dao" -->
+<!-- 		<table tableName="M0%" mapperName="{0}Dao" -->
+<!-- 		<table tableName="t03_middle_price_curve" mapperName="{0}Dao" -->
+		<table tableName="t01_user_relations_info" mapperName="{0}Dao"
+		    schema = "xiangqin"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false"/>
+            
+	</context>
+</generatorConfiguration>

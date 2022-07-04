@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.frontierinfo.db.dao.T01UserBasicInfoDao">
+  <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.T01UserBasicInfo">
+    <constructor>
+      <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="birth_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mobile" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uheight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uweight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="introduce" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uimages" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="identification_photo" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, uname, sex, birth_date, birth_place, mobile, address, profession, interest, 
+    uheight, uweight, introduce, uimages, identification_photo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiangqin.t01_user_basic_info
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xiangqin.t01_user_basic_info
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
+    insert into xiangqin.t01_user_basic_info (uid, uname, sex, 
+      birth_date, birth_place, mobile, 
+      address, profession, interest, 
+      uheight, uweight, introduce, 
+      uimages, identification_photo)
+    values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+      #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, 
+      #{uheight,jdbcType=NUMERIC}, #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, 
+      #{uimages,jdbcType=VARCHAR}, #{identificationPhoto,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
+    insert into xiangqin.t01_user_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="uname != null">
+        uname,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthDate != null">
+        birth_date,
+      </if>
+      <if test="birthPlace != null">
+        birth_place,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="profession != null">
+        profession,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="uheight != null">
+        uheight,
+      </if>
+      <if test="uweight != null">
+        uweight,
+      </if>
+      <if test="introduce != null">
+        introduce,
+      </if>
+      <if test="uimages != null">
+        uimages,
+      </if>
+      <if test="identificationPhoto != null">
+        identification_photo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthDate != null">
+        #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="birthPlace != null">
+        #{birthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null">
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="uheight != null">
+        #{uheight,jdbcType=NUMERIC},
+      </if>
+      <if test="uweight != null">
+        #{uweight,jdbcType=NUMERIC},
+      </if>
+      <if test="introduce != null">
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages != null">
+        #{uimages,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationPhoto != null">
+        #{identificationPhoto,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
+    update xiangqin.t01_user_basic_info
+    <set>
+      <if test="uname != null">
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthDate != null">
+        birth_date = #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="birthPlace != null">
+        birth_place = #{birthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null">
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="uheight != null">
+        uheight = #{uheight,jdbcType=NUMERIC},
+      </if>
+      <if test="uweight != null">
+        uweight = #{uweight,jdbcType=NUMERIC},
+      </if>
+      <if test="introduce != null">
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages != null">
+        uimages = #{uimages,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationPhoto != null">
+        identification_photo = #{identificationPhoto,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
+    update xiangqin.t01_user_basic_info
+    set uname = #{uname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      birth_date = #{birthDate,jdbcType=DATE},
+      birth_place = #{birthPlace,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      interest = #{interest,jdbcType=VARCHAR},
+      uheight = #{uheight,jdbcType=NUMERIC},
+      uweight = #{uweight,jdbcType=NUMERIC},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      uimages = #{uimages,jdbcType=VARCHAR},
+      identification_photo = #{identificationPhoto,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>

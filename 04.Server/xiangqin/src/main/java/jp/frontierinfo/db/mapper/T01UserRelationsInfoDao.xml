@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.frontierinfo.db.dao.T01UserRelationsInfoDao">
+  <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.T01UserRelationsInfo">
+    <constructor>
+      <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="relation_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_send" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_relation" javaType="java.lang.Boolean" jdbcType="BIT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, relation_id, is_send, is_relation
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiangqin.t01_user_relations_info
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xiangqin.t01_user_relations_info
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
+    insert into xiangqin.t01_user_relations_info (uid, relation_id, is_send, 
+      is_relation)
+    values (#{uid,jdbcType=VARCHAR}, #{relationId,jdbcType=VARCHAR}, #{isSend,jdbcType=BIT}, 
+      #{isRelation,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
+    insert into xiangqin.t01_user_relations_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="relationId != null">
+        relation_id,
+      </if>
+      <if test="isSend != null">
+        is_send,
+      </if>
+      <if test="isRelation != null">
+        is_relation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="relationId != null">
+        #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null">
+        #{isSend,jdbcType=BIT},
+      </if>
+      <if test="isRelation != null">
+        #{isRelation,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
+    update xiangqin.t01_user_relations_info
+    <set>
+      <if test="relationId != null">
+        relation_id = #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null">
+        is_send = #{isSend,jdbcType=BIT},
+      </if>
+      <if test="isRelation != null">
+        is_relation = #{isRelation,jdbcType=BIT},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
+    update xiangqin.t01_user_relations_info
+    set relation_id = #{relationId,jdbcType=VARCHAR},
+      is_send = #{isSend,jdbcType=BIT},
+      is_relation = #{isRelation,jdbcType=BIT}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>
