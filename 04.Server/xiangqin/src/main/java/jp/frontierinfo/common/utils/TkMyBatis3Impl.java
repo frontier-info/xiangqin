@@ -1,4 +1,4 @@
-package jp.frontierinfo.utils;
+package jp.frontierinfo.common.utils;
 
 import java.text.MessageFormat;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;

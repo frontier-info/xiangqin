@@ -10,9 +10,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class A001001E001Input extends AbstractInput{
-	private String account;
+public class A001001E003Input extends AbstractInput{
 	
-	private String password;
+	private String mobile;
+	
+	private String verificationCode;
+	
+	private String verificationCodeToken;
+	
 
 }

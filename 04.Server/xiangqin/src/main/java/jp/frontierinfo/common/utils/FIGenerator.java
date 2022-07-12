@@ -1,4 +1,4 @@
-package jp.frontierinfo.utils;
+package jp.frontierinfo.common.utils;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
