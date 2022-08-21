@@ -18,7 +18,6 @@ import jp.frontierinfo.api.service.A001001E001Service;
 import jp.frontierinfo.api.service.A001001E002Service;
 import jp.frontierinfo.api.service.A001001E003Service;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.common.resolver.ParameterConvert;
 
 @RestController
 public class A001001Controller extends AbstractController{
@@ -33,7 +32,7 @@ public class A001001Controller extends AbstractController{
 	private A001001E003Service a001001E003Service;
 
 	@PostMapping("/api/user/login")
-	public ResponseResult e001(@ParameterConvert @RequestBody A001001E001Input input) {
+	public ResponseResult e001(@RequestBody A001001E001Input input) {
 		System.out.println("用户名手机号"+input.getAccount());
 		System.out.println("用户密码"+input.getPassword());
 		ResponseResult result = new ResponseResult();
@@ -66,7 +65,7 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/code_verify")
-	public ResponseResult e003(@ParameterConvert @RequestBody A001001E003Input input) {
+	public ResponseResult e003(@RequestBody A001001E003Input input) {
 		System.out.println("用户名手机号"+input.getMobile());
 		System.out.println("用户验证码"+input.getVerificationCode());
 		ResponseResult result = new ResponseResult();
