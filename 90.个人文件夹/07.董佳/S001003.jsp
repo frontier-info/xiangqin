@@ -5,9 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>S001003 注册页面2</title>
-	<style type="text/css">
-
-	</style>
+	<style type="text/css"></style>
 </head>
 <body>
 	<form action="S001001" method="post" style="text-align:center">
