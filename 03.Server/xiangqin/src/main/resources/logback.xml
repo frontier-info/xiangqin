@@ -5,8 +5,8 @@
 
     <contextName>logback</contextName>
     <property name="log.pattern" 
-    	value="[%d] [%thread] %-5level [%file] %msg%n"/>
-    <property name="log.path" value="C:/QuantitativeTrading/WebMagic/logs/"></property>
+    	value="[%d] [%thread] [%-5level] [%file] %msg%n"/>
+    <property name="log.path" value="C:/Frontier-info/xiangqin/logs/"></property>
     
     <!--ConsoleAppender 用于在屏幕上输出日志-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -19,7 +19,7 @@
         <!--定义控制台输出格式-->
         <encoder>
             <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <charset>GBK</charset>
         </encoder>
     </appender>
 
