@@ -1,8 +1,15 @@
 package jp.frontierinfo.db.dao;
 
+import java.util.Map;
+
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 
 public interface T01UserLoginInfoDao {
+	
+	int userExistByPhone(String mobile);
+	
+	T01UserLoginInfo loginVerifyWithPhone(Map<String, String> params);
+	
     int deleteByPrimaryKey(String uid);
 
     int insert(T01UserLoginInfo record);

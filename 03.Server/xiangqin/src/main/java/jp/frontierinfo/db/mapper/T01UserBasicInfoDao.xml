@@ -8,20 +8,19 @@
       <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="birth_date" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="mobile" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="uheight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
-      <arg column="uweight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uheight" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uweight" javaType="java.lang.Short" jdbcType="NUMERIC" />
       <arg column="introduce" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="uimages" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="identification_photo" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, uname, sex, birth_date, birth_place, mobile, address, profession, interest, 
-    uheight, uweight, introduce, uimages, identification_photo
+    uid, uname, sex, birth_date, birth_place, address, profession, interest, uheight, 
+    uweight, introduce, uimages, identification_photo
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -35,15 +34,15 @@
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info (uid, uname, sex, 
-      birth_date, birth_place, mobile, 
-      address, profession, interest, 
-      uheight, uweight, introduce, 
-      uimages, identification_photo)
+      birth_date, birth_place, address, 
+      profession, interest, uheight, 
+      uweight, introduce, uimages, 
+      identification_photo)
     values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
-      #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, 
-      #{uheight,jdbcType=NUMERIC}, #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, 
-      #{uimages,jdbcType=VARCHAR}, #{identificationPhoto,jdbcType=VARCHAR})
+      #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, 
+      #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{uimages,jdbcType=VARCHAR}, 
+      #{identificationPhoto,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info
@@ -62,9 +61,6 @@
       </if>
       <if test="birthPlace != null">
         birth_place,
-      </if>
-      <if test="mobile != null">
-        mobile,
       </if>
       <if test="address != null">
         address,
@@ -107,9 +103,6 @@
       <if test="birthPlace != null">
         #{birthPlace,jdbcType=VARCHAR},
       </if>
-      <if test="mobile != null">
-        #{mobile,jdbcType=VARCHAR},
-      </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
       </if>
@@ -151,9 +144,6 @@
       <if test="birthPlace != null">
         birth_place = #{birthPlace,jdbcType=VARCHAR},
       </if>
-      <if test="mobile != null">
-        mobile = #{mobile,jdbcType=VARCHAR},
-      </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
       </if>
@@ -187,7 +177,6 @@
       sex = #{sex,jdbcType=INTEGER},
       birth_date = #{birthDate,jdbcType=DATE},
       birth_place = #{birthPlace,jdbcType=VARCHAR},
-      mobile = #{mobile,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},
       interest = #{interest,jdbcType=VARCHAR},

@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class A001001E001Output extends AbstractOutput{
 
-	private String mobile;
+	private String uid;
 	
-	
+	private String token;
 }

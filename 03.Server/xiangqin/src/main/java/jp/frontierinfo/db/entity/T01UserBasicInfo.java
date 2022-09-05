@@ -1,6 +1,5 @@
 package jp.frontierinfo.db.entity;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class T01UserBasicInfo {
@@ -14,17 +13,15 @@ public class T01UserBasicInfo {
 
     private String birthPlace;
 
-    private String mobile;
-
     private String address;
 
     private String profession;
 
     private String interest;
 
-    private BigDecimal uheight;
+    private Short uheight;
 
-    private BigDecimal uweight;
+    private Short uweight;
 
     private String introduce;
 
@@ -32,13 +29,12 @@ public class T01UserBasicInfo {
 
     private String identificationPhoto;
 
-    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String mobile, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
+    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
         this.birthDate = birthDate;
         this.birthPlace = birthPlace;
-        this.mobile = mobile;
         this.address = address;
         this.profession = profession;
         this.interest = interest;
@@ -93,14 +89,6 @@ public class T01UserBasicInfo {
         this.birthPlace = birthPlace == null ? null : birthPlace.trim();
     }
 
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
-
     public String getAddress() {
         return address;
     }
@@ -125,19 +113,19 @@ public class T01UserBasicInfo {
         this.interest = interest == null ? null : interest.trim();
     }
 
-    public BigDecimal getUheight() {
+    public Short getUheight() {
         return uheight;
     }
 
-    public void setUheight(BigDecimal uheight) {
+    public void setUheight(Short uheight) {
         this.uheight = uheight;
     }
 
-    public BigDecimal getUweight() {
+    public Short getUweight() {
         return uweight;
     }
 
-    public void setUweight(BigDecimal uweight) {
+    public void setUweight(Short uweight) {
         this.uweight = uweight;
     }
 

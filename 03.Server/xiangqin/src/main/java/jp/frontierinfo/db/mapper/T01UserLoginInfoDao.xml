@@ -4,13 +4,31 @@
   <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.T01UserLoginInfo">
     <constructor>
       <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mobile" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, email, password
+    uid, mobile, email, password
   </sql>
+  <!--   用户存在与否验证(手机号) -->
+  <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select 
+      count(*)
+    from xiangqin.t01_user_login_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+  <!--   用户登录验证(手机号) -->
+  <select id="loginVerifyWithPhone" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiangqin.t01_user_login_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+      and password = #{password,jdbcType=VARCHAR}
+  </select>
+  
+  <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -22,16 +40,19 @@
     where uid = #{uid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
-    insert into xiangqin.t01_user_login_info (uid, email, password
-      )
-    values (#{uid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
-      )
+    insert into xiangqin.t01_user_login_info (uid, mobile, email, 
+      password)
+    values (#{uid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
         uid,
+      </if>
+      <if test="mobile != null">
+        mobile,
       </if>
       <if test="email != null">
         email,
@@ -44,6 +65,9 @@
       <if test="uid != null">
         #{uid,jdbcType=VARCHAR},
       </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
       </if>
@@ -55,6 +79,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     update xiangqin.t01_user_login_info
     <set>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
       </if>
@@ -66,7 +93,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     update xiangqin.t01_user_login_info
-    set email = #{email,jdbcType=VARCHAR},
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
