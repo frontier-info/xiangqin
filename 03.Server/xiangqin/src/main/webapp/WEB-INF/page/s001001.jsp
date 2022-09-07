@@ -29,9 +29,12 @@
       <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-       <form:form role="form" action="/xiangqin/ui/s001001" method="post" id="s001001Form">
+       <form:form modelAttribute="s001001Form" action="/xiangqin/ui/s001001" method="post">
          <div class="form-group">
-          <form:errors path="*"/>
+          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
+          <c:if test="${not empty message}">
+           <div class="alert alert-success" role="alert"><p>${message}</p></div>
+          </c:if>
           <label for="name">手机</label>
           <input class="form-control" type="text" name="mobile" value="123"/>
           <label for="name">密码</label>

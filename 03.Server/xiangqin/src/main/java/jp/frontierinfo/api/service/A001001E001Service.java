@@ -27,7 +27,7 @@ public class A001001E001Service extends AbstractServiceImpl<A001001E001Input, A0
 			output.setToken(TokenUtils.tokenForLogin(input.getAccount()));
 		} else {
 			// 用户手机号或密码错误
-			throw new BusinessException("用户手机号或密码错误");
+			throw new BusinessException("用户密码错误");
 		}
 		return output;
 	}

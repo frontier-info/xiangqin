@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,9 @@ public class S001001Controller {
 	@Autowired
 	private S001001E001Service s001001E001Service;
 	
+	@Autowired
+	private MessageSource messageSource;
+	
 	/**
 	 * 网站首页
 	 */
@@ -39,11 +43,9 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", params="login", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
-			@Validated S001001E001Input input, BindingResult result, 
-			S001001Form form, Model model) {
+			@Validated S001001Form form, BindingResult result, 
+			S001001E001Input input, Model model) {
 		System.out.println("登录");
-		System.out.println("用户名手机号"+input.getMobile());
-		System.out.println("用户密码"+input.getPassword());
         if(result.hasErrors()) {
         	return "s001001";
         } 
@@ -51,6 +53,7 @@ public class S001001Controller {
 		try {
 			output = s001001E001Service.execute(input);
 		} catch (BusinessException e) {
+			model.addAttribute("message", e.getMessage());
         	return "s001001";
 		}
 		return "s002001";
