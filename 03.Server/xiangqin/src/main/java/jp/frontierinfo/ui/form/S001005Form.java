@@ -12,4 +12,6 @@ public class S001005Form {
 
 	@NotNull(message="不能为空")
 	private String check;
+	
+	private String mobile;
 }

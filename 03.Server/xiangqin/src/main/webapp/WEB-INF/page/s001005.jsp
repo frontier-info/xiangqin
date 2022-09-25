@@ -37,6 +37,7 @@
 								<div id="check">
 									<label for="name">验证码</label>	
 									<input class="form-control" type="text" name="check" value=""/>
+									<form:input class="form-control" type="hidden" path="mobile" value=""/>
 									<button type="submit" class="btn btn-default" name="sendCheck">发送验证码</button>
 									<button type="submit" class="btn btn-default" name="sure">确定</button>
 								</div>

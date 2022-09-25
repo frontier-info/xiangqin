@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.frontierinfo.ui.form.S001004Form;
 //import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001005Form;
 import jp.frontierinfo.ui.input.S001005E001Input;
@@ -27,7 +28,7 @@ public class S001005Controller {
 	 * 发送验证码按钮
 	 */
 	@RequestMapping(value="/s001005", params="sendCheck", method=RequestMethod.POST)
-	public String e001(HttpServletRequest request, Model model) {
+	public String e001(HttpServletRequest request, S001005Form form, Model model) {
 		
 		System.out.println("发送验证码进行中");
 		
@@ -54,6 +55,7 @@ public class S001005Controller {
 		
 		if(!form.getCheck().equals(session.getAttribute("check").toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
+			return "s001005";
 		}
 
 		return "s001006";
