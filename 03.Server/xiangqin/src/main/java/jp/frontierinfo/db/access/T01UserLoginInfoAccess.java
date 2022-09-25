@@ -63,4 +63,7 @@ public class T01UserLoginInfoAccess {
 		return t01UserLoginInfoDao.updateByPrimaryKey(record);
 	}
 
+	public int updateBymobile(String mobile) {
+		return t01UserLoginInfoDao.updateBymobile(mobile);
+	}
 }
