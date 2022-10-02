@@ -9,7 +9,6 @@
   <title>用户主页</title>
 </head>
 <body>
-<h3>用户主页</h3>
 
 <div class="row">
 

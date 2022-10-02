@@ -12,6 +12,15 @@
   <div class="row">
    <div class="col-md-4"></div>
    <div class="col-md-4">
+    <div class="page-header">
+     <h1>XiangQin</h1>
+    </div>
+   </div>
+   <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+   <div class="col-md-4"></div>
+   <div class="col-md-4">
     <div class="panel panel-primary">
      <div class="panel-heading">
       <h3 class="panel-title">用户登录</h3>

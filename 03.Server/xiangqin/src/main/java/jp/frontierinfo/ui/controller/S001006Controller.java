@@ -28,7 +28,7 @@ public class S001006Controller {
 	@Autowired
 	private S001006E001Service s001006E001Service;
 	/**
-	 * 发送验证码按钮
+	 * 重置密码按钮
 	 */
 	@RequestMapping(value="/s001006", params="repassword", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request,HttpServletResponse response,

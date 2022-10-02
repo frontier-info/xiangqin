@@ -29,16 +29,6 @@ public class S002001Controller {
 //	private MessageSource messageSource;
 	
 	/**
-	 * 用户主页
-	 */
-	@RequestMapping(value="/s002001", method=RequestMethod.GET)
-	public String e000(HttpServletRequest request, HttpServletResponse response, 
-			Model model) {
-		System.out.println("网站首页");
-		return "s002001";
-	}
-	
-	/**
 	 * 用户信息设定按钮
 	 */
 	@RequestMapping(value="/s002001", params="a", method=RequestMethod.POST)
