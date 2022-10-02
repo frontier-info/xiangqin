@@ -21,4 +21,6 @@ public interface T01UserLoginInfoDao {
     int updateByPrimaryKeySelective(T01UserLoginInfo record);
 
     int updateByPrimaryKey(T01UserLoginInfo record);
+    
+    int updateBymobile(String mobile);
 }

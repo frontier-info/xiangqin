@@ -2,7 +2,7 @@
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright (C)2007 m.matsubara
 # A5:SQL Mk-2 Copyright (C)1997 m.matsubara
-#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+#  https://a5m2.mmatsubara.com
 
 [Manager]
 ProjectName=xiangqin
@@ -105,3 +105,19 @@ BkColor=$FFFFFF
 ModifiedDateTime=20220704225010
 Position="MAIN",1000,150,268,422
 ZOrder=2
+
+[Entity]
+PName=NEW_ENTITY1
+LName=
+Comment=
+TableOption=
+Page=Main
+Left=250
+Top=650
+Field="用户ID","uid","",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220911170015
+Position="Main",250,650,398,567
+ZOrder=3
