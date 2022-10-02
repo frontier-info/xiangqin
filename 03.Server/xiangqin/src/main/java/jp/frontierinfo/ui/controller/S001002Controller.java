@@ -35,11 +35,12 @@ public class S001002Controller {
 	@RequestMapping(value="/s001002", params="getVerificationCode",method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, S001002Form form, Model model) {
 		
-		System.out.println("发送验证码进行中");
 		
 		HttpSession session = request.getSession();
 		//往session里面存值
-		session.setAttribute("check", 4321);
+		String registerSmsCode = "4321";
+		session.setAttribute("check", registerSmsCode);
+		System.out.println("生成验证码:"+registerSmsCode);
 		model.addAttribute("message", "验证码发送成功，请输入验证码");
 
 		return "s001002";
@@ -58,10 +59,11 @@ public class S001002Controller {
 		HttpSession session = request.getSession();
 		//从session里面取值		
 
-		if(!form.getCheck().equals(session.getAttribute("check").toString())) {
+		if(!form.getRegisterSmsCode().equals(session.getAttribute("check").toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
 			return "s001002";
 		}
+		
 
 		return "s001003";
 	}

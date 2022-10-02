@@ -13,13 +13,13 @@
 
 <div class="row">
 
-   <div class="col-md-4">1234</div>
+   <div class="col-md-4"></div>
    <div class="col-md-4">
     <div class="page-header">
      <h1>XiangQin</h1>
     </div>
    </div>
-   <div class="col-md-4">5678</div>
+   <div class="col-md-4"></div>
 
   </div>
   <div class="row">
