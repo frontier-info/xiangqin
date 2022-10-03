@@ -24,7 +24,7 @@ public class TokenUtils {
 	// 设置过期时间(用户登录信息)
 	private static final long EXPIRE_TIME_LOGIN = 30 * 60 * 100000;
 	// 设置过期时间(用户验证码)
-	private static final long EXPIRE_TIME_VERIFICATION_CODE = 10 * 1000;
+	private static final long EXPIRE_TIME_VERIFICATION_CODE = 100 * 1000;
 	// token秘钥
 	private static final String TOKEN_SECRET = "FRONTIERIFNOQWERASD";
 

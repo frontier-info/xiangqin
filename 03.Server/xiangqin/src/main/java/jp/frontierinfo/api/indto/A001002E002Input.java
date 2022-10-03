@@ -1,17 +1,15 @@
-package jp.frontierinfo.api.outdto;
+package jp.frontierinfo.api.indto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-import jp.frontierinfo.api.abstractcls.AbstractOutput;
+import jp.frontierinfo.api.abstractcls.AbstractInput;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class A001001E002Output extends AbstractOutput{
-	private String verificationCode;
-	private String verificationCodeTest;
-	
+public class A001002E002Input extends AbstractInput{
+
 }

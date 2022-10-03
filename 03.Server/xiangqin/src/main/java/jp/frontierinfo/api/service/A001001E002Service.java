@@ -16,7 +16,7 @@ public class A001001E002Service extends AbstractServiceImpl<A001001E002Input, A0
 		A001001E002Output output = new A001001E002Output();
 		
 		// 生成6位验证码
-		String verificationCode = String.valueOf((int)(Math.random()*9+1)*100000);
+		String verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
 		System.out.println("用户验证码:"+verificationCode);
 		
 		// TODO
@@ -25,6 +25,8 @@ public class A001001E002Service extends AbstractServiceImpl<A001001E002Input, A0
 		
 		// 生成手机短信验证码验证token
 		output.setVerificationCode(TokenUtils.tokenForVerificationCode(input.getMobile(), verificationCode));
+		// 开发测试时将后端生成的验证码一并返回前端
+		output.setVerificationCodeTest(verificationCode);
 		return output;
 	}
 

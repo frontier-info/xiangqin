@@ -10,8 +10,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class A001001E002Output extends AbstractOutput{
-	private String verificationCode;
-	private String verificationCodeTest;
-	
+public class A001002E001Output extends AbstractOutput{
 }
