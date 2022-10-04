@@ -1,5 +1,8 @@
 package jp.frontierinfo.api.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +52,8 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/info")
-	public A001002E001Output e001(@RequestBody A001002E001Input input) {
+	public A001002E001Output e001(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001002E001Input input) {
 		logger.debug(input.toString());
 		A001002E001Output output = new A001002E001Output();
 		try {
@@ -67,7 +71,8 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@GetMapping("/api/user/get_info")
-	public A001002E002Output e002(A001002E002Input input) {
+	public A001002E002Output e002(HttpServletRequest request, HttpServletResponse response,
+			A001002E002Input input) {
 		logger.debug(input.toString());
 		A001002E002Output output = new A001002E002Output();
 		try {
@@ -85,7 +90,8 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/set_condition")
-	public A001002E003Output e003(@RequestBody A001002E003Input input) {
+	public A001002E003Output e003(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001002E003Input input) {
 		logger.debug(input.toString());
 		A001002E003Output output = new A001002E003Output();
 		try {
@@ -103,7 +109,8 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/images")
-	public A001002E003Output e004(@RequestBody A001002E003Input input) {
+	public A001002E003Output e004(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001002E003Input input) {
 		logger.debug(input.toString());
 		A001002E003Output output = new A001002E003Output();
 		try {

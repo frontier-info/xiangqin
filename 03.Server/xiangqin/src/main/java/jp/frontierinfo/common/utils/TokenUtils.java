@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.druid.util.StringUtils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.InvalidClaimException;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
@@ -79,24 +81,23 @@ public class TokenUtils {
 		return token;
 	}
 	
-	public static boolean verifyAccount(String token, String account)
+	public static boolean verifyLogin(String token)
 			throws BusinessException {
+		
+		if(StringUtils.isEmpty(token)) {
+			throw new BusinessException("Token为空");
+		}
 		
 		Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
 		JWTVerifier verifier = JWT.require(algorithm).build();
 		
 		try {
 			
-			DecodedJWT decodedJWT = verifier.verify(token);
-			Map<String, Claim> claims = decodedJWT.getClaims();
+			verifier.verify(token);
 			
-			if (claims.containsKey("account")) {
-				Claim accountFromToken = claims.get("account");
-				
-				if (!accountFromToken.asString().equals(account)) {
-					throw new BusinessException("用户手机号不一致");
-				}
-			}
+		} catch (JWTDecodeException e) {
+			throw new BusinessException("Token格式不正确");
+			
 		} catch (TokenExpiredException e) {
 			throw new BusinessException("用户登录已过期");
 			

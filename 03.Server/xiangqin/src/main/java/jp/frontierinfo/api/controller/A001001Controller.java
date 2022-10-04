@@ -1,5 +1,8 @@
 package jp.frontierinfo.api.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,9 +61,9 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/login")
-	public A001001E001Output e001(@RequestBody A001001E001Input input) {
-		System.out.println("用户名手机号"+input.getAccount());
-		System.out.println("用户密码"+input.getPassword());
+	public A001001E001Output e001(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001001E001Input input) {
+		logger.debug(input.toString());
 		A001001E001Output output = new A001001E001Output();
 		try {
 			output = a001001E001Service.execute(input);
@@ -77,8 +80,9 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@GetMapping("/api/user/get_verification_code")
-	public A001001E002Output e002(A001001E002Input input) {
-		System.out.println("用户名手机号"+input.getMobile());
+	public A001001E002Output e002(HttpServletRequest request, HttpServletResponse response,
+			A001001E002Input input) {
+		logger.debug(input.toString());
 		A001001E002Output output = new A001001E002Output();
 		try {
 			output = a001001E002Service.execute(input);
@@ -95,9 +99,9 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/code_verify")
-	public A001001E003Output e003(@RequestBody A001001E003Input input) {
-		System.out.println("用户名手机号"+input.getMobile());
-		System.out.println("用户验证码"+input.getVerificationCode());
+	public A001001E003Output e003(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001001E003Input input) {
+		logger.debug(input.toString());
 		A001001E003Output output = new A001001E003Output();
 		try {
 			output = a001001E003Service.execute(input);
@@ -114,7 +118,8 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/set_password")
-	public A001001E004Output e004(@RequestBody A001001E004Input input) {
+	public A001001E004Output e004(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001001E004Input input) {
 		logger.debug(input.toString());
 		A001001E004Output output = new A001001E004Output();
 		try {
@@ -132,7 +137,8 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/login_out")
-	public A001001E005Output e005(@RequestBody A001001E005Input input) {
+	public A001001E005Output e005(HttpServletRequest request, HttpServletResponse response,
+			@RequestBody A001001E005Input input) {
 		logger.debug(input.toString());
 		A001001E005Output output = new A001001E005Output();
 		try {
