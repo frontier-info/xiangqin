@@ -22,7 +22,6 @@ import com.alibaba.fastjson.JSONObject;
 
 import jp.frontierinfo.api.abstractcls.AbstractInput;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.common.utils.TokenUtils;
 
 /**
  * API Token验证用拦截器
@@ -88,7 +87,7 @@ public class VerificationInterceptor {
 				Field token = arg.getClass().getDeclaredField("token");
 				token.setAccessible(true);
 				logger.debug("token:"+token.get(arg));
-				TokenUtils.verifyLogin(token.get(arg).toString());
+//				TokenUtils.verifyLogin(token.get(arg).toString());
 			}
 		}
 	}

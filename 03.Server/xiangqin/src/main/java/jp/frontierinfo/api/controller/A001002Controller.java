@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.frontierinfo.api.abstractcls.AbstractController;
+import jp.frontierinfo.api.abstractcls.AbstractOutput;
 import jp.frontierinfo.api.indto.A001002E001Input;
 import jp.frontierinfo.api.indto.A001002E002Input;
 import jp.frontierinfo.api.indto.A001002E003Input;
-import jp.frontierinfo.api.outdto.A001002E001Output;
-import jp.frontierinfo.api.outdto.A001002E002Output;
-import jp.frontierinfo.api.outdto.A001002E003Output;
 import jp.frontierinfo.api.service.A001002E001Service;
 import jp.frontierinfo.api.service.A001002E002Service;
 import jp.frontierinfo.api.service.A001002E003Service;
@@ -34,16 +32,16 @@ public class A001002Controller extends AbstractController{
 	public Logger logger = LoggerFactory.getLogger(A001002Controller.class);
 	
 	@Autowired
-	private A001002E001Service A001002E001Service;
+	private A001002E001Service a001002E001Service;
 	
 	@Autowired
-	private A001002E002Service A001002E002Service;
+	private A001002E002Service a001002E002Service;
 	
 	@Autowired
-	private A001002E003Service A001002E003Service;
+	private A001002E003Service a001002E003Service;
 	
 	@Autowired
-	private A001002E003Service A001002E004Service;
+	private A001002E003Service a001002E004Service;
 
 	
 	/**
@@ -52,17 +50,17 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/info")
-	public A001002E001Output e001(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e001(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001002E001Input input) {
 		logger.debug(input.toString());
-		A001002E001Output output = new A001002E001Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = A001002E001Service.execute(input);
+			result.setData(a001002E001Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -71,17 +69,17 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@GetMapping("/api/user/get_info")
-	public A001002E002Output e002(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e002(HttpServletRequest request, HttpServletResponse response,
 			A001002E002Input input) {
 		logger.debug(input.toString());
-		A001002E002Output output = new A001002E002Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = A001002E002Service.execute(input);
+			result.setData(a001002E002Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -90,17 +88,17 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/set_condition")
-	public A001002E003Output e003(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e003(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001002E003Input input) {
 		logger.debug(input.toString());
-		A001002E003Output output = new A001002E003Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = A001002E003Service.execute(input);
+			result.setData(a001002E003Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -109,16 +107,16 @@ public class A001002Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/images")
-	public A001002E003Output e004(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e004(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001002E003Input input) {
 		logger.debug(input.toString());
-		A001002E003Output output = new A001002E003Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = A001002E003Service.execute(input);
+			result.setData(a001002E004Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 }

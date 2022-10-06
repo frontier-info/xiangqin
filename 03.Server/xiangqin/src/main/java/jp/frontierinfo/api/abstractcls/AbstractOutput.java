@@ -8,5 +8,7 @@ public class AbstractOutput {
 	private String code = "1";
 	
 	private String message = "success";
+	
+	private Object data;
 
 }

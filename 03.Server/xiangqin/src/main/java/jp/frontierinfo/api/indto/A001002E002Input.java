@@ -11,5 +11,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class A001002E002Input extends AbstractInput{
-
+	
+	private String uid;
+	
+	private String token;
+	
 }

@@ -12,16 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.frontierinfo.api.abstractcls.AbstractController;
+import jp.frontierinfo.api.abstractcls.AbstractOutput;
 import jp.frontierinfo.api.indto.A001001E001Input;
 import jp.frontierinfo.api.indto.A001001E002Input;
 import jp.frontierinfo.api.indto.A001001E003Input;
 import jp.frontierinfo.api.indto.A001001E004Input;
 import jp.frontierinfo.api.indto.A001001E005Input;
-import jp.frontierinfo.api.outdto.A001001E001Output;
-import jp.frontierinfo.api.outdto.A001001E002Output;
-import jp.frontierinfo.api.outdto.A001001E003Output;
-import jp.frontierinfo.api.outdto.A001001E004Output;
-import jp.frontierinfo.api.outdto.A001001E005Output;
 import jp.frontierinfo.api.service.A001001E001Service;
 import jp.frontierinfo.api.service.A001001E002Service;
 import jp.frontierinfo.api.service.A001001E003Service;
@@ -61,17 +57,17 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/login")
-	public A001001E001Output e001(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e001(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001001E001Input input) {
 		logger.debug(input.toString());
-		A001001E001Output output = new A001001E001Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = a001001E001Service.execute(input);
+			result.setData(a001001E001Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -80,17 +76,17 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@GetMapping("/api/user/get_verification_code")
-	public A001001E002Output e002(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e002(HttpServletRequest request, HttpServletResponse response,
 			A001001E002Input input) {
 		logger.debug(input.toString());
-		A001001E002Output output = new A001001E002Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = a001001E002Service.execute(input);
+			result.setData(a001001E002Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -99,17 +95,17 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/code_verify")
-	public A001001E003Output e003(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e003(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001001E003Input input) {
 		logger.debug(input.toString());
-		A001001E003Output output = new A001001E003Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = a001001E003Service.execute(input);
+			result.setData(a001001E003Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -118,17 +114,17 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/set_password")
-	public A001001E004Output e004(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e004(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001001E004Input input) {
 		logger.debug(input.toString());
-		A001001E004Output output = new A001001E004Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = a001001E004Service.execute(input);
+			result.setData(a001001E004Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 
 	/**
@@ -137,16 +133,16 @@ public class A001001Controller extends AbstractController{
 	 * @return
 	 */
 	@PostMapping("/api/user/login_out")
-	public A001001E005Output e005(HttpServletRequest request, HttpServletResponse response,
+	public AbstractOutput e005(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001001E005Input input) {
 		logger.debug(input.toString());
-		A001001E005Output output = new A001001E005Output();
+		AbstractOutput result = new AbstractOutput();
 		try {
-			output = a001001E005Service.execute(input);
+			result.setData(a001001E005Service.execute(input));
 		} catch (BusinessException e) {
-			output.setCode("0");
-			output.setMessage(e.getMessage());
+			result.setCode("0");
+			result.setMessage(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 }
