@@ -50,7 +50,7 @@ public class S001006Controller {
         	return "s001006";
 		}
 		model.addAttribute("message", "密码设置成功，请重新登录");
-		return "s001001";
+		return "s001007";
 	}
 	
 	
