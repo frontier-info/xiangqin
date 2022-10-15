@@ -23,4 +23,6 @@ public interface T01UserLoginInfoDao {
     int updateByPrimaryKey(T01UserLoginInfo record);
     
     int updateBymobile(String mobile);
+    
+    int updatePasswordBymobile(String password,String mobile);
 }

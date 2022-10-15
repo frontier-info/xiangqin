@@ -13,22 +13,40 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001004Form;
 //import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001005Form;
+import jp.frontierinfo.ui.input.S001004E001Input;
 import jp.frontierinfo.ui.input.S001005E001Input;
+import jp.frontierinfo.ui.input.S001007E001Input;
 //import jp.frontierinfo.ui.output.S001005E001Output;
 //import jp.frontierinfo.ui.service.S001005E001Service;
+import jp.frontierinfo.ui.output.S001004E001Output;
+import jp.frontierinfo.ui.service.S001007E001Service;
+
 
 @Controller
 @RequestMapping("/ui")  
 public class S001007Controller {
+	@Autowired
+	private S001007E001Service s001007E001Service;
 	
 	/**
 	 * 发送验证码按钮
 	 */
 	@RequestMapping(value="/s001007",  method=RequestMethod.POST)
-	public String e001() {
+	public String e001(S001007E001Input input) {
+
+		System.out.println("password" + input.getPassword());
+		System.out.println("password1" + input.getPassword1());
+		try {
+			s001007E001Service.execute(input);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 //		System.out.println("发送验证码进行中");
 //		
@@ -38,6 +56,7 @@ public class S001007Controller {
 //		model.addAttribute("message", "验证码发送成功，请输入验证码");
 
 		return "s001007";
+		
 	}
 //	
 //	/**

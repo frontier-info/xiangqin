@@ -66,4 +66,8 @@ public class T01UserLoginInfoAccess {
 	public int updateBymobile(String mobile) {
 		return t01UserLoginInfoDao.updateBymobile(mobile);
 	}
+	
+	public int updatePasswordBymobile(String password, String mobile) {
+		return t01UserLoginInfoDao.updatePasswordBymobile(password, mobile);
+	}
 }

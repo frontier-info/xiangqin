@@ -105,7 +105,12 @@
     where mobile = #{mobile,jdbcType=VARCHAR}
   </update>
   
-  
+    <!-- password -->
+	<update id="updatePasswordBymobile" parameterType="java.lang.String" >
+    update xiangqin.t01_user_login_info
+    set password = #{password,jdbcType=VARCHAR}
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </update>
   
   
 </mapper>
