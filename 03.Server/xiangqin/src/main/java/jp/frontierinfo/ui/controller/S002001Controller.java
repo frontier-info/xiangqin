@@ -37,7 +37,7 @@ public class S002001Controller {
 			S001001E001Input input, Model model) {
 		System.out.println("用户信息设定");
 
-		return "e001";
+		return "s002002";
 	}
 	
 	/**
