@@ -1,14 +1,12 @@
-<%@page language= "java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<form>
-
 <html>
-<head>
-<meta charset="UTF-8">
-<title>XiangQin-用户信息设定</title>
+ <head>
+  <%@ include file="../common/include_script.jsp"%>
+  <%@ include file="../common/include_css.jsp"%>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>相亲-登录</title>
 </head>
 
 <style>
@@ -24,7 +22,7 @@ body { background-color:whitesmoke;}
 </div>
 
 <h2><font face="verdana"><font size="6" color="black">请您填入个人信息</h2>
-<h3><font size="3" color="pink">💛金风玉露一相逢，便胜却人间无数。💛</h3>
+<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛</h3>
 <hr/>
 
 </body>
@@ -40,7 +38,7 @@ body { background-color:whitesmoke;}
 </div></p>
 
 <div>
-<form action="demo_form.php">
+<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
   <label for="male">男</label>
   <input type="radio" name="sex" id="male" value="male"><br>
   <label for="female">女</label>
@@ -50,7 +48,6 @@ body { background-color:whitesmoke;}
 	
 
   <!--type变为test的话，无法生成性别选项--> 
-</form>
 </div>
 
 <div><p>
@@ -63,7 +60,6 @@ body { background-color:whitesmoke;}
 
 <div><p>
      	
-<form action="#">
       <label for="lang">出生地:</label>
       <select name="place of birth" id="lang">
         <option value="select">--请选择--</option>
@@ -112,7 +108,6 @@ body { background-color:whitesmoke;}
       </select>
      <span> 请选择地区</span>
 	
-</form>
 </div></p>
 <hr/>	
 <div><p>
@@ -338,13 +333,11 @@ body { background-color:whitesmoke;}
 <input type="submit" value="上传">
 </p>
 
-<input type="submit" value="提交个人信息">
+<input type="submit" name="b" value="提交个人信息">
 
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
 
-</textarea> 
+</form:form>
 </body>
 </html>
-
-</form>
