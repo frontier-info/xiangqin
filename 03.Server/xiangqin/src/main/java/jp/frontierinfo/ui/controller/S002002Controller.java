@@ -51,14 +51,5 @@ public class S002002Controller {
 		return "e002";
 	}
 	
-	/**
-	 * 返回修改按钮
-	 */
-	@RequestMapping(value="/s002001", params="c", method=RequestMethod.POST)
-	public String e003(HttpServletRequest request, HttpServletResponse response, 
-			S001001Form form, S001001E001Input input) {
-		System.out.println("返回修改");
-		
-		return "e003";
-	}
+
 }
