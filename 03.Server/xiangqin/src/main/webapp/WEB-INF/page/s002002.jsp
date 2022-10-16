@@ -24,7 +24,7 @@ body { background-color:whitesmoke;}
 </div>
 
 <h2><font face="verdana"><font size="6" color="black">请您填入个人信息</h2>
-<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛</h3>
+<h3><font size="3" color="pink">💛金风玉露一相逢，便胜却人间无数。💛</h3>
 <hr/>
 
 </body>
