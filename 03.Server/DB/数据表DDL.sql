@@ -72,4 +72,37 @@ comment on column xiangqin.t01_user_login_info.uid is '用户ID';
 comment on column xiangqin.t01_user_login_info.mobile is '电话号码';
 comment on column xiangqin.t01_user_login_info.email is '邮箱';
 comment on column xiangqin.t01_user_login_info.password is '密码';
+-- Project Name : xiangqin
+-- Date/Time    : 2022/10/16 14:34:27
+-- Author       : wuzhusong
+-- RDBMS Type   : PostgreSQL
+-- Application  : A5:SQL Mk-2
+
+-- 用户检索信息表
+drop table if exists xiangqin.t01_user_search_info cascade;
+
+create table xiangqin.t01_user_search_info (
+  uid varchar
+  , sex integer
+  , birth_date date
+  , birth_place varchar
+  , address varchar
+  , profession varchar
+  , interest varchar
+  , uheight numeric
+  , uweight numeric
+  , constraint t01_user_search_info_PKC primary key (uid)
+) ;
+
+comment on table xiangqin.t01_user_search_info is '用户检索信息表';
+comment on column xiangqin.t01_user_search_info.uid is '用户ID';
+comment on column xiangqin.t01_user_search_info.sex is '性别';
+comment on column xiangqin.t01_user_search_info.birth_date is '生年月日';
+comment on column xiangqin.t01_user_search_info.birth_place is '籍贯';
+comment on column xiangqin.t01_user_search_info.address is '现住址';
+comment on column xiangqin.t01_user_search_info.profession is '职业';
+comment on column xiangqin.t01_user_search_info.interest is '兴趣';
+comment on column xiangqin.t01_user_search_info.uheight is '身高';
+comment on column xiangqin.t01_user_search_info.uweight is '体重';
+
 
