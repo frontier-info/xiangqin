@@ -1,13 +1,11 @@
 <%@page language= "java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
-<form>
-
 <html>
 <head>
-<meta charset="UTF-8">
+  <%@ include file="../common/include_script.jsp"%>
+  <%@ include file="../common/include_css.jsp"%>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>XiangQin-用户信息设定确认</title>
 </head>
 
@@ -28,14 +26,15 @@ body { background-color:whitesmoke;}
 <hr/>
 
 </body>
-     
+
+<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 <div>
     <label for="uid">用户ID:  <input type="text" name="uid" value="uid" onfocus=this.blur()></label>
     <label for="name">用户名:  <input type="text" name="name" value="name" onfocus=this.blur()></label>
 </div>
 
 <input type="submit" value="确认提交个人信息">
-
+</form:form>
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
 
@@ -43,4 +42,3 @@ body { background-color:whitesmoke;}
 </body>
 </html>
 
-</form>
