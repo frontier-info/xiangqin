@@ -8,11 +8,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="save" content="history">
   <title>相亲-找回密码</title>
-  <script>
-        function setValue() {
-        	var mobile = document.getElementsByName(mobile).value;
-        }
-    </script>
 </head>
 <body>
 <div class="row">								

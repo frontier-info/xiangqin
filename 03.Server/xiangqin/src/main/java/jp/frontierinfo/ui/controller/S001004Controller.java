@@ -2,6 +2,7 @@ package jp.frontierinfo.ui.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,6 @@ public class S001004Controller {
 	@Autowired
 	private S001004E001Service s001004E001Service;
 	
-	String verificationCode;	
-	
 	/**
 	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
 	 */
@@ -46,18 +45,15 @@ public class S001004Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s001004";
 		}
-
-		System.out.println("手机号存在，发送验证码进行中");
-
-		//生成6位数的验证码
-		verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
-		System.out.println("用户验证码:"+verificationCode);
+		
+		//在session里面存验证码
+		HttpSession session = request.getSession();
+		session.setAttribute("verificationCode", output.getVerificationCode());
 		
 		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
 		
 		return "s001004";
 	}
-	
 
 	/**
 	 * 重置密码按钮
@@ -68,15 +64,15 @@ public class S001004Controller {
 			S001004E001Input input, Model model) {
 		
 		System.out.println("验证码对比是否正确");
-		if(!form.getCheck().equals(verificationCode)) {
+		HttpSession session = request.getSession();
+		
+		if(!form.getCheck().equals(session.getAttribute("verificationCode").toString())) {
 			
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
-			return "s001004";
-			
+			return "s001004";	
 		}else {
 						
-			if(input.getPassword().equals(input.getPassword1())) {
-				
+			if(input.getPassword().equals(input.getPassword1())) {	
 				try {
 					s001004E001Service.execute1(input);
 				} catch (BusinessException e) {
@@ -86,8 +82,7 @@ public class S001004Controller {
 			}else {
 				model.addAttribute("message", "密码不一致请重新输入密码");
 				return "s001004";
-			}
-			
+			}			
 		}
 
 		model.addAttribute("message", "用户密码更新完成，请重新登录");

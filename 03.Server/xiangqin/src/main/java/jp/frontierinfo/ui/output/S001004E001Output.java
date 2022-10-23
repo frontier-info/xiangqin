@@ -14,4 +14,6 @@ public class S001004E001Output {
 
 	private String mobile;
 	
+	private String verificationCode;
+	
 }
