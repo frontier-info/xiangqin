@@ -18,7 +18,7 @@ public class S002002Form {
 
     private String uname;
 
-    private Integer sex;
+    private String sex;
 
     private Date birthDate;
 

@@ -10,7 +10,7 @@ public class S002002E001Input {
 
     private String uname;
 
-    private Integer sex;
+    private String sex;
 
     private Date birthDate;
 
