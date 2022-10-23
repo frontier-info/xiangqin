@@ -18,4 +18,6 @@ public class S001004Form {
 	private String password;
 	
 	private String check;
+	
+	private String password1;
 }

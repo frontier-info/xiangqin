@@ -2,7 +2,6 @@ package jp.frontierinfo.ui.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001004Form;
-import jp.frontierinfo.ui.form.S001005Form;
 import jp.frontierinfo.ui.input.S001004E001Input;
 import jp.frontierinfo.ui.output.S001004E001Output;
 import jp.frontierinfo.ui.service.S001004E001Service;
@@ -25,12 +23,13 @@ public class S001004Controller {
 	
 	@Autowired
 	private S001004E001Service s001004E001Service;
-		
+	
+	String verificationCode;	
 	
 	/**
-	 * 下一步按钮
+	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
 	 */
-	@RequestMapping(value="/s001004", params="mobile", method=RequestMethod.POST)
+	@RequestMapping(value="/s001004", params="sendCheck", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S001004Form form, BindingResult result, 
 			S001004E001Input input, Model model) {
@@ -47,31 +46,55 @@ public class S001004Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s001004";
 		}
-		S001005Form s001005Form = new S001005Form();
-		s001005Form.setMobile(output.getMobile());
-		model.addAttribute("s001005Form", s001005Form);
-		return "s001005";
+		//前の画面のparams
+		//S001005Form s001005Form = new S001005Form();
+		//s001005Form.setMobile(output.getMobile());
+		//model.addAttribute("s001005Form", s001005Form);
+		
+		System.out.println("手机号存在，发送验证码进行中");
+
+		//生成6位数的验证码
+		verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
+		System.out.println("用户验证码:"+verificationCode);
+		
+		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
+		
+		return "s001004";
 	}
-//	
-//	/**
-//	 * 注册按钮
-//	 */
-//	@RequestMapping(value="/s001001", params="register", method=RequestMethod.POST)
-//	public String e002(HttpServletRequest request, HttpServletResponse response, 
-//			S001004Form form, S001004E001Input input) {
-//		System.out.println("注册");
-//		
-//		return "s001002";
-//	}
-//	
-//	/**
-//	 * 忘记密码按钮
-//	 */
-//	@RequestMapping(value="/s001001", params="repassword", method=RequestMethod.POST)
-//	public String e003(HttpServletRequest request, HttpServletResponse response, 
-//			S001004Form form, S001004E001Input input) {
-//		System.out.println("忘记密码");
-//		
-//		return "s001004";
-//	}
+	
+
+	/**
+	 * 重置密码按钮
+	 */
+	@RequestMapping(value="/s001004", params="repassword", method=RequestMethod.POST)
+	public String e002(HttpServletRequest request, HttpServletResponse response, 
+			@Validated S001004Form form, BindingResult result, 
+			S001004E001Input input, Model model) {
+		
+		System.out.println("验证码对比是否正确");
+		if(!form.getCheck().equals(verificationCode)) {
+			
+			model.addAttribute("message", "验证码不一致请重新输入验证码");
+			return "s001004";
+			
+		}else {
+						
+			if(input.getPassword().equals(input.getPassword1())) {
+				
+				try {
+					s001004E001Service.execute1(input);
+				} catch (BusinessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				model.addAttribute("message", "密码不一致请重新输入密码");
+				return "s001004";
+			}
+			
+		}
+
+		model.addAttribute("message", "用户密码更新完成，请重新登录");
+		return "s001001";
+	}
 }

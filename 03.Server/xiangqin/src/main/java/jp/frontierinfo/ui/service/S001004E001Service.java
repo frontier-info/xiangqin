@@ -14,6 +14,8 @@ public class S001004E001Service extends AbstractServiceImpl<S001004E001Input, S0
 
 	@Override
 	public S001004E001Output execute(S001004E001Input input) throws BusinessException {
+		
+		//
 		S001004E001Output output = new S001004E001Output();
 		int count = t01UserLoginInfoAccess.userExistByPhone(input.getMobile());
 		
@@ -22,15 +24,21 @@ public class S001004E001Service extends AbstractServiceImpl<S001004E001Input, S0
 			throw new BusinessException("用户不存在");
 		}
 		output.setMobile(input.getMobile());
-		/*
-		 * T01UserLoginInfo userLoginInfo =
-		 * t01UserLoginInfoAccess.loginVerifyWithPhone(input.getMobile(),
-		 * input.getPassword()); if(userLoginInfo != null) { // 用户手机号和密码验证成功
-		 * output.setUid(userLoginInfo.getUid());
-		 * output.setToken(TokenUtils.tokenForLogin(input.getMobile())); } else { //
-		 * 用户手机号或密码错误 throw new BusinessException("用户手机号或密码错误"); }
-		 */
+		return output;
+	}
+	
+	public S001004E001Output execute1(S001004E001Input input) throws BusinessException {
+		
+
+		int userUpdate = t01UserLoginInfoAccess.updatePasswordBymobile(input.getPassword(), input.getMobile());
+		S001004E001Output output = new S001004E001Output();
+		
+		if(userUpdate != 0) { 
+			System.out.println("数据已经更新");
+		}
+		
 		return output;
 	}
 
+		
 }

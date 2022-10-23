@@ -6,7 +6,13 @@
   <%@ include file="../common/include_script.jsp"%>
   <%@ include file="../common/include_css.jsp"%>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="save" content="history">
   <title>相亲-找回密码</title>
+  <script>
+        function setValue() {
+        	var mobile = document.getElementsByName(mobile).value;
+        }
+    </script>
 </head>
 <body>
 <div class="row">								
@@ -35,29 +41,23 @@
 								<c:if test="${not empty message}">
 						           <div class="alert alert-success" role="alert"><p>${message}</p></div>
 						        </c:if>
-						        <div id="mobile">
+						        <div>
 									<label for="name">手机</label>	
-									<input class="form-control" type="text" name="mobile" value="请输入手机号"/>
-									<button type="submit" class="btn btn-default" name="next">下一步</button>
+									<form:input class="form-control" type="text" path="mobile" placeholder="请输入手机号"/>
 								</div>
-<%-- 								
-								<c:if test="{${a} == 1}">
-									<div id="check">
-										<label for="name">验证码</label>	
-										<input class="form-control" type="text" name="check" value=""/>
-										<button type="submit" class="btn btn-default" name="sendCheck">发送验证码</button>
-									</div>
-								</c:if> --%>
-								<c:if test="{${a} == 1}">
-									<div id="password" >
-										<label for="name">密码</label>	
-										<input class="form-control" type="password" name="password" value="123"/>
-										<label for="name">重复密码</label>	
-										<input class="form-control" type="password" name="password" value="123"/>
-										<hr>	
-										<button type="submit" class="btn btn-default" name="repassword">找回密码</button>
-									</div>
-								</c:if>
+								<div>
+									<label for="name">验证码</label>	
+									<form:input class="form-control" type="text" path="check" value=""/>
+									<button type="submit" class="btn btn-default" name="sendCheck">发送验证码</button>				
+								</div>
+								<div>
+									<label for="name">密码</label>	
+									<input class="form-control" type="password" name="password" value=""/>
+									<label for="name">重复密码</label>	
+									<input class="form-control" type="password" name="password1" value=""/>
+									<hr>	
+									<button type="submit" class="btn btn-default" name="repassword" >重置密码</button>
+								</div>
 							</div>	
 						</form:form>
 					</div>			

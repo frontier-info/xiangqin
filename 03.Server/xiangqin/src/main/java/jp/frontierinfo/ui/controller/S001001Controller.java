@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001001Form;
+import jp.frontierinfo.ui.form.S001004Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.output.S001001E001Output;
 import jp.frontierinfo.ui.service.S001001E001Service;
@@ -75,8 +76,14 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", params="repassword", method=RequestMethod.POST)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
-			S001001Form form, S001001E001Input input) {
+			S001001Form form, S001001E001Input input, Model model) {
 		System.out.println("忘记密码");
+		
+//		S001004Form form004 = new S001004Form();
+//		form004.setMobile("12345");
+		
+//		model.addAttribute("s001004Form", form004);
+		model.addAttribute("s001004Form", new S001004Form());
 		
 		return "s001004";
 	}
