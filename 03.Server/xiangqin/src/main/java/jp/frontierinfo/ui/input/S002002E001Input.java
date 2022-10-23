@@ -2,6 +2,9 @@ package jp.frontierinfo.ui.input;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class S002002E001Input {
     private String uid;
 
