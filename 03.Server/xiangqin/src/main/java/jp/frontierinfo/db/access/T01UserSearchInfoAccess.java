@@ -1,11 +1,15 @@
 package jp.frontierinfo.db.access;
 
+import org.springframework.stereotype.Component;
+
 import jp.frontierinfo.db.dao.T01UserSearchInfoDao;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
+@Component
 public class T01UserSearchInfoAccess {
-
-private T01UserSearchInfoDao t01UserSearchInfoDao;
+	
+	private T01UserSearchInfoDao t01UserSearchInfoDao;
+	
 	
 	public T01UserSearchInfoAccess(T01UserSearchInfoDao t01UserSearchInfoDao) {
 		this.t01UserSearchInfoDao = t01UserSearchInfoDao;
