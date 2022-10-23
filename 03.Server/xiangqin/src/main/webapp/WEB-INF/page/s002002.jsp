@@ -27,6 +27,7 @@ body { background-color:whitesmoke;}
 
 </body>
      
+<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 <div>
     <label for="uid">用户ID:</label>
     <input type="text" id="name" name="name">
@@ -34,11 +35,10 @@ body { background-color:whitesmoke;}
 
 <div><p>
     <label for="uname">用户名:</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="uname">
 </div></p>
 
 <div>
-<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
   <label for="male">男</label>
   <input type="radio" name="sex" id="male" value="male"><br>
   <label for="female">女</label>
