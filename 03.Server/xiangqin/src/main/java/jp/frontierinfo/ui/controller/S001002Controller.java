@@ -61,10 +61,10 @@ public class S001002Controller {
 		HttpSession session = request.getSession();
 		//从session里面取值		
 
-	//	if(!form.getRegisterSmsCode().equals(session.getAttribute("check").toString())) {
-	//		model.addAttribute("message", "验证码不一致请重新输入验证码");
-		//	return "s001002";
-		//}
+		if(!form.getRegisterSmsCode().equals(session.getAttribute("check").toString())) {
+			model.addAttribute("message", "验证码不一致请重新输入验证码");
+			return "s001002";
+		}
 		
 
 		return "s001003";
