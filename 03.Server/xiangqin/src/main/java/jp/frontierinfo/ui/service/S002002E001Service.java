@@ -20,6 +20,54 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setUname(input.getUname());
 		int count = t01UserBasicInfoAccess.insert(basicInfo);
 		
+		basicInfo.setUid(input.getUid());
+		int countId = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setSex(input.getSex());
+		int countSex = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setBirthDate(input.getBirthDate());
+		int countBirthDate = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setBirthPlace(input.getBirthPlace());
+		int countBirthPlace = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		basicInfo.setAddress(input.getAddress());
+		int countddress = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		basicInfo.setProfession(input.getProfession());
+		int countProfession = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setInterest(input.getInterest());
+		int countInterest = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setUheight(input.getUheight());
+		int countUheight = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setIntroduce(input.getIntroduce());
+		int countIntroduce = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		basicInfo.setUweight(input.getUweight());
+		int countUweight = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setIntroduce(input.getIntroduce());
+		int countetIntroduce = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		basicInfo.setUimages(input.getUimages());
+		int countUimages = t01UserBasicInfoAccess.insert(basicInfo);
+		
+		
+		basicInfo.setIdentificationPhoto(input.getIdentificationPhoto());
+		int countIdentificationPhoto= t01UserBasicInfoAccess.insert(basicInfo);
+		
+	
 		
 		
 		return new S002002E001Output();
