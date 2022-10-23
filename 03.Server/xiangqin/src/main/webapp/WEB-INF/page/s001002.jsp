@@ -40,8 +40,12 @@
           <label for="name">验证码</label>
           <input class="form-control" type="text" placeholder="短信验证码" name="registerSmsCode"/>
  		  <button type="submit" class="btn btn-default" name="getVerificationCode">获取验证码</button>
-          <hr>
-          <button type="submit" class="btn btn-default" name="next">下一步</button>
+ 		  <hr><label for="name">密码</label>
+ 		  <input class="form-control" type="password" name="password" value="123"/>
+ 		 <hr> <label for="name">确认密码</label>
+ 		  <input class="form-control" type="password" name="repassword" value="123"/>
+ 		  <hr>
+          <button type="submit" class="btn btn-default" name="register">注册</button>
          </div>
         </form:form>
        </div>

@@ -12,6 +12,7 @@ import jp.frontierinfo.ui.output.S001001E001Output;
 @Service
 public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S001001E001Output>{
 
+	
 	@Override
 	public S001001E001Output execute(S001001E001Input input) throws BusinessException {
 		S001001E001Output output = new S001001E001Output();
