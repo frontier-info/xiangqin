@@ -79,10 +79,6 @@ public class S001001Controller {
 			S001001Form form, S001001E001Input input, Model model) {
 		System.out.println("忘记密码");
 		
-//		S001004Form form004 = new S001004Form();
-//		form004.setMobile("12345");
-		
-//		model.addAttribute("s001004Form", form004);
 		model.addAttribute("s001004Form", new S001004Form());
 		
 		return "s001004";

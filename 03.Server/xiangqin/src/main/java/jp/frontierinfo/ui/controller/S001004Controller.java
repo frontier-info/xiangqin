@@ -46,11 +46,7 @@ public class S001004Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s001004";
 		}
-		//前の画面のparams
-		//S001005Form s001005Form = new S001005Form();
-		//s001005Form.setMobile(output.getMobile());
-		//model.addAttribute("s001005Form", s001005Form);
-		
+
 		System.out.println("手机号存在，发送验证码进行中");
 
 		//生成6位数的验证码
