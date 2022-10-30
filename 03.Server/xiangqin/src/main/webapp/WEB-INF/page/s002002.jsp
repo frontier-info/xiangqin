@@ -326,7 +326,11 @@ body { background-color:whitesmoke;}
 <input type="submit" value="上传">
 </p>
 
+<div><p>		
+<input type="reset" value="信息重置">
+</div></p>			
 <input type="submit" name="b" value="提交个人信息">
+
 
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
