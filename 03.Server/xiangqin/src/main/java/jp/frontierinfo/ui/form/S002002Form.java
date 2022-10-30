@@ -20,7 +20,7 @@ public class S002002Form {
 
     private String sex;
 
-    private Date birthDate;
+    private String birthDate;
 
     private String birthPlace;
 

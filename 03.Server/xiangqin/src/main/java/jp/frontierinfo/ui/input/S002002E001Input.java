@@ -12,7 +12,7 @@ public class S002002E001Input {
 
     private String sex;
 
-    private Date birthDate;
+    private String birthDate;
 
     private String birthPlace;
 
