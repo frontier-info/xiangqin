@@ -1,5 +1,5 @@
-<%@page language= "java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +29,45 @@ body { background-color:whitesmoke;}
 
 <form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 <div>
-    <label for="uid">用户ID:  <input type="text" name="uid" value="uid" onfocus=this.blur()></label>
-    <label for="name">用户名:  <input type="text" name="name" value="name" onfocus=this.blur()></label>
+    用户ID:  <form:input type="text" path="uid" />
 </div>
-
+<div>
+<div>
+    用户名:  <form:input type="text" path="uname" />
+</div>
+    男  <form:input type="text" path="sex" />
+    女  <form:input type="text" path="sex" />
+</div>
+<div>
+    出生年月日:  <input type="text" path="birthDate" >
+</div>
+<div>
+    出生地:  <input type="text" path="birthPlace" >
+</div>
+<div>
+    住所:  <input type="text" path="address" >
+</div>
+<div>
+    职业:  <input type="text" path="profession" >
+</div>
+<div>
+    兴趣:  <input type="text" path="interest" >
+</div>
+<div>
+    身高:  <input type="text" path="uheight" >
+</div>
+<div>
+    体重:  <input type="text" path="uweight" >
+</div>
+<div>
+    自我介绍:  <input type="text" path="introduce" >
+</div>
+<div>
+    上传照片:  <input type="text" path="uimages" >
+</div>
+<div>
+    上传照片:  <input type="text" path="identificationPhoto" >
+</div>
 <input type="submit" value="确认提交个人信息">
 </form:form>
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">

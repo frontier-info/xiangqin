@@ -1,5 +1,7 @@
 package jp.frontierinfo.ui.service;
 
+import org.springframework.stereotype.Service;
+
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.common.utils.DateUtils;
@@ -7,6 +9,7 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S002003E001Input;
 import jp.frontierinfo.ui.output.S002003E001Output;
 
+@Service
 public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S002003E001Output>{
 
 	@Override
