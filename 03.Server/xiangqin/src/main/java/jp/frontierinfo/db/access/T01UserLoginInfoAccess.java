@@ -38,7 +38,14 @@ public class T01UserLoginInfoAccess {
 		return t01UserLoginInfoDao.loginVerifyWithPhone(params);
 	}
 	
-	
+	/**
+	 * 用户注册
+	 * @return
+	 */
+	public int insert1(T01UserLoginInfo record) {
+		return t01UserLoginInfoDao.insert(record);
+	}	
+
 	public int deleteByPrimaryKey(String uid) {
 		return t01UserLoginInfoDao.deleteByPrimaryKey(uid);
 	}
