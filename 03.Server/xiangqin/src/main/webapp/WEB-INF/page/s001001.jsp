@@ -36,9 +36,9 @@
            <div class="alert alert-success" role="alert"><p>${message}</p></div>
           </c:if>
           <label for="name">手机</label>
-          <input class="form-control" type="text" name="mobile" value="123"/>
+          <form:input class="form-control" path="mobile" />
           <label for="name">密码</label>
-          <input class="form-control" type="password" name="password" value="123"/>
+          <form:password class="form-control" path="password" />
           <hr>
           <button type="submit" class="btn btn-default" name="login">登录</button>
           <button type="submit" class="btn btn-default" name="register">注册</button>

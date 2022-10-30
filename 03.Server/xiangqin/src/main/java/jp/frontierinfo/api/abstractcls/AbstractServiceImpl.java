@@ -2,6 +2,7 @@ package jp.frontierinfo.api.abstractcls;
 
 import javax.annotation.Resource;
 
+import jp.frontierinfo.db.access.S01SequenceAccess;
 import jp.frontierinfo.db.access.T01UserBasicInfoAccess;
 import jp.frontierinfo.db.access.T01UserLoginInfoAccess;
 import jp.frontierinfo.db.access.T01UserRelationsInfoAccess;
@@ -20,4 +21,7 @@ public abstract class AbstractServiceImpl<I, O> implements AbstractService<I, O>
 	
 	@Resource // 用户检索信息
 	public T01UserSearchInfoAccess t01UserSearchInfoAccess;
+	
+	@Resource // 自增序列表
+	public S01SequenceAccess s01SequenceAccess;
 }
