@@ -32,7 +32,7 @@ public class S002002E001Input {
 
     private String identificationPhoto;
 
-    public S002002E001Input(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
+    public S002002E001Input(String uid, String uname, String sex, String birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;

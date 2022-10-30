@@ -68,7 +68,7 @@ body { background-color:whitesmoke;}
 <div>
     上传照片:  <form:input path="identificationPhoto" />
 </div>
-<input type="submit" value="确认提交个人信息" />
+<input type="submit" name="d" value="确认提交个人信息" />
 </form:form>
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
