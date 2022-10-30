@@ -39,15 +39,8 @@ body { background-color:whitesmoke;}
 </div></p>
 
 <div>
-  <label for="male">男</label>
-  <input type="radio" name="sex" id="male" value="male"><br>
-  <label for="female">女</label>
-  <input type="radio" name="sex" id="female" value="female"><br><br>
-	
-	<div class="tips" id="sexinfo">* 注册后不可更改</div>
-	
-
-  <!--type变为test的话，无法生成性别选项--> 
+性别：<input type="radio" name="girl" value="girl" id="girl"><label for="girl">女</label>
+    <input type="radio" name="girl" value="boy" id="boy" checked="checked"><label for="boy">男</label>
 </div>
 
 <div><p>
