@@ -1,5 +1,6 @@
 package jp.frontierinfo.ui.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.access.S01SequenceAccess;
 import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S001004Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
@@ -36,6 +38,10 @@ public class S001001Controller {
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			Model model) {
 		System.out.println("网站首页");
+		S001001Form from = new S001001Form();
+		from.setMobile("123");
+		from.setPassword("123");
+		model.addAttribute("s001001Form", from);
 		return "s001001";
 	}
 	
