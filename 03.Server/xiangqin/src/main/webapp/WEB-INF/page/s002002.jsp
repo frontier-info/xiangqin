@@ -28,14 +28,10 @@ body { background-color:whitesmoke;}
 </body>
      
 <form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
-<div>
-    <label for="uid">用户ID:</label>
-    <input type="text" id="name" name="name">
-</div>
 
 <div><p>
     <label for="uname">用户名:</label>
-    <input type="text" id="name" name="uname">
+    <input type="text" name="uname">
 </div></p>
 
 <div>
@@ -46,7 +42,7 @@ body { background-color:whitesmoke;}
 <div><p>
 <label for="start">出生年月日:</label>
 
-<input type="date" id="start" name="trip-start"
+<input type="date" name="birthDate"
        value="2018-07-22"
        min="1923-01-01" max="2002-01-01">
 </div></p>
@@ -54,7 +50,7 @@ body { background-color:whitesmoke;}
 <div><p>
      	
       <label for="lang">出生地:</label>
-      <select name="place of birth" id="lang">
+      <select name="birthPlace" id="lang">
         <option value="select">--请选择--</option>
         <option value="text">安徽省</option>
         <option value="text">北京市</option>
