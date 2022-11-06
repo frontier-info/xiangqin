@@ -1,8 +1,8 @@
 package jp.frontierinfo.ui.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.db.access.S01SequenceAccess;
 import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S001004Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
@@ -63,6 +62,10 @@ public class S001001Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s001001";
 		}
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("uid", output.getUid());
+		
 		return "s002001";
 	}
 	

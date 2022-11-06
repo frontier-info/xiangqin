@@ -28,15 +28,12 @@ body { background-color:whitesmoke;}
 </body>
 
 <form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
-<div>
-    用户ID:  <form:input path="uid" />
-</div>
+
 <div>
 <div>
     用户名:  <form:input path="uname" readonly="true"/>
 </div>
-    男  <form:input path="sex" />
-    女  <form:input path="sex" />
+    性别: <form:input path="sex" />
 </div>
 <div>
     出生年月日:  <form:input path="birthDate" />
@@ -70,10 +67,10 @@ body { background-color:whitesmoke;}
 </div>
 <input type="submit" name="d" value="确认提交个人信息" />
 </form:form>
+
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
 
-</textarea> 
 </body>
 </html>
 

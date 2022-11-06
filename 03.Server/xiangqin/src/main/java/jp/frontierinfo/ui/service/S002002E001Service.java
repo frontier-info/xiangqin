@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.common.utils.DateUtils;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.ui.input.S002002E001Input;
 import jp.frontierinfo.ui.output.S002002E001Output;
@@ -20,7 +21,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setUname(input.getUname());
 		basicInfo.setUid(input.getUid());
     	basicInfo.setSex(input.getSex() == "女" ? 0 : 1);
-		basicInfo.setBirthDate(input.getBirthDate());
+		basicInfo.setBirthDate(DateUtils.stringToDate(input.getBirthDate()));
 		basicInfo.setBirthPlace(input.getBirthPlace());
 		basicInfo.setAddress(input.getAddress());
 		basicInfo.setProfession(input.getProfession());

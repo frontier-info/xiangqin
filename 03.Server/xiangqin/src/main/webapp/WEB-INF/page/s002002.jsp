@@ -29,162 +29,155 @@ body { background-color:whitesmoke;}
      
 <form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 
-<div><p>
+<div>
+    <p>
     <label for="uname">用户名:</label>
     <input type="text" name="uname">
-</div></p>
-
-<div>
-性别：<input type="radio" name="girl" value="girl" id="girl"><label for="girl">女</label>
-    <input type="radio" name="girl" value="boy" id="boy" checked="checked"><label for="boy">男</label>
+    </p>
 </div>
 
-<div><p>
+<div>
+    <p>
+性别：<input type="radio" name="sex" value="女" ><label for="girl">女</label>
+    <input type="radio" name="sex" value="男"  checked="checked"><label for="boy">男</label>
+    </p>
+</div>
+
+<div>
+    <p>
 <label for="start">出生年月日:</label>
 
 <input type="date" name="birthDate"
        value="2018-07-22"
        min="1923-01-01" max="2002-01-01">
-</div></p>
+    </p>
+</div>
 
-<div><p>
-     	
+<div>
+    <p>
       <label for="lang">出生地:</label>
       <select name="birthPlace" id="lang">
         <option value="select">--请选择--</option>
-        <option value="text">安徽省</option>
-        <option value="text">北京市</option>
-        <option value="text">重庆市</option>
-        <option value="text">福建省</option>
-        <option value="text">甘肃省</option>
-        <option value="text">广东省</option>
-        <option value="text">广西壮族自治区</option>
-        <option value="text">贵州省</option>
-		  <option value="text">海南省</option>
-		  <option value="text">河北省</option>
-		  <option value="text">河南省</option>
-		  <option value="text">黑龙江省</option>
-		  <option value="text">湖北省</option>
-		  <option value="text">湖南省</option>
-		  <option value="text">吉林省</option>
-		  <option value="text">江苏省</option>
-		  <option value="text">江西省</option>
-		  <option value="text">辽宁省</option>
-		  <option value="text">内蒙古自治区</option>
-		  <option value="text">宁夏回族自治区</option>
-		  <option value="text">青海省</option>
-		  <option value="text">山东省</option>
-		  <option value="text">山西省</option>
-		  <option value="text">陕西省</option>
-		  <option value="text">上海市</option>
-		  <option value="text">四川省</option>
-		  <option value="text">天津市</option>
-		  <option value="text">西藏自治区</option>
-		  <option value="text">新疆维吾尔自治区</option>
-		  <option value="text">香港特别行政区</option>
-		   <option value="text">云南省</option>
-		  <option value="text">日本</option>
-		  <option value="text">美国</option>
-		  <option value="text">英国</option>
-		  <option value="text">台湾</option>
-		  <option value="text">欧洲-其他</option>
-		  <option value="text">亚洲-其他</option>
-		  <option value="text">非洲-其他</option>
-		  <option value="text">北美洲-其他</option>
-		   <option value="text">南美洲-其他</option>
-		  <option value="text">大洋洲-其他</option>
-		  <option value="text">南极-其他</option>
+        <option value="安徽省">安徽省</option>
+        <option value="北京市">北京市</option>
+        <option value="重庆市">重庆市</option>
+        <option value="福建省">福建省</option>
+        <option value="甘肃省">甘肃省</option>
+        <option value="广东省">广东省</option>
+        <option value="广西壮族自治区">广西壮族自治区</option>
+        <option value="贵州省">贵州省</option>
+		  <option value="海南省">海南省</option>
+		  <option value="河北省">河北省</option>
+		  <option value="河南省">河南省</option>
+		  <option value="黑龙江省">黑龙江省</option>
+		  <option value="湖北省">湖北省</option>
+		  <option value="湖南省">湖南省</option>
+		  <option value="吉林省">吉林省</option>
+		  <option value="江苏省">江苏省</option>
+		  <option value="江西省">江西省</option>
+		  <option value="辽宁省">辽宁省</option>
+		  <option value="内蒙古自治区">内蒙古自治区</option>
+		  <option value="宁夏回族自治区">宁夏回族自治区</option>
+		  <option value="青海省">青海省</option>
+		  <option value="山东省">山东省</option>
+		  <option value="山西省">山西省</option>
+		  <option value="陕西省">陕西省</option>
+		  <option value="上海市">上海市</option>
+		  <option value="四川省">四川省</option>
+		  <option value="天津市">天津市</option>
+		  <option value="西藏自治区">西藏自治区</option>
+		  <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+		  <option value="香港特别行政区">香港特别行政区</option>
+		   <option value="云南省">云南省</option>
+		  <option value="日本">日本</option>
+		  <option value="美国">美国</option>
+		  <option value="英国">英国</option>
+		  <option value="台湾">台湾</option>
+		  <option value="欧洲-其他">欧洲-其他</option>
+		  <option value="亚洲-其他">亚洲-其他</option>
+		  <option value="非洲-其他">非洲-其他</option>
+		  <option value="北美洲-其他">北美洲-其他</option>
+		   <option value="南美洲-其他">南美洲-其他</option>
+		  <option value="大洋洲-其他">大洋洲-其他</option>
+		  <option value="南极-其他">南极-其他</option>
       </select>
      <span> 请选择地区</span>
-	
-</div></p>
-<hr/>	
-<div><p>
+    </p>
+</div>
+<div>
+    <p>
 	<h4><font size="3" color="pink">住所：</h4>
   <label>
-    <span>郵便番号</span>
-    <input type="text" name="postal_code" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code">
-  </label>
-  <label>
     <span>都道府県</span>
-    <select name="prefecture" autocomplete="shipping address-level1">
-		
-      <option value="text">北海道</option>
-      <option value="text">青森県</option>
-      <option value="text">宮城県</option>
-      <option value="text">秋田県</option>
-      <option value="text">山形県</option>
-      <option value="text">福島県</option>
-      <option value="text">茨城県</option>
-      <option value="text">栃木県</option>
-      <option value="text">群馬県</option>
-      <option value="text">埼玉県</option>
-      <option value="text">東京都</option>
-      <option value="text">神奈川県</option>
-      <option value="text">新潟県</option>
-      <option value="text">富山県</option>
-      <option value="text">石川県</option>
-      <option value="text">福井県</option>
-      <option value="text">山梨県</option>
-      <option value="text">長野県</option>
-      <option value="text">岐阜県</option>
-      <option value="text">静岡県</option>
-      <option value="text">愛知県</option>
-      <option value="text">三重県</option>
-      <option value="text">滋賀県</option>
-      <option value="text">京都府</option>
-      <option value="text">大阪府</option>
-      <option value="text">兵庫県</option>
-      <option value="text">奈良県</option>
-      <option value="text">和歌山県</option>
-      <option value="text">鳥取県</option>
-      <option value="text">島根県</option>
-      <option value="text">岡山県</option>
-      <option value="text">広島県</option>
-      <option value="text">山口県</option>
-      <option value="text">東徳島県</option>
-      <option value="text">香川県</option>
-      <option value="text">愛媛県</option>
-      <option value="text">高知県</option>
-      <option value="text">福岡県</option>
-      <option value="text">佐賀県</option>
-      <option value="text">長崎県</option>
-      <option value="text">熊本県</option>
-      <option value="text">大分県</option>
-      <option value="text">宮崎県</option>
-      <option value="text">鹿児島県</option>
-      <option value="text">沖縄県</option>
-   
-      
+    <select name="address" autocomplete="shipping address-level1">
+      <option value="北海道">北海道</option>
+      <option value="青森県">青森県</option>
+      <option value="宮城県">宮城県</option>
+      <option value="秋田県">秋田県</option>
+      <option value="山形県">山形県</option>
+      <option value="福島県">福島県</option>
+      <option value="茨城県">茨城県</option>
+      <option value="栃木県">栃木県</option>
+      <option value="群馬県">群馬県</option>
+      <option value="埼玉県">埼玉県</option>
+      <option value="東京都">東京都</option>
+      <option value="神奈川県">神奈川県</option>
+      <option value="新潟県">新潟県</option>
+      <option value="富山県">富山県</option>
+      <option value="石川県">石川県</option>
+      <option value="福井県">福井県</option>
+      <option value="山梨県">山梨県</option>
+      <option value="長野県">長野県</option>
+      <option value="岐阜県">岐阜県</option>
+      <option value="静岡県">静岡県</option>
+      <option value="愛知県">愛知県</option>
+      <option value="三重県">三重県</option>
+      <option value="滋賀県">滋賀県</option>
+      <option value="京都府">京都府</option>
+      <option value="大阪府">大阪府</option>
+      <option value="兵庫県">兵庫県</option>
+      <option value="奈良県">奈良県</option>
+      <option value="和歌山県">和歌山県</option>
+      <option value="鳥取県">鳥取県</option>
+      <option value="島根県">島根県</option>
+      <option value="岡山県">岡山県</option>
+      <option value="広島県">広島県</option>
+      <option value="山口県">山口県</option>
+      <option value="東徳島県">東徳島県</option>
+      <option value="香川県">香川県</option>
+      <option value="愛媛県">愛媛県</option>
+      <option value="高知県">高知県</option>
+      <option value="福岡県">福岡県</option>
+      <option value="佐賀県">佐賀県</option>
+      <option value="長崎県">長崎県</option>
+      <option value="熊本県">熊本県</option>
+      <option value="大分県">大分県</option>
+      <option value="宮崎県">宮崎県</option>
+      <option value="鹿児島県">鹿児島県</option>
+      <option value="沖縄県">沖縄県</option>
     </select>
   </label>
-  <label>
-    <span>市区町村</span>
-    <input type="text" name="city" autocomplete="shipping address-level2">
-  </label>
-  <label>
-    <span>町名・番地</span>
-    <input type="text" name="address1" autocomplete="shipping address-line1">
-  </label>
-  <label>
-    <span>建物名等</span>
-    <input type="text" name="address2" autocomplete="shipping address-line2">
-  </label>
-</div></p>
+    </p>
+</div>
 	
-<div><p>
+<div>
+    <p>
     <label for="profession">职业:</label>
-    <input type="text" id="profession" name="profession">
-</div></p>
+    <input type="text" name="profession">
+    </p>
+</div>
 
-<div><p>
+<div>
+    <p>
     <label for="interest">兴趣:</label>
-    <input type="text" id="nterest" name="nterest">
-</div></p>
+    <input type="text"  name="interest">
+    </p>
+</div>
 
-<div><p>
+<div>
+    <p>
     <label for="uheight">身高:</label>
-	<select name="height" id="height" class="input_list">
+	<select name="uheight"  class="input_list">
 				<option label="--请选择--" value="0">--请选择--</option>
 				<option label="130" value="130">130</option>
 				<option label="131" value="131">131</option>
@@ -285,33 +278,42 @@ body { background-color:whitesmoke;}
 				<option label="226" value="226">226</option>
 
 			</select>
+    </p>
 	
-</div></p>
+</div>
 
-<div><p>
+<div>
+    <p>
     <label for="uweight">体重:</label>
-    <input type="text" id="uweight" name="uweight">
-</div></p>
+    <input type="text" name="uweight">
+    </p>
+</div>
 
-<div><p>
+<div>
+    <p>
     <label for="introduce">自我介绍:</label>
     
-	<textarea class="dubai" name="note" id="note" rows="13" onblur="check_note_input(this);countWorkNums(1);" onkeyup="countWorkNums(1);" onfocus="click_note_input(this);clearText(this);countWorkNums(1);">填写自我介绍更有利于被关注哦！勤劳的虫儿有鸟吃！</textarea>
+	<textarea class="dubai" name="introduce" rows="13" onblur="check_note_input(this);countWorkNums(1);" onkeyup="countWorkNums(1);" onfocus="click_note_input(this);clearText(this);countWorkNums(1);">填写自我介绍更有利于被关注哦！勤劳的虫儿有鸟吃！</textarea>
 	<div class="reg_tip">请输入5-1000字 已输入<span id="wordNums1">0</span>字
 			（为保证您的信息安全，请勿透漏自己的姓名<br>
 			与联系方式）</div>
-</div></p>
+    </p>
+</div>
 
 
-<p> <div>
+<div>
+    <p>
     <label for="uimages">上传照片:</label>
     <input type="text" id="uimages" name="uimages">
-</div></p>
+    </p>
+</div>
 
 
-<div><p>
+<div>
+    <p>
     <label for="identification_photo">上传照片:</label>
     <input type="text" id="identification_photo" name="identification_photo">
+    </p>
 </div>  
      <input type="file">
     <div class="avator">
@@ -320,11 +322,11 @@ body { background-color:whitesmoke;}
 </div>
 
 <input type="submit" value="上传">
-</p>
 
-<div><p>		
+
+<div>	
 <input type="reset" value="信息重置">
-</div></p>			
+</div>		
 <input type="submit" name="b" value="提交个人信息">
 
 
