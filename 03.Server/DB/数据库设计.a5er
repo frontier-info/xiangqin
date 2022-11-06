@@ -2,7 +2,7 @@
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright (C)2007 m.matsubara
 # A5:SQL Mk-2 Copyright (C)1997 m.matsubara
-#  https://a5m2.mmatsubara.com
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
 
 [Manager]
 ProjectName=xiangqin
@@ -96,13 +96,13 @@ Page=MAIN
 Left=1000
 Top=150
 Field="用户ID","uid","varchar",,0,"","",$FFFFFFFF,""
-Field="关系用户ID","relation_id","varchar",,,"","",$FFFFFFFF,""
+Field="关系用户ID","relation_id","varchar",,1,"","",$FFFFFFFF,""
 Field="是否邀约","is_send","boolean",,,"","",$FFFFFFFF,""
 Field="是否同意","is_relation","boolean",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220704225010
+ModifiedDateTime=20221106142625
 Position="MAIN",1000,150,268,422
 ZOrder=2
 
@@ -112,7 +112,7 @@ LName=用户检索信息表
 Comment=
 TableOption=
 Page=MAIN
-Left=250
+Left=300
 Top=650
 Field="用户ID","uid","varchar",,0,"","",$FFFFFFFF,""
 Field="性别","sex","integer",,,"","",$FFFFFFFF,""
@@ -130,5 +130,5 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20221030165653
-Position="MAIN",250,650,398,567
+Position="MAIN",300,650,259,497
 ZOrder=3

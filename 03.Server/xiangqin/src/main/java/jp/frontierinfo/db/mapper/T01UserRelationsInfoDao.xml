@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     <constructor>
       <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="relation_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="relation_id" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="is_send" javaType="java.lang.Boolean" jdbcType="BIT" />
       <arg column="is_relation" javaType="java.lang.Boolean" jdbcType="BIT" />
     </constructor>
@@ -12,15 +12,17 @@
   <sql id="Base_Column_List">
     uid, relation_id, is_send, is_relation
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from xiangqin.t01_user_relations_info
     where uid = #{uid,jdbcType=VARCHAR}
+      and relation_id = #{relationId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey">
     delete from xiangqin.t01_user_relations_info
     where uid = #{uid,jdbcType=VARCHAR}
+      and relation_id = #{relationId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     insert into xiangqin.t01_user_relations_info (uid, relation_id, is_send, 
@@ -62,9 +64,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     update xiangqin.t01_user_relations_info
     <set>
-      <if test="relationId != null">
-        relation_id = #{relationId,jdbcType=VARCHAR},
-      </if>
       <if test="isSend != null">
         is_send = #{isSend,jdbcType=BIT},
       </if>
@@ -73,12 +72,13 @@
       </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
+      and relation_id = #{relationId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     update xiangqin.t01_user_relations_info
-    set relation_id = #{relationId,jdbcType=VARCHAR},
-      is_send = #{isSend,jdbcType=BIT},
+    set is_send = #{isSend,jdbcType=BIT},
       is_relation = #{isRelation,jdbcType=BIT}
     where uid = #{uid,jdbcType=VARCHAR}
+      and relation_id = #{relationId,jdbcType=VARCHAR}
   </update>
 </mapper>
