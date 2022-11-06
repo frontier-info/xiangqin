@@ -9,17 +9,21 @@ public class S002003E001Input {
 
 	private String sex;
 	
-	private String birth_date;
+	private String ageFrom;
 	
-	private String birth_place;
+	private String ageTo;
+	
+	private String birthPlace;
 	
 	private String address;
 	
 	private String profession;
-	
-	private String interest;
 
-	private String uheight;
+	private String uheightFrom;
+
+	private String uheightTo;
 	
-	private String uweight;
+	private String uweightFrom;
+	
+	private String uweightTo;
 }

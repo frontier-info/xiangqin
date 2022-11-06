@@ -5,17 +5,21 @@
     <constructor>
       <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="birth_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="age_from" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="age_to" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="uheight" javaType="java.lang.Short" jdbcType="NUMERIC" />
-      <arg column="uweight" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uheight_from" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uheight_to" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uweight_from" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uweight_to" javaType="java.lang.Short" jdbcType="NUMERIC" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, sex, birth_date, birth_place, address, profession, interest, uheight, uweight
+    uid, sex, age_from, age_to, birth_place, address, profession, interest, uheight_from, 
+    uheight_to, uweight_from, uweight_to
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -28,13 +32,15 @@
     where uid = #{uid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo">
-    insert into xiangqin.t01_user_search_info (uid, sex, birth_date, 
-      birth_place, address, profession, 
-      interest, uheight, uweight
+    insert into xiangqin.t01_user_search_info (uid, sex, age_from, 
+      age_to, birth_place, address, 
+      profession, interest, uheight_from, 
+      uheight_to, uweight_from, uweight_to
       )
-    values (#{uid,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{birthDate,jdbcType=DATE}, 
-      #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, 
-      #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, #{uweight,jdbcType=NUMERIC}
+    values (#{uid,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{ageFrom,jdbcType=VARCHAR}, 
+      #{ageTo,jdbcType=VARCHAR}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheightFrom,jdbcType=NUMERIC}, 
+      #{uheightTo,jdbcType=NUMERIC}, #{uweightFrom,jdbcType=NUMERIC}, #{uweightTo,jdbcType=NUMERIC}
       )
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo">
@@ -46,8 +52,11 @@
       <if test="sex != null">
         sex,
       </if>
-      <if test="birthDate != null">
-        birth_date,
+      <if test="ageFrom != null">
+        age_from,
+      </if>
+      <if test="ageTo != null">
+        age_to,
       </if>
       <if test="birthPlace != null">
         birth_place,
@@ -61,11 +70,17 @@
       <if test="interest != null">
         interest,
       </if>
-      <if test="uheight != null">
-        uheight,
+      <if test="uheightFrom != null">
+        uheight_from,
       </if>
-      <if test="uweight != null">
-        uweight,
+      <if test="uheightTo != null">
+        uheight_to,
+      </if>
+      <if test="uweightFrom != null">
+        uweight_from,
+      </if>
+      <if test="uweightTo != null">
+        uweight_to,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -75,8 +90,11 @@
       <if test="sex != null">
         #{sex,jdbcType=INTEGER},
       </if>
-      <if test="birthDate != null">
-        #{birthDate,jdbcType=DATE},
+      <if test="ageFrom != null">
+        #{ageFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="ageTo != null">
+        #{ageTo,jdbcType=VARCHAR},
       </if>
       <if test="birthPlace != null">
         #{birthPlace,jdbcType=VARCHAR},
@@ -90,11 +108,17 @@
       <if test="interest != null">
         #{interest,jdbcType=VARCHAR},
       </if>
-      <if test="uheight != null">
-        #{uheight,jdbcType=NUMERIC},
+      <if test="uheightFrom != null">
+        #{uheightFrom,jdbcType=NUMERIC},
       </if>
-      <if test="uweight != null">
-        #{uweight,jdbcType=NUMERIC},
+      <if test="uheightTo != null">
+        #{uheightTo,jdbcType=NUMERIC},
+      </if>
+      <if test="uweightFrom != null">
+        #{uweightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="uweightTo != null">
+        #{uweightTo,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -104,8 +128,11 @@
       <if test="sex != null">
         sex = #{sex,jdbcType=INTEGER},
       </if>
-      <if test="birthDate != null">
-        birth_date = #{birthDate,jdbcType=DATE},
+      <if test="ageFrom != null">
+        age_from = #{ageFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="ageTo != null">
+        age_to = #{ageTo,jdbcType=VARCHAR},
       </if>
       <if test="birthPlace != null">
         birth_place = #{birthPlace,jdbcType=VARCHAR},
@@ -119,11 +146,17 @@
       <if test="interest != null">
         interest = #{interest,jdbcType=VARCHAR},
       </if>
-      <if test="uheight != null">
-        uheight = #{uheight,jdbcType=NUMERIC},
+      <if test="uheightFrom != null">
+        uheight_from = #{uheightFrom,jdbcType=NUMERIC},
       </if>
-      <if test="uweight != null">
-        uweight = #{uweight,jdbcType=NUMERIC},
+      <if test="uheightTo != null">
+        uheight_to = #{uheightTo,jdbcType=NUMERIC},
+      </if>
+      <if test="uweightFrom != null">
+        uweight_from = #{uweightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="uweightTo != null">
+        uweight_to = #{uweightTo,jdbcType=NUMERIC},
       </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
@@ -131,13 +164,16 @@
   <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo">
     update xiangqin.t01_user_search_info
     set sex = #{sex,jdbcType=INTEGER},
-      birth_date = #{birthDate,jdbcType=DATE},
+      age_from = #{ageFrom,jdbcType=VARCHAR},
+      age_to = #{ageTo,jdbcType=VARCHAR},
       birth_place = #{birthPlace,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},
       interest = #{interest,jdbcType=VARCHAR},
-      uheight = #{uheight,jdbcType=NUMERIC},
-      uweight = #{uweight,jdbcType=NUMERIC}
+      uheight_from = #{uheightFrom,jdbcType=NUMERIC},
+      uheight_to = #{uheightTo,jdbcType=NUMERIC},
+      uweight_from = #{uweightFrom,jdbcType=NUMERIC},
+      uweight_to = #{uweightTo,jdbcType=NUMERIC}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

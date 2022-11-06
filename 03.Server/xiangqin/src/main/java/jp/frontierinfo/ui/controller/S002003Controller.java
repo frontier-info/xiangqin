@@ -38,16 +38,17 @@ public class S002003Controller {
 	}
 	
 	/**
-	 * 检索按钮
+	 * 保存搜索条件
 	 */
-	@RequestMapping(value="/s002003", params="search", method=RequestMethod.POST)
+	@RequestMapping(value="/s002003", params="saveSearchCondition", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S002003Form form, BindingResult result, 
 			S002003E001Input input, Model model) {
-		System.out.println("检索");
+		System.out.println("保存搜索条件");
         if(result.hasErrors()) {
         	return "s002003";
         } 
+        input.setUid((String) request.getSession().getAttribute("uid"));
 		S002003E001Output output = new S002003E001Output();
 		try {
 			output = s002003E001Service.execute(input);
@@ -55,7 +56,7 @@ public class S002003Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s002003";
 		}
-		return "s002003";
+		return "s002001";
 	}
 	
 	

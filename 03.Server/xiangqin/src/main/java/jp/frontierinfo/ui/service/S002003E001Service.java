@@ -16,14 +16,17 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 	public S002003E001Output execute(S002003E001Input input) throws BusinessException {
 		S002003E001Output output = new S002003E001Output();
 		T01UserSearchInfo info = new T01UserSearchInfo();
-		info.setSex(Integer.parseInt(input.getSex()));
-		info.setAddress(input.getAddress());
-		info.setBirthDate(DateUtils.stringToDate(input.getBirth_date()));
-		info.setInterest(input.getInterest());
-		info.setProfession(input.getProfession());
-		info.setUheight(Short.parseShort(input.getUheight()));
 		info.setUid(input.getUid());
-		info.setUweight(Short.parseShort(input.getUheight()));
+		info.setSex(input.getSex() == "女" ? 0 : 1);
+		info.setAgeFrom(input.getAgeFrom());
+		info.setAgeTo(input.getAgeTo());
+		info.setBirthPlace(input.getBirthPlace());
+		info.setAddress(input.getAddress());
+		info.setProfession(input.getProfession());
+		info.setUheightFrom(Short.parseShort(input.getUheightFrom()));
+		info.setUheightTo(Short.parseShort(input.getUheightTo()));
+		info.setUweightFrom(Short.parseShort(input.getUweightFrom()));
+		info.setUweightTo(Short.parseShort(input.getUweightTo()));
 		
 		int count = t01UserSearchInfoAccess.insert(info);
 		if(count == 0) {

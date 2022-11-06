@@ -48,7 +48,7 @@ public class S002001Controller {
 			S001001Form form, S001001E001Input input) {
 		System.out.println("检索条件设定");
 		
-		return "e002";
+		return "s002003";
 	}
 	
 	/**

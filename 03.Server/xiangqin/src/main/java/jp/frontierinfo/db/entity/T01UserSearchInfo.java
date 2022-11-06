@@ -1,13 +1,13 @@
 package jp.frontierinfo.db.entity;
 
-import java.util.Date;
-
 public class T01UserSearchInfo {
     private String uid;
 
     private Integer sex;
 
-    private Date birthDate;
+    private String ageFrom;
+
+    private String ageTo;
 
     private String birthPlace;
 
@@ -17,20 +17,27 @@ public class T01UserSearchInfo {
 
     private String interest;
 
-    private Short uheight;
+    private Short uheightFrom;
 
-    private Short uweight;
+    private Short uheightTo;
 
-    public T01UserSearchInfo(String uid, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight) {
+    private Short uweightFrom;
+
+    private Short uweightTo;
+
+    public T01UserSearchInfo(String uid, Integer sex, String ageFrom, String ageTo, String birthPlace, String address, String profession, String interest, Short uheightFrom, Short uheightTo, Short uweightFrom, Short uweightTo) {
         this.uid = uid;
         this.sex = sex;
-        this.birthDate = birthDate;
+        this.ageFrom = ageFrom;
+        this.ageTo = ageTo;
         this.birthPlace = birthPlace;
         this.address = address;
         this.profession = profession;
         this.interest = interest;
-        this.uheight = uheight;
-        this.uweight = uweight;
+        this.uheightFrom = uheightFrom;
+        this.uheightTo = uheightTo;
+        this.uweightFrom = uweightFrom;
+        this.uweightTo = uweightTo;
     }
 
     public T01UserSearchInfo() {
@@ -53,12 +60,20 @@ public class T01UserSearchInfo {
         this.sex = sex;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getAgeFrom() {
+        return ageFrom;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setAgeFrom(String ageFrom) {
+        this.ageFrom = ageFrom == null ? null : ageFrom.trim();
+    }
+
+    public String getAgeTo() {
+        return ageTo;
+    }
+
+    public void setAgeTo(String ageTo) {
+        this.ageTo = ageTo == null ? null : ageTo.trim();
     }
 
     public String getBirthPlace() {
@@ -93,19 +108,35 @@ public class T01UserSearchInfo {
         this.interest = interest == null ? null : interest.trim();
     }
 
-    public Short getUheight() {
-        return uheight;
+    public Short getUheightFrom() {
+        return uheightFrom;
     }
 
-    public void setUheight(Short uheight) {
-        this.uheight = uheight;
+    public void setUheightFrom(Short uheightFrom) {
+        this.uheightFrom = uheightFrom;
     }
 
-    public Short getUweight() {
-        return uweight;
+    public Short getUheightTo() {
+        return uheightTo;
     }
 
-    public void setUweight(Short uweight) {
-        this.uweight = uweight;
+    public void setUheightTo(Short uheightTo) {
+        this.uheightTo = uheightTo;
+    }
+
+    public Short getUweightFrom() {
+        return uweightFrom;
+    }
+
+    public void setUweightFrom(Short uweightFrom) {
+        this.uweightFrom = uweightFrom;
+    }
+
+    public Short getUweightTo() {
+        return uweightTo;
+    }
+
+    public void setUweightTo(Short uweightTo) {
+        this.uweightTo = uweightTo;
     }
 }
