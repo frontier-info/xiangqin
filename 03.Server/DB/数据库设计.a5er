@@ -2,7 +2,7 @@
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright (C)2007 m.matsubara
 # A5:SQL Mk-2 Copyright (C)1997 m.matsubara
-#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+#  https://a5m2.mmatsubara.com
 
 [Manager]
 ProjectName=xiangqin
@@ -83,7 +83,7 @@ Field="身份信息","identification_photo","varchar",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220709131439
+ModifiedDateTime=20221016141958
 Position="MAIN",650,150,231,417
 ZOrder=1
 
@@ -107,17 +107,28 @@ Position="MAIN",1000,150,268,422
 ZOrder=2
 
 [Entity]
-PName=NEW_ENTITY1
-LName=
+PName=xiangqin.t01_user_search_info
+LName=用户检索信息表
 Comment=
 TableOption=
 Page=MAIN
-Left=300
+Left=250
 Top=650
-Field="用户ID","uid","",,,"","",$FFFFFFFF,""
+Field="用户ID","uid","varchar",,0,"","",$FFFFFFFF,""
+Field="性别","sex","integer",,,"","",$FFFFFFFF,""
+Field="年龄(从)","age_from","varchar",,,"","",$FFFFFFFF,""
+Field="年龄(到)","age_to","varchar",,,"","",$FFFFFFFF,""
+Field="籍贯","birth_place","varchar",,,"","",$FFFFFFFF,""
+Field="现住址","address","varchar",,,"","",$FFFFFFFF,""
+Field="职业","profession","varchar",,,"","",$FFFFFFFF,""
+Field="兴趣","interest","varchar",,,"","",$FFFFFFFF,""
+Field="身高(从)","uheight_from","numeric",,,"","",$FFFFFFFF,""
+Field="身高(到)","uheight_to","numeric",,,"","",$FFFFFFFF,""
+Field="体重(从)","uweight_from","numeric",,,"","",$FFFFFFFF,""
+Field="体重(到)","uweight_to","numeric",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220911170015
-Position="MAIN",300,650,398,567
+ModifiedDateTime=20221030165653
+Position="MAIN",250,650,398,567
 ZOrder=3
