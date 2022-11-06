@@ -9,7 +9,7 @@ public class T01UserBasicInfo {
 
     private Integer sex;
 
-    private Date birthDate;
+    private String birthDate;
 
     private String birthPlace;
 
@@ -29,7 +29,7 @@ public class T01UserBasicInfo {
 
     private String identificationPhoto;
 
-    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
+    public T01UserBasicInfo(String uid, String uname, Integer sex, String birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
@@ -73,11 +73,11 @@ public class T01UserBasicInfo {
         this.sex = sex;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
