@@ -10,7 +10,7 @@ public class S002002E001Output {
 
     private Integer sex;
 
-    private Date birthDate;
+    private String birthDate;
 
     private String birthPlace;
 
@@ -30,7 +30,7 @@ public class S002002E001Output {
 
     private String identificationPhoto;
 
-    public void S002002E001Input(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
+    public void S002002E001Input(String uid, String uname, Integer sex, String birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
