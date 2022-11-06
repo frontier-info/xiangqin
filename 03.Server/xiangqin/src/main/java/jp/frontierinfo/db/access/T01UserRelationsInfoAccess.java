@@ -14,20 +14,12 @@ public class T01UserRelationsInfoAccess {
 		this.t01UserRelationsInfoDao = t01UserRelationsInfoDao;
 	}
 
-	public int deleteByPrimaryKey(String uid) {
-		return t01UserRelationsInfoDao.deleteByPrimaryKey(uid);
-	}
-
 	public int insert(T01UserRelationsInfo record) {
 		return t01UserRelationsInfoDao.insert(record);
 	}
 
 	public int insertSelective(T01UserRelationsInfo record) {
 		return t01UserRelationsInfoDao.insertSelective(record);
-	}
-
-	public T01UserRelationsInfo selectByPrimaryKey(String uid) {
-		return t01UserRelationsInfoDao.selectByPrimaryKey(uid);
 	}
 
 	public int updateByPrimaryKeySelective(T01UserRelationsInfo record) {
