@@ -29,46 +29,46 @@ body { background-color:whitesmoke;}
 
 <form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 <div>
-    用户ID:  <form:input type="text" path="uid" />
+    用户ID:  <form:input path="uid" />
 </div>
 <div>
 <div>
-    用户名:  <form:input type="text" path="uname" />
+    用户名:  <form:input path="uname" readonly="true"/>
 </div>
-    男  <form:input type="text" path="sex" />
-    女  <form:input type="text" path="sex" />
-</div>
-<div>
-    出生年月日:  <input type="text" path="birthDate" >
+    男  <form:input path="sex" />
+    女  <form:input path="sex" />
 </div>
 <div>
-    出生地:  <input type="text" path="birthPlace" >
+    出生年月日:  <form:input path="birthDate" />
 </div>
 <div>
-    住所:  <input type="text" path="address" >
+    出生地:  <form:input path="birthPlace" />
 </div>
 <div>
-    职业:  <input type="text" path="profession" >
+    住所:  <form:input path="address" />
 </div>
 <div>
-    兴趣:  <input type="text" path="interest" >
+    职业:  <form:input path="profession" />
 </div>
 <div>
-    身高:  <input type="text" path="uheight" >
+    兴趣:  <form:input path="interest" />
 </div>
 <div>
-    体重:  <input type="text" path="uweight" >
+    身高:  <form:input path="uheight" />
 </div>
 <div>
-    自我介绍:  <input type="text" path="introduce" >
+    体重:  <form:input path="uweight" />
 </div>
 <div>
-    上传照片:  <input type="text" path="uimages" >
+    自我介绍:  <form:input path="introduce" />
 </div>
 <div>
-    上传照片:  <input type="text" path="identificationPhoto" >
+    上传照片:  <form:input path="uimages" />
 </div>
-<input type="submit" value="确认提交个人信息">
+<div>
+    上传照片:  <form:input path="identificationPhoto" />
+</div>
+<input type="submit" name="d" value="确认提交个人信息" />
 </form:form>
 <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
 版权 XiangQin.com</div>
