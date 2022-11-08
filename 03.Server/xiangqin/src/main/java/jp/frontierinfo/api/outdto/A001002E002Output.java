@@ -1,5 +1,6 @@
 package jp.frontierinfo.api.outdto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -30,9 +31,9 @@ public class A001002E002Output {
 	
 	private String interest;
 	
-	private double uheight;
+	private BigDecimal uheight;
 	
-	private double uweight;
+	private BigDecimal uweight;
 	
 	private String introduce;
 	

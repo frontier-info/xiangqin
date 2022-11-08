@@ -23,8 +23,6 @@ public class A001002E001Service extends AbstractServiceImpl<A001002E001Input, A0
 		
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
 		BeanUtils.copyProperties(input, basicInfo);
-		basicInfo.setUheight((short) input.getUheight());
-		basicInfo.setUweight((short) input.getUweight());
 		basicInfo.setUimages(StringUtils.join(input.getUimages()));
 		basicInfo.setIdentificationPhoto(StringUtils.join(input.getIdentificationPhoto()));
 		

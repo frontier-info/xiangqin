@@ -1,5 +1,6 @@
 package jp.frontierinfo.api.indto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +32,9 @@ public class A001002E001Input extends AbstractInput {
 	
 	private String interest;
 	
-	private double uheight;
+	private BigDecimal uheight;
 	
-	private double uweight;
+	private BigDecimal uweight;
 	
 	private String introduce;
 	
