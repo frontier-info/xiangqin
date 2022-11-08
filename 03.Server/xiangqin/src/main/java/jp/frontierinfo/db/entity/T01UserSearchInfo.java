@@ -1,5 +1,7 @@
 package jp.frontierinfo.db.entity;
 
+import java.math.BigDecimal;
+
 public class T01UserSearchInfo {
     private String uid;
 
@@ -17,15 +19,15 @@ public class T01UserSearchInfo {
 
     private String interest;
 
-    private Short uheightFrom;
+    private BigDecimal uheightFrom;
 
-    private Short uheightTo;
+    private BigDecimal uheightTo;
 
-    private Short uweightFrom;
+    private BigDecimal uweightFrom;
 
-    private Short uweightTo;
+    private BigDecimal uweightTo;
 
-    public T01UserSearchInfo(String uid, Integer sex, String ageFrom, String ageTo, String birthPlace, String address, String profession, String interest, Short uheightFrom, Short uheightTo, Short uweightFrom, Short uweightTo) {
+    public T01UserSearchInfo(String uid, Integer sex, String ageFrom, String ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
         this.uid = uid;
         this.sex = sex;
         this.ageFrom = ageFrom;
@@ -108,35 +110,35 @@ public class T01UserSearchInfo {
         this.interest = interest == null ? null : interest.trim();
     }
 
-    public Short getUheightFrom() {
+    public BigDecimal getUheightFrom() {
         return uheightFrom;
     }
 
-    public void setUheightFrom(Short uheightFrom) {
+    public void setUheightFrom(BigDecimal uheightFrom) {
         this.uheightFrom = uheightFrom;
     }
 
-    public Short getUheightTo() {
+    public BigDecimal getUheightTo() {
         return uheightTo;
     }
 
-    public void setUheightTo(Short uheightTo) {
+    public void setUheightTo(BigDecimal uheightTo) {
         this.uheightTo = uheightTo;
     }
 
-    public Short getUweightFrom() {
+    public BigDecimal getUweightFrom() {
         return uweightFrom;
     }
 
-    public void setUweightFrom(Short uweightFrom) {
+    public void setUweightFrom(BigDecimal uweightFrom) {
         this.uweightFrom = uweightFrom;
     }
 
-    public Short getUweightTo() {
+    public BigDecimal getUweightTo() {
         return uweightTo;
     }
 
-    public void setUweightTo(Short uweightTo) {
+    public void setUweightTo(BigDecimal uweightTo) {
         this.uweightTo = uweightTo;
     }
 }

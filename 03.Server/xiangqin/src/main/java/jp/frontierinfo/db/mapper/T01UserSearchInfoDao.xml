@@ -11,16 +11,24 @@
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="uheight_from" javaType="java.lang.Short" jdbcType="NUMERIC" />
-      <arg column="uheight_to" javaType="java.lang.Short" jdbcType="NUMERIC" />
-      <arg column="uweight_from" javaType="java.lang.Short" jdbcType="NUMERIC" />
-      <arg column="uweight_to" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uheight_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uheight_to" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uweight_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uweight_to" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     uid, sex, age_from, age_to, birth_place, address, profession, interest, uheight_from, 
     uheight_to, uweight_from, uweight_to
   </sql>
+  <!--   查询当前用户是否已设置检索条件 -->
+  <select id="selectExist" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select 
+      count(*)
+    from xiangqin.t01_user_search_info
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -24,8 +24,14 @@
 						password="root">
 		</jdbcConnection>
 		
+         <!--默认false Java type resolver will always use java.math.BigDecimal if
+             the database column is of type DECIMAL or NUMERIC. -->
+         <javaTypeResolver>
+             <property name="forceBigDecimals" value="true" />
+         </javaTypeResolver>
+		
 		<javaModelGenerator targetPackage="jp.frontierinfo.db.entity" 
-							targetProject="C:\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java">
+							targetProject="C:\songsong\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java">
             <!-- 是否允许子包 -->
 			<property name="enableSubPackages" value="false"/>
             <!-- 是否对modal添加构造函数 -->
@@ -34,9 +40,9 @@
             <property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		
-		<sqlMapGenerator targetPackage="jp.frontierinfo.db.mapper" targetProject="C:\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java"/>
+		<sqlMapGenerator targetPackage="jp.frontierinfo.db.mapper" targetProject="C:\songsong\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java"/>
 		
-		<javaClientGenerator type="XMLMAPPER" targetPackage="jp.frontierinfo.db.dao" targetProject="C:\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="jp.frontierinfo.db.dao" targetProject="C:\songsong\Frontier-info\xiangqin\03.Server\xiangqin\src\main\java">
             <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
 			<property name="enableSubPackages" value="false"/>
 		</javaClientGenerator>
@@ -44,7 +50,7 @@
 <!-- 		<table tableName="m01_operate_history" mapperName="{0}Dao" -->
 <!-- 		<table tableName="M0%" mapperName="{0}Dao" -->
 <!-- 		<table tableName="t03_middle_price_curve" mapperName="{0}Dao" -->
-		<table tableName="t01_user_relations_info" mapperName="{0}Dao"
+		<table tableName="t01_user_search_info" mapperName="{0}Dao"
 		    schema = "xiangqin"
             enableCountByExample="false"
             enableDeleteByExample="false"

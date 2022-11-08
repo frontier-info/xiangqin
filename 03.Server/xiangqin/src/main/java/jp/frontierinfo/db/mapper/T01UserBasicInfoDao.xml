@@ -11,8 +11,8 @@
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="uheight" javaType="java.lang.Short" jdbcType="NUMERIC" />
-      <arg column="uweight" javaType="java.lang.Short" jdbcType="NUMERIC" />
+      <arg column="uheight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="uweight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
       <arg column="introduce" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="uimages" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="identification_photo" javaType="java.lang.String" jdbcType="VARCHAR" />

@@ -1,7 +1,5 @@
 package jp.frontierinfo.ui.service;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;

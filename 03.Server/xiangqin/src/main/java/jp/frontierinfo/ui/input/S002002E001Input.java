@@ -1,6 +1,6 @@
 package jp.frontierinfo.ui.input;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
 import lombok.Data;
 
@@ -22,9 +22,9 @@ public class S002002E001Input {
 
     private String interest;
 
-    private Short uheight;
+    private BigDecimal uheight;
 
-    private Short uweight;
+    private BigDecimal uweight;
 
     private String introduce;
 
@@ -32,7 +32,7 @@ public class S002002E001Input {
 
     private String identificationPhoto;
 
-    public S002002E001Input(String uid, String uname, String sex, String birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
+    public S002002E001Input(String uid, String uname, String sex, String birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;

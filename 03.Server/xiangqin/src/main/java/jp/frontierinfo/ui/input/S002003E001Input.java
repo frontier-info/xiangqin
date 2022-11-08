@@ -1,5 +1,7 @@
 package jp.frontierinfo.ui.input;
 
+import java.math.BigDecimal;
+
 import lombok.Data;
 
 @Data
@@ -19,11 +21,11 @@ public class S002003E001Input {
 	
 	private String profession;
 
-	private String uheightFrom;
+	private BigDecimal uheightFrom;
 
-	private String uheightTo;
+	private BigDecimal uheightTo;
 	
-	private String uweightFrom;
+	private BigDecimal uweightFrom;
 	
-	private String uweightTo;
+	private BigDecimal uweightTo;
 }

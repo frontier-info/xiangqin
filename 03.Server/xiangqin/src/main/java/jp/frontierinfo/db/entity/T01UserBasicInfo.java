@@ -1,5 +1,6 @@
 package jp.frontierinfo.db.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class T01UserBasicInfo {
@@ -19,9 +20,9 @@ public class T01UserBasicInfo {
 
     private String interest;
 
-    private Short uheight;
+    private BigDecimal uheight;
 
-    private Short uweight;
+    private BigDecimal uweight;
 
     private String introduce;
 
@@ -29,7 +30,7 @@ public class T01UserBasicInfo {
 
     private String identificationPhoto;
 
-    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, Short uheight, Short uweight, String introduce, String uimages, String identificationPhoto) {
+    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
@@ -113,19 +114,19 @@ public class T01UserBasicInfo {
         this.interest = interest == null ? null : interest.trim();
     }
 
-    public Short getUheight() {
+    public BigDecimal getUheight() {
         return uheight;
     }
 
-    public void setUheight(Short uheight) {
+    public void setUheight(BigDecimal uheight) {
         this.uheight = uheight;
     }
 
-    public Short getUweight() {
+    public BigDecimal getUweight() {
         return uweight;
     }
 
-    public void setUweight(Short uweight) {
+    public void setUweight(BigDecimal uweight) {
         this.uweight = uweight;
     }
 

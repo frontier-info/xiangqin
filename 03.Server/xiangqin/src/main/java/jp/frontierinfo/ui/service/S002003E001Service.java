@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.common.utils.DateUtils;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S002003E001Input;
 import jp.frontierinfo.ui.output.S002003E001Output;
@@ -23,10 +22,10 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 		info.setBirthPlace(input.getBirthPlace());
 		info.setAddress(input.getAddress());
 		info.setProfession(input.getProfession());
-		info.setUheightFrom(Short.parseShort(input.getUheightFrom()));
-		info.setUheightTo(Short.parseShort(input.getUheightTo()));
-		info.setUweightFrom(Short.parseShort(input.getUweightFrom()));
-		info.setUweightTo(Short.parseShort(input.getUweightTo()));
+		info.setUheightFrom(input.getUheightFrom());
+		info.setUheightTo(input.getUheightTo());
+		info.setUweightFrom(input.getUweightFrom());
+		info.setUweightTo(input.getUweightTo());
 		
 		int count = t01UserSearchInfoAccess.insert(info);
 		if(count == 0) {

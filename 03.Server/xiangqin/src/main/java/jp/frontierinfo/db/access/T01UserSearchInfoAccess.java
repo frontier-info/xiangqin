@@ -14,6 +14,11 @@ public class T01UserSearchInfoAccess {
 	public T01UserSearchInfoAccess(T01UserSearchInfoDao t01UserSearchInfoDao) {
 		this.t01UserSearchInfoDao = t01UserSearchInfoDao;
 	}
+	
+	// 查询当前用户是否已设置检索条件
+	public int selectExist(String uid){
+		return t01UserSearchInfoDao.selectExist(uid);
+	}
 
 	public int deleteByPrimaryKey(String uid) {
 		return t01UserSearchInfoDao.deleteByPrimaryKey(uid);
