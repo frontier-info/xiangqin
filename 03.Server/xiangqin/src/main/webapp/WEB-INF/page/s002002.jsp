@@ -38,8 +38,8 @@ body { background-color:whitesmoke;}
 
 <div>
     <p>
-性别：<input type="radio" name="sex" value="女" ><label for="girl">女</label>
-    <input type="radio" name="sex" value="男"  checked="checked"><label for="boy">男</label>
+性别：<input type="radio" name="sex" value="0" ><label for="girl">女</label>
+    <input type="radio" name="sex" value="1"  checked="checked"><label for="boy">男</label>
     </p>
 </div>
 

@@ -22,6 +22,47 @@
     uid, uname, sex, birth_date, birth_place, address, profession, interest, uheight, 
     uweight, introduce, uimages, identification_photo
   </sql>
+  <!--   查询指定检索条件的30名异性信息 -->
+  <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.userSimpleInfo">
+    select 
+      uid, uname
+    from xiangqin.t01_user_basic_info
+    <where>
+      <if test="sex != null">
+        and sex = #{sex,jdbcType=INTEGER}
+      </if>
+      <if test="ageFrom != null">
+        and date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
+      </if>
+      <if test="ageTo != null">
+        and date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
+      </if>
+      <if test="birthPlace != null">
+        and birth_place = #{birthPlace,jdbcType=VARCHAR}
+      </if>
+      <if test="address != null">
+        and address = #{address,jdbcType=VARCHAR}
+      </if>
+      <if test="profession != null">
+        and profession = #{profession,jdbcType=VARCHAR}
+      </if>
+      <if test="uheightFrom != null">
+        and uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
+      </if>
+      <if test="uheightTo != null">
+        and uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
+      </if>
+      <if test="uweightFrom != null">
+        and uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
+      </if>
+      <if test="uweightTo != null">
+        and uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
+      </if>
+    </where>
+    limit 30   
+     
+  </select>
+  <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

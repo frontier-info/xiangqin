@@ -1,17 +1,17 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/6 14:26:39
+-- Date/Time    : 2022/11/9 12:13:32
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
 
--- ÓÃ»§¼ìË÷ĞÅÏ¢±í
+-- ç”¨æˆ·æ£€ç´¢ä¿¡æ¯è¡¨
 drop table if exists xiangqin.t01_user_search_info cascade;
 
 create table xiangqin.t01_user_search_info (
   uid varchar
   , sex integer
-  , age_from varchar
-  , age_to varchar
+  , age_from integer
+  , age_to integer
   , birth_place varchar
   , address varchar
   , profession varchar
@@ -23,7 +23,7 @@ create table xiangqin.t01_user_search_info (
   , constraint t01_user_search_info_PKC primary key (uid)
 ) ;
 
--- ÓÃ»§¹ØÏµ±í
+-- ç”¨æˆ·å…³ç³»è¡¨
 drop table if exists xiangqin.t01_user_relations_info cascade;
 
 create table xiangqin.t01_user_relations_info (
@@ -34,7 +34,7 @@ create table xiangqin.t01_user_relations_info (
   , constraint t01_user_relations_info_PKC primary key (uid,relation_id)
 ) ;
 
--- ÓÃ»§»ù±¾ĞÅÏ¢±í
+-- ç”¨æˆ·åŸºæœ¬ä¿¡æ¯è¡¨
 drop table if exists xiangqin.t01_user_basic_info cascade;
 
 create table xiangqin.t01_user_basic_info (
@@ -54,7 +54,7 @@ create table xiangqin.t01_user_basic_info (
   , constraint t01_user_basic_info_PKC primary key (uid)
 ) ;
 
--- ÓÃ»§µÇÂ¼ĞÅÏ¢±í
+-- ç”¨æˆ·ç™»å½•ä¿¡æ¯è¡¨
 drop table if exists xiangqin.t01_user_login_info cascade;
 
 create table xiangqin.t01_user_login_info (
@@ -65,44 +65,44 @@ create table xiangqin.t01_user_login_info (
   , constraint t01_user_login_info_PKC primary key (uid)
 ) ;
 
-comment on table xiangqin.t01_user_search_info is 'ÓÃ»§¼ìË÷ĞÅÏ¢±í';
-comment on column xiangqin.t01_user_search_info.uid is 'ÓÃ»§ID';
-comment on column xiangqin.t01_user_search_info.sex is 'ĞÔ±ğ';
-comment on column xiangqin.t01_user_search_info.age_from is 'ÄêÁä(´Ó)';
-comment on column xiangqin.t01_user_search_info.age_to is 'ÄêÁä(µ½)';
-comment on column xiangqin.t01_user_search_info.birth_place is '¼®¹á';
-comment on column xiangqin.t01_user_search_info.address is 'ÏÖ×¡Ö·';
-comment on column xiangqin.t01_user_search_info.profession is 'Ö°Òµ';
-comment on column xiangqin.t01_user_search_info.interest is 'ĞËÈ¤';
-comment on column xiangqin.t01_user_search_info.uheight_from is 'Éí¸ß(´Ó)';
-comment on column xiangqin.t01_user_search_info.uheight_to is 'Éí¸ß(µ½)';
-comment on column xiangqin.t01_user_search_info.uweight_from is 'ÌåÖØ(´Ó)';
-comment on column xiangqin.t01_user_search_info.uweight_to is 'ÌåÖØ(µ½)';
+comment on table xiangqin.t01_user_search_info is 'ç”¨æˆ·æ£€ç´¢ä¿¡æ¯è¡¨';
+comment on column xiangqin.t01_user_search_info.uid is 'ç”¨æˆ·ID';
+comment on column xiangqin.t01_user_search_info.sex is 'æ€§åˆ«';
+comment on column xiangqin.t01_user_search_info.age_from is 'å¹´é¾„(ä»)';
+comment on column xiangqin.t01_user_search_info.age_to is 'å¹´é¾„(åˆ°)';
+comment on column xiangqin.t01_user_search_info.birth_place is 'ç±è´¯';
+comment on column xiangqin.t01_user_search_info.address is 'ç°ä½å€';
+comment on column xiangqin.t01_user_search_info.profession is 'èŒä¸š';
+comment on column xiangqin.t01_user_search_info.interest is 'å…´è¶£';
+comment on column xiangqin.t01_user_search_info.uheight_from is 'èº«é«˜(ä»)';
+comment on column xiangqin.t01_user_search_info.uheight_to is 'èº«é«˜(åˆ°)';
+comment on column xiangqin.t01_user_search_info.uweight_from is 'ä½“é‡(ä»)';
+comment on column xiangqin.t01_user_search_info.uweight_to is 'ä½“é‡(åˆ°)';
 
-comment on table xiangqin.t01_user_relations_info is 'ÓÃ»§¹ØÏµ±í';
-comment on column xiangqin.t01_user_relations_info.uid is 'ÓÃ»§ID';
-comment on column xiangqin.t01_user_relations_info.relation_id is '¹ØÏµÓÃ»§ID';
-comment on column xiangqin.t01_user_relations_info.is_send is 'ÊÇ·ñÑûÔ¼';
-comment on column xiangqin.t01_user_relations_info.is_relation is 'ÊÇ·ñÍ¬Òâ';
+comment on table xiangqin.t01_user_relations_info is 'ç”¨æˆ·å…³ç³»è¡¨';
+comment on column xiangqin.t01_user_relations_info.uid is 'ç”¨æˆ·ID';
+comment on column xiangqin.t01_user_relations_info.relation_id is 'å…³ç³»ç”¨æˆ·ID';
+comment on column xiangqin.t01_user_relations_info.is_send is 'æ˜¯å¦é‚€çº¦';
+comment on column xiangqin.t01_user_relations_info.is_relation is 'æ˜¯å¦åŒæ„';
 
-comment on table xiangqin.t01_user_basic_info is 'ÓÃ»§»ù±¾ĞÅÏ¢±í';
-comment on column xiangqin.t01_user_basic_info.uid is 'ÓÃ»§ID';
-comment on column xiangqin.t01_user_basic_info.uname is 'ĞÕÃû';
-comment on column xiangqin.t01_user_basic_info.sex is 'ĞÔ±ğ';
-comment on column xiangqin.t01_user_basic_info.birth_date is '³öÉúÄêÔÂ';
-comment on column xiangqin.t01_user_basic_info.birth_place is '¼®¹á';
-comment on column xiangqin.t01_user_basic_info.address is 'ÏÖ×¡Ö·';
-comment on column xiangqin.t01_user_basic_info.profession is 'Ö°Òµ';
-comment on column xiangqin.t01_user_basic_info.interest is 'ĞËÈ¤';
-comment on column xiangqin.t01_user_basic_info.uheight is 'Éí¸ß';
-comment on column xiangqin.t01_user_basic_info.uweight is 'ÌåÖØ';
-comment on column xiangqin.t01_user_basic_info.introduce is '¼ò½é';
-comment on column xiangqin.t01_user_basic_info.uimages is 'ÕÕÆ¬';
-comment on column xiangqin.t01_user_basic_info.identification_photo is 'Éí·İĞÅÏ¢';
+comment on table xiangqin.t01_user_basic_info is 'ç”¨æˆ·åŸºæœ¬ä¿¡æ¯è¡¨';
+comment on column xiangqin.t01_user_basic_info.uid is 'ç”¨æˆ·ID';
+comment on column xiangqin.t01_user_basic_info.uname is 'å§“å';
+comment on column xiangqin.t01_user_basic_info.sex is 'æ€§åˆ«';
+comment on column xiangqin.t01_user_basic_info.birth_date is 'å‡ºç”Ÿå¹´æœˆ';
+comment on column xiangqin.t01_user_basic_info.birth_place is 'ç±è´¯';
+comment on column xiangqin.t01_user_basic_info.address is 'ç°ä½å€';
+comment on column xiangqin.t01_user_basic_info.profession is 'èŒä¸š';
+comment on column xiangqin.t01_user_basic_info.interest is 'å…´è¶£';
+comment on column xiangqin.t01_user_basic_info.uheight is 'èº«é«˜';
+comment on column xiangqin.t01_user_basic_info.uweight is 'ä½“é‡';
+comment on column xiangqin.t01_user_basic_info.introduce is 'ç®€ä»‹';
+comment on column xiangqin.t01_user_basic_info.uimages is 'ç…§ç‰‡';
+comment on column xiangqin.t01_user_basic_info.identification_photo is 'èº«ä»½ä¿¡æ¯';
 
-comment on table xiangqin.t01_user_login_info is 'ÓÃ»§µÇÂ¼ĞÅÏ¢±í';
-comment on column xiangqin.t01_user_login_info.uid is 'ÓÃ»§ID';
-comment on column xiangqin.t01_user_login_info.mobile is 'µç»°ºÅÂë';
-comment on column xiangqin.t01_user_login_info.email is 'ÓÊÏä';
-comment on column xiangqin.t01_user_login_info.password is 'ÃÜÂë';
+comment on table xiangqin.t01_user_login_info is 'ç”¨æˆ·ç™»å½•ä¿¡æ¯è¡¨';
+comment on column xiangqin.t01_user_login_info.uid is 'ç”¨æˆ·ID';
+comment on column xiangqin.t01_user_login_info.mobile is 'ç”µè¯å·ç ';
+comment on column xiangqin.t01_user_login_info.email is 'é‚®ç®±';
+comment on column xiangqin.t01_user_login_info.password is 'å¯†ç ';
 

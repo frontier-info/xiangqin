@@ -9,11 +9,11 @@ public class S002003E001Input {
 
 	private String uid;
 
-	private String sex;
+	private Integer sex;
 	
-	private String ageFrom;
+	private Integer ageFrom;
 	
-	private String ageTo;
+	private Integer ageTo;
 	
 	private String birthPlace;
 	

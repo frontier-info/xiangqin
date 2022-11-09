@@ -32,20 +32,5 @@ public class S002002E001Input {
 
     private String identificationPhoto;
 
-    public S002002E001Input(String uid, String uname, String sex, String birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
-        this.uid = uid;
-        this.uname = uname;
-        this.sex = sex;
-        this.birthDate = birthDate;
-        this.birthPlace = birthPlace;
-        this.address = address;
-        this.profession = profession;
-        this.interest = interest;
-        this.uheight = uheight;
-        this.uweight = uweight;
-        this.introduce = introduce;
-        this.uimages = uimages;
-        this.identificationPhoto = identificationPhoto;
-    }
 }
 

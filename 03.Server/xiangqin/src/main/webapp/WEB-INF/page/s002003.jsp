@@ -19,8 +19,8 @@
        <tr>
         <td align="right">性别：</td>
         <td>
-         <input type="radio" name="sex" value="女" ><label for="girl">女</label>
-         <input type="radio" name="sex" value="男"  checked="checked"><label for="boy">男</label>
+         <input type="radio" name="sex" value="0" ><label for="girl">女</label>
+         <input type="radio" name="sex" value="1"  checked="checked"><label for="boy">男</label>
 	     </td>
 	    </tr>
 		<tr><td align="right">年龄：</td>

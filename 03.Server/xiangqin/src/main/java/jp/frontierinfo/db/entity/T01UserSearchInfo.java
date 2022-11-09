@@ -7,9 +7,9 @@ public class T01UserSearchInfo {
 
     private Integer sex;
 
-    private String ageFrom;
+    private Integer ageFrom;
 
-    private String ageTo;
+    private Integer ageTo;
 
     private String birthPlace;
 
@@ -27,7 +27,7 @@ public class T01UserSearchInfo {
 
     private BigDecimal uweightTo;
 
-    public T01UserSearchInfo(String uid, Integer sex, String ageFrom, String ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
+    public T01UserSearchInfo(String uid, Integer sex, Integer ageFrom, Integer ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
         this.uid = uid;
         this.sex = sex;
         this.ageFrom = ageFrom;
@@ -62,20 +62,20 @@ public class T01UserSearchInfo {
         this.sex = sex;
     }
 
-    public String getAgeFrom() {
+    public Integer getAgeFrom() {
         return ageFrom;
     }
 
-    public void setAgeFrom(String ageFrom) {
-        this.ageFrom = ageFrom == null ? null : ageFrom.trim();
+    public void setAgeFrom(Integer ageFrom) {
+        this.ageFrom = ageFrom;
     }
 
-    public String getAgeTo() {
+    public Integer getAgeTo() {
         return ageTo;
     }
 
-    public void setAgeTo(String ageTo) {
-        this.ageTo = ageTo == null ? null : ageTo.trim();
+    public void setAgeTo(Integer ageTo) {
+        this.ageTo = ageTo;
     }
 
     public String getBirthPlace() {

@@ -10,9 +10,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class A001003E005Input extends AbstractInput{
+public class A001004E003Input extends AbstractInput{
 	
 	private String uid;
+	
+	private String relationId;
 	
 	private String token;
 
