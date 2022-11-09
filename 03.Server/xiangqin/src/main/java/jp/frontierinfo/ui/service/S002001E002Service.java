@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.ui.input.S002001E001Input;
-import jp.frontierinfo.ui.output.S002001E001Output;
+import jp.frontierinfo.ui.input.S002001E002Input;
+import jp.frontierinfo.ui.output.S002001E002Output;
 
 @Service
-public class S002001E001Service extends AbstractServiceImpl<S002001E001Input, S002001E001Output>{
+public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S002001E002Output>{
 
 	@Override
-	public S002001E001Output execute(S002001E001Input input) throws BusinessException {
+	public S002001E002Output execute(S002001E002Input input) throws BusinessException {
 		
-		S002001E001Output output = new S002001E001Output();
+		S002001E002Output output = new S002001E002Output();
 		
 		// 获取籍贯下拉列表数据
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");

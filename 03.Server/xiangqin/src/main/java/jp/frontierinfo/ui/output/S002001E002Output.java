@@ -1,11 +1,11 @@
-package jp.frontierinfo.ui.form;
+package jp.frontierinfo.ui.output;
 
 import java.util.List;
 
 import lombok.Data;
 
 @Data
-public class S002003Form {
+public class S002001E002Output {
 	
 	private List<String> birthPlaceLi;
 	
@@ -13,4 +13,4 @@ public class S002003Form {
 	
 	private List<String> professionLi;
 
-}
+}   

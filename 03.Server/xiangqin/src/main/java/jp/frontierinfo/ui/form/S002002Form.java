@@ -1,16 +1,17 @@
 package jp.frontierinfo.ui.form;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
 public class S002002Form {
+	
+	private List<String> birthPlaceLi;
+	
+	private List<String> addressLi;
+	
+	private List<String> professionLi;
 
 	private String password;
 	

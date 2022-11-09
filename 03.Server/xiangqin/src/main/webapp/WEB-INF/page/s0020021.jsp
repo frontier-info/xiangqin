@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,63 +39,66 @@ body {
 						<div class="col-md-8">
 
 							<h2>
-								<font face="verdana"><font size="6" color="black">个人信息确认页面
+								<font face="verdana">
+									<font size="6" color="black">个人信息确认页面 
 							</h2>
 							<h3>
-								<font size="3" color="pink">💛金风玉露一相逢，便胜却人间无数。💛
+								<font size="3" color="pink">💛金风玉露一相逢，便胜却人间无数。💛 
 							</h3>
 							<hr />
 
-							<form:form modelAttribute="s002002Form"
-								action="/xiangqin/ui/s002002" method="post">
+							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
 
 								<div>
-									<div>
-										用户名:
-										<form:input path="uname" readonly="true" />
-									</div>
-									性别:
-									<form:input path="sex" />
+									<label>用户名:${s002002Form.uname}</label>
+									<form:hidden path="uname" />
 								</div>
 								<div>
-									出生年月日:
-									<form:input path="birthDate" />
+									<label>性别:
+									<c:if test="${s002002Form.sex==0}" >女</c:if>
+									<c:if test="${s002002Form.sex==1}" >男</c:if>
+									</label>
+									<form:hidden path="sex" />
 								</div>
 								<div>
-									出生地:
-									<form:input path="birthPlace" />
+									<label>出生年月日:${s002002Form.birthDate}</label>
+									<form:hidden path="birthDate" />
 								</div>
 								<div>
-									住所:
-									<form:input path="address" />
+									<label>出生地:${s002002Form.birthPlace}</label>
+									<form:hidden path="birthPlace" />
 								</div>
 								<div>
-									职业:
-									<form:input path="profession" />
+									<label>住所:${s002002Form.address}</label>
+									<form:hidden path="address" />
 								</div>
 								<div>
-									兴趣:
-									<form:input path="interest" />
+									<label>职业:${s002002Form.profession}</label>
+									<form:hidden path="profession" />
 								</div>
 								<div>
-									身高:
-									<form:input path="uheight" />
+									<label>兴趣:${s002002Form.interest}</label>
+									<form:hidden path="interest" />
 								</div>
 								<div>
-									体重:
-									<form:input path="uweight" />
+									<label>身高:${s002002Form.uheight}</label>
+									<form:hidden path="uheight" />
 								</div>
 								<div>
-									自我介绍:
-									<form:input path="introduce" />
+									<label>体重:${s002002Form.uweight}</label>
+									<form:hidden path="uweight" />
 								</div>
 								<div>
-									上传照片:
-									<form:input path="uimages" />
+									<label>自我介绍:${s002002Form.introduce}</label>
+									<form:hidden path="introduce" />
 								</div>
 								<div>
-									上传照片:
-									<form:input path="identificationPhoto" />
+									<label>上传照片:${s002002Form.uimages}</label>
+									<form:hidden path="uimages" />
+								</div>
+								<div>
+									<label>上传照片:${s002002Form.identificationPhoto}</label>
+									<form:hidden path="identificationPhoto" />
 								</div>
 								<input type="submit" name="d" value="确认提交个人信息" />
 							</form:form>

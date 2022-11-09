@@ -34,7 +34,7 @@ public class S002002Controller {
 	@RequestMapping(value="/s002002", params="a", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S002002Form form, BindingResult result, 
-			S001001E001Input input, Model model) {
+			S002002E001Input input, Model model) {
 		System.out.println("用户信息设定");
 
 		return "s002002";
