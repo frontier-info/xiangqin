@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.frontierinfo.db.dao.M01PulldownInfoDao">
+  <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.M01PulldownInfoKey">
+    <constructor>
+      <idArg column="pulldown_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="pulldown_value" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="jp.frontierinfo.db.entity.M01PulldownInfoKey">
+    delete from xiangqin.m01_pulldown_info
+    where pulldown_code = #{pulldownCode,jdbcType=VARCHAR}
+      and pulldown_value = #{pulldownValue,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="jp.frontierinfo.db.entity.M01PulldownInfoKey">
+    insert into xiangqin.m01_pulldown_info (pulldown_code, pulldown_value)
+    values (#{pulldownCode,jdbcType=VARCHAR}, #{pulldownValue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.M01PulldownInfoKey">
+    insert into xiangqin.m01_pulldown_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pulldownCode != null">
+        pulldown_code,
+      </if>
+      <if test="pulldownValue != null">
+        pulldown_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pulldownCode != null">
+        #{pulldownCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pulldownValue != null">
+        #{pulldownValue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

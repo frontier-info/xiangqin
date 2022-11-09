@@ -1,8 +1,17 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/9 12:13:32
+-- Date/Time    : 2022/11/9 20:09:35
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
+
+-- 下拉列表信息表
+drop table if exists xiangqin.m01_pulldown_info cascade;
+
+create table xiangqin.m01_pulldown_info (
+  pulldown_code varchar
+  , pulldown_value varchar
+  , constraint m01_pulldown_info_PKC primary key (pulldown_code,pulldown_value)
+) ;
 
 -- 用户检索信息表
 drop table if exists xiangqin.t01_user_search_info cascade;
@@ -64,6 +73,10 @@ create table xiangqin.t01_user_login_info (
   , password varchar
   , constraint t01_user_login_info_PKC primary key (uid)
 ) ;
+
+comment on table xiangqin.m01_pulldown_info is '下拉列表信息表';
+comment on column xiangqin.m01_pulldown_info.pulldown_code is '下拉列表代码';
+comment on column xiangqin.m01_pulldown_info.pulldown_value is '下拉列表值';
 
 comment on table xiangqin.t01_user_search_info is '用户检索信息表';
 comment on column xiangqin.t01_user_search_info.uid is '用户ID';

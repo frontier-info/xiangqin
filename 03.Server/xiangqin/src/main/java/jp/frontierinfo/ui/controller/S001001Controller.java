@@ -31,7 +31,7 @@ public class S001001Controller {
 	private MessageSource messageSource;
 	
 	/**
-	 * 网站首页
+	 * 登录页面
 	 */
 	@RequestMapping(value="/s001001", method=RequestMethod.GET)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
@@ -42,6 +42,16 @@ public class S001001Controller {
 		from.setPassword("123");
 		model.addAttribute("s001001Form", from);
 		return "s001001";
+	}
+	
+	/**
+	 * 网站首页
+	 */
+	@RequestMapping(value="/s002001", method=RequestMethod.GET)
+	public String e010(HttpServletRequest request, HttpServletResponse response, 
+			Model model) {
+		System.out.println("网站首页");
+		return "s002001";
 	}
 	
 	/**
