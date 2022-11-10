@@ -47,7 +47,7 @@ body {
 							</h3>
 							<hr />
 
-							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
+							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post" enctype="multipart/form-data">
 
 								<div>
 									<label>用户名:${s002002Form.uname}</label>
@@ -93,8 +93,7 @@ body {
 									<form:hidden path="introduce" />
 								</div>
 								<div>
-									<label>上传照片:${s002002Form.uimages}</label>
-									<form:hidden path="uimages" />
+									<label>上传照片:${s002002Form.uimages.fileItem.name}</label>
 								</div>
 								<div>
 									<label>上传照片:${s002002Form.identificationPhoto}</label>

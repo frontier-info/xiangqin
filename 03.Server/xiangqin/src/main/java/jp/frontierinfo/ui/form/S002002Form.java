@@ -2,6 +2,8 @@ package jp.frontierinfo.ui.form;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -37,7 +39,7 @@ public class S002002Form {
 
     private String introduce;
 
-    private String uimages;
+    private MultipartFile uimages;
 
     private String identificationPhoto;
 }

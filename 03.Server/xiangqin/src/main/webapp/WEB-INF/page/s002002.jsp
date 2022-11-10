@@ -47,7 +47,7 @@ body {
 							</h3>
 							<hr />
 
-							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post">
+							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post" enctype="multipart/form-data">
 
 								<div>
 									<p>
@@ -144,7 +144,7 @@ body {
 								<div>
 									<p>
 										<label for="uimages">上传照片:</label>
-										<input type="text" class="form-control" name="uimages">
+										<input type="file" class="form-control" name="uimages">
 									</p>
 								</div>
 
@@ -155,19 +155,11 @@ body {
 										<input type="text" class="form-control" name="identification_photo">
 									</p>
 								</div>
-								<input type="file" class="form-control" >
-								<div class="avator">
-									<img src="./avator.jpg" alt="">
-
-								</div>
-
-								<input type="submit" class="form-control" value="上传">
-
 
 								<div>
 									<input type="reset" class="form-control" value="信息重置">
+								    <input type="submit" class="form-control" name="b" value="提交个人信息">
 								</div>
-								<input type="submit" class="form-control" name="b" value="提交个人信息">
 
 
 

@@ -36,7 +36,7 @@
 									<div class="media">
 										<div class="media-left media-top">
 											<img
-												src="https://static.runoob.com/images/mix/img_avatar.png"
+												src="${pageContext.request.contextPath}\resources\userdata\uid_1\images.jfif"
 												class="media-object" style="width: 90px">
 										</div>
 										<div class="media-body">
