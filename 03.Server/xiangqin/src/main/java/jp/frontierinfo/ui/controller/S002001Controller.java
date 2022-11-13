@@ -35,7 +35,17 @@ public class S002001Controller {
 	
 //	@Autowired
 //	private MessageSource messageSource;
-	
+
+	/**
+	 * 表头
+	 */
+	@RequestMapping(value="/s002001/e000", method=RequestMethod.POST)
+	public String e000(HttpServletRequest request, HttpServletResponse response, 
+			S002002Form form, BindingResult result, 
+			S002001E001Input input, Model model) {
+
+	return "s002001";
+	}
 	/**
 	 * 用户信息设定按钮
 	 */
