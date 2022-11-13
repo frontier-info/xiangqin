@@ -76,7 +76,7 @@ public class S001001Controller {
 		HttpSession session = request.getSession();
 		session.setAttribute("uid", output.getUid());
 		
-		return "s002001";
+		return "forward:/ui/s002001/e000";
 	}
 	
 	/**
