@@ -19,7 +19,7 @@ public class S001002E001Service extends AbstractServiceImpl<S001002E001Input, S0
 	public S001002E001Output execute(S001002E001Input input) throws BusinessException {
 		S001002E001Output output = new S001002E001Output();
 		T01UserLoginInfo info = new T01UserLoginInfo();
-		info.setUid(input.getUid());
+		info.setUid(s01SequenceAccess.getUid());
 		info.setMobile(input.getMobile());
 		info.setEmail(input.getEmail());
 		info.setPassword(input.getPassword());
