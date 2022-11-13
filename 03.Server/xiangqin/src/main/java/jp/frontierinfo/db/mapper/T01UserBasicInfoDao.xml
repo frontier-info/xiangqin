@@ -25,7 +25,7 @@
   <!--   查询指定检索条件的30名异性信息 -->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.userSimpleInfo">
     select 
-      uid, uname
+      uname, sex, introduce, uimages
     from xiangqin.t01_user_basic_info
     <where>
       <if test="sex != null">
