@@ -52,10 +52,13 @@ Field="用户ID","uid","varchar",,0,"","",$FFFFFFFF,""
 Field="电话号码","mobile","varchar",,,"","",$FFFFFFFF,""
 Field="邮箱","email","varchar",,,"","",$FFFFFFFF,""
 Field="密码","password","varchar",,,"","",$FFFFFFFF,""
+Field="用户状态","user_status","varchar",,,"","00:未提交审核,01:审核中,02:审核通过,03:审核拒绝",$FFFFFFFF,""
+Field="审核结果","user_censor_result","varchar",,,"","例:身份信息不清晰",$FFFFFFFF,""
+Field="用户级别","user_rank","varchar",,,"","01:普通用户,02:高级用户,08:普通管理员,09:高级管理员",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220709131435
+ModifiedDateTime=20221114185644
 Position="MAIN",300,150,245,414
 ZOrder=0
 

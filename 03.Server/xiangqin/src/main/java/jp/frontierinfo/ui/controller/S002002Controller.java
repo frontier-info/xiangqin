@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.common.utils.FileUtils;
+import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S002002Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.input.S002002E001Input;
@@ -52,7 +53,8 @@ public class S002002Controller {
         if(result.hasErrors()) {
         	return "s002002";
         } 
-        input.setUid((String) request.getSession().getAttribute("uid"));
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute("userLoginInfo");
+        input.setUid(userLoginInfo.getUid());
 		S002002E001Output output = new S002002E001Output();
 		try {
 			input.setUimages(FileUtils.upfiles(request));

@@ -1,0 +1,35 @@
+package jp.frontierinfo.ui.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.ui.input.S009010E000Input;
+import jp.frontierinfo.ui.output.S009010E000Output;
+
+@Service
+public class S009010E000Service extends AbstractServiceImpl<S009010E000Input, S009010E000Output>{
+
+	@Override
+	public S009010E000Output execute(S009010E000Input input) throws BusinessException {
+		
+		S009010E000Output output = new S009010E000Output();
+		
+		// 获取籍贯下拉列表数据
+		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");
+		output.setBirthPlaceLi(birthPlaceLi);
+		
+		// 获取现住址下拉列表数据
+		List<String> addressLi = m01PulldownInfoAccess.selectPulldownLi("02");
+		output.setAddressLi(addressLi);
+		
+		// 获取职业下拉列表数据
+		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
+		output.setProfessionLi(professionLi);
+		
+		return output;
+	}
+
+}

@@ -97,6 +97,6 @@ public class S002001Controller {
 			S001001Form form, S001001E001Input input) {
 		System.out.println("退出登录");
 		
-		return "e003";
+		return "s001001";
 	}
 }

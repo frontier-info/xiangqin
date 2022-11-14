@@ -5,7 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-import jp.frontierinfo.db.bean.userSimpleInfo;
+import jp.frontierinfo.db.bean.UserSimpleInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,5 +14,5 @@ import lombok.EqualsAndHashCode;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class A001003E001Output {
 	
-	private List<userSimpleInfo> userSimpleInfoLi;
+	private List<UserSimpleInfo> userSimpleInfoLi;
 }

@@ -8,7 +8,7 @@ import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.api.indto.A001003E001Input;
 import jp.frontierinfo.api.outdto.A001003E001Output;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.db.bean.userSimpleInfo;
+import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 @Service
@@ -25,7 +25,7 @@ public class A001003E001Service extends AbstractServiceImpl<A001003E001Input, A0
 			// 已设置检索条件时,按照设定的检索条件检索30名异性信息
 			// 获取用户设定的检索条件
 			T01UserSearchInfo searchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
-			List<userSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
+			List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
 			output.setUserSimpleInfoLi(userSimpleInfoLi);
 		} else {
 			// 未设置检索条件时,返回错误信息提示用户设置检索条件

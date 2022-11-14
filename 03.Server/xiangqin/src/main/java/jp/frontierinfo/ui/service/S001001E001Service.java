@@ -24,7 +24,7 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithPhone(input.getMobile(), input.getPassword());
 		if(userLoginInfo != null) {
 			// 用户手机号和密码验证成功
-			output.setUid(userLoginInfo.getUid());
+			output.setUserLoginInfo(userLoginInfo);
 			output.setToken(TokenUtils.tokenForLogin(input.getMobile()));
 		} else {
 			// 用户手机号或密码错误

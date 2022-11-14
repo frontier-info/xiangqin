@@ -3,7 +3,9 @@ package jp.frontierinfo.db.bean;
 import lombok.Data;
 
 @Data
-public class userSimpleInfo {
+public class UserSimpleInfo {
+	
+	private String uid;
 	
 	private String uname;
 	

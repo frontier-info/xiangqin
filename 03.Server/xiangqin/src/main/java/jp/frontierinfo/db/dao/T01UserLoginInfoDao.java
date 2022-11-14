@@ -9,6 +9,10 @@ public interface T01UserLoginInfoDao {
 	int userExistByPhone(String mobile);
 	
 	T01UserLoginInfo loginVerifyWithPhone(Map<String, String> params);
+    
+    int updateBymobile(String mobile);
+    
+    int updatePasswordBymobile(String password,String mobile);
 	
     int deleteByPrimaryKey(String uid);
 
@@ -21,8 +25,4 @@ public interface T01UserLoginInfoDao {
     int updateByPrimaryKeySelective(T01UserLoginInfo record);
 
     int updateByPrimaryKey(T01UserLoginInfo record);
-    
-    int updateBymobile(String mobile);
-    
-    int updatePasswordBymobile(String password,String mobile);
 }

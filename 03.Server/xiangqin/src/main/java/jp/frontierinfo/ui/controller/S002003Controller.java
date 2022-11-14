@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S002003Form;
 import jp.frontierinfo.ui.input.S002003E001Input;
 import jp.frontierinfo.ui.output.S002003E001Output;
@@ -47,8 +48,9 @@ public class S002003Controller {
 		System.out.println("保存搜索条件");
         if(result.hasErrors()) {
         	return "s002003";
-        } 
-        input.setUid((String) request.getSession().getAttribute("uid"));
+        }
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute("userLoginInfo");
+        input.setUid(userLoginInfo.getUid());
 		S002003E001Output output = new S002003E001Output();
 		try {
 			output = s002003E001Service.execute(input);

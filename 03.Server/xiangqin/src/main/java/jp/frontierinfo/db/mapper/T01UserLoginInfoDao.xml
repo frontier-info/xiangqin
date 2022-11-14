@@ -7,10 +7,13 @@
       <arg column="mobile" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_censor_result" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_rank" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, mobile, email, password
+    uid, mobile, email, password, user_status, user_censor_result, user_rank
   </sql>
   <!--   用户存在与否验证(手机号) -->
   <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -27,6 +30,19 @@
     where mobile = #{mobile,jdbcType=VARCHAR}
       and password = #{password,jdbcType=VARCHAR}
   </select>
+  <!-- password -->
+  <update id="updateBymobile" parameterType="java.lang.String" >
+    update xiangqin.t01_user_login_info
+    set password = #{password,jdbcType=VARCHAR}
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- password -->
+  <update id="updatePasswordBymobile" parameterType="java.lang.String" >
+    update xiangqin.t01_user_login_info
+    set password = #{password,jdbcType=VARCHAR}
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </update>
   
   <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -41,9 +57,11 @@
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info (uid, mobile, email, 
-      password)
+      password, user_status, user_censor_result, 
+      user_rank)
     values (#{uid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR})
+      #{password,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{userCensorResult,jdbcType=VARCHAR}, 
+      #{userRank,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info
@@ -60,6 +78,15 @@
       <if test="password != null">
         password,
       </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="userCensorResult != null">
+        user_censor_result,
+      </if>
+      <if test="userRank != null">
+        user_rank,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -73,6 +100,15 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userCensorResult != null">
+        #{userCensorResult,jdbcType=VARCHAR},
+      </if>
+      <if test="userRank != null">
+        #{userRank,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -88,6 +124,15 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userCensorResult != null">
+        user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
+      </if>
+      <if test="userRank != null">
+        user_rank = #{userRank,jdbcType=VARCHAR},
+      </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
@@ -95,21 +140,11 @@
     update xiangqin.t01_user_login_info
     set mobile = #{mobile,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
+      password = #{password,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=VARCHAR},
+      user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
+      user_rank = #{userRank,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
-  </update>
-  <!-- password -->
-	<update id="updateBymobile" parameterType="java.lang.String" >
-    update xiangqin.t01_user_login_info
-    set password = #{password,jdbcType=VARCHAR}
-    where mobile = #{mobile,jdbcType=VARCHAR}
-  </update>
-  
-    <!-- password -->
-	<update id="updatePasswordBymobile" parameterType="java.lang.String" >
-    update xiangqin.t01_user_login_info
-    set password = #{password,jdbcType=VARCHAR}
-    where mobile = #{mobile,jdbcType=VARCHAR}
   </update>
   
   
