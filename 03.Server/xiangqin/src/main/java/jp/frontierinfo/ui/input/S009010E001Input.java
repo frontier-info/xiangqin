@@ -28,4 +28,8 @@ public class S009010E001Input {
 	private BigDecimal uweightFrom;
 	
 	private BigDecimal uweightTo;
+	
+	private String userStatus;
+	
+	private String userRank;
 }

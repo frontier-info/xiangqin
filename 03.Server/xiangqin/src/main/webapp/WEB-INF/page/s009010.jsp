@@ -40,114 +40,140 @@
 		<div class="col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">后台管理(普通)</h3>
+					<h3 class="panel-title">后台管理(高级)</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
+					  <!-- 提示信息区域 -->
+					  <div class="col-md-3"></div>
+					  <div class="col-md-6">
+			          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
+			          <c:if test="${not empty message}">
+			           <div class="alert alert-success" role="alert"><p>${message}</p></div>
+			          </c:if>
+					  </div>
+					</div>
+					<div class="row">
 						<div class="col-md-12">
 							<!-- 检索条件区域 -->
-
-								<div class="row">
-									<div class="col-md-4">
-									<p>
-										<label for="uname">用户ID:</label>
-										<input type="text" class="form-control" name="uid">
-									</p>
-									</div>
-									<div class="col-md-4">
-									<p>
-										<label for="uname">性别：</label> 
-									</p>
-									<p>
-										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="女">女</label>
-										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="男" checked="checked">男</label>
-									</p>
-									</div>
-									<div class="form-inline col-md-4">
-									<p>
-										<label>年龄：</label> 
-									</p>
-									<p>
-										<label for="ageFrom">从</label> 
-										<input type="text" class="form-control" name="ageFrom"> 
-										<label for="ageTo">到</label> 
-										<input type="text" class="form-control" name="ageTo">
-									</p>
-									</div>
+							<div class="form-inline row">
+								<div class="col-md-3">
+								<p>
+									<label for="uid">用户ID:</label>
+									<input type="text" class="form-control" size="5" name="uid">
+								</p>
 								</div>
-								<div class="row">
-									<div class="col-md-4">
-									<p>
-										<label for="birthPlace">出生地:</label> <select name="birthPlace" class="form-control">
-											<option value="">--请选择地区--</option>
-											<c:forEach items="${s009010Form.birthPlaceLi}" var="birthPlace">
-												<option value="${birthPlace}">${birthPlace}</option>
-											</c:forEach>
-										</select>
-									</p>
-									</div>
-									<div class="col-md-4">
-									<p>
-										<label for="address">住所:</label> <select name="address" class="form-control">
-											<option value="">--请选择地区--</option>
-											<c:forEach items="${s009010Form.addressLi}" var="address">
-												<option value="${address}">${address}</option>
-											</c:forEach>
-										</select>
-									</p>
-									</div>
-									<div class="col-md-4">
-									<p>
-										<label for="profession">职业:</label> <select name="profession" class="form-control">
-											<option value="">--请选择行业--</option>
-											<c:forEach items="${s009010Form.professionLi}" var="profession">
-												<option value="${profession}">${profession}</option>
-											</c:forEach>
-										</select>
-									</p>
-									</div>
+								<div class="col-md-3">
+								<p>
+									<label for="birthPlace">出生地:</label> <select name="birthPlace" class="form-control">
+										<option value="">--请选择地区--</option>
+										<c:forEach items="${s009010Form.birthPlaceLi}" var="birthPlace">
+											<option value="${birthPlace}">${birthPlace}</option>
+										</c:forEach>
+									</select>
+								</p>
 								</div>
-								<div class="row">
-									<div class="form-inline col-md-4">
-									<p>
-										<label>身高：</label> 
-									</p>
-									<p>
-										<label for="uheightFrom">从</label> 
-										<input type="text" class="form-control" name="uheightFrom"> 
-										<label for="uheightTo">到</label> 
-										<input type="text" class="form-control" name="uheightTo">
-									</p>
-									</div>
-									<div class="form-inline col-md-4">
-									<p>
-										<label>体重：</label> 
-									</p>
-									<p>
-										<label for="uweightFrom">从</label> 
-										<input type="text" class="form-control" name="uweightFrom"> 
-										<label for="uweightTo">到</label> 
-										<input type="text" class="form-control" name="uweightTo">
-									</p>
-									</div>
-									<div class="form-inline col-md-4">
-									<p>
-										<label for="photo">有照片：</label> 
-										<input type="checkbox" name="photo" value="1">
-									</p>
-									<p>
-										<input type="submit" class="form-control" name="search" value="搜索" />
-										<input type="reset" class="form-control" value="重置" />
-									</p>
-									</div>
+								<div class="col-md-3">
+								<p>
+									<label>年龄：</label> 
+									<label for="ageFrom">从</label> 
+									<input type="text" class="form-control" size="3" name="ageFrom"> 
+									<label for="ageTo">到</label> 
+									<input type="text" class="form-control" size="3" name="ageTo">
+								</p>
 								</div>
+								<div class="col-md-3">
+								<p>
+									<label>用户审核状态：</label> 
+									<select name="userStatus" class="form-control">
+										<option value="">--请选择审核状态--</option>
+										<c:forEach items="${s009010Form.userStatusLi}" var="userStatus">
+											<option value="${userStatus.selectKey}">${userStatus.selectValue}</option>
+										</c:forEach>
+									</select>
+								</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3">
+								<p>
+									<label for="uname">性别：</label>
+									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="" checked="checked">不限</label>
+									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="女">女</label>
+									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="男">男</label>
+								</p>
+								</div>
+								<div class="col-md-3">
+								<p>
+									<label for="address">住所:</label>
+									<select name="address" class="form-control">
+										<option value="">--请选择地区--</option>
+										<c:forEach items="${s009010Form.addressLi}" var="address">
+											<option value="${address}">${address}</option>
+										</c:forEach>
+									</select>
+								</p>
+								</div>
+								<div class="col-md-3">
+								<p>
+									<label>身高：</label> 
+									<label for="uheightFrom">从</label> 
+									<input type="text" class="form-control" size="3" name="uheightFrom"> 
+									<label for="uheightTo">到</label> 
+									<input type="text" class="form-control" size="3" name="uheightTo">
+								</p>
+								</div>
+								<div class="col-md-3">
+								<p>
+									<label>用户级别：</label> 
+									<select name="userRank" class="form-control">
+										<option value="">--请选择用户级别--</option>
+										<c:forEach items="${s009010Form.userRankLi}" var="userRank">
+											<option value="${userRank.selectKey}">${userRank.selectValue}</option>
+										</c:forEach>
+									</select>
+								</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+								<p>
+									<label for="profession">职业:</label>
+									<select name="profession" class="form-control">
+										<option value="">--请选择行业--</option>
+										<c:forEach items="${s009010Form.professionLi}" var="profession">
+											<option value="${profession}">${profession}</option>
+										</c:forEach>
+									</select>
+								</p>
+								</div>
+								<div class="col-md-3">
+								<p>
+									<label>体重：</label> 
+									<label for="uweightFrom">从</label> 
+									<input type="text" class="form-control" size="3" name="uweightFrom"> 
+									<label for="uweightTo">到</label> 
+									<input type="text" class="form-control" size="3" name="uweightTo">
+								</p>
+								</div>
+							</div>
+							<hr size="2" color="#ffffff">
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+								<p>
+									<input type="submit" class="form-control" name="search" value="搜索" />
+									<input type="reset" class="form-control" value="重置" />
+								</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</form:form>
 	<c:if test="${s009010Form.userFullInfoLi.size() > 0}">
 	<div class="row">
 		<div class="col-md-2"></div>
@@ -209,6 +235,7 @@
 		</div>
 	</div>
 	</c:if>
+	</form:form>
 
 </body>
  <script>

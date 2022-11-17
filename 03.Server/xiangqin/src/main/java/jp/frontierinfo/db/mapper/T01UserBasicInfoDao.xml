@@ -65,7 +65,7 @@
   <!--   查询指定检索条件的用户全部信息 -->
   <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.bean.BackstageSerachInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
-	    basic.uid
+	    login.uid
 	    , basic.uname
 	    , basic.sex
 	    , basic.birth_date birthDate
@@ -87,7 +87,7 @@
 	    , login.user_censor_result userCensorResult
 	from
 	    xiangqin.t01_user_basic_info basic
-	    inner join xiangqin.t01_user_login_info login
+	    right join xiangqin.t01_user_login_info login
 	    on basic.uid = login.uid
 	    inner join xiangqin.m01_code_master_info code_user_status
 	    on code_user_status.code_type = '01'
@@ -96,14 +96,17 @@
 	    on code_user_rank.code_type = '02'
 	    and code_user_rank.master_code = login.user_rank_code
     <where>
-      <if test="sex != null">
+      <if test="uid != null and uid != ''">
+        and login.uid = #{uid,jdbcType=VARCHAR}
+      </if>
+      <if test="sex != null and sex != ''">
         and basic.sex = #{sex,jdbcType=VARCHAR}
       </if>
       <if test="ageFrom != null and ageFrom != ''">
-        and basic.date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
+        and date_part('year',age(basic.birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
       </if>
       <if test="ageTo != null and ageTo != ''">
-        and basic.date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
+        and date_part('year',age(basic.birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
       </if>
       <if test="birthPlace != null and birthPlace != ''">
         and basic.birth_place = #{birthPlace,jdbcType=VARCHAR}
@@ -160,7 +163,7 @@
 	    , login.user_censor_result userCensorResult
 	from
 	    xiangqin.t01_user_basic_info basic
-	    inner join xiangqin.t01_user_login_info login
+	    left join xiangqin.t01_user_login_info login
 	    on basic.uid = login.uid
 	    inner join xiangqin.m01_code_master_info code_user_status
 	    on code_user_status.code_type = '01'

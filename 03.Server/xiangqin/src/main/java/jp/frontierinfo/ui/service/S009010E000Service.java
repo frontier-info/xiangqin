@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.bean.PullDownBean;
 import jp.frontierinfo.ui.input.S009010E000Input;
 import jp.frontierinfo.ui.output.S009010E000Output;
 
@@ -28,6 +29,14 @@ public class S009010E000Service extends AbstractServiceImpl<S009010E000Input, S0
 		// 获取职业下拉列表数据
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
+		
+		// 获取用户状态下拉列表数据
+		List<PullDownBean> userStatusLi = m01CodeMasterInfoAccess.selectCodeMasterData("01");
+		output.setUserStatusLi(userStatusLi);
+		
+		// 获取用户级别下拉列表数据
+		List<PullDownBean> userRankLi = m01CodeMasterInfoAccess.selectCodeMasterData("02");
+		output.setUserRankLi(userRankLi);
 		
 		return output;
 	}

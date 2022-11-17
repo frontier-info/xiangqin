@@ -2,6 +2,7 @@ package jp.frontierinfo.ui.form;
 
 import java.util.List;
 
+import jp.frontierinfo.db.bean.PullDownBean;
 import jp.frontierinfo.db.bean.UserFullInfo;
 import lombok.Data;
 
@@ -14,9 +15,11 @@ public class S009010Form {
 	
 	private List<String> professionLi;
 	
-	private List<UserFullInfo> userFullInfoLi;
+	private List<PullDownBean> userStatusLi;
 	
-	private String uid;
+	private List<PullDownBean> userRankLi;
+	
+	private List<UserFullInfo> userFullInfoLi;
 	
 	private UserFullInfo userFullInfo;
 }
