@@ -54,10 +54,7 @@ body {
 									<form:hidden path="uname" />
 								</div>
 								<div>
-									<label>性别:
-									<c:if test="${s002002Form.sex==0}" >女</c:if>
-									<c:if test="${s002002Form.sex==1}" >男</c:if>
-									</label>
+									<label>性别:${s002002Form.sex}</label>
 									<form:hidden path="sex" />
 								</div>
 								<div>

@@ -5,7 +5,7 @@
     <constructor>
       <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="uname" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sex" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="birth_date" javaType="java.util.Date" jdbcType="DATE" />
       <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -79,7 +79,7 @@
       profession, interest, uheight, 
       uweight, introduce, uimages, 
       identification_photo)
-    values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
+    values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, 
       #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{uimages,jdbcType=VARCHAR}, 
@@ -136,7 +136,7 @@
         #{uname,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
-        #{sex,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birthDate != null">
         #{birthDate,jdbcType=DATE},
@@ -177,7 +177,7 @@
         uname = #{uname,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birthDate != null">
         birth_date = #{birthDate,jdbcType=DATE},
@@ -215,7 +215,7 @@
   <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     update xiangqin.t01_user_basic_info
     set uname = #{uname,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
       birth_date = #{birthDate,jdbcType=DATE},
       birth_place = #{birthPlace,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},

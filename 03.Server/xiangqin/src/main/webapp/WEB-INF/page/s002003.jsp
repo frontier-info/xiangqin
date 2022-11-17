@@ -46,11 +46,11 @@
 									<p>
 										<label for="uname">性别：</label>
 										<label for="sex" class="radio-inline">
-											<input type="radio" name="sex" value="0">
+											<input type="radio" name="sex" value="女">
 											女
 										</label>
 										<label for="sex" class="radio-inline">
-											<input type="radio" name="sex" value="1" checked="checked">
+											<input type="radio" name="sex" value="男" checked="checked">
 											男
 										</label>
 									</p>

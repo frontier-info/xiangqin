@@ -18,7 +18,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
 		basicInfo.setUname(input.getUname());
 		basicInfo.setUid(input.getUid());
-    	basicInfo.setSex(input.getSex() == "女" ? 0 : 1);
+    	basicInfo.setSex(input.getSex());
 		basicInfo.setBirthDate(DateUtils.stringToDate(input.getBirthDate()));
 		basicInfo.setBirthPlace(input.getBirthPlace());
 		basicInfo.setAddress(input.getAddress());

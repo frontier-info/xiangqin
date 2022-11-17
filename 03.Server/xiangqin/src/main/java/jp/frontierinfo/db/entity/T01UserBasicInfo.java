@@ -8,7 +8,7 @@ public class T01UserBasicInfo {
 
     private String uname;
 
-    private Integer sex;
+    private String sex;
 
     private Date birthDate;
 
@@ -30,7 +30,7 @@ public class T01UserBasicInfo {
 
     private String identificationPhoto;
 
-    public T01UserBasicInfo(String uid, String uname, Integer sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
+    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
@@ -66,12 +66,12 @@ public class T01UserBasicInfo {
         this.uname = uname == null ? null : uname.trim();
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public Date getBirthDate() {

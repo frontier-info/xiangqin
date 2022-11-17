@@ -1,8 +1,19 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/14 19:06:43
+-- Date/Time    : 2022/11/17 12:48:02
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
+
+-- 编码转换表
+drop table if exists xiangqin.m01_code_master_info cascade;
+
+create table xiangqin.m01_code_master_info (
+  code_type varchar
+  , code_type_name varchar
+  , master_code varchar
+  , master_name varchar
+  , constraint m01_code_master_info_PKC primary key (code_type,master_code)
+) ;
 
 -- 下拉列表信息表
 drop table if exists xiangqin.m01_pulldown_info cascade;
@@ -18,7 +29,7 @@ drop table if exists xiangqin.t01_user_search_info cascade;
 
 create table xiangqin.t01_user_search_info (
   uid varchar
-  , sex integer
+  , sex varchar
   , age_from integer
   , age_to integer
   , birth_place varchar
@@ -49,7 +60,7 @@ drop table if exists xiangqin.t01_user_basic_info cascade;
 create table xiangqin.t01_user_basic_info (
   uid varchar
   , uname varchar
-  , sex integer
+  , sex varchar
   , birth_date date
   , birth_place varchar
   , address varchar
@@ -71,11 +82,17 @@ create table xiangqin.t01_user_login_info (
   , mobile varchar
   , email varchar
   , password varchar
-  , user_status varchar
+  , user_status_code varchar
   , user_censor_result varchar
-  , user_rank varchar
+  , user_rank_code varchar
   , constraint t01_user_login_info_PKC primary key (uid)
 ) ;
+
+comment on table xiangqin.m01_code_master_info is '编码转换表';
+comment on column xiangqin.m01_code_master_info.code_type is '编码类型';
+comment on column xiangqin.m01_code_master_info.code_type_name is '编码类型名称';
+comment on column xiangqin.m01_code_master_info.master_code is '代码';
+comment on column xiangqin.m01_code_master_info.master_name is '名称';
 
 comment on table xiangqin.m01_pulldown_info is '下拉列表信息表';
 comment on column xiangqin.m01_pulldown_info.pulldown_code is '下拉列表代码';
@@ -121,7 +138,7 @@ comment on column xiangqin.t01_user_login_info.uid is '用户ID';
 comment on column xiangqin.t01_user_login_info.mobile is '电话号码';
 comment on column xiangqin.t01_user_login_info.email is '邮箱';
 comment on column xiangqin.t01_user_login_info.password is '密码';
-comment on column xiangqin.t01_user_login_info.user_status is '用户状态:00:未提交审核,01:审核中,02:审核通过,03:审核拒绝';
+comment on column xiangqin.t01_user_login_info.user_status_code is '用户状态:00:未提交审核,01:审核中,02:审核通过,03:审核拒绝';
 comment on column xiangqin.t01_user_login_info.user_censor_result is '审核结果:例:身份信息不清晰';
-comment on column xiangqin.t01_user_login_info.user_rank is '用户级别:01:普通用户,02:高级用户,08:普通管理员,09:高级管理员';
+comment on column xiangqin.t01_user_login_info.user_rank_code is '用户级别:01:普通用户,02:高级用户,08:普通管理员,09:高级管理员';
 

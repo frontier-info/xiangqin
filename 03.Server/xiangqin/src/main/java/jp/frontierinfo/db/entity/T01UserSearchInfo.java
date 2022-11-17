@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class T01UserSearchInfo {
     private String uid;
 
-    private Integer sex;
+    private String sex;
 
     private Integer ageFrom;
 
@@ -27,7 +27,7 @@ public class T01UserSearchInfo {
 
     private BigDecimal uweightTo;
 
-    public T01UserSearchInfo(String uid, Integer sex, Integer ageFrom, Integer ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
+    public T01UserSearchInfo(String uid, String sex, Integer ageFrom, Integer ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
         this.uid = uid;
         this.sex = sex;
         this.ageFrom = ageFrom;
@@ -54,12 +54,12 @@ public class T01UserSearchInfo {
         this.uid = uid == null ? null : uid.trim();
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public Integer getAgeFrom() {
