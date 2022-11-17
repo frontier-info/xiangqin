@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.frontierinfo.db.dao.M01CodeMasterInfoDao">
+  <resultMap id="BaseResultMap" type="jp.frontierinfo.db.entity.M01CodeMasterInfo">
+    <constructor>
+      <idArg column="code_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="master_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="code_type_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="master_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    code_type, master_code, code_type_name, master_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiangqin.m01_code_master_info
+    where code_type = #{codeType,jdbcType=VARCHAR}
+      and master_code = #{masterCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfoKey">
+    delete from xiangqin.m01_code_master_info
+    where code_type = #{codeType,jdbcType=VARCHAR}
+      and master_code = #{masterCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfo">
+    insert into xiangqin.m01_code_master_info (code_type, master_code, code_type_name, 
+      master_name)
+    values (#{codeType,jdbcType=VARCHAR}, #{masterCode,jdbcType=VARCHAR}, #{codeTypeName,jdbcType=VARCHAR}, 
+      #{masterName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfo">
+    insert into xiangqin.m01_code_master_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="codeType != null">
+        code_type,
+      </if>
+      <if test="masterCode != null">
+        master_code,
+      </if>
+      <if test="codeTypeName != null">
+        code_type_name,
+      </if>
+      <if test="masterName != null">
+        master_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="codeType != null">
+        #{codeType,jdbcType=VARCHAR},
+      </if>
+      <if test="masterCode != null">
+        #{masterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="codeTypeName != null">
+        #{codeTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="masterName != null">
+        #{masterName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfo">
+    update xiangqin.m01_code_master_info
+    <set>
+      <if test="codeTypeName != null">
+        code_type_name = #{codeTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="masterName != null">
+        master_name = #{masterName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code_type = #{codeType,jdbcType=VARCHAR}
+      and master_code = #{masterCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfo">
+    update xiangqin.m01_code_master_info
+    set code_type_name = #{codeTypeName,jdbcType=VARCHAR},
+      master_name = #{masterName,jdbcType=VARCHAR}
+    where code_type = #{codeType,jdbcType=VARCHAR}
+      and master_code = #{masterCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

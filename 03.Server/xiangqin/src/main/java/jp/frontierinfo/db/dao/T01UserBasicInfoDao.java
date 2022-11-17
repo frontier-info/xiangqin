@@ -2,6 +2,7 @@ package jp.frontierinfo.db.dao;
 
 import java.util.List;
 
+import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
@@ -10,6 +11,12 @@ public interface T01UserBasicInfoDao {
 	
 	// 查询指定检索条件的30名异性信息
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
+	
+	// 查询指定检索条件的用户全部信息
+	List<UserFullInfo> selectUserFullInfoLi(T01UserSearchInfo searchInfo);
+	
+	// 查询指定用户的全部信息
+	UserFullInfo selectUserFullInfoByUid(String uid);
 	
     int deleteByPrimaryKey(String uid);
 

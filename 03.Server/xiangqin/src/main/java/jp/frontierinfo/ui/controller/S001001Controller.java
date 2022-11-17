@@ -77,10 +77,10 @@ public class S001001Controller {
 		request.getSession().setAttribute("userLoginInfo", userLoginInfo);
 		
 		// 登录后检查用户级别
-		if("08".equals(userLoginInfo.getUserRank())) {
+		if("08".equals(userLoginInfo.getUserRankCode())) {
 			// 08:普通管理员->跳转后台管理(普通)页面
 			return "forward:/ui/s009010/e000";
-		} else if("09".equals(userLoginInfo.getUserRank())) {
+		} else if("09".equals(userLoginInfo.getUserRankCode())) {
 			// 09:普通管理员->跳转后台管理(高级)页面
 			return "forward:/ui/s009020/e000";
 		} else {

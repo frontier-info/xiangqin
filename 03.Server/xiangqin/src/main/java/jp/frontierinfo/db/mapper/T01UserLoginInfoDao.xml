@@ -7,13 +7,13 @@
       <arg column="mobile" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="user_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_status_code" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="user_censor_result" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="user_rank" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_rank_code" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, mobile, email, password, user_status, user_censor_result, user_rank
+    uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code
   </sql>
   <!--   用户存在与否验证(手机号) -->
   <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -57,11 +57,11 @@
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info (uid, mobile, email, 
-      password, user_status, user_censor_result, 
-      user_rank)
+      password, user_status_code, user_censor_result, 
+      user_rank_code)
     values (#{uid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{userCensorResult,jdbcType=VARCHAR}, 
-      #{userRank,jdbcType=VARCHAR})
+      #{password,jdbcType=VARCHAR}, #{userStatusCode,jdbcType=VARCHAR}, #{userCensorResult,jdbcType=VARCHAR}, 
+      #{userRankCode,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info
@@ -78,14 +78,14 @@
       <if test="password != null">
         password,
       </if>
-      <if test="userStatus != null">
-        user_status,
+      <if test="userStatusCode != null">
+        user_status_code,
       </if>
       <if test="userCensorResult != null">
         user_censor_result,
       </if>
-      <if test="userRank != null">
-        user_rank,
+      <if test="userRankCode != null">
+        user_rank_code,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -101,14 +101,14 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="userStatus != null">
-        #{userStatus,jdbcType=VARCHAR},
+      <if test="userStatusCode != null">
+        #{userStatusCode,jdbcType=VARCHAR},
       </if>
       <if test="userCensorResult != null">
         #{userCensorResult,jdbcType=VARCHAR},
       </if>
-      <if test="userRank != null">
-        #{userRank,jdbcType=VARCHAR},
+      <if test="userRankCode != null">
+        #{userRankCode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -124,14 +124,14 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="userStatus != null">
-        user_status = #{userStatus,jdbcType=VARCHAR},
+      <if test="userStatusCode != null">
+        user_status_code = #{userStatusCode,jdbcType=VARCHAR},
       </if>
       <if test="userCensorResult != null">
         user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
       </if>
-      <if test="userRank != null">
-        user_rank = #{userRank,jdbcType=VARCHAR},
+      <if test="userRankCode != null">
+        user_rank_code = #{userRankCode,jdbcType=VARCHAR},
       </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
@@ -141,11 +141,9 @@
     set mobile = #{mobile,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      user_status = #{userStatus,jdbcType=VARCHAR},
+      user_status_code = #{userStatusCode,jdbcType=VARCHAR},
       user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
-      user_rank = #{userRank,jdbcType=VARCHAR}
+      user_rank_code = #{userRankCode,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
-  
-  
 </mapper>

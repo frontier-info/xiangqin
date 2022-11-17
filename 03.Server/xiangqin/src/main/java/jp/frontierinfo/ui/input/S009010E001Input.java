@@ -9,7 +9,7 @@ public class S009010E001Input {
 
 	private String uid;
 
-	private Integer sex;
+	private String sex;
 	
 	private Integer ageFrom;
 	

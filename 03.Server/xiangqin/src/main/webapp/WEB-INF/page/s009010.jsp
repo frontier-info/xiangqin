@@ -25,9 +25,6 @@
 		        <a href="${pageContext.request.contextPath}/ui/s009010/e000" class="nav-link">首页</a>
 		       </li>
 		       <li class="nav-item">
-		        <a href="${pageContext.request.contextPath}/ui/s009030" class="nav-link">用户审查</a>
-		       </li>
-		       <li class="nav-item">
 		        <a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">退出登录</a>
 		       </li>
 		      </ul>
@@ -62,8 +59,8 @@
 										<label for="uname">性别：</label> 
 									</p>
 									<p>
-										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="0"> 女</label>
-										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="1" checked="checked"> 男</label>
+										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="女">女</label>
+										<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="男" checked="checked">男</label>
 									</p>
 									</div>
 									<div class="form-inline col-md-4">
@@ -151,7 +148,7 @@
 		</div>
 	</div>
 	</form:form>
-	<c:if test="${s009010Form.userSimpleInfoLi.size() > 0}">
+	<c:if test="${s009010Form.userFullInfoLi.size() > 0}">
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
@@ -163,23 +160,48 @@
 					<div class="row">
 						<div class="col-md-12">
 							<!-- 检索结果区域 -->
-							<ul style="list-style-type: none;">
-								<c:forEach items="${s009010Form.userSimpleInfoLi}" var="userSimpleInfo">
-									<li>
-										<div class="media">
-											<div class="media-left media-top">
-												<img src="${pageContext.request.contextPath}/${userSimpleInfo.uimages}" class="media-object" style="width: 90px">
-											</div>
-											<div class="media-body">
-												<h4 class="media-heading"><a href="${pageContext.request.contextPath}/ui/s009010/e002?uid=${userSimpleInfo.uid}">${userSimpleInfo.uname}</a></h4>
-												<c:if test="${userSimpleInfo.sex==0}"><p>女</p></c:if>
-												<c:if test="${userSimpleInfo.sex==1}"><p>男</p></c:if>
-												<p><c:out value="${userSimpleInfo.introduce}"/></p>
-											</div>
-										</div>
-									</li>
-								</c:forEach>
-							</ul>
+					         <table id="userFullInfoTable" class="table table-bordered table-striped">
+						      <thead>
+							   <tr>
+							    <th>用户ID</th>
+							    <th>姓名</th>
+							    <th>性别</th>
+							    <th>出生年月</th>
+							    <th>电话号码</th>
+							    <th>邮箱</th>
+							    <th>籍贯</th>
+							    <th>现住址</th>
+							    <th>职业</th>
+							    <th>兴趣</th>
+							    <th>身高</th>
+							    <th>体重</th>
+							    <th>用户状态</th>
+							    <th>用户级别</th>
+							    <th>审核结果</th>
+							   </tr>
+						      </thead>
+						      <tbody>
+						      <c:forEach items="${s009010Form.userFullInfoLi}" var="userFullInfo">
+							    <tr>
+							     <td>${userFullInfo.uid}</td>
+							     <td><a href="${pageContext.request.contextPath}/ui/s009010/e002?uid=${userFullInfo.uid}">${userFullInfo.uname}</a></td>
+							     <td>${userFullInfo.sex}</td>
+							     <td><fmt:formatDate type="date" value="${userFullInfo.birthDate}"/></td>
+							     <td>${userFullInfo.mobile}</td>
+							     <td>${userFullInfo.email}</td>
+							     <td>${userFullInfo.birthPlace}</td>
+							     <td>${userFullInfo.address}</td>
+							     <td>${userFullInfo.profession}</td>
+							     <td>${userFullInfo.interest}</td>
+							     <td>${userFullInfo.uheight}</td>
+							     <td>${userFullInfo.uweight}</td>
+							     <td>${userFullInfo.userStatusName}</td>
+							     <td>${userFullInfo.userRankName}</td>
+							     <td>${userFullInfo.userCensorResult}</td>
+							    </tr>
+							  </c:forEach>
+						      </tbody>
+					         </table>
 						</div>
 					</div>
 				</div>
@@ -189,4 +211,31 @@
 	</c:if>
 
 </body>
+ <script>
+ $(document).ready(function() {
+     $("#userFullInfoTable").dataTable({
+    	 // 开启外部CSS
+    	 "jQueryUI": true,
+    	 // 关闭排序
+    	 "ordering": true,
+    	 // 关闭搜索
+    	 "searching": false,
+    	 "scrollY": "400px",
+    	 "scrollCollapse": true,
+    	 // 分页按钮
+    	 "pagingType": 'full_numbers',
+    	 // 信息
+    	 "info": "从 0 到 0 的第 0 页",
+    	 // 国际化
+    	 "language": {
+   	        "paginate": {
+   	            "first": '««',
+   	            "previous": '«',
+   	            "next": '»',
+   	            "last": '»»'
+   	        },
+       	 }
+     });
+ });
+ </script>
 </html>

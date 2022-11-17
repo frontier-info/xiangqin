@@ -2,8 +2,7 @@ package jp.frontierinfo.ui.form;
 
 import java.util.List;
 
-import jp.frontierinfo.db.bean.UserSimpleInfo;
-import jp.frontierinfo.db.entity.T01UserBasicInfo;
+import jp.frontierinfo.db.bean.UserFullInfo;
 import lombok.Data;
 
 @Data
@@ -15,9 +14,9 @@ public class S009010Form {
 	
 	private List<String> professionLi;
 	
-	private List<UserSimpleInfo> userSimpleInfoLi;
+	private List<UserFullInfo> userFullInfoLi;
 	
 	private String uid;
 	
-	private T01UserBasicInfo userBasicInfo;
+	private UserFullInfo userFullInfo;
 }

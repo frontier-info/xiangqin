@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.dao.T01UserBasicInfoDao;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
@@ -21,6 +22,16 @@ public class T01UserBasicInfoAccess {
 	// 查询指定检索条件的30名异性信息
 	public List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo){
 		return t01UserBasicInfoDao.selectRecommendList(searchInfo);
+	}
+	
+	// 查询指定检索条件的用户全部信息
+	public List<UserFullInfo> selectUserFullInfoLi(T01UserSearchInfo searchInfo){
+		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
+	}
+	
+	// 查询指定用户的全部信息
+	public UserFullInfo selectUserFullInfoByUid(String uid){
+		return t01UserBasicInfoDao.selectUserFullInfoByUid(uid);
 	}
 
 	public int deleteByPrimaryKey(String uid) {

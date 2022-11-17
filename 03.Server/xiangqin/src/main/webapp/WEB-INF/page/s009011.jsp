@@ -25,9 +25,6 @@
 		        <a href="${pageContext.request.contextPath}/ui/s009010/e000" class="nav-link">首页</a>
 		       </li>
 		       <li class="nav-item">
-		        <a href="${pageContext.request.contextPath}/ui/s009030" class="nav-link">用户审查</a>
-		       </li>
-		       <li class="nav-item">
 		        <a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">退出登录</a>
 		       </li>
 		      </ul>
@@ -50,50 +47,41 @@
 						<div class="col-md-12">
 							<!-- 用户详细信息 -->
 							<div class="row">
-								<div class="col-md-4"></div>
+								<div class="col-md-2"></div>
 								<div class="col-md-4">
-									<div>
-										<label>用户名:${s009010Form.userBasicInfo.uname}</label>
+									<div class="media">
+										<div class="media-left media-top">
+											<img
+												src="${pageContext.request.contextPath}/${s009010Form.userFullInfo.uimages}"
+												class="media-object" style="width: 90px">用户个人照片
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">用户名:${s009010Form.userFullInfo.uname}</h4>
+											<p>性别:${s009010Form.userFullInfo.sex}</p>
+											<p>自我介绍:${s009010Form.userFullInfo.introduce}</p>
+											<p>出生年月日:<fmt:formatDate type="date" value="${s009010Form.userFullInfo.birthDate}"/></p>
+											<p>出生地:${s009010Form.userFullInfo.birthPlace}</p>
+										</div>
 									</div>
-									<div>
-										<label>性别:
-										<c:if test="${s009010Form.userBasicInfo.sex==0}" >女</c:if>
-										<c:if test="${s009010Form.userBasicInfo.sex==1}" >男</c:if>
-										</label>
-									</div>
-									<div>
-										<label>出生年月日:${s009010Form.userBasicInfo.birthDate}</label>
-									</div>
-									<div>
-										<label>出生地:${s009010Form.userBasicInfo.birthPlace}</label>
-									</div>
-									<div>
-										<label>住所:${s009010Form.userBasicInfo.address}</label>
-									</div>
-									<div>
-										<label>职业:${s009010Form.userBasicInfo.profession}</label>
-									</div>
-									<div>
-										<label>兴趣:${s009010Form.userBasicInfo.interest}</label>
-									</div>
-									<div>
-										<label>身高:${s009010Form.userBasicInfo.uheight}</label>
-									</div>
-									<div>
-										<label>体重:${s009010Form.userBasicInfo.uweight}</label>
-									</div>
-									<div>
-										<label>自我介绍:${s009010Form.userBasicInfo.introduce}</label>
-									</div>
-									<div>
-										<label>上传照片:${s009010Form.userBasicInfo.uimages}</label>
-									</div>
-									<div>
-										<label>上传照片:${s009010Form.userBasicInfo.identificationPhoto}</label>
+								</div>
+								<div class="col-md-4">
+									<div class="media">
+										<div class="media-left media-top">
+											<img
+												src="${pageContext.request.contextPath}/${s009010Form.userFullInfo.identificationPhoto}"
+												class="media-object" style="width: 90px">身份认证信息
+										</div>
+										<div class="media-body">
+											<p>住所:${s009010Form.userFullInfo.address}</p>
+											<p>职业:${s009010Form.userFullInfo.profession}</p>
+											<p>兴趣:${s009010Form.userFullInfo.interest}</p>
+											<p>身高:${s009010Form.userFullInfo.uheight}</p>
+											<p>体重:${s009010Form.userFullInfo.uweight}</p>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4"></div>
+							<div class="col-md-2"></div>
 						</div>
 					</div>
 				</div>

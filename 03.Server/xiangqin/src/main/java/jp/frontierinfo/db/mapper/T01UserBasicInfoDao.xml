@@ -29,7 +29,7 @@
     from xiangqin.t01_user_basic_info
     <where>
       <if test="sex != null">
-        and sex = #{sex,jdbcType=INTEGER}
+        and sex = #{sex,jdbcType=VARCHAR}
       </if>
       <if test="ageFrom != null and ageFrom != ''">
         and date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
@@ -60,6 +60,109 @@
       </if>
     </where>
     limit 30   
+     
+  </select>
+  <!--   查询指定检索条件的用户全部信息 -->
+  <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+	select
+	    basic.uid
+	    , basic.uname
+	    , basic.sex
+	    , basic.birth_date birthDate
+	    , login.mobile
+	    , login.email
+	    , basic.birth_place birthPlace
+	    , basic.address
+	    , basic.profession
+	    , basic.interest
+	    , basic.uheight
+	    , basic.uweight
+	    , basic.introduce
+	    , basic.uimages
+	    , basic.identification_photo identificationPhoto
+	    , login.user_status_code userStatusCode
+	    , code_user_status.master_name userStatusName
+	    , login.user_rank_code userRankCode
+	    , code_user_rank.master_name userRankName
+	    , login.user_censor_result userCensorResult
+	from
+	    xiangqin.t01_user_basic_info basic
+	    inner join xiangqin.t01_user_login_info login
+	    on basic.uid = login.uid
+	    inner join xiangqin.m01_code_master_info code_user_status
+	    on code_user_status.code_type = '01'
+	    and code_user_status.master_code = login.user_status_code
+	    inner join xiangqin.m01_code_master_info code_user_rank
+	    on code_user_rank.code_type = '02'
+	    and code_user_rank.master_code = login.user_rank_code
+    <where>
+      <if test="sex != null">
+        and sex = #{sex,jdbcType=VARCHAR}
+      </if>
+      <if test="ageFrom != null and ageFrom != ''">
+        and date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
+      </if>
+      <if test="ageTo != null and ageTo != ''">
+        and date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
+      </if>
+      <if test="birthPlace != null and birthPlace != ''">
+        and birth_place = #{birthPlace,jdbcType=VARCHAR}
+      </if>
+      <if test="address != null and address != ''">
+        and address = #{address,jdbcType=VARCHAR}
+      </if>
+      <if test="profession != null and profession != ''">
+        and profession = #{profession,jdbcType=VARCHAR}
+      </if>
+      <if test="uheightFrom != null and uheightFrom != ''">
+        and uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
+      </if>
+      <if test="uheightTo != null and uheightTo != ''">
+        and uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
+      </if>
+      <if test="uweightFrom != null and uweightFrom != ''">
+        and uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
+      </if>
+      <if test="uweightTo != null and uweightTo != ''">
+        and uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
+      </if>
+    </where>
+     
+  </select>
+  <!--   查询指定用户的全部信息 -->
+  <select id="selectUserFullInfoByUid" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+	select
+	    basic.uid
+	    , basic.uname
+	    , basic.sex
+	    , basic.birth_date birthDate
+	    , login.mobile
+	    , login.email
+	    , basic.birth_place birthPlace
+	    , basic.address
+	    , basic.profession
+	    , basic.interest
+	    , basic.uheight
+	    , basic.uweight
+	    , basic.introduce
+	    , basic.uimages
+	    , basic.identification_photo identificationPhoto
+	    , login.user_status_code userStatusCode
+	    , code_user_status.master_name userStatusName
+	    , login.user_rank_code userRankCode
+	    , code_user_rank.master_name userRankName
+	    , login.user_censor_result userCensorResult
+	from
+	    xiangqin.t01_user_basic_info basic
+	    inner join xiangqin.t01_user_login_info login
+	    on basic.uid = login.uid
+	    inner join xiangqin.m01_code_master_info code_user_status
+	    on code_user_status.code_type = '01'
+	    and code_user_status.master_code = login.user_status_code
+	    inner join xiangqin.m01_code_master_info code_user_rank
+	    on code_user_rank.code_type = '02'
+	    and code_user_rank.master_code = login.user_rank_code
+    where basic.uid = #{uid,jdbcType=VARCHAR}
      
   </select>
   <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->

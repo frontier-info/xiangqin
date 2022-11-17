@@ -9,20 +9,20 @@ public class T01UserLoginInfo {
 
     private String password;
 
-    private String userStatus;
+    private String userStatusCode;
 
     private String userCensorResult;
 
-    private String userRank;
+    private String userRankCode;
 
-    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatus, String userCensorResult, String userRank) {
+    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatusCode, String userCensorResult, String userRankCode) {
         this.uid = uid;
         this.mobile = mobile;
         this.email = email;
         this.password = password;
-        this.userStatus = userStatus;
+        this.userStatusCode = userStatusCode;
         this.userCensorResult = userCensorResult;
-        this.userRank = userRank;
+        this.userRankCode = userRankCode;
     }
 
     public T01UserLoginInfo() {
@@ -61,12 +61,12 @@ public class T01UserLoginInfo {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getUserStatus() {
-        return userStatus;
+    public String getUserStatusCode() {
+        return userStatusCode;
     }
 
-    public void setUserStatus(String userStatus) {
-        this.userStatus = userStatus == null ? null : userStatus.trim();
+    public void setUserStatusCode(String userStatusCode) {
+        this.userStatusCode = userStatusCode == null ? null : userStatusCode.trim();
     }
 
     public String getUserCensorResult() {
@@ -77,11 +77,11 @@ public class T01UserLoginInfo {
         this.userCensorResult = userCensorResult == null ? null : userCensorResult.trim();
     }
 
-    public String getUserRank() {
-        return userRank;
+    public String getUserRankCode() {
+        return userRankCode;
     }
 
-    public void setUserRank(String userRank) {
-        this.userRank = userRank == null ? null : userRank.trim();
+    public void setUserRankCode(String userRankCode) {
+        this.userRankCode = userRankCode == null ? null : userRankCode.trim();
     }
 }

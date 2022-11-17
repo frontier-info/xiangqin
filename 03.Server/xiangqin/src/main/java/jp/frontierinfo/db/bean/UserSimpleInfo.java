@@ -9,7 +9,7 @@ public class UserSimpleInfo {
 	
 	private String uname;
 	
-	private Integer sex;
+	private String sex;
 	
 	private String introduce;
 	
