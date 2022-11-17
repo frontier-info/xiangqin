@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jp.frontierinfo.db.bean.BackstageSerachInfo;
 import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.dao.T01UserBasicInfoDao;
@@ -25,7 +26,7 @@ public class T01UserBasicInfoAccess {
 	}
 	
 	// 查询指定检索条件的用户全部信息
-	public List<UserFullInfo> selectUserFullInfoLi(T01UserSearchInfo searchInfo){
+	public List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo){
 		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
 	}
 	

@@ -3,7 +3,7 @@ package jp.frontierinfo.ui.input;
 import lombok.Data;
 
 @Data
-public class S001002E001Input {
+public class S009020E003Input {
 	
 	private String uid;
 		
@@ -12,4 +12,6 @@ public class S001002E001Input {
 	private String email;
 	
 	private String password;
+	
+	private String userRankCode;
 }

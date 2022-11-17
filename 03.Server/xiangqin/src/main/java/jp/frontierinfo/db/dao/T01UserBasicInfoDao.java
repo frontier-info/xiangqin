@@ -2,6 +2,7 @@ package jp.frontierinfo.db.dao;
 
 import java.util.List;
 
+import jp.frontierinfo.db.bean.BackstageSerachInfo;
 import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
@@ -13,7 +14,7 @@ public interface T01UserBasicInfoDao {
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
 	
 	// 查询指定检索条件的用户全部信息
-	List<UserFullInfo> selectUserFullInfoLi(T01UserSearchInfo searchInfo);
+	List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo);
 	
 	// 查询指定用户的全部信息
 	UserFullInfo selectUserFullInfoByUid(String uid);

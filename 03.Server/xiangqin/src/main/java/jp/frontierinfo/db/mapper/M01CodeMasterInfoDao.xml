@@ -12,6 +12,17 @@
   <sql id="Base_Column_List">
     code_type, master_code, code_type_name, master_name
   </sql>
+  
+  <!--   查询编码数据 -->
+  <select id="selectCodeMasterData" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.PullDownBean">
+    select 
+     master_code selectKey
+     , master_name selectValue
+    from xiangqin.m01_code_master_info
+    where code_type = #{codeType,jdbcType=VARCHAR}
+  </select>
+  
+  <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="jp.frontierinfo.db.entity.M01CodeMasterInfoKey" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

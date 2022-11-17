@@ -63,7 +63,7 @@
      
   </select>
   <!--   查询指定检索条件的用户全部信息 -->
-  <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+  <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.bean.BackstageSerachInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
 	    basic.uid
 	    , basic.uname
@@ -97,34 +97,40 @@
 	    and code_user_rank.master_code = login.user_rank_code
     <where>
       <if test="sex != null">
-        and sex = #{sex,jdbcType=VARCHAR}
+        and basic.sex = #{sex,jdbcType=VARCHAR}
       </if>
       <if test="ageFrom != null and ageFrom != ''">
-        and date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
+        and basic.date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
       </if>
       <if test="ageTo != null and ageTo != ''">
-        and date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
+        and basic.date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
       </if>
       <if test="birthPlace != null and birthPlace != ''">
-        and birth_place = #{birthPlace,jdbcType=VARCHAR}
+        and basic.birth_place = #{birthPlace,jdbcType=VARCHAR}
       </if>
       <if test="address != null and address != ''">
-        and address = #{address,jdbcType=VARCHAR}
+        and basic.address = #{address,jdbcType=VARCHAR}
       </if>
       <if test="profession != null and profession != ''">
-        and profession = #{profession,jdbcType=VARCHAR}
+        and basic.profession = #{profession,jdbcType=VARCHAR}
       </if>
       <if test="uheightFrom != null and uheightFrom != ''">
-        and uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
+        and basic.uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
       </if>
       <if test="uheightTo != null and uheightTo != ''">
-        and uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
+        and basic.uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
       </if>
       <if test="uweightFrom != null and uweightFrom != ''">
-        and uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
+        and basic.uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
       </if>
       <if test="uweightTo != null and uweightTo != ''">
-        and uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
+        and basic.uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
+      </if>
+      <if test="userStatus != null and userStatus != ''">
+        and login.user_status_code = #{userStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="userRank != null and userRank != ''">
+        and login.user_rank_code = #{userRank,jdbcType=VARCHAR}
       </if>
     </where>
      

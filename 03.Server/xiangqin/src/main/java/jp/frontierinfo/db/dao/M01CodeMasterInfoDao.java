@@ -1,9 +1,16 @@
 package jp.frontierinfo.db.dao;
 
+import java.util.List;
+
+import jp.frontierinfo.db.bean.PullDownBean;
 import jp.frontierinfo.db.entity.M01CodeMasterInfo;
 import jp.frontierinfo.db.entity.M01CodeMasterInfoKey;
 
 public interface M01CodeMasterInfoDao {
+	
+	// 查询编码数据
+	List<PullDownBean> selectCodeMasterData(String codeType);
+	
     int deleteByPrimaryKey(M01CodeMasterInfoKey key);
 
     int insert(M01CodeMasterInfo record);
