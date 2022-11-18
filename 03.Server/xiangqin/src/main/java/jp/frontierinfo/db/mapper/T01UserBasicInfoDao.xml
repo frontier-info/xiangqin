@@ -85,6 +85,8 @@
 	    , login.user_rank_code userRankCode
 	    , code_user_rank.master_name userRankName
 	    , login.user_censor_result userCensorResult
+	    , login.create_time createTime
+	    , login.delete_flg deleteFlg
 	from
 	    xiangqin.t01_user_basic_info basic
 	    right join xiangqin.t01_user_login_info login
@@ -161,6 +163,8 @@
 	    , login.user_rank_code userRankCode
 	    , code_user_rank.master_name userRankName
 	    , login.user_censor_result userCensorResult
+	    , login.create_time createTime
+	    , login.delete_flg deleteFlg
 	from
 	    xiangqin.t01_user_basic_info basic
 	    left join xiangqin.t01_user_login_info login

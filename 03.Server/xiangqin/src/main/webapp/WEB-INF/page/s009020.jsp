@@ -25,9 +25,6 @@
 		        <a href="${pageContext.request.contextPath}/ui/s009020/e000" class="nav-link">首页</a>
 		       </li>
 		       <li class="nav-item">
-		        <a href="${pageContext.request.contextPath}/ui/s009030/e000" class="nav-link">用户审查</a>
-		       </li>
-		       <li class="nav-item">
 		        <a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">退出登录</a>
 		       </li>
 		      </ul>
@@ -101,8 +98,9 @@
 								<div class="col-md-3">
 								<p>
 									<label for="uname">性别：</label>
+									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="" checked="checked">不限</label>
 									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="女">女</label>
-									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="男" checked="checked">男</label>
+									<label for="sex" class="radio-inline"> <input type="radio" name="sex" value="男">男</label>
 								</p>
 								</div>
 								<div class="col-md-3">
@@ -205,7 +203,7 @@
 					<p>
 						<label for="userRankCode">用户级别:</label>
 						<select name="userRankCode" class="form-control">
-							<option value="">--请选择用户级别--</option>
+							<option value="">--请选择用户权限--</option>
 							<c:forEach items="${s009020Form.userRankLi}" var="userRank">
 								<option value="${userRank.selectKey}">${userRank.selectValue}</option>
 							</c:forEach>
@@ -257,6 +255,8 @@
 							    <th>用户状态</th>
 							    <th>用户级别</th>
 							    <th>审核结果</th>
+							    <th>创建时间</th>
+							    <th>存续状态</th>
 							   </tr>
 						      </thead>
 						      <tbody>
@@ -277,6 +277,8 @@
 							     <td>${userFullInfo.userStatusName}</td>
 							     <td>${userFullInfo.userRankName}</td>
 							     <td>${userFullInfo.userCensorResult}</td>
+							     <td><fmt:formatDate type="date" value="${userFullInfo.createTime}"/></td>
+							     <td><c:out value="${ConstantMap.DELETE_STATUS.get(userFullInfo.deleteFlg)}"></c:out></td>
 							    </tr>
 								</c:forEach>
 						      </tbody>

@@ -1,5 +1,7 @@
 package jp.frontierinfo.db.entity;
 
+import java.util.Date;
+
 public class T01UserLoginInfo {
     private String uid;
 
@@ -15,7 +17,11 @@ public class T01UserLoginInfo {
 
     private String userRankCode;
 
-    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatusCode, String userCensorResult, String userRankCode) {
+    private Date createTime;
+
+    private Boolean deleteFlg;
+
+    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatusCode, String userCensorResult, String userRankCode, Date createTime, Boolean deleteFlg) {
         this.uid = uid;
         this.mobile = mobile;
         this.email = email;
@@ -23,6 +29,8 @@ public class T01UserLoginInfo {
         this.userStatusCode = userStatusCode;
         this.userCensorResult = userCensorResult;
         this.userRankCode = userRankCode;
+        this.createTime = createTime;
+        this.deleteFlg = deleteFlg;
     }
 
     public T01UserLoginInfo() {
@@ -83,5 +91,21 @@ public class T01UserLoginInfo {
 
     public void setUserRankCode(String userRankCode) {
         this.userRankCode = userRankCode == null ? null : userRankCode.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Boolean getDeleteFlg() {
+        return deleteFlg;
+    }
+
+    public void setDeleteFlg(Boolean deleteFlg) {
+        this.deleteFlg = deleteFlg;
     }
 }

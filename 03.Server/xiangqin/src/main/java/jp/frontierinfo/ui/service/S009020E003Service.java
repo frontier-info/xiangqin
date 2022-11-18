@@ -1,5 +1,7 @@
 package jp.frontierinfo.ui.service;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
@@ -23,6 +25,8 @@ public class S009020E003Service extends AbstractServiceImpl<S009020E003Input, S0
 		info.setPassword(input.getPassword());
 		info.setUserStatusCode("00");
 		info.setUserRankCode(input.getUserRankCode());
+		info.setCreateTime(new Date());
+		info.setDeleteFlg(false);
 		
 		t01UserLoginInfoAccess.insert(info);	
 		

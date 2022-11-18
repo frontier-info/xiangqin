@@ -22,4 +22,6 @@ public class S009020Form {
 	private List<UserFullInfo> userFullInfoLi;
 	
 	private UserFullInfo userFullInfo;
+	
+	private String uid;
 }

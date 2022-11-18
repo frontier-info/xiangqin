@@ -47,4 +47,8 @@ public class UserFullInfo {
     
     private String userCensorResult;
 
+    private Date createTime;
+
+    private Boolean deleteFlg;
+
 }

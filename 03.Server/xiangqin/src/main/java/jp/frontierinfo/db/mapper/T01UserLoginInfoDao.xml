@@ -10,10 +10,13 @@
       <arg column="user_status_code" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="user_censor_result" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="user_rank_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="delete_flg" javaType="java.lang.Boolean" jdbcType="BIT" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code
+    uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code, 
+    create_time, delete_flg
   </sql>
   <!--   用户存在与否验证(手机号) -->
   <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -58,10 +61,12 @@
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info (uid, mobile, email, 
       password, user_status_code, user_censor_result, 
-      user_rank_code)
+      user_rank_code, create_time, delete_flg
+      )
     values (#{uid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{userStatusCode,jdbcType=VARCHAR}, #{userCensorResult,jdbcType=VARCHAR}, 
-      #{userRankCode,jdbcType=VARCHAR})
+      #{userRankCode,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{deleteFlg,jdbcType=BIT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info
@@ -87,6 +92,12 @@
       <if test="userRankCode != null">
         user_rank_code,
       </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -109,6 +120,12 @@
       </if>
       <if test="userRankCode != null">
         #{userRankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="deleteFlg != null">
+        #{deleteFlg,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -133,6 +150,12 @@
       <if test="userRankCode != null">
         user_rank_code = #{userRankCode,jdbcType=VARCHAR},
       </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg = #{deleteFlg,jdbcType=BIT},
+      </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
@@ -143,7 +166,9 @@
       password = #{password,jdbcType=VARCHAR},
       user_status_code = #{userStatusCode,jdbcType=VARCHAR},
       user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
-      user_rank_code = #{userRankCode,jdbcType=VARCHAR}
+      user_rank_code = #{userRankCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      delete_flg = #{deleteFlg,jdbcType=BIT}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

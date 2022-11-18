@@ -19,14 +19,23 @@ import jp.frontierinfo.ui.input.S009020E000Input;
 import jp.frontierinfo.ui.input.S009020E001Input;
 import jp.frontierinfo.ui.input.S009020E002Input;
 import jp.frontierinfo.ui.input.S009020E003Input;
+import jp.frontierinfo.ui.input.S009020E004Input;
+import jp.frontierinfo.ui.input.S009020E005Input;
+import jp.frontierinfo.ui.input.S009020E006Input;
 import jp.frontierinfo.ui.output.S009020E000Output;
 import jp.frontierinfo.ui.output.S009020E001Output;
 import jp.frontierinfo.ui.output.S009020E002Output;
 import jp.frontierinfo.ui.output.S009020E003Output;
+import jp.frontierinfo.ui.output.S009020E004Output;
+import jp.frontierinfo.ui.output.S009020E005Output;
+import jp.frontierinfo.ui.output.S009020E006Output;
 import jp.frontierinfo.ui.service.S009020E000Service;
 import jp.frontierinfo.ui.service.S009020E001Service;
 import jp.frontierinfo.ui.service.S009020E002Service;
 import jp.frontierinfo.ui.service.S009020E003Service;
+import jp.frontierinfo.ui.service.S009020E004Service;
+import jp.frontierinfo.ui.service.S009020E005Service;
+import jp.frontierinfo.ui.service.S009020E006Service;
 
 @Controller
 @RequestMapping("/ui")
@@ -44,6 +53,15 @@ public class S009020Controller {
 	
 	@Autowired
 	private S009020E003Service s009020E003Service;
+	
+	@Autowired
+	private S009020E004Service s009020E004Service;
+	
+	@Autowired
+	private S009020E005Service s009020E005Service;
+	
+	@Autowired
+	private S009020E006Service s009020E006Service;
 	
 	@ModelAttribute("s009020Form")
 	public S009020Form getS009020Form() {
@@ -141,6 +159,78 @@ public class S009020Controller {
 		model.addAttribute("message", "用户添加成功.用户ID:"+output.getUid());
 
 		return "s009020";
+	}
+
+	/**
+	 * 变更用户权限
+	 */
+	@RequestMapping(value="/s009021", params="changeUserRank", method=RequestMethod.POST)
+	public String e004(HttpServletRequest request, HttpServletResponse response, 
+			S009020Form form, BindingResult result, 
+			S009020E004Input input, Model model) {
+		System.out.println("变更用户权限");
+		S009020E004Output output = new S009020E004Output();
+		try {
+			output = s009020E004Service.execute(input);
+		} catch (BusinessException e) {
+			model.addAttribute("message", e.getMessage());
+        	return "s009021";
+		}
+
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s009020Form", form);
+		
+		model.addAttribute("message", "用户权限变更成功.用户ID:"+output.getUid());
+
+		return "s009021";
+	}
+
+	/**
+	 * 新用户审查结果
+	 */
+	@RequestMapping(value="/s009021", params="updateUserStatus", method=RequestMethod.POST)
+	public String e005(HttpServletRequest request, HttpServletResponse response, 
+			S009020Form form, BindingResult result, 
+			S009020E005Input input, Model model) {
+		System.out.println("新用户审查结果");
+		S009020E005Output output = new S009020E005Output();
+		try {
+			output = s009020E005Service.execute(input);
+		} catch (BusinessException e) {
+			model.addAttribute("message", e.getMessage());
+        	return "s009021";
+		}
+
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s009020Form", form);
+		
+		model.addAttribute("message", "用户审查结果更新成功.用户ID:"+output.getUid());
+
+		return "s009021";
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@RequestMapping(value="/s009021", params="deleteUser", method=RequestMethod.POST)
+	public String e006(HttpServletRequest request, HttpServletResponse response, 
+			S009020Form form, BindingResult result, 
+			S009020E006Input input, Model model) {
+		System.out.println("删除用户");
+		S009020E006Output output = new S009020E006Output();
+		try {
+			output = s009020E006Service.execute(input);
+		} catch (BusinessException e) {
+			model.addAttribute("message", e.getMessage());
+        	return "s009021";
+		}
+
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s009020Form", form);
+		
+		model.addAttribute("message", "用户删除成功.用户ID:"+output.getUid());
+
+		return "s009021";
 	}
 	
 }
