@@ -12,9 +12,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.frontierinfo.api.abstractcls.AbstractController;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S001001Form;
+import jp.frontierinfo.ui.form.S001002Form;
 import jp.frontierinfo.ui.form.S001004Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.output.S001001E001Output;
@@ -22,7 +24,7 @@ import jp.frontierinfo.ui.service.S001001E001Service;
 
 @Controller
 @RequestMapping("/ui")  
-public class S001001Controller {
+public class S001001Controller extends AbstractController {
 	
 	@Autowired
 	private S001001E001Service s001001E001Service;
@@ -35,23 +37,9 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", method=RequestMethod.GET)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
-			Model model) {
-		System.out.println("网站首页");
-		S001001Form from = new S001001Form();
-		from.setMobile("123");
-		from.setPassword("123");
-		model.addAttribute("s001001Form", from);
+			S001001Form form, Model model) {
+		System.out.println("登录页面");
 		return "s001001";
-	}
-	
-	/**
-	 * 网站首页
-	 */
-	@RequestMapping(value="/s002001", method=RequestMethod.GET)
-	public String e010(HttpServletRequest request, HttpServletResponse response, 
-			Model model) {
-		System.out.println("网站首页");
-		return "s002001";
 	}
 	
 	/**
@@ -59,10 +47,12 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", params="login", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
-			@Validated S001001Form form, BindingResult result, 
-			S001001E001Input input, Model model) {
-		System.out.println("登录");
-        if(result.hasErrors()) {
+			S001001Form form, BindingResult formResult, 
+			@Validated S001001E001Input input, BindingResult inputResult, 
+			Model model) {
+		System.out.println("执行登录");
+        if(inputResult.hasErrors()) {
+        	errorCopy(formResult, inputResult);
         	return "s001001";
         } 
 		S001001E001Output output = new S001001E001Output();
@@ -100,7 +90,7 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", params="register", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
-			S001001Form form, S001001E001Input input) {
+			S001002Form form, Model model) {
 		System.out.println("注册");
 		
 		return "s001002";
@@ -111,10 +101,8 @@ public class S001001Controller {
 	 */
 	@RequestMapping(value="/s001001", params="repassword", method=RequestMethod.POST)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
-			S001001Form form, S001001E001Input input, Model model) {
+			S001004Form form, Model model) {
 		System.out.println("忘记密码");
-		
-		model.addAttribute("s001004Form", new S001004Form());
 		
 		return "s001004";
 	}

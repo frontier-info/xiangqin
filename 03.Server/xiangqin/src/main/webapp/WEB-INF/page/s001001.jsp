@@ -30,8 +30,8 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
        <form:form modelAttribute="s001001Form" action="/xiangqin/ui/s001001" method="post">
+       <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
          <div class="form-group">
-          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
           <c:if test="${not empty message}">
            <div class="alert alert-success" role="alert"><p>${message}</p></div>
           </c:if>

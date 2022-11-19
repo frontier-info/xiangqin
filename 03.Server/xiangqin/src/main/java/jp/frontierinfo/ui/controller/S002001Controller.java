@@ -35,9 +35,19 @@ public class S002001Controller {
 	
 //	@Autowired
 //	private MessageSource messageSource;
+	
+	/**
+	 * 首页按钮
+	 */
+	@RequestMapping(value="/s002001", method=RequestMethod.GET)
+	public String e010(HttpServletRequest request, HttpServletResponse response, 
+			Model model) {
+		System.out.println("首页按钮");
+		return "s002001";
+	}
 
 	/**
-	 * 表头
+	 * 登录后跳转用户主页
 	 */
 	@RequestMapping(value="/s002001/e000", method=RequestMethod.POST)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 

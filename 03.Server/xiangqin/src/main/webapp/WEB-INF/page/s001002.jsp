@@ -29,21 +29,21 @@
       <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-       <form:form modelAttribute="s001001Form" action="/xiangqin/ui/s001002" method="post">
+       <form:form modelAttribute="s001002Form" action="/xiangqin/ui/s001002" method="post">
          <div class="form-group">
           <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
           <c:if test="${not empty message}">
            <div class="alert alert-success" role="alert"><p>${message}</p></div>
           </c:if>
           <label for="name">手机号</label>
-          <input class="form-control" type="text" placeholder="手机号码" name="mobile" value="123"/>
+          <form:input class="form-control" placeholder="手机号码" path="mobile"/>
           <label for="name">验证码</label>
-          <input class="form-control" type="text" placeholder="短信验证码" name="registerSmsCode"/>
+          <form:input class="form-control" placeholder="短信验证码" path="registerSmsCode"/>
  		  <button type="submit" class="btn btn-default" name="getVerificationCode">获取验证码</button>
  		  <hr><label for="name">密码</label>
- 		  <input class="form-control" type="password" name="password" value="123"/>
+ 		  <form:password class="form-control" path="password"/>
  		 <hr> <label for="name">确认密码</label>
- 		  <input class="form-control" type="password" name="repassword" value="123"/>
+ 		  <form:password class="form-control" path="repassword"/>
  		  <hr>
           <button type="submit" class="btn btn-default" name="register">注册</button>
          </div>
