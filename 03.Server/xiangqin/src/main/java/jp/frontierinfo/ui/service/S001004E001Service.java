@@ -28,7 +28,7 @@ public class S001004E001Service extends AbstractServiceImpl<S001004E001Input, S0
 
 		//生成6位数的验证码
 		verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
-		System.out.println("用户验证码:"+verificationCode);
+		System.out.println("用户验证码(密码变更用):"+verificationCode);
 		
 		
 		output.setMobile(input.getMobile());

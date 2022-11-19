@@ -12,6 +12,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.frontierinfo.common.annotation.PrintLog;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001004Form;
 import jp.frontierinfo.ui.input.S001004E001Input;
@@ -28,12 +30,12 @@ public class S001004Controller {
 	/**
 	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
 	 */
+	@PrintLog("忘记密码页面的获取验证码按钮点击")
 	@RequestMapping(value="/s001004", params="sendCheck", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S001004Form form, BindingResult result, 
 			S001004E001Input input, Model model) {
 		
-		System.out.println("验证手机号存在与否");
         if(result.hasErrors()) {
         	return "s001004";
         } 
@@ -48,7 +50,7 @@ public class S001004Controller {
 		
 		//在session里面存验证码
 		HttpSession session = request.getSession();
-		session.setAttribute("verificationCode", output.getVerificationCode());
+		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
 		
 		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
 		
@@ -58,15 +60,15 @@ public class S001004Controller {
 	/**
 	 * 重置密码按钮
 	 */
+	@PrintLog("忘记密码页面的重置密码按钮点击")
 	@RequestMapping(value="/s001004", params="repassword", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S001004Form form, BindingResult result, 
 			S001004E001Input input, Model model) {
 		
-		System.out.println("验证码对比是否正确");
 		HttpSession session = request.getSession();
 		
-		if(!form.getCheck().equals(session.getAttribute("verificationCode").toString())) {
+		if(!form.getCheck().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
 			
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
 			return "s001004";	
@@ -76,7 +78,6 @@ public class S001004Controller {
 				try {
 					s001004E001Service.execute1(input);
 				} catch (BusinessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}else {

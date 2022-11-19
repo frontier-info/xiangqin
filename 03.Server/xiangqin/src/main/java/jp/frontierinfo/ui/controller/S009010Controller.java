@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S009010Form;
 import jp.frontierinfo.ui.input.S009010E000Input;
@@ -47,12 +48,12 @@ public class S009010Controller {
 	/**
 	 * 页面初期表示
 	 */
+	@PrintLog("后台管理(普通)页面初期表示")
 	@RequestMapping(value="/s009010/e000", method= {RequestMethod.POST,RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009010Form") S009010Form form, BindingResult result, 
 			S009010E000Input input, Model model) {
 		
-		System.out.println("后台管理(普通)页面初期表示");
 		S009010E000Output output = new S009010E000Output();
 		try {
 			output = s009010E000Service.execute(input);
@@ -70,11 +71,11 @@ public class S009010Controller {
 	/**
 	 * 用户信息检索
 	 */
+	@PrintLog("后台管理(普通)页面的用户信息检索")
 	@RequestMapping(value="/s009010", params="search", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009010Form") S009010Form form, BindingResult result, 
 			S009010E001Input input, Model model) {
-		System.out.println("用户信息检索");
 		S009010E001Output output = new S009010E001Output();
 		try {
 			output = s009010E001Service.execute(input);
@@ -95,11 +96,11 @@ public class S009010Controller {
 	/**
 	 * 用户信息详细
 	 */
+	@PrintLog("后台管理(普通)页面的用户信息详细")
 	@RequestMapping(value="/s009010/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S009010Form form, BindingResult result, 
 			S009010E002Input input, Model model) {
-		System.out.println("用户信息详细");
 		S009010E002Output output = new S009010E002Output();
 		try {
 			output = s009010E002Service.execute(input);

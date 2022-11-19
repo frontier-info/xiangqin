@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.frontierinfo.api.abstractcls.AbstractController;
+import jp.frontierinfo.common.annotation.PrintLog;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S001002Form;
@@ -36,12 +37,10 @@ public class S001002Controller extends AbstractController {
 	@Autowired
 	private S001002E002Service s001002E002Service;
 	
-	@Autowired
-	private MessageSource messageSource;
-	
 	/**
 	 * 获取验证码按钮
 	 */
+	@PrintLog("注册页面的获取验证码按钮点击")
 	@RequestMapping(value="/s001002", params="getVerificationCode",method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, S001002Form form, 
 			S001002E001Input input, Model model) {
@@ -55,7 +54,7 @@ public class S001002Controller extends AbstractController {
 		
 		HttpSession session = request.getSession();
 		// 将验证码存入session
-		session.setAttribute("VerificationCodeForRegister", output.getVerificationCode());
+		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
 		model.addAttribute("message", "验证码发送成功，请输入验证码");
 
 		return "s001002";
@@ -64,13 +63,12 @@ public class S001002Controller extends AbstractController {
 	/**
 	 * 注册按钮
 	 */
+	@PrintLog("注册页面的获取注册按钮点击")
 	@RequestMapping(value="/s001002", params="register", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S001002Form form, BindingResult formResult, 
 			@Validated S001002E002Input input, BindingResult inputResult, 
 			Model model) {
-		
-		System.out.println("注册执行");	
 		
         if(inputResult.hasErrors()) {
         	errorCopy(formResult, inputResult);
@@ -80,7 +78,7 @@ public class S001002Controller extends AbstractController {
 		// 将验证码从从session里面取出		
 		HttpSession session = request.getSession();
 
-		if(!input.getRegisterSmsCode().equals(session.getAttribute("VerificationCodeForRegister").toString())) {
+		if(!input.getRegisterSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
 			return "s001002";
 		}
