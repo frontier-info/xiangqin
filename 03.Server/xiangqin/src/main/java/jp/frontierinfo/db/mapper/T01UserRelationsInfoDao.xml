@@ -12,6 +12,21 @@
   <sql id="Base_Column_List">
     uid, relation_id, is_send, is_relation
   </sql>
+  <!--   获取我打过招呼的人的数据 -->
+  <select id="selectSendRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.SendRelationUserInfo">
+	select
+		basic.uname,
+		basic.sex,
+		basic.introduce,
+		basic.uimages,
+		relation.is_relation
+	from
+		xiangqin.t01_user_relations_info relation
+		inner join xiangqin.t01_user_basic_info basic
+		on relation.relation_id = basic.uid
+	where
+		relation.uid = #{uid,jdbcType=VARCHAR}
+  </select>
   <!--   查询当前用户是否已向该指定异性发送过邀约信息 -->
   <select id="selectExist" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultType="java.lang.Integer">
     select 

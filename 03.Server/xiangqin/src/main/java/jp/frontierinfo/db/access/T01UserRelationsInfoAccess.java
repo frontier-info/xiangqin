@@ -1,7 +1,10 @@
 package jp.frontierinfo.db.access;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
+import jp.frontierinfo.db.bean.SendRelationUserInfo;
 import jp.frontierinfo.db.dao.T01UserRelationsInfoDao;
 import jp.frontierinfo.db.entity.T01UserRelationsInfo;
 import jp.frontierinfo.db.entity.T01UserRelationsInfoKey;
@@ -13,6 +16,10 @@ public class T01UserRelationsInfoAccess {
 	
 	public T01UserRelationsInfoAccess(T01UserRelationsInfoDao t01UserRelationsInfoDao) {
 		this.t01UserRelationsInfoDao = t01UserRelationsInfoDao;
+	}
+	// 获取我打过招呼的人的数据
+	public List<SendRelationUserInfo> selectSendRelation(String uid){
+		return t01UserRelationsInfoDao.selectSendRelation(uid);
 	}
 	
 	// 查询当前用户是否已向该指定异性发送过邀约信息
