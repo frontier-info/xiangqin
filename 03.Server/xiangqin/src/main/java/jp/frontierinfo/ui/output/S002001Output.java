@@ -9,5 +9,5 @@ import jp.frontierinfo.db.bean.UserSimpleInfo;
 @Data
 public class S002001Output {
 	
-	   private List<T01UserBasicInfo> userSimpleBisicoinfoLi;
+	   private List<UserSimpleInfo> userSimpleInfoLi;
 }   

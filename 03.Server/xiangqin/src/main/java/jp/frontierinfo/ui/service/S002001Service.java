@@ -10,6 +10,7 @@ import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S002001Input;
 import jp.frontierinfo.ui.output.S002001Output;
+import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.bean.UserSimpleInfo;
@@ -19,25 +20,28 @@ import jp.frontierinfo.db.bean.UserSimpleInfo;
 public class S002001Service extends AbstractServiceImpl<S002001Input, S002001Output>{
 
 	
-//	public List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo){
-//		return t01UserBasicInfoDao.selectRecommendList(searchInfo);
-//	}
+
 	@Override
-	public S002001Output execute(S002001Input iutput) throws BusinessException {
+	public S002001Output execute(S002001Input output) throws BusinessException {
 		
 		T01UserBasicInfo UserSimpleInfo = new T01UserBasicInfo();
+
+
+
+		T01UserSearchInfo searchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(output.getUid());
+		List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
+	
+		//output.t01UserSearchInfoAccess(userSearchInfo);
 		
-//		UserSimpleInfo.setUname(output.getUname());
-//		UserSimpleInfo.setSex(output.getSex());
-//		UserSimpleInfo.setIntroduce(output.getIntroduce());
-//		UserSimpleInfo.setIdentificationPhoto(output.getIdentificationPhoto());
-		
-		T01UserSearchInfoAccess t01UserSearchInfoAccess.selectByPrimaryKey(uid);
-		return t01UserSearchInfoAccess uid;
+		S002001Output Output = new S002001Output();
+		Output.setUserSimpleInfoLi(userSimpleInfoLi);
 		
 		
-		t01UserBasicInfoAccess.selectRecommendList(searchInfo);
-	    return t01UserBasicInfoAccess;
-	}
+	
+		//output.setUserFullInfoLi(userFullInfoLi);
+		
+	    return Output;
+
+    }
 
 }
