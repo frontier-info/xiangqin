@@ -4,18 +4,14 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import lombok.Data;
 
 @Data
 public class S002001Form {
 	
-    private String uname;
-
-    private String sex;
+   private List<T01UserBasicInfo> userBisicoinfoLi;
+    
 
     
-    private String introduce;
-
-
-    private String identificationPhoto;
 }
