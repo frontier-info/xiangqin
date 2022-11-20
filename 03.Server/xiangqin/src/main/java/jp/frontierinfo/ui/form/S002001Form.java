@@ -1,6 +1,7 @@
 package jp.frontierinfo.ui.form;
 
 import java.util.List;
+import jp.frontierinfo.db.bean.UserSimpleInfo;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,7 +11,7 @@ import lombok.Data;
 @Data
 public class S002001Form {
 	
-   private List<T01UserBasicInfo> userBisicoinfoLi;
+   private List<T01UserBasicInfo> userSimpleBisicoinfoLi;
     
 
     
