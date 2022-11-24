@@ -21,5 +21,17 @@ public class ConstantInfo {
 		DELETE_STATUS.put(true, "已删除");
 		DELETE_STATUS.put(false, "正常");
 	}
-
+	
+	/**
+	 * PropertiesKey
+	 */
+	public static final String DATASOURCE_DRIVER = "spring.datasource.driver-class-name";
+	
+	public static final String DATASOURCE_URL = "spring.datasource.url";
+	
+	public static final String DATASOURCE_USERNAME = "spring.datasource.username";
+	
+	public static final String DATASOURCE_PASSWORD = "spring.datasource.password";
+	
+	
 }
