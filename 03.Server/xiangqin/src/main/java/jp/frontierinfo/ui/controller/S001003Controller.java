@@ -16,99 +16,89 @@ import jp.frontierinfo.api.abstractcls.AbstractController;
 import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.ui.form.S001001Form;
-import jp.frontierinfo.ui.form.S001002Form;
-import jp.frontierinfo.ui.input.S001002E001Input;
-import jp.frontierinfo.ui.input.S001002E002Input;
-import jp.frontierinfo.ui.output.S001002E001Output;
-import jp.frontierinfo.ui.output.S001002E002Output;
-import jp.frontierinfo.ui.service.S001002E001Service;
-//import jp.frontierinfo.ui.output.S001001E001Output;
-//import jp.frontierinfo.ui.service.S001001E001Service;
-import jp.frontierinfo.ui.service.S001002E002Service;
+import jp.frontierinfo.ui.form.S001003Form;
+import jp.frontierinfo.ui.input.S001003E001Input;
+import jp.frontierinfo.ui.input.S001003E002Input;
+import jp.frontierinfo.ui.output.S001003E001Output;
+import jp.frontierinfo.ui.service.S001003E001Service;
+import jp.frontierinfo.ui.service.S001003E002Service;
 
 @Controller
 @RequestMapping("/ui")  
-public class S001002Controller extends AbstractController {
+public class S001003Controller extends AbstractController {
 	
 	@Autowired
-	private S001002E001Service s001002E001Service;
+	private S001003E001Service s001003E001Service;
 	
 	@Autowired
-	private S001002E002Service s001002E002Service;
+	private S001003E002Service s001003E002Service;
 	
 	/**
-	 * 获取验证码按钮
+	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
 	 */
-	@PrintLog("注册页面的获取验证码按钮点击")
-	@RequestMapping(value="/s001002", params="getVerificationCode",method=RequestMethod.POST)
+	@PrintLog("忘记密码页面的获取验证码按钮点击")
+	@RequestMapping(value="/s001003", params="sendCheck", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
-			S001002Form form, BindingResult formResult, 
-			@Validated S001002E001Input input, BindingResult inputResult,
+			S001003Form form, BindingResult formResult, 
+			@Validated S001003E001Input input, BindingResult inputResult, 
 			Model model) {
+		
         if(inputResult.hasErrors()) {
         	errorCopy(formResult, inputResult);
-        	return "s001002";
+        	return "s001003";
         } 
-		S001002E001Output output = new S001002E001Output();
+		S001003E001Output output = new S001003E001Output();
 		try {
-			output = s001002E001Service.execute(input);
+			output = s001003E001Service.execute(input);
+			
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
-        	return "s001002";
+        	return "s001003";
 		}
 		
 		// 将手机号和验证码存入session
 		HttpSession session = request.getSession();
 		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
 		session.setAttribute(ConstantInfo.REGISTER_MOBEL, input.getMobile());
-		model.addAttribute("message", "验证码发送成功，请输入验证码");
-
-		return "s001002";
+		
+		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
+		
+		return "s001003";
 	}
-	
+
 	/**
-	 * 注册按钮
+	 * 重置密码按钮
 	 */
-	@PrintLog("注册页面的获取注册按钮点击")
-	@RequestMapping(value="/s001002", params="register", method=RequestMethod.POST)
+	@PrintLog("忘记密码页面的重置密码按钮点击")
+	@RequestMapping(value="/s001003", params="repassword", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
-			S001002Form form, BindingResult formResult, 
-			@Validated S001002E002Input input, BindingResult inputResult, 
-			Model model) {
+			@Validated S001003Form form, BindingResult result, 
+			S001003E002Input input, Model model) {
 		
-        if(inputResult.hasErrors()) {
-        	errorCopy(formResult, inputResult);
-        	return "s001002";
-        } 	
-		
-		// 将验证码从从session里面取出		
 		HttpSession session = request.getSession();
 
 		if(!input.getMobile().equals(session.getAttribute(ConstantInfo.REGISTER_MOBEL).toString())) {
 			model.addAttribute("message", "手机号前后不一致请确认");
-			return "s001002";
+			return "s001003";
 		}
 
 		if(!input.getRegisterSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
-			return "s001002";
+			return "s001003";
 		}
 		
 		if(!input.getPassword().equals(input.getRepassword())) {
 			model.addAttribute("message", "两次密码输入不一致,请确认");
-			return "s001002";
+			return "s001003";
+		}
+		
+		try {
+			s001003E002Service.execute(input);
+		} catch (BusinessException e) {
+			e.printStackTrace();
 		}
 
-		S001002E002Output output = new S001002E002Output();
-		try {
-			output = s001002E002Service.execute(input);
-		} catch (BusinessException e) {
-			model.addAttribute("message", e.getMessage());
-        	return "s001002";
-		}
-		model.addAttribute("message", "注册成功,请登录");
-		model.addAttribute("s001001Form", new S001001Form());
+		model.addAttribute("message", "用户密码更新完成，请重新登录");
 		return "s001001";
 	}
 }

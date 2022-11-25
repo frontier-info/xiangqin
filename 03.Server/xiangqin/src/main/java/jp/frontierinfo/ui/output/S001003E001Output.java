@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class S001004E001Output {
+public class S001003E001Output {
 
 	private String mobile;
 	

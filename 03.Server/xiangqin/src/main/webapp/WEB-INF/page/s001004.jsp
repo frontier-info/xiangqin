@@ -42,14 +42,14 @@
 								</div>
 								<div>
 									<label for="name">验证码</label>	
-									<form:input class="form-control" type="text" path="check" value=""/>
+									<form:input class="form-control" type="text" path="registerSmsCode" value=""/>
 									<button type="submit" class="btn btn-default" name="sendCheck">发送验证码</button>				
 								</div>
 								<div>
 									<label for="name">密码</label>	
 									<input class="form-control" type="password" name="password" value=""/>
 									<label for="name">重复密码</label>	
-									<input class="form-control" type="password" name="password1" value=""/>
+									<input class="form-control" type="password" name="repassword" value=""/>
 									<hr>	
 									<button type="submit" class="btn btn-default" name="repassword" >重置密码</button>
 								</div>

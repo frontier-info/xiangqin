@@ -18,7 +18,7 @@ import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S001002Form;
-import jp.frontierinfo.ui.form.S001004Form;
+import jp.frontierinfo.ui.form.S001003Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.output.S001001E001Output;
 import jp.frontierinfo.ui.service.S001001E001Service;
@@ -49,6 +49,7 @@ public class S001001Controller extends AbstractController {
 			S001001Form form, BindingResult formResult, 
 			@Validated S001001E001Input input, BindingResult inputResult, 
 			Model model) {
+		
         if(inputResult.hasErrors()) {
         	errorCopy(formResult, inputResult);
         	return "s001001";
@@ -100,8 +101,8 @@ public class S001001Controller extends AbstractController {
 	@PrintLog("登录页面的忘记密码按钮点击")
 	@RequestMapping(value="/s001001", params="repassword", method=RequestMethod.POST)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
-			S001004Form form, Model model) {
+			S001003Form form, Model model) {
 		
-		return "s001004";
+		return "s001003";
 	}
 }
