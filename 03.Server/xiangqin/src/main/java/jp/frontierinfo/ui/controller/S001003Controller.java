@@ -16,6 +16,7 @@ import jp.frontierinfo.api.abstractcls.AbstractController;
 import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S001003Form;
 import jp.frontierinfo.ui.input.S001003E001Input;
 import jp.frontierinfo.ui.input.S001003E002Input;
@@ -37,7 +38,7 @@ public class S001003Controller extends AbstractController {
 	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
 	 */
 	@PrintLog("忘记密码页面的获取验证码按钮点击")
-	@RequestMapping(value="/s001003", params="sendCheck", method=RequestMethod.POST)
+	@RequestMapping(value="/s001003", params="getVerificationCode", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			S001003Form form, BindingResult formResult, 
 			@Validated S001003E001Input input, BindingResult inputResult, 
@@ -70,10 +71,16 @@ public class S001003Controller extends AbstractController {
 	 * 重置密码按钮
 	 */
 	@PrintLog("忘记密码页面的重置密码按钮点击")
-	@RequestMapping(value="/s001003", params="repassword", method=RequestMethod.POST)
+	@RequestMapping(value="/s001003", params="changePassword", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
-			@Validated S001003Form form, BindingResult result, 
-			S001003E002Input input, Model model) {
+			S001003Form form, BindingResult formResult, 
+			@Validated S001003E002Input input, BindingResult inputResult, 
+			Model model) {
+		
+        if(inputResult.hasErrors()) {
+        	errorCopy(formResult, inputResult);
+        	return "s001003";
+        } 	
 		
 		HttpSession session = request.getSession();
 
@@ -82,7 +89,7 @@ public class S001003Controller extends AbstractController {
 			return "s001003";
 		}
 
-		if(!input.getRegisterSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
+		if(!input.getSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
 			return "s001003";
 		}
@@ -99,6 +106,7 @@ public class S001003Controller extends AbstractController {
 		}
 
 		model.addAttribute("message", "用户密码更新完成，请重新登录");
+		model.addAttribute("s001001Form", new S001001Form());
 		return "s001001";
 	}
 }

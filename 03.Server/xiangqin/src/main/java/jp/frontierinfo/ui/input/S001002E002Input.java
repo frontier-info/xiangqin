@@ -14,7 +14,7 @@ public class S001002E002Input {
 	private String mobile;
 	
 	@NotBlank()
-	private String registerSmsCode;
+	private String smsCode;
 
 	@NotBlank()
 	private String password;

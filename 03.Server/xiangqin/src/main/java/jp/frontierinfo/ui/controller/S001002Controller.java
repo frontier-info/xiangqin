@@ -90,7 +90,7 @@ public class S001002Controller extends AbstractController {
 			return "s001002";
 		}
 
-		if(!input.getRegisterSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
+		if(!input.getSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
 			model.addAttribute("message", "验证码不一致请重新输入验证码");
 			return "s001002";
 		}

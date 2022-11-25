@@ -30,28 +30,25 @@
 				<div class="row">				
 					<div class="col-md-3"></div>			
 					<div class="col-md-6">			
-						<form:form modelAttribute="s001004Form" action="/xiangqin/ui/s001004" method="post">		
+						<form:form modelAttribute="s001003Form" action="/xiangqin/ui/s001003" method="post">		
 							<div class="form-group">
 								<form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
 								<c:if test="${not empty message}">
 						           <div class="alert alert-success" role="alert"><p>${message}</p></div>
 						        </c:if>
 						        <div>
-									<label for="name">手机</label>	
+									<label for="mobile">手机</label>	
 									<form:input class="form-control" type="text" path="mobile" placeholder="请输入手机号"/>
-								</div>
-								<div>
-									<label for="name">验证码</label>	
-									<form:input class="form-control" type="text" path="registerSmsCode" value=""/>
-									<button type="submit" class="btn btn-default" name="sendCheck">发送验证码</button>				
-								</div>
-								<div>
-									<label for="name">密码</label>	
+									<label for="smsCode">验证码</label>	
+									<form:input class="form-control" type="text" path="smsCode" value=""/>
+									<button type="submit" class="btn btn-default" name="getVerificationCode" >发送验证码</button>				
+									<hr>
+									<label for="password">密码</label>	
 									<input class="form-control" type="password" name="password" value=""/>
-									<label for="name">重复密码</label>	
+									<label for="repassword">重复密码</label>	
 									<input class="form-control" type="password" name="repassword" value=""/>
 									<hr>	
-									<button type="submit" class="btn btn-default" name="repassword" >重置密码</button>
+									<button type="submit" class="btn btn-default" name="changePassword" >重置密码</button>
 								</div>
 							</div>	
 						</form:form>

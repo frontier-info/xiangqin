@@ -6,7 +6,7 @@ import lombok.Data;
 public class S001002Form {
 	private String mobile;
 	
-	private String registerSmsCode;
+	private String smsCode;
 	
 	private String password;
 	

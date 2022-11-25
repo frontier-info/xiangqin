@@ -7,7 +7,7 @@ public class S001003Form {
 
 	private String mobile;
 	
-	private String registerSmsCode;
+	private String smsCode;
 
 	private String password;
 	
