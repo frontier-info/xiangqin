@@ -26,6 +26,7 @@ body {
 		<div class="col-md-3"></div>
 
 	</div>
+	<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post" enctype="multipart/form-data">
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
@@ -37,6 +38,10 @@ body {
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-4">
+				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
+				          <c:if test="${not empty message}">
+				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
+				          </c:if>
 
 							<h2>
 								<font face="verdana">
@@ -47,7 +52,6 @@ body {
 							</h3>
 							<hr />
 
-							<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post" enctype="multipart/form-data">
 
 								<div>
 									<p>
@@ -158,12 +162,11 @@ body {
 
 								<div>
 									<input type="reset" class="form-control" value="信息重置">
-								    <input type="submit" class="form-control" name="b" value="提交个人信息">
+									<input type="button" class="form-control" data-toggle="modal" data-target="#userInfoUpdate" value="提交个人信息" />
 								</div>
 
 
 
-							</form:form>
 						</div>
 						<div class="col-md-6"></div>
 					</div>
@@ -171,6 +174,31 @@ body {
 			</div>
 		</div>
 	</div>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="userInfoUpdate" tabindex="-1" role="dialog" aria-labelledby="userInfoUpdateLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="userInfoUpdateLabel">
+						提交用户信息
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<label>确定要提交用户信息吗?</label>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
+					<input type="submit" class="btn btn-primary" value="提交"/>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	</form:form>
 	<!--   引入版权信息栏 -->
 	<%@include file="../common/footer.jsp"%>
 

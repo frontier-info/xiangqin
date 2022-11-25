@@ -29,7 +29,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setIntroduce(input.getIntroduce());
 		basicInfo.setUweight(input.getUweight());
 		basicInfo.setIntroduce(input.getIntroduce());
-		basicInfo.setUimages(input.getUimages());
+		basicInfo.setUimages(input.getUimagesPath());
 		basicInfo.setIdentificationPhoto(input.getIdentificationPhoto());
 		
 		int count = t01UserBasicInfoAccess.insert(basicInfo);

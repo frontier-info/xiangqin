@@ -2,6 +2,8 @@ package jp.frontierinfo.ui.input;
 
 import java.math.BigDecimal;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -28,7 +30,9 @@ public class S002002E001Input {
 
     private String introduce;
 
-    private String uimages;
+    private MultipartFile uimages;
+
+    private String uimagesPath;
 
     private String identificationPhoto;
 
