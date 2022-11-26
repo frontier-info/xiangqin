@@ -1,6 +1,8 @@
 package jp.frontierinfo.common.constant;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ConstantInfo {
@@ -23,6 +25,16 @@ public class ConstantInfo {
 		DELETE_STATUS = new HashMap<>();
 		DELETE_STATUS.put(true, "已删除");
 		DELETE_STATUS.put(false, "正常");
+	}
+	
+	/**
+	 * 页面用性别单选按钮数据
+	 */
+	public static List<String> sexLi;
+	static {
+		sexLi = new ArrayList<>();
+		sexLi.add("男");
+		sexLi.add("女");
 	}
 	
 	/**

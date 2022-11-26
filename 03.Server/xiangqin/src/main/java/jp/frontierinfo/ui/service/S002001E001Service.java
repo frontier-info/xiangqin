@@ -1,12 +1,12 @@
 package jp.frontierinfo.ui.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.ui.input.S002001E001Input;
@@ -21,10 +21,7 @@ public class S002001E001Service extends AbstractServiceImpl<S002001E001Input, S0
 		S002001E001Output output = new S002001E001Output();
 		
 		// 设置性别单选按钮数据
-		List<String> sexLi = new ArrayList<>();
-		sexLi.add("男");
-		sexLi.add("女");
-		output.setSexLi(sexLi);
+		output.setSexLi(ConstantInfo.sexLi);
 		
 		// 获取籍贯下拉列表数据
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");

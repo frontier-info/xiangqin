@@ -24,17 +24,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		// 获取服务器相对路径
 		String fileSavePath = input.getFileSavePath();
 		
-		
-		boolean existFlg = false;
-		
 		T01UserBasicInfo basicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
-		
-		if(basicInfo == null) {
-			basicInfo = new T01UserBasicInfo();
-			basicInfo.setUid(input.getUid());
-		} else {
-			existFlg = true;
-		}
 		
 		basicInfo.setUname(input.getUname());
     	basicInfo.setSex(input.getSex());
@@ -53,11 +43,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setUimages3(savefile(input.getUimages3File(), realpath, fileSavePath));
 		basicInfo.setIdentificationImg(savefile(input.getIdentificationImgFile(), realpath, fileSavePath));
 		
-		if(existFlg) {
-			int count = t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
-		} else {
-			int count = t01UserBasicInfoAccess.insert(basicInfo);
-		}
+		t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
 				
 		return new S002002E001Output();
 	}
