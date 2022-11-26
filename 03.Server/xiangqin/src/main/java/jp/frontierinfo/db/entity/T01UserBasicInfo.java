@@ -26,11 +26,17 @@ public class T01UserBasicInfo {
 
     private String introduce;
 
-    private String uimages;
+    private String avatarImg;
 
-    private String identificationPhoto;
+    private String uimages1;
 
-    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String uimages, String identificationPhoto) {
+    private String uimages2;
+
+    private String uimages3;
+
+    private String identificationImg;
+
+    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String avatarImg, String uimages1, String uimages2, String uimages3, String identificationImg) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
@@ -42,8 +48,11 @@ public class T01UserBasicInfo {
         this.uheight = uheight;
         this.uweight = uweight;
         this.introduce = introduce;
-        this.uimages = uimages;
-        this.identificationPhoto = identificationPhoto;
+        this.avatarImg = avatarImg;
+        this.uimages1 = uimages1;
+        this.uimages2 = uimages2;
+        this.uimages3 = uimages3;
+        this.identificationImg = identificationImg;
     }
 
     public T01UserBasicInfo() {
@@ -138,19 +147,43 @@ public class T01UserBasicInfo {
         this.introduce = introduce == null ? null : introduce.trim();
     }
 
-    public String getUimages() {
-        return uimages;
+    public String getAvatarImg() {
+        return avatarImg;
     }
 
-    public void setUimages(String uimages) {
-        this.uimages = uimages == null ? null : uimages.trim();
+    public void setAvatarImg(String avatarImg) {
+        this.avatarImg = avatarImg == null ? null : avatarImg.trim();
     }
 
-    public String getIdentificationPhoto() {
-        return identificationPhoto;
+    public String getUimages1() {
+        return uimages1;
     }
 
-    public void setIdentificationPhoto(String identificationPhoto) {
-        this.identificationPhoto = identificationPhoto == null ? null : identificationPhoto.trim();
+    public void setUimages1(String uimages1) {
+        this.uimages1 = uimages1 == null ? null : uimages1.trim();
+    }
+
+    public String getUimages2() {
+        return uimages2;
+    }
+
+    public void setUimages2(String uimages2) {
+        this.uimages2 = uimages2 == null ? null : uimages2.trim();
+    }
+
+    public String getUimages3() {
+        return uimages3;
+    }
+
+    public void setUimages3(String uimages3) {
+        this.uimages3 = uimages3 == null ? null : uimages3.trim();
+    }
+
+    public String getIdentificationImg() {
+        return identificationImg;
+    }
+
+    public void setIdentificationImg(String identificationImg) {
+        this.identificationImg = identificationImg == null ? null : identificationImg.trim();
     }
 }

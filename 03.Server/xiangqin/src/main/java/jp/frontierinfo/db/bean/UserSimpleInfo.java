@@ -13,6 +13,6 @@ public class UserSimpleInfo {
 	
 	private String introduce;
 	
-	private String uimages;
+	private String avatarImg;
 
 }

@@ -1,7 +1,5 @@
 package jp.frontierinfo.api.service;
 
-import java.util.Arrays;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +21,8 @@ public class A001002E002Service extends AbstractServiceImpl<A001002E002Input, A0
 		BeanUtils.copyProperties(basicInfo, output);
 		output.setUheight(basicInfo.getUheight());
 		output.setUweight(basicInfo.getUweight());
-		output.setUimages(Arrays.asList(basicInfo.getUimages().split(",")));
-		output.setIdentificationPhoto(Arrays.asList(basicInfo.getIdentificationPhoto().split(",")));
+//		output.setUimages(Arrays.asList(basicInfo.getUimages().split(",")));
+//		output.setIdentificationPhoto(Arrays.asList(basicInfo.getIdentificationPhoto().split(",")));
 		
 		return output;
 	}

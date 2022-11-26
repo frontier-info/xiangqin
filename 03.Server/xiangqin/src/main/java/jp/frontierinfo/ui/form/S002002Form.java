@@ -39,7 +39,13 @@ public class S002002Form {
 
     private String introduce;
 
-    private MultipartFile uimages;
+    private MultipartFile avatarImg;
 
-    private String identificationPhoto;
+    private MultipartFile uimages1;
+
+    private MultipartFile uimages2;
+
+    private MultipartFile uimages3;
+
+    private MultipartFile identificationImg;
 }

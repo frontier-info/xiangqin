@@ -33,9 +33,15 @@ public class UserFullInfo {
 
     private String introduce;
 
-    private String uimages;
+    private String avatarImg;
 
-    private String identificationPhoto;
+    private String uimages1;
+    
+    private String uimages2;
+    
+    private String uimages3;
+
+    private String identificationImg;
     
     private String userStatusCode;
 

@@ -1,5 +1,5 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/18 14:16:44
+-- Date/Time    : 2022/11/26 16:13:17
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
@@ -69,8 +69,11 @@ create table xiangqin.t01_user_basic_info (
   , uheight numeric
   , uweight numeric
   , introduce varchar
-  , uimages varchar
-  , identification_photo varchar
+  , avatar_img varchar
+  , uimages1 varchar
+  , uimages2 varchar
+  , uimages3 varchar
+  , identification_img varchar
   , constraint t01_user_basic_info_PKC primary key (uid)
 ) ;
 
@@ -132,8 +135,11 @@ comment on column xiangqin.t01_user_basic_info.interest is '兴趣';
 comment on column xiangqin.t01_user_basic_info.uheight is '身高';
 comment on column xiangqin.t01_user_basic_info.uweight is '体重';
 comment on column xiangqin.t01_user_basic_info.introduce is '简介';
-comment on column xiangqin.t01_user_basic_info.uimages is '照片';
-comment on column xiangqin.t01_user_basic_info.identification_photo is '身份信息';
+comment on column xiangqin.t01_user_basic_info.avatar_img is '头像图片';
+comment on column xiangqin.t01_user_basic_info.uimages1 is '个人照片1';
+comment on column xiangqin.t01_user_basic_info.uimages2 is '个人照片2';
+comment on column xiangqin.t01_user_basic_info.uimages3 is '个人照片3';
+comment on column xiangqin.t01_user_basic_info.identification_img is '身份信息照片';
 
 comment on table xiangqin.t01_user_login_info is '用户登录信息表';
 comment on column xiangqin.t01_user_login_info.uid is '用户ID';

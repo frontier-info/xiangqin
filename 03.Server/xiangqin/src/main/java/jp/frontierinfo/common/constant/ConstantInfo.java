@@ -36,5 +36,10 @@ public class ConstantInfo {
 	
 	public static final String DATASOURCE_PASSWORD = "spring.datasource.password";
 	
+	/**
+	 * 用户图片保存路径
+	 */
+	public static final String FILE_SAVE_PATH = "resources\\userdata\\uid_";
+	
 	
 }

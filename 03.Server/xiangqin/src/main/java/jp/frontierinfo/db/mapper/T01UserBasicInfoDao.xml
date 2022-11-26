@@ -14,18 +14,21 @@
       <arg column="uheight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
       <arg column="uweight" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
       <arg column="introduce" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="uimages" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="identification_photo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="avatar_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uimages1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uimages2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uimages3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="identification_img" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     uid, uname, sex, birth_date, birth_place, address, profession, interest, uheight, 
-    uweight, introduce, uimages, identification_photo
+    uweight, introduce, avatar_img, uimages1, uimages2, uimages3, identification_img
   </sql>
   <!--   查询指定检索条件的30名异性信息 -->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
-      uid, uname, sex, introduce, uimages
+      uid, uname, sex, introduce, avatar_img avatarImg
     from xiangqin.t01_user_basic_info
     <where>
       <if test="sex != null">
@@ -78,8 +81,11 @@
 	    , basic.uheight
 	    , basic.uweight
 	    , basic.introduce
-	    , basic.uimages
-	    , basic.identification_photo identificationPhoto
+	    , basic.avatar_img avatarImg
+	    , basic.uimages1
+	    , basic.uimages2
+	    , basic.uimages3
+	    , basic.identification_img identificationImg
 	    , login.user_status_code userStatusCode
 	    , code_user_status.master_name userStatusName
 	    , login.user_rank_code userRankCode
@@ -156,8 +162,11 @@
 	    , basic.uheight
 	    , basic.uweight
 	    , basic.introduce
-	    , basic.uimages
-	    , basic.identification_photo identificationPhoto
+	    , basic.avatar_img avatarImg
+	    , basic.uimages1
+	    , basic.uimages2
+	    , basic.uimages3
+	    , basic.identification_img identificationImg
 	    , login.user_status_code userStatusCode
 	    , code_user_status.master_name userStatusName
 	    , login.user_rank_code userRankCode
@@ -193,13 +202,15 @@
     insert into xiangqin.t01_user_basic_info (uid, uname, sex, 
       birth_date, birth_place, address, 
       profession, interest, uheight, 
-      uweight, introduce, uimages, 
-      identification_photo)
+      uweight, introduce, avatar_img, 
+      uimages1, uimages2, uimages3, 
+      identification_img)
     values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, 
-      #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{uimages,jdbcType=VARCHAR}, 
-      #{identificationPhoto,jdbcType=VARCHAR})
+      #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{avatarImg,jdbcType=VARCHAR}, 
+      #{uimages1,jdbcType=VARCHAR}, #{uimages2,jdbcType=VARCHAR}, #{uimages3,jdbcType=VARCHAR}, 
+      #{identificationImg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info
@@ -237,11 +248,20 @@
       <if test="introduce != null">
         introduce,
       </if>
-      <if test="uimages != null">
-        uimages,
+      <if test="avatarImg != null">
+        avatar_img,
       </if>
-      <if test="identificationPhoto != null">
-        identification_photo,
+      <if test="uimages1 != null">
+        uimages1,
+      </if>
+      <if test="uimages2 != null">
+        uimages2,
+      </if>
+      <if test="uimages3 != null">
+        uimages3,
+      </if>
+      <if test="identificationImg != null">
+        identification_img,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -278,11 +298,20 @@
       <if test="introduce != null">
         #{introduce,jdbcType=VARCHAR},
       </if>
-      <if test="uimages != null">
-        #{uimages,jdbcType=VARCHAR},
+      <if test="avatarImg != null">
+        #{avatarImg,jdbcType=VARCHAR},
       </if>
-      <if test="identificationPhoto != null">
-        #{identificationPhoto,jdbcType=VARCHAR},
+      <if test="uimages1 != null">
+        #{uimages1,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages2 != null">
+        #{uimages2,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages3 != null">
+        #{uimages3,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationImg != null">
+        #{identificationImg,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -319,11 +348,20 @@
       <if test="introduce != null">
         introduce = #{introduce,jdbcType=VARCHAR},
       </if>
-      <if test="uimages != null">
-        uimages = #{uimages,jdbcType=VARCHAR},
+      <if test="avatarImg != null">
+        avatar_img = #{avatarImg,jdbcType=VARCHAR},
       </if>
-      <if test="identificationPhoto != null">
-        identification_photo = #{identificationPhoto,jdbcType=VARCHAR},
+      <if test="uimages1 != null">
+        uimages1 = #{uimages1,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages2 != null">
+        uimages2 = #{uimages2,jdbcType=VARCHAR},
+      </if>
+      <if test="uimages3 != null">
+        uimages3 = #{uimages3,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationImg != null">
+        identification_img = #{identificationImg,jdbcType=VARCHAR},
       </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
@@ -340,8 +378,11 @@
       uheight = #{uheight,jdbcType=NUMERIC},
       uweight = #{uweight,jdbcType=NUMERIC},
       introduce = #{introduce,jdbcType=VARCHAR},
-      uimages = #{uimages,jdbcType=VARCHAR},
-      identification_photo = #{identificationPhoto,jdbcType=VARCHAR}
+      avatar_img = #{avatarImg,jdbcType=VARCHAR},
+      uimages1 = #{uimages1,jdbcType=VARCHAR},
+      uimages2 = #{uimages2,jdbcType=VARCHAR},
+      uimages3 = #{uimages3,jdbcType=VARCHAR},
+      identification_img = #{identificationImg,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

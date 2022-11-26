@@ -1,6 +1,5 @@
 package jp.frontierinfo.api.service;
 
-import org.apache.tomcat.util.buf.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -23,8 +22,8 @@ public class A001002E001Service extends AbstractServiceImpl<A001002E001Input, A0
 		
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
 		BeanUtils.copyProperties(input, basicInfo);
-		basicInfo.setUimages(StringUtils.join(input.getUimages()));
-		basicInfo.setIdentificationPhoto(StringUtils.join(input.getIdentificationPhoto()));
+//		basicInfo.setUimages(StringUtils.join(input.getUimages()));
+//		basicInfo.setIdentificationPhoto(StringUtils.join(input.getIdentificationPhoto()));
 		
 		int result = t01UserBasicInfoAccess.insert(basicInfo);
 		

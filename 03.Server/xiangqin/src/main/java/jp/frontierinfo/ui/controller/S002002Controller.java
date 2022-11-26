@@ -15,7 +15,6 @@ import jp.frontierinfo.api.abstractcls.AbstractController;
 import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
-import jp.frontierinfo.common.utils.FileUtils;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S002002Form;
 import jp.frontierinfo.ui.input.S002002E001Input;
@@ -44,13 +43,15 @@ public class S002002Controller extends AbstractController {
         } 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
+        input.setRealpath(request.getServletContext().getRealPath(ConstantInfo.FILE_SAVE_PATH + userLoginInfo.getUid()));
+        input.setFileSavePath(ConstantInfo.FILE_SAVE_PATH);
 		try {
-			input.setUimagesPath(FileUtils.upfiles(form.getUimages(), request, userLoginInfo.getUid()));
 			s002002E001Service.execute(input);
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
         	return "s002002";
 		}
+		model.addAttribute("message", "用户信息设定成功");
 		
 		return "s002001";
 	}

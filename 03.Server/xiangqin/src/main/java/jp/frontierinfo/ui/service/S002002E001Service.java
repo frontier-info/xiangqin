@@ -1,6 +1,9 @@
 package jp.frontierinfo.ui.service;
 
+import java.io.File;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
@@ -14,6 +17,12 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 
 	@Override
 	public S002002E001Output execute(S002002E001Input input) throws BusinessException {
+
+		// 获取服务器绝对路径
+		String realpath = input.getRealpath();
+		
+		// 获取服务器相对路径
+		String fileSavePath = input.getFileSavePath();
 		
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
 		basicInfo.setUname(input.getUname());
@@ -29,12 +38,35 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setIntroduce(input.getIntroduce());
 		basicInfo.setUweight(input.getUweight());
 		basicInfo.setIntroduce(input.getIntroduce());
-		basicInfo.setUimages(input.getUimagesPath());
-		basicInfo.setIdentificationPhoto(input.getIdentificationPhoto());
+		basicInfo.setAvatarImg(savefile(input.getAvatarImg(), realpath, fileSavePath));
+		basicInfo.setUimages1(savefile(input.getUimages1(), realpath, fileSavePath));
+		basicInfo.setUimages2(savefile(input.getUimages2(), realpath, fileSavePath));
+		basicInfo.setUimages3(savefile(input.getUimages3(), realpath, fileSavePath));
+		basicInfo.setUimages3(savefile(input.getUimages3(), realpath, fileSavePath));
+		basicInfo.setIdentificationImg(savefile(input.getIdentificationImg(), realpath, fileSavePath));
 		
 		int count = t01UserBasicInfoAccess.insert(basicInfo);
 				
 		return new S002002E001Output();
+	}
+	
+	private String savefile(MultipartFile file, String realpath, String fileSavePath) {
+		if(file.getSize() == 0) {
+			return null;
+		}
+		
+		String fileName = file.getOriginalFilename();
+		File targetFile = new File(realpath, fileName);
+		if (!targetFile.exists()) {
+			targetFile.mkdirs();
+		}
+		// 上传
+		try {
+			file.transferTo(targetFile);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fileSavePath + "\\" + fileName;
 	}
 
 }

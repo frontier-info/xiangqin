@@ -61,7 +61,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20221118141623
-Position="MAIN",300,150,245,414
+Position="MAIN",300,150,245,433
 ZOrder=0
 
 [Entity]
@@ -83,13 +83,16 @@ Field="兴趣","interest","varchar",,,"","",$FFFFFFFF,""
 Field="身高","uheight","numeric",,,"","",$FFFFFFFF,""
 Field="体重","uweight","numeric",,,"","",$FFFFFFFF,""
 Field="简介","introduce","varchar",,,"","",$FFFFFFFF,""
-Field="照片","uimages","varchar",,,"","",$FFFFFFFF,""
-Field="身份信息","identification_photo","varchar",,,"","",$FFFFFFFF,""
+Field="头像图片","avatar_img","varchar",,,"","",$FFFFFFFF,""
+Field="个人照片1","uimages1","varchar",,,"","",$FFFFFFFF,""
+Field="个人照片2","uimages2","varchar",,,"","",$FFFFFFFF,""
+Field="个人照片3","uimages3","varchar",,,"","",$FFFFFFFF,""
+Field="身份信息照片","identification_img","varchar",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20221117122233
-Position="MAIN",650,150,231,417
+ModifiedDateTime=20221126161247
+Position="MAIN",650,150,231,441
 ZOrder=1
 
 [Entity]
@@ -108,7 +111,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20221106142625
-Position="MAIN",1000,150,268,422
+Position="MAIN",1000,150,268,436
 ZOrder=2
 
 [Entity]
