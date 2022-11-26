@@ -10,6 +10,7 @@ import java.util.Properties;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.DefaultDatabaseTester;
 import org.dbunit.IDatabaseTester;
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.DataSetException;
@@ -24,6 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.xml.sax.InputSource;
 
 import jp.frontierinfo.common.constant.ConstantInfo;
+import jp.frontierinfo.common.datatype.FrontierDataTypeFactory;
 
 @SpringBootTest
 @ContextConfiguration(locations= {"/springmvc-servlet.xml"})
@@ -41,25 +43,18 @@ public class CommonTestCase {
 	public void inputData(String fileName) {
     
         IDatabaseConnection dbconn = getConnection();
-        
         IDatabaseTester tester = new DefaultDatabaseTester(dbconn);
-        
         tester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
-        
         IDataSet dataset = null;
 		try {
 			dataset = new CsvDataSet(new File(fileName));
-			
 			tester.setDataSet(dataset);
-			
 			tester.onSetup();
-			
 		} catch (DataSetException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	/**
@@ -107,6 +102,8 @@ public class CommonTestCase {
 					propertiesBean.getProperty(ConstantInfo.DATASOURCE_USERNAME),
 					propertiesBean.getProperty(ConstantInfo.DATASOURCE_PASSWORD));
 			dbconn = new DatabaseConnection(conn, "xiangqin");
+			dbconn.getConfig().setProperty(DatabaseConfig.FEATURE_ALLOW_EMPTY_FIELDS, true);
+			dbconn.getConfig().setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new FrontierDataTypeFactory());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (DatabaseUnitException e) {
