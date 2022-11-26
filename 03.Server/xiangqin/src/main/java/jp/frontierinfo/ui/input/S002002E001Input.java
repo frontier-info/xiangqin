@@ -30,15 +30,15 @@ public class S002002E001Input {
 
     private String introduce;
 
-    private MultipartFile avatarImg;
+    private MultipartFile avatarImgFile;
 
-    private MultipartFile uimages1;
+    private MultipartFile uimages1File;
 
-    private MultipartFile uimages2;
+    private MultipartFile uimages2File;
 
-    private MultipartFile uimages3;
+    private MultipartFile uimages3File;
 
-    private MultipartFile identificationImg;
+    private MultipartFile identificationImgFile;
     
     // 服务器绝对路径
     private String realpath;

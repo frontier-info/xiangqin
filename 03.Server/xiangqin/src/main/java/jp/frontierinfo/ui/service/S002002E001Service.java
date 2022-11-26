@@ -25,8 +25,8 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		String fileSavePath = input.getFileSavePath();
 		
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
-		basicInfo.setUname(input.getUname());
 		basicInfo.setUid(input.getUid());
+		basicInfo.setUname(input.getUname());
     	basicInfo.setSex(input.getSex());
 		basicInfo.setBirthDate(DateUtils.stringToDate(input.getBirthDate()));
 		basicInfo.setBirthPlace(input.getBirthPlace());
@@ -38,14 +38,13 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setIntroduce(input.getIntroduce());
 		basicInfo.setUweight(input.getUweight());
 		basicInfo.setIntroduce(input.getIntroduce());
-		basicInfo.setAvatarImg(savefile(input.getAvatarImg(), realpath, fileSavePath));
-		basicInfo.setUimages1(savefile(input.getUimages1(), realpath, fileSavePath));
-		basicInfo.setUimages2(savefile(input.getUimages2(), realpath, fileSavePath));
-		basicInfo.setUimages3(savefile(input.getUimages3(), realpath, fileSavePath));
-		basicInfo.setUimages3(savefile(input.getUimages3(), realpath, fileSavePath));
-		basicInfo.setIdentificationImg(savefile(input.getIdentificationImg(), realpath, fileSavePath));
+		basicInfo.setAvatarImg(savefile(input.getAvatarImgFile(), realpath, fileSavePath));
+		basicInfo.setUimages1(savefile(input.getUimages1File(), realpath, fileSavePath));
+		basicInfo.setUimages2(savefile(input.getUimages2File(), realpath, fileSavePath));
+		basicInfo.setUimages3(savefile(input.getUimages3File(), realpath, fileSavePath));
+		basicInfo.setIdentificationImg(savefile(input.getIdentificationImgFile(), realpath, fileSavePath));
 		
-		int count = t01UserBasicInfoAccess.insert(basicInfo);
+		int count = t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
 				
 		return new S002002E001Output();
 	}

@@ -1,5 +1,7 @@
 package jp.frontierinfo.ui.output;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
@@ -7,19 +9,19 @@ import lombok.Data;
 @Data
 public class S002001E001Output {
 	
+	private List<String> sexLi;
+	
 	private List<String> birthPlaceLi;
 	
 	private List<String> addressLi;
 	
 	private List<String> professionLi;
-	
-	private String uid;
 
     private String uname;
 
-    private Integer sex;
+    private String sex;
 
-    private String birthDate;
+    private Date birthDate;
 
     private String birthPlace;
 
@@ -29,14 +31,20 @@ public class S002001E001Output {
 
     private String interest;
 
-    private Short uheight;
+    private BigDecimal uheight;
 
-    private Short uweight;
+    private BigDecimal uweight;
 
     private String introduce;
 
-    private String uimages;
+    private String avatarImg;
 
-    private String identificationPhoto;
+    private String uimages1;
+
+    private String uimages2;
+
+    private String uimages3;
+
+    private String identificationImg;
 
 }   

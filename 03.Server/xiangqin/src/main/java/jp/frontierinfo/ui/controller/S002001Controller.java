@@ -89,6 +89,8 @@ public class S002001Controller {
 			S002002Form form, BindingResult result, 
 			S002001E001Input input, Model model) {
 		S002001E001Output output = new S002001E001Output();
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+        input.setUid(userLoginInfo.getUid());
 		try {
 			output = s002001E001Service.execute(input);
 		} catch (BusinessException e) {

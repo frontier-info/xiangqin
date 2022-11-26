@@ -4,4 +4,6 @@ import lombok.Data;
 
 @Data
 public class S002001E001Input {
+	
+    private String uid;
 }

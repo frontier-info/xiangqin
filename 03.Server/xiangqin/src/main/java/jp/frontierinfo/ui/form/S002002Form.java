@@ -1,5 +1,7 @@
 package jp.frontierinfo.ui.form;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -9,21 +11,19 @@ import lombok.Data;
 @Data
 public class S002002Form {
 	
+	private List<String> sexLi;
+	
 	private List<String> birthPlaceLi;
 	
 	private List<String> addressLi;
 	
 	private List<String> professionLi;
 
-	private String password;
-	
-    private String uid;
-
     private String uname;
 
     private String sex;
 
-    private String birthDate;
+    private Date birthDate;
 
     private String birthPlace;
 
@@ -33,19 +33,29 @@ public class S002002Form {
 
     private String interest;
 
-    private Short uheight;
+    private BigDecimal uheight;
 
-    private Short uweight;
+    private BigDecimal uweight;
 
     private String introduce;
 
-    private MultipartFile avatarImg;
+    private String avatarImg;
 
-    private MultipartFile uimages1;
+    private String uimages1;
 
-    private MultipartFile uimages2;
+    private String uimages2;
 
-    private MultipartFile uimages3;
+    private String uimages3;
 
-    private MultipartFile identificationImg;
+    private String identificationImg;
+
+    private MultipartFile avatarImgFile;
+
+    private MultipartFile uimages1File;
+
+    private MultipartFile uimages2File;
+
+    private MultipartFile uimages3File;
+
+    private MultipartFile identificationImgFile;
 }
