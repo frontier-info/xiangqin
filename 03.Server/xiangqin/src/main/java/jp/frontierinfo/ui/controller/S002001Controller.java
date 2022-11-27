@@ -135,4 +135,16 @@ public class S002001Controller {
 		
 		return "s001001";
 	}
+	
+	
+	/**
+	 * 向我打招呼的人按钮
+	 */
+	@RequestMapping(value="/s002001", params="d", method=RequestMethod.POST)
+	public String e004(HttpServletRequest request, HttpServletResponse response, 
+			S001001Form form, S001001E001Input input,Model model) {
+		System.out.println("向我打招呼的人002001");
+		//s004001Controller.e001(request, response,form, null, input, model);
+		return "forward:/ui/s004001";
+	}
 }
