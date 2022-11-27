@@ -22,23 +22,14 @@ public class S002001Service extends AbstractServiceImpl<S002001Input, S002001Out
 	
 
 	@Override
-	public S002001Output execute(S002001Input output) throws BusinessException {
-		
-		T01UserBasicInfo UserSimpleInfo = new T01UserBasicInfo();
-
-
-
-		T01UserSearchInfo searchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(output.getUid());
-		List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
-	
-		//output.t01UserSearchInfoAccess(userSearchInfo);
+	public S002001Output execute(S002001Input input) throws BusinessException {
 		
 		S002001Output Output = new S002001Output();
+
+		T01UserSearchInfo searchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
+		List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
+		
 		Output.setUserSimpleInfoLi(userSimpleInfoLi);
-		
-		
-	
-		//output.setUserFullInfoLi(userFullInfoLi);
 		
 	    return Output;
 

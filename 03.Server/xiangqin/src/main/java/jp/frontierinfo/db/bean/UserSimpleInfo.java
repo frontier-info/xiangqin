@@ -14,5 +14,7 @@ public class UserSimpleInfo {
 	private String introduce;
 	
 	private String avatarImg;
+	
+	private Boolean isRelation;
 
 }

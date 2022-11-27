@@ -21,7 +21,7 @@
         <a href="${pageContext.request.contextPath}/ui/s003001/e001" class="nav-link">我打过招呼的人</a>
        </li>
        <li class="nav-item">
-        <a href="${pageContext.request.contextPath}/ui/s004001" class="nav-link">向我打招呼的人</a>
+        <a href="${pageContext.request.contextPath}/ui/s004001/e001" class="nav-link">向我打招呼的人</a>
        </li>
        <li class="nav-item">
         <a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">退出登录</a>

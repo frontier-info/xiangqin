@@ -56,5 +56,7 @@ public class UserFullInfo {
     private Date createTime;
 
     private Boolean deleteFlg;
+	
+	private Boolean isRelation;
 
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import jp.frontierinfo.db.bean.SendRelationUserInfo;
+import jp.frontierinfo.db.bean.UserSimpleInfo;
 import jp.frontierinfo.db.dao.T01UserRelationsInfoDao;
 import jp.frontierinfo.db.entity.T01UserRelationsInfo;
 import jp.frontierinfo.db.entity.T01UserRelationsInfoKey;
@@ -17,8 +17,12 @@ public class T01UserRelationsInfoAccess {
 	public T01UserRelationsInfoAccess(T01UserRelationsInfoDao t01UserRelationsInfoDao) {
 		this.t01UserRelationsInfoDao = t01UserRelationsInfoDao;
 	}
+	// 获取向我打过招呼的人的数据
+	public List<UserSimpleInfo> selectReceiveRelation(String uid){
+		return t01UserRelationsInfoDao.selectReceiveRelation(uid);
+	}
 	// 获取我打过招呼的人的数据
-	public List<SendRelationUserInfo> selectSendRelation(String uid){
+	public List<UserSimpleInfo> selectSendRelation(String uid){
 		return t01UserRelationsInfoDao.selectSendRelation(uid);
 	}
 	

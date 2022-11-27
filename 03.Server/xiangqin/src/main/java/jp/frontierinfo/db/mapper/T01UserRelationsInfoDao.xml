@@ -12,14 +12,31 @@
   <sql id="Base_Column_List">
     uid, relation_id, is_send, is_relation
   </sql>
-  <!--   获取我打过招呼的人的数据 -->
-  <select id="selectSendRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.SendRelationUserInfo">
+  <!--   获取向我打过招呼的人的数据 -->
+  <select id="selectReceiveRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
 	select
+	    basic.uid,
 		basic.uname,
 		basic.sex,
 		basic.introduce,
-		basic.uimages,
-		relation.is_relation
+		basic.avatar_img avatarImg,
+		relation.is_relation isRelation
+	from
+		xiangqin.t01_user_relations_info relation
+		inner join xiangqin.t01_user_basic_info basic
+		on relation.uid = basic.uid
+	where
+		relation.relation_id = #{uid,jdbcType=VARCHAR}
+  </select>
+  <!--   获取我打过招呼的人的数据 -->
+  <select id="selectSendRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
+	select
+	    basic.uid,
+		basic.uname,
+		basic.sex,
+		basic.introduce,
+		basic.avatar_img avatarImg,
+		relation.is_relation isRelation
 	from
 		xiangqin.t01_user_relations_info relation
 		inner join xiangqin.t01_user_basic_info basic
