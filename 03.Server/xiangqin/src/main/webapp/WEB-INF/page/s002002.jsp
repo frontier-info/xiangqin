@@ -57,14 +57,12 @@ body {
 									<div style="display: inline-block;">
 										<c:if test="${empty s002002Form.avatarImg}">
 											<img src="${pageContext.request.contextPath}/resources/image/blank_avatar.jfif"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="avatar_img"
+												class="media-object avatar" id="avatar_img"
 												onclick="img_onclick('avatar_img_input')">
 										</c:if>
 										<c:if test="${not empty s002002Form.avatarImg}">
 											<img src="${pageContext.request.contextPath}/${s002002Form.avatarImg}"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="avatar_img"
+												class="media-object avatar" id="avatar_img"
 												onclick="img_onclick('avatar_img_input')">
 										</c:if>
 										<input type="file" class="form-control" id="avatar_img_input"
@@ -159,76 +157,72 @@ body {
 						<div class="col-md-2"></div>
 						<div class="col-md-10">
 							<div>
-								<p>
-									<label for="uimages">上传照片(共3张):</label>
-									<span id="uimages_span">
+								<label for="uimages">上传照片(共3张):</label>
+								<br>
+								<div style="display: flex;">
+									<div class="uimages_div">
 										<c:if test="${empty s002002Form.uimages1}">
 											<img src="${pageContext.request.contextPath}/resources/image/add_pictures.png"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages1"
+												class="media-object uimages" id="uimages1"
 												onclick="img_onclick('uimages1_input')">
 										</c:if>
 										<c:if test="${not empty s002002Form.uimages1}">
 											<img src="${pageContext.request.contextPath}/${s002002Form.uimages1}"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages1"
+												class="media-object uimages" id="uimages1"
 												onclick="img_onclick('uimages1_input')">
 										</c:if>
+									</div>
+									<div class="uimages_div">
 										<c:if test="${empty s002002Form.uimages2}">
 											<img src="${pageContext.request.contextPath}/resources/image/add_pictures.png"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages2"
+												class="media-object uimages" id="uimages2"
 												onclick="img_onclick('uimages2_input')">
 										</c:if>
 										<c:if test="${not empty s002002Form.uimages2}">
 											<img src="${pageContext.request.contextPath}/${s002002Form.uimages2}"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages2"
+												class="media-object uimages" id="uimages2"
 												onclick="img_onclick('uimages2_input')">
 										</c:if>
+									</div>
+									<div class="uimages_div">
 										<c:if test="${empty s002002Form.uimages3}">
 											<img src="${pageContext.request.contextPath}/resources/image/add_pictures.png"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages3"
+												class="media-object uimages" id="uimages3"
 												onclick="img_onclick('uimages3_input')">
 										</c:if>
 										<c:if test="${not empty s002002Form.uimages3}">
 											<img src="${pageContext.request.contextPath}/${s002002Form.uimages3}"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="uimages3"
+												class="media-object uimages" id="uimages3"
 												onclick="img_onclick('uimages3_input')">
 										</c:if>
-									</span>
-									<input type="file" class="form-control" id="uimages1_input"
-										name="uimages1File" style="display:none" onchange="input_file_onchange(this, '#uimages1')">
-									<input type="file" class="form-control" id="uimages2_input"
-										name="uimages2File" style="display:none" onchange="input_file_onchange(this, '#uimages2')">
-									<input type="file" class="form-control" id="uimages3_input"
-										name="uimages3File" style="display:none" onchange="input_file_onchange(this, '#uimages3')">
-								</p>
+									</div>
+								</div>
+								<input type="file" class="form-control" id="uimages1_input"
+									name="uimages1File" style="display:none" onchange="input_file_onchange(this, '#uimages1')">
+								<input type="file" class="form-control" id="uimages2_input"
+									name="uimages2File" style="display:none" onchange="input_file_onchange(this, '#uimages2')">
+								<input type="file" class="form-control" id="uimages3_input"
+									name="uimages3File" style="display:none" onchange="input_file_onchange(this, '#uimages3')">
 							</div>
 							<div>
-								<p>
-									<label for="identificationImg">上传身份验证照片(共1张,在留卡,住民票等):</label>
-									<br>
-									<label for="identification">※仅用于用户验证真实性</label>
-									<span id="identification_span">
-										<c:if test="${empty s002002Form.identificationImg}">
-											<img src="${pageContext.request.contextPath}/resources/image/add_pictures.png"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="identification_img"
-												onclick="img_onclick('identification_img_input')">
-										</c:if>
-										<c:if test="${not empty s002002Form.identificationImg}">
-											<img src="${pageContext.request.contextPath}/${s002002Form.identificationImg}"
-												class="media-object" style="width: 90px; height: 90px; border-radius:50%; overflow:hidden;"
-												id="identification_img"
-												onclick="img_onclick('identification_img_input')">
-										</c:if>
-									</span>
-									<input type="file" class="form-control" id="identification_img_input"
-										name="identificationImgFile" style="display:none" onchange="input_file_onchange(this, '#identification_img')">
-								</p>
+								<label for="identificationImg">上传身份验证照片(共1张,在留卡,住民票等):</label>
+								<br>
+								<label for="identification">※仅用于用户验证真实性</label>
+								<br>
+								<div class="uimages_div">
+									<c:if test="${empty s002002Form.identificationImg}">
+										<img src="${pageContext.request.contextPath}/resources/image/add_pictures.png"
+											class="media-object uimages" id="identification_img"
+											onclick="img_onclick('identification_img_input')">
+									</c:if>
+									<c:if test="${not empty s002002Form.identificationImg}">
+										<img src="${pageContext.request.contextPath}/${s002002Form.identificationImg}"
+											class="media-object uimages" id="identification_img"
+											onclick="img_onclick('identification_img_input')">
+									</c:if>
+								</div>
+								<input type="file" class="form-control" id="identification_img_input"
+									name="identificationImgFile" style="display:none" onchange="input_file_onchange(this, '#identification_img')">
 							</div>
 						</div>
 					</div>

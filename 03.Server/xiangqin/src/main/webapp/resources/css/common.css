@@ -1,0 +1,19 @@
+/* 头像格式 */
+.avatar {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+/* 用户照片格式 */
+.uimages {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.uimages_div {
+	width:120px;
+	height:200px;
+	border:1px dashed #DCDCDC;
+}
