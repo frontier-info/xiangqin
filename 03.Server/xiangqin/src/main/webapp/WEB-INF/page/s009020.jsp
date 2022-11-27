@@ -179,6 +179,71 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${s009020Form.userFullInfoLi.size() > 0}">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">检索结果</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- 检索结果区域 -->
+					         <table id="userFullInfoTable" class="table table-bordered table-striped">
+						      <thead>
+							   <tr>
+							    <th>用户ID</th>
+							    <th>姓名</th>
+							    <th>性别</th>
+							    <th>出生年月</th>
+							    <th>电话号码</th>
+							    <th>邮箱</th>
+							    <th>籍贯</th>
+							    <th>现住址</th>
+							    <th>职业</th>
+							    <th>兴趣</th>
+							    <th>身高</th>
+							    <th>体重</th>
+							    <th>用户状态</th>
+							    <th>用户级别</th>
+							    <th>审核结果</th>
+							    <th>创建时间</th>
+							    <th>存续状态</th>
+							   </tr>
+						      </thead>
+						      <tbody>
+						      <c:forEach items="${s009020Form.userFullInfoLi}" var="userFullInfo">
+							    <tr>
+							     <td><a href="${pageContext.request.contextPath}/ui/s009020/e002?uid=${userFullInfo.uid}">${userFullInfo.uid}</a></td>
+							     <td>${userFullInfo.uname}</td>
+							     <td>${userFullInfo.sex}</td>
+							     <td><fmt:formatDate type="date" value="${userFullInfo.birthDate}"/></td>
+							     <td>${userFullInfo.mobile}</td>
+							     <td>${userFullInfo.email}</td>
+							     <td>${userFullInfo.birthPlace}</td>
+							     <td>${userFullInfo.address}</td>
+							     <td>${userFullInfo.profession}</td>
+							     <td>${userFullInfo.interest}</td>
+							     <td>${userFullInfo.uheight}</td>
+							     <td>${userFullInfo.uweight}</td>
+							     <td>${userFullInfo.userStatusName}</td>
+							     <td>${userFullInfo.userRankName}</td>
+							     <td>${userFullInfo.userCensorResult}</td>
+							     <td><fmt:formatDate type="date" value="${userFullInfo.createTime}"/></td>
+							     <td><c:out value="${ConstantMap.DELETE_STATUS.get(userFullInfo.deleteFlg)}"></c:out></td>
+							    </tr>
+								</c:forEach>
+						      </tbody>
+					         </table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</c:if>
 	<!-- 模态框（Modal） -->
 	<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -225,71 +290,6 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
-	<c:if test="${s009020Form.userFullInfoLi.size() > 0}">
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">检索结果</h3>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-12">
-							<!-- 检索结果区域 -->
-					         <table id="userFullInfoTable" class="table table-bordered table-striped">
-						      <thead>
-							   <tr>
-							    <th>用户ID</th>
-							    <th>姓名</th>
-							    <th>性别</th>
-							    <th>出生年月</th>
-							    <th>电话号码</th>
-							    <th>邮箱</th>
-							    <th>籍贯</th>
-							    <th>现住址</th>
-							    <th>职业</th>
-							    <th>兴趣</th>
-							    <th>身高</th>
-							    <th>体重</th>
-							    <th>用户状态</th>
-							    <th>用户级别</th>
-							    <th>审核结果</th>
-							    <th>创建时间</th>
-							    <th>存续状态</th>
-							   </tr>
-						      </thead>
-						      <tbody>
-						      <c:forEach items="${s009020Form.userFullInfoLi}" var="userFullInfo">
-							    <tr>
-							     <td>${userFullInfo.uid}</td>
-							     <td><a href="${pageContext.request.contextPath}/ui/s009020/e002?uid=${userFullInfo.uid}">${userFullInfo.uname}</a></td>
-							     <td>${userFullInfo.sex}</td>
-							     <td><fmt:formatDate type="date" value="${userFullInfo.birthDate}"/></td>
-							     <td>${userFullInfo.mobile}</td>
-							     <td>${userFullInfo.email}</td>
-							     <td>${userFullInfo.birthPlace}</td>
-							     <td>${userFullInfo.address}</td>
-							     <td>${userFullInfo.profession}</td>
-							     <td>${userFullInfo.interest}</td>
-							     <td>${userFullInfo.uheight}</td>
-							     <td>${userFullInfo.uweight}</td>
-							     <td>${userFullInfo.userStatusName}</td>
-							     <td>${userFullInfo.userRankName}</td>
-							     <td>${userFullInfo.userCensorResult}</td>
-							     <td><fmt:formatDate type="date" value="${userFullInfo.createTime}"/></td>
-							     <td><c:out value="${ConstantMap.DELETE_STATUS.get(userFullInfo.deleteFlg)}"></c:out></td>
-							    </tr>
-								</c:forEach>
-						      </tbody>
-					         </table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</c:if>
 	</form:form>
 
 </body>

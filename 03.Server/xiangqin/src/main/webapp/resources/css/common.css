@@ -1,7 +1,7 @@
 /* 头像格式 */
 .avatar {
-	width: 90px;
-	height: 90px;
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 	overflow: hidden;
 }
@@ -12,8 +12,28 @@
 	height: 100%;
 	object-fit: contain;
 }
+
 .uimages_div {
-	width:120px;
-	height:200px;
-	border:1px dashed #DCDCDC;
+	width: 120px;
+	height: 200px;
+	border: 1px dashed #DCDCDC;
+}
+
+/* 图片轮播样式 */
+.carousel-control.left {
+	background-image: none;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000',
+		endColorstr='#00000000', GradientType=1);
+	width: 20%;
+}
+
+.carousel-control.right {
+	left: auto;
+	right: 0;
+	background-image: none;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#80000000', GradientType=1);
+	width: 80%;
 }

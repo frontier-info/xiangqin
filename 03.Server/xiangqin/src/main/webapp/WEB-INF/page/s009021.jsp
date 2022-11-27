@@ -57,13 +57,44 @@
 						<div class="col-md-12">
 							<!-- 用户详细信息 -->
 							<div class="row">
-								<div class="col-md-2"></div>
-								<div class="col-md-4">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+								  <!-- 显示用户照片和身份验证照片 -->
+									<div class="swiper-container" id="case4">
+									    <div class="swiper-wrapper">
+										  <c:if test="${not empty s009020Form.userFullInfo.uimages1}">
+							      			<div class="swiper-slide">
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages1}" style="width:100%;"/>
+							      			</div>
+							      		  </c:if>
+										  <c:if test="${not empty s009020Form.userFullInfo.uimages2}">
+							      			<div class="swiper-slide">
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages2}" style="width:100%;"/>
+							      			</div>
+							      		  </c:if>
+										  <c:if test="${not empty s009020Form.userFullInfo.uimages3}">
+							      			<div class="swiper-slide">
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages3}" style="width:100%;"/>
+							      			</div>
+							      		  </c:if>
+										  <c:if test="${not empty s009020Form.userFullInfo.identificationImg}">
+							      			<div class="swiper-slide">
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.identificationImg}" style="width:100%;"/>
+							      			</div>
+							      		  </c:if>
+									    </div>
+									    <!-- 如果需要导航按钮 -->
+									    <div class="swiper-button-prev"></div>
+									    <div class="swiper-button-next"></div>
+									    <div class="swiper-pagination"></div>
+									</div>
+								</div>
+								<div class="col-md-7">
 									<div class="media">
 										<div class="media-left media-top">
 											<img
-												src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages}"
-												class="media-object" style="width: 90px">用户个人照片
+												src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.avatarImg}"
+												class="media-object avatar">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading">用户名:${s009020Form.userFullInfo.uname}</h4>
@@ -71,17 +102,6 @@
 											<p>自我介绍:${s009020Form.userFullInfo.introduce}</p>
 											<p>出生年月日:<fmt:formatDate type="date" value="${s009020Form.userFullInfo.birthDate}"/></p>
 											<p>出生地:${s009020Form.userFullInfo.birthPlace}</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="media">
-										<div class="media-left media-top">
-											<img
-												src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.identificationPhoto}"
-												class="media-object" style="width: 90px">身份认证信息
-										</div>
-										<div class="media-body">
 											<p>住所:${s009020Form.userFullInfo.address}</p>
 											<p>职业:${s009020Form.userFullInfo.profession}</p>
 											<p>兴趣:${s009020Form.userFullInfo.interest}</p>
@@ -90,7 +110,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-2"></div>
+								<div class="col-md-1"></div>
 							</div>
 							<hr size="2" color="#ffffff">
 							<div class="row">
@@ -209,4 +229,30 @@
 	</form:form>
 
 </body>
+<script>
+	var swiper = new Swiper('#case4', {
+		loop : false, //允许从第一张到最后一张，或者从最后一张到第一张  循环属性
+		slidesPerView : 1, // 设置显示1张
+		//centeredSlides : true,     //使当前图片居中显示
+		freeMode : true, // 使幻灯片滑动时不止滑动一格，且不会自动贴合 
+		slidesPerGroup : 1, //定义1张图片为一组
+		autoplay : false, //可选选项，自动滑动
+		speed : 10, //设置过度时间
+		grabCursor : true, //鼠标样式根据浏览器不同而定 
+		//observer: true,
+		autoHeight : true,
+		keyboard : {
+			enabled : true,
+		},
+		pagination : {
+			el : ".swiper-pagination",
+			clickable : true,
+		},
+		// 如果需要前进后退按钮
+		navigation : {
+			nextEl : '.swiper-button-next',
+			prevEl : '.swiper-button-prev',
+		},
+	});
+</script>
 </html>

@@ -209,8 +209,8 @@
 						      <tbody>
 						      <c:forEach items="${s009010Form.userFullInfoLi}" var="userFullInfo">
 							    <tr>
-							     <td>${userFullInfo.uid}</td>
-							     <td><a href="${pageContext.request.contextPath}/ui/s009010/e002?uid=${userFullInfo.uid}">${userFullInfo.uname}</a></td>
+							     <td><a href="${pageContext.request.contextPath}/ui/s009010/e002?uid=${userFullInfo.uid}">${userFullInfo.uid}</a></td>
+							     <td>${userFullInfo.uname}</td>
 							     <td>${userFullInfo.sex}</td>
 							     <td><fmt:formatDate type="date" value="${userFullInfo.birthDate}"/></td>
 							     <td>${userFullInfo.mobile}</td>
