@@ -37,9 +37,8 @@ public class S002001E001Service extends AbstractServiceImpl<S002001E001Input, S0
 		
 		// 获取用户之前设定的个人信息
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
-		if(userBasicInfo != null) {
-			BeanUtils.copyProperties(userBasicInfo, output);
-		}
+		
+		BeanUtils.copyProperties(userBasicInfo, output);
 		
 		return output;
 	}

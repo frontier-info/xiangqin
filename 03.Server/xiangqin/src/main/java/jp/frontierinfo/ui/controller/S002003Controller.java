@@ -56,6 +56,7 @@ public class S002003Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s002003";
 		}
+		model.addAttribute("message", "用户检索条件设定成功");
 		return "s002001";
 	}
 	

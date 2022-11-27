@@ -2,10 +2,13 @@ package jp.frontierinfo.ui.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S002001E002Input;
 import jp.frontierinfo.ui.output.S002001E002Output;
 
@@ -16,6 +19,9 @@ public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S0
 	public S002001E002Output execute(S002001E002Input input) throws BusinessException {
 		
 		S002001E002Output output = new S002001E002Output();
+		
+		// 设置性别单选按钮数据
+		output.setSexLi(ConstantInfo.sexLi);
 		
 		// 获取籍贯下拉列表数据
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");
@@ -28,6 +34,11 @@ public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S0
 		// 获取职业下拉列表数据
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
+		
+		// 获取用户之前设定的检索条件
+		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
+		
+		BeanUtils.copyProperties(userSearchInfo, output);
 		
 		return output;
 	}

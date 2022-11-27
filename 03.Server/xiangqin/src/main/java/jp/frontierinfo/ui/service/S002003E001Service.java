@@ -27,11 +27,7 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 		info.setUweightFrom(input.getUweightFrom());
 		info.setUweightTo(input.getUweightTo());
 		
-		int count = t01UserSearchInfoAccess.insert(info);
-		if(count == 0) {
-			// 用户不存在
-			throw new BusinessException("数据库插入失败");
-		}
+		t01UserSearchInfoAccess.updateByPrimaryKeySelective(info);
 		
 		return output;
 	}

@@ -112,6 +112,8 @@ public class S002001Controller {
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S002003Form form, S002001E002Input input, Model model) {
 		S002001E002Output output = new S002001E002Output();
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+        input.setUid(userLoginInfo.getUid());
 		try {
 			output = s002001E002Service.execute(input);
 		} catch (BusinessException e) {

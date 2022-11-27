@@ -25,12 +25,16 @@
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">用户主页</h3>
+					<h3 class="panel-title">检索条件</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-4">
+				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
+				          <c:if test="${not empty message}">
+				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
+				          </c:if>
 
 							<h2>
 								<font face="verdana">
@@ -45,84 +49,63 @@
 								<div>
 									<p>
 										<label for="uname">性别：</label>
-										<label for="sex" class="radio-inline">
-											<input type="radio" name="sex" value="女">
-											女
-										</label>
-										<label for="sex" class="radio-inline">
-											<input type="radio" name="sex" value="男" checked="checked">
-											男
-										</label>
+										<form:radiobuttons path="sex" items="${s002003Form.sexLi}" />
 									</p>
 								</div>
 
 								<div>
 									<p>
 										<label for="ageFrom">年龄：从</label>
-										<input type="text" class="form-control" name="ageFrom">
+										<form:input class="form-control" path="ageFrom"/>
 										<label for="ageTo">到</label>
-										<input type="text" class="form-control" name="ageTo">
+										<form:input class="form-control" path="ageTo"/>
 									</p>
 								</div>
 								<div>
 									<p>
 										<label for="birthPlace">出生地:</label>
-										<select name="birthPlace" class="form-control">
+										<form:select path="birthPlace" class="form-control">
 											<option value="">--请选择地区--</option>
-											<c:forEach items="${s002003Form.birthPlaceLi}" var="birthPlace">
-												<option value="${birthPlace}">${birthPlace}</option>
-											</c:forEach>
-										</select>
+										    <form:options items="${s002003Form.birthPlaceLi}"/>
+										</form:select>
 									</p>
 								</div>
 
 								<div>
 									<p>
 										<label for="address">住所:</label>
-										<select name="address" class="form-control">
+										<form:select path="address" class="form-control" >
 											<option value="">--请选择地区--</option>
-											<c:forEach items="${s002003Form.addressLi}" var="address">
-												<option value="${address}">${address}</option>
-											</c:forEach>
-										</select>
+								            <form:options items="${s002003Form.addressLi}"/>
+										</form:select>
 									</p>
 								</div>
 
 								<div>
 									<p>
 										<label for="profession">职业:</label>
-										<select name="profession" class="form-control">
+										<form:select path="profession" class="form-control" >
 											<option value="">--请选择行业--</option>
-											<c:forEach items="${s002003Form.professionLi}" var="profession">
-												<option value="${profession}">${profession}</option>
-											</c:forEach>
-										</select>
+								            <form:options items="${s002003Form.professionLi}"/>
+										</form:select>
 									</p>
 								</div>
 
 								<div>
 									<p>
 										<label for="uheightFrom">身高：从</label>
-										<input type="text" class="form-control" name="uheightFrom">
+										<form:input class="form-control" path="uheightFrom"/>
 										<label for="uheightTo">到</label>
-										<input type="text" class="form-control" name="uheightTo">
+										<form:input class="form-control" path="uheightTo"/>
 									</p>
 								</div>
 
 								<div>
 									<p>
 										<label for="uweightFrom">体重：从</label>
-										<input type="text" class="form-control" name="uweightFrom">
+										<form:input class="form-control" path="uweightFrom"/>
 										<label for="uweightTo">到</label>
-										<input type="text" class="form-control" name="uweightTo">
-									</p>
-								</div>
-								<div>
-									<p>
-										<label for="photo">有照片：</label>
-										<label for="photo" class="radio-inline">
-											<input type="checkbox" name="photo" value="1">
-										</label>
+										<form:input class="form-control" path="uweightTo"/>
 									</p>
 								</div>
 

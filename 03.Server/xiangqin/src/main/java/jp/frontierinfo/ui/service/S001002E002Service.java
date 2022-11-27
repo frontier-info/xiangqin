@@ -8,6 +8,7 @@ import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
+import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S001002E002Input;
 import jp.frontierinfo.ui.output.S001002E002Output;
 
@@ -28,10 +29,14 @@ public class S001002E002Service extends AbstractServiceImpl<S001002E002Input, S0
 		info.setDeleteFlg(false);
 		T01UserBasicInfo basicInfo = new T01UserBasicInfo();
 		basicInfo.setUid(uid);
+		T01UserSearchInfo searchInfo = new T01UserSearchInfo();
+		searchInfo.setUid(uid);
 		// 用户登录信息表插入数据
 		t01UserLoginInfoAccess.insert(info);		
-		// 用户基本信息表插入数据
+		// 用户基本信息表插入占位数据
 		t01UserBasicInfoAccess.insert(basicInfo);		
+		// 用户检索条件表插入占位数据
+		t01UserSearchInfoAccess.insert(searchInfo);		
 		return output;
 	}
 
