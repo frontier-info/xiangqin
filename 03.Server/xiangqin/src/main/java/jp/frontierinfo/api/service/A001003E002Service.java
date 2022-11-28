@@ -23,7 +23,7 @@ public class A001003E002Service extends AbstractServiceImpl<A001003E002Input, A0
 			T01UserRelationsInfo relationsInfo = new T01UserRelationsInfo();
 			relationsInfo.setUid(input.getUid());
 			relationsInfo.setRelationId(input.getRelationId());
-			relationsInfo.setIsSend(true);
+//			relationsInfo.setIsSend(true);
 			t01UserRelationsInfoAccess.insert(relationsInfo);
 		} else {
 			// 已发送过时返回错误信息

@@ -1,5 +1,5 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/26 16:13:17
+-- Date/Time    : 2022/11/28 19:09:52
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
@@ -35,7 +35,6 @@ create table xiangqin.t01_user_search_info (
   , birth_place varchar
   , address varchar
   , profession varchar
-  , interest varchar
   , uheight_from numeric
   , uheight_to numeric
   , uweight_from numeric
@@ -49,8 +48,8 @@ drop table if exists xiangqin.t01_user_relations_info cascade;
 create table xiangqin.t01_user_relations_info (
   uid varchar
   , relation_id varchar
-  , is_send boolean
-  , is_relation boolean
+  , relation_level1 varchar
+  , relation_level2 varchar
   , constraint t01_user_relations_info_PKC primary key (uid,relation_id)
 ) ;
 
@@ -74,6 +73,15 @@ create table xiangqin.t01_user_basic_info (
   , uimages2 varchar
   , uimages3 varchar
   , identification_img varchar
+  , require_age_from integer
+  , require_age_to integer
+  , require_birth_place varchar
+  , require_address varchar
+  , require_profession varchar
+  , require_height_from numeric
+  , require_height_to numeric
+  , require_weight_from numeric
+  , require_weight_to numeric
   , constraint t01_user_basic_info_PKC primary key (uid)
 ) ;
 
@@ -111,7 +119,6 @@ comment on column xiangqin.t01_user_search_info.age_to is '年龄(到)';
 comment on column xiangqin.t01_user_search_info.birth_place is '籍贯';
 comment on column xiangqin.t01_user_search_info.address is '现住址';
 comment on column xiangqin.t01_user_search_info.profession is '职业';
-comment on column xiangqin.t01_user_search_info.interest is '兴趣';
 comment on column xiangqin.t01_user_search_info.uheight_from is '身高(从)';
 comment on column xiangqin.t01_user_search_info.uheight_to is '身高(到)';
 comment on column xiangqin.t01_user_search_info.uweight_from is '体重(从)';
@@ -120,8 +127,8 @@ comment on column xiangqin.t01_user_search_info.uweight_to is '体重(到)';
 comment on table xiangqin.t01_user_relations_info is '用户关系表';
 comment on column xiangqin.t01_user_relations_info.uid is '用户ID';
 comment on column xiangqin.t01_user_relations_info.relation_id is '关系用户ID';
-comment on column xiangqin.t01_user_relations_info.is_send is '是否邀约';
-comment on column xiangqin.t01_user_relations_info.is_relation is '是否同意';
+comment on column xiangqin.t01_user_relations_info.relation_level1 is '邀约进度1:同意互相查看照片';
+comment on column xiangqin.t01_user_relations_info.relation_level2 is '邀约进度2:同意交换联系方式';
 
 comment on table xiangqin.t01_user_basic_info is '用户基本信息表';
 comment on column xiangqin.t01_user_basic_info.uid is '用户ID';
@@ -140,6 +147,15 @@ comment on column xiangqin.t01_user_basic_info.uimages1 is '个人照片1';
 comment on column xiangqin.t01_user_basic_info.uimages2 is '个人照片2';
 comment on column xiangqin.t01_user_basic_info.uimages3 is '个人照片3';
 comment on column xiangqin.t01_user_basic_info.identification_img is '身份信息照片';
+comment on column xiangqin.t01_user_basic_info.require_age_from is '择偶要求_年龄(从)';
+comment on column xiangqin.t01_user_basic_info.require_age_to is '择偶要求_年龄(到)';
+comment on column xiangqin.t01_user_basic_info.require_birth_place is '择偶要求_籍贯';
+comment on column xiangqin.t01_user_basic_info.require_address is '择偶要求_现住址';
+comment on column xiangqin.t01_user_basic_info.require_profession is '择偶要求_职业';
+comment on column xiangqin.t01_user_basic_info.require_height_from is '择偶要求_身高(从)';
+comment on column xiangqin.t01_user_basic_info.require_height_to is '择偶要求_身高(到)';
+comment on column xiangqin.t01_user_basic_info.require_weight_from is '择偶要求_体重(从)';
+comment on column xiangqin.t01_user_basic_info.require_weight_to is '择偶要求_体重(到)';
 
 comment on table xiangqin.t01_user_login_info is '用户登录信息表';
 comment on column xiangqin.t01_user_login_info.uid is '用户ID';

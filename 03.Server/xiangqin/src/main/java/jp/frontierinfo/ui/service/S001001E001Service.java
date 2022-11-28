@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.common.utils.TokenUtils;
+import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
+import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.output.S001001E001Output;
 
@@ -30,6 +32,15 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 			// 用户手机号或密码错误
 			throw new BusinessException("用户手机号或密码错误");
 		}
+		
+		// 查询当前用户是否完成基本信息设定
+		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(userLoginInfo.getUid());
+		output.setUserBasicInfo(userBasicInfo);
+		
+		// 查询当前用户是否完成择偶对象设定
+		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(userLoginInfo.getUid());
+		output.setUserSearchInfo(userSearchInfo);
+		
 		return output;
 	}
 

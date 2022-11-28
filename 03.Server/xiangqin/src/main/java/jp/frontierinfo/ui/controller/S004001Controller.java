@@ -106,7 +106,7 @@ public class S004001Controller {
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
-		input.setRelation(true);
+		input.setRelationLevel1("同意");
 		try {
 			s004001E003Service.execute(input);
 		} catch (BusinessException e) {
@@ -129,7 +129,7 @@ public class S004001Controller {
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
-		input.setRelation(false);
+		input.setRelationLevel1("拒绝");
 		try {
 			s004001E003Service.execute(input);
 		} catch (BusinessException e) {

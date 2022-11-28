@@ -24,7 +24,8 @@ public class S003001E002Service extends AbstractServiceImpl<S003001E002Input, S0
 		
 		// 获取邀约对象详细信息
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getRelationId());
-		userFullInfo.setIsRelation(userRelationsInfo.getIsRelation());
+		userFullInfo.setRelationLevel1(userRelationsInfo.getRelationLevel1());
+		userFullInfo.setRelationLevel2(userRelationsInfo.getRelationLevel2());
 		output.setUserFullInfo(userFullInfo);
 		
 		return output;

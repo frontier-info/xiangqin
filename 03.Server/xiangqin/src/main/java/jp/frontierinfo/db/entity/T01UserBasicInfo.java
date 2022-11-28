@@ -36,7 +36,25 @@ public class T01UserBasicInfo {
 
     private String identificationImg;
 
-    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String avatarImg, String uimages1, String uimages2, String uimages3, String identificationImg) {
+    private Integer requireAgeFrom;
+
+    private Integer requireAgeTo;
+
+    private String requireBirthPlace;
+
+    private String requireAddress;
+
+    private String requireProfession;
+
+    private BigDecimal requireHeightFrom;
+
+    private BigDecimal requireHeightTo;
+
+    private BigDecimal requireWeightFrom;
+
+    private BigDecimal requireWeightTo;
+
+    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String avatarImg, String uimages1, String uimages2, String uimages3, String identificationImg, Integer requireAgeFrom, Integer requireAgeTo, String requireBirthPlace, String requireAddress, String requireProfession, BigDecimal requireHeightFrom, BigDecimal requireHeightTo, BigDecimal requireWeightFrom, BigDecimal requireWeightTo) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
@@ -53,6 +71,15 @@ public class T01UserBasicInfo {
         this.uimages2 = uimages2;
         this.uimages3 = uimages3;
         this.identificationImg = identificationImg;
+        this.requireAgeFrom = requireAgeFrom;
+        this.requireAgeTo = requireAgeTo;
+        this.requireBirthPlace = requireBirthPlace;
+        this.requireAddress = requireAddress;
+        this.requireProfession = requireProfession;
+        this.requireHeightFrom = requireHeightFrom;
+        this.requireHeightTo = requireHeightTo;
+        this.requireWeightFrom = requireWeightFrom;
+        this.requireWeightTo = requireWeightTo;
     }
 
     public T01UserBasicInfo() {
@@ -185,5 +212,77 @@ public class T01UserBasicInfo {
 
     public void setIdentificationImg(String identificationImg) {
         this.identificationImg = identificationImg == null ? null : identificationImg.trim();
+    }
+
+    public Integer getRequireAgeFrom() {
+        return requireAgeFrom;
+    }
+
+    public void setRequireAgeFrom(Integer requireAgeFrom) {
+        this.requireAgeFrom = requireAgeFrom;
+    }
+
+    public Integer getRequireAgeTo() {
+        return requireAgeTo;
+    }
+
+    public void setRequireAgeTo(Integer requireAgeTo) {
+        this.requireAgeTo = requireAgeTo;
+    }
+
+    public String getRequireBirthPlace() {
+        return requireBirthPlace;
+    }
+
+    public void setRequireBirthPlace(String requireBirthPlace) {
+        this.requireBirthPlace = requireBirthPlace == null ? null : requireBirthPlace.trim();
+    }
+
+    public String getRequireAddress() {
+        return requireAddress;
+    }
+
+    public void setRequireAddress(String requireAddress) {
+        this.requireAddress = requireAddress == null ? null : requireAddress.trim();
+    }
+
+    public String getRequireProfession() {
+        return requireProfession;
+    }
+
+    public void setRequireProfession(String requireProfession) {
+        this.requireProfession = requireProfession == null ? null : requireProfession.trim();
+    }
+
+    public BigDecimal getRequireHeightFrom() {
+        return requireHeightFrom;
+    }
+
+    public void setRequireHeightFrom(BigDecimal requireHeightFrom) {
+        this.requireHeightFrom = requireHeightFrom;
+    }
+
+    public BigDecimal getRequireHeightTo() {
+        return requireHeightTo;
+    }
+
+    public void setRequireHeightTo(BigDecimal requireHeightTo) {
+        this.requireHeightTo = requireHeightTo;
+    }
+
+    public BigDecimal getRequireWeightFrom() {
+        return requireWeightFrom;
+    }
+
+    public void setRequireWeightFrom(BigDecimal requireWeightFrom) {
+        this.requireWeightFrom = requireWeightFrom;
+    }
+
+    public BigDecimal getRequireWeightTo() {
+        return requireWeightTo;
+    }
+
+    public void setRequireWeightTo(BigDecimal requireWeightTo) {
+        this.requireWeightTo = requireWeightTo;
     }
 }

@@ -19,11 +19,22 @@
       <arg column="uimages2" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="uimages3" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="identification_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="require_age_from" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="require_age_to" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="require_birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="require_address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="require_profession" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="require_height_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="require_height_to" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="require_weight_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
+      <arg column="require_weight_to" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     uid, uname, sex, birth_date, birth_place, address, profession, interest, uheight, 
-    uweight, introduce, avatar_img, uimages1, uimages2, uimages3, identification_img
+    uweight, introduce, avatar_img, uimages1, uimages2, uimages3, identification_img, 
+    require_age_from, require_age_to, require_birth_place, require_address, require_profession, 
+    require_height_from, require_height_to, require_weight_from, require_weight_to
   </sql>
   <!--   查询指定检索条件的30名异性信息 -->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
@@ -204,13 +215,19 @@
       profession, interest, uheight, 
       uweight, introduce, avatar_img, 
       uimages1, uimages2, uimages3, 
-      identification_img)
+      identification_img, require_age_from, require_age_to, 
+      require_birth_place, require_address, require_profession, 
+      require_height_from, require_height_to, require_weight_from, 
+      require_weight_to)
     values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, 
       #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{avatarImg,jdbcType=VARCHAR}, 
       #{uimages1,jdbcType=VARCHAR}, #{uimages2,jdbcType=VARCHAR}, #{uimages3,jdbcType=VARCHAR}, 
-      #{identificationImg,jdbcType=VARCHAR})
+      #{identificationImg,jdbcType=VARCHAR}, #{requireAgeFrom,jdbcType=INTEGER}, #{requireAgeTo,jdbcType=INTEGER}, 
+      #{requireBirthPlace,jdbcType=VARCHAR}, #{requireAddress,jdbcType=VARCHAR}, #{requireProfession,jdbcType=VARCHAR}, 
+      #{requireHeightFrom,jdbcType=NUMERIC}, #{requireHeightTo,jdbcType=NUMERIC}, #{requireWeightFrom,jdbcType=NUMERIC}, 
+      #{requireWeightTo,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info
@@ -263,6 +280,33 @@
       <if test="identificationImg != null">
         identification_img,
       </if>
+      <if test="requireAgeFrom != null">
+        require_age_from,
+      </if>
+      <if test="requireAgeTo != null">
+        require_age_to,
+      </if>
+      <if test="requireBirthPlace != null">
+        require_birth_place,
+      </if>
+      <if test="requireAddress != null">
+        require_address,
+      </if>
+      <if test="requireProfession != null">
+        require_profession,
+      </if>
+      <if test="requireHeightFrom != null">
+        require_height_from,
+      </if>
+      <if test="requireHeightTo != null">
+        require_height_to,
+      </if>
+      <if test="requireWeightFrom != null">
+        require_weight_from,
+      </if>
+      <if test="requireWeightTo != null">
+        require_weight_to,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -312,6 +356,33 @@
       </if>
       <if test="identificationImg != null">
         #{identificationImg,jdbcType=VARCHAR},
+      </if>
+      <if test="requireAgeFrom != null">
+        #{requireAgeFrom,jdbcType=INTEGER},
+      </if>
+      <if test="requireAgeTo != null">
+        #{requireAgeTo,jdbcType=INTEGER},
+      </if>
+      <if test="requireBirthPlace != null">
+        #{requireBirthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="requireAddress != null">
+        #{requireAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="requireProfession != null">
+        #{requireProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="requireHeightFrom != null">
+        #{requireHeightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="requireHeightTo != null">
+        #{requireHeightTo,jdbcType=NUMERIC},
+      </if>
+      <if test="requireWeightFrom != null">
+        #{requireWeightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="requireWeightTo != null">
+        #{requireWeightTo,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -363,6 +434,33 @@
       <if test="identificationImg != null">
         identification_img = #{identificationImg,jdbcType=VARCHAR},
       </if>
+      <if test="requireAgeFrom != null">
+        require_age_from = #{requireAgeFrom,jdbcType=INTEGER},
+      </if>
+      <if test="requireAgeTo != null">
+        require_age_to = #{requireAgeTo,jdbcType=INTEGER},
+      </if>
+      <if test="requireBirthPlace != null">
+        require_birth_place = #{requireBirthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="requireAddress != null">
+        require_address = #{requireAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="requireProfession != null">
+        require_profession = #{requireProfession,jdbcType=VARCHAR},
+      </if>
+      <if test="requireHeightFrom != null">
+        require_height_from = #{requireHeightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="requireHeightTo != null">
+        require_height_to = #{requireHeightTo,jdbcType=NUMERIC},
+      </if>
+      <if test="requireWeightFrom != null">
+        require_weight_from = #{requireWeightFrom,jdbcType=NUMERIC},
+      </if>
+      <if test="requireWeightTo != null">
+        require_weight_to = #{requireWeightTo,jdbcType=NUMERIC},
+      </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
@@ -382,7 +480,16 @@
       uimages1 = #{uimages1,jdbcType=VARCHAR},
       uimages2 = #{uimages2,jdbcType=VARCHAR},
       uimages3 = #{uimages3,jdbcType=VARCHAR},
-      identification_img = #{identificationImg,jdbcType=VARCHAR}
+      identification_img = #{identificationImg,jdbcType=VARCHAR},
+      require_age_from = #{requireAgeFrom,jdbcType=INTEGER},
+      require_age_to = #{requireAgeTo,jdbcType=INTEGER},
+      require_birth_place = #{requireBirthPlace,jdbcType=VARCHAR},
+      require_address = #{requireAddress,jdbcType=VARCHAR},
+      require_profession = #{requireProfession,jdbcType=VARCHAR},
+      require_height_from = #{requireHeightFrom,jdbcType=NUMERIC},
+      require_height_to = #{requireHeightTo,jdbcType=NUMERIC},
+      require_weight_from = #{requireWeightFrom,jdbcType=NUMERIC},
+      require_weight_to = #{requireWeightTo,jdbcType=NUMERIC}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -4,7 +4,7 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 public interface T01UserSearchInfoDao {
 	
-	// æŸ¥è¯¢å½“å‰ç”¨æˆ·æ˜¯å¦å·²è®¾ç½®æ‹©å¶è¦æ±‚
+	// ²éÑ¯µ±Ç°ÓÃ»§ÊÇ·ñÒÑÉèÖÃÔñÅ¼ÒªÇó
 	int selectExist(String uid);
 	
     int deleteByPrimaryKey(String uid);

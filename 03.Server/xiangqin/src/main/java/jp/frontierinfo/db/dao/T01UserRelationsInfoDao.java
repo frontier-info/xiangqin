@@ -8,13 +8,13 @@ import jp.frontierinfo.db.entity.T01UserRelationsInfoKey;
 
 public interface T01UserRelationsInfoDao {
 	
-	// è·å–å‘æˆ‘æ‰“è¿‡æ‹›å‘¼çš„äººçš„æ•°æ®
+	// »ñÈ¡ÏòÎÒ´ò¹ıÕĞºôµÄÈËµÄÊı¾İ
 	List<UserSimpleInfo> selectReceiveRelation(String uid);
 	
-	// è·å–æˆ‘æ‰“è¿‡æ‹›å‘¼çš„äººçš„æ•°æ®
+	// »ñÈ¡ÎÒ´ò¹ıÕĞºôµÄÈËµÄÊı¾İ
 	List<UserSimpleInfo> selectSendRelation(String uid);
 	
-	// æŸ¥è¯¢å½“å‰ç”¨æˆ·æ˜¯å¦å·²å‘è¯¥æŒ‡å®šå¼‚æ€§å‘é€è¿‡é‚€çº¦ä¿¡æ¯
+	// ²éÑ¯µ±Ç°ÓÃ»§ÊÇ·ñÒÑÏò¸ÃÖ¸¶¨ÒìĞÔ·¢ËÍ¹ıÑûÔ¼ĞÅÏ¢
 	int selectExist(T01UserRelationsInfoKey key);
 	
     int deleteByPrimaryKey(T01UserRelationsInfoKey key);

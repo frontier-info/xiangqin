@@ -18,7 +18,8 @@ public class S005001E001Service extends AbstractServiceImpl<S005001E001Input, S0
 		T01UserRelationsInfo userRelationsInfo = new T01UserRelationsInfo();
 		userRelationsInfo.setUid(input.getUid());
 		userRelationsInfo.setRelationId(input.getRelationId());
-		userRelationsInfo.setIsSend(true);
+		userRelationsInfo.setRelationLevel1(input.getRelationLevel1());
+		userRelationsInfo.setRelationLevel2(input.getRelationLevel2());
 		t01UserRelationsInfoAccess.insert(userRelationsInfo);
 		
 		return output;

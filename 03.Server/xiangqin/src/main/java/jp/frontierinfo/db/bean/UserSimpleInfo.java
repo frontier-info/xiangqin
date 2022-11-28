@@ -15,6 +15,8 @@ public class UserSimpleInfo {
 	
 	private String avatarImg;
 	
-	private Boolean isRelation;
+	private String relationLevel1;
+	
+	private String relationLevel2;
 
 }

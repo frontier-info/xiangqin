@@ -10,13 +10,13 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 public interface T01UserBasicInfoDao {
 	
-	// æŸ¥è¯¢æŒ‡å®šæ‹©å¶è¦æ±‚çš„30åå¼‚æ€§ä¿¡æ¯
+	// ²éÑ¯Ö¸¶¨ÔñÅ¼ÒªÇóµÄ30ÃûÒìĞÔĞÅÏ¢
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
 	
-	// æŸ¥è¯¢æŒ‡å®šæ‹©å¶è¦æ±‚çš„ç”¨æˆ·å…¨éƒ¨ä¿¡æ¯
+	// ²éÑ¯Ö¸¶¨ÔñÅ¼ÒªÇóµÄÓÃ»§È«²¿ĞÅÏ¢
 	List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo);
 	
-	// æŸ¥è¯¢æŒ‡å®šç”¨æˆ·çš„å…¨éƒ¨ä¿¡æ¯
+	// ²éÑ¯Ö¸¶¨ÓÃ»§µÄÈ«²¿ĞÅÏ¢
 	UserFullInfo selectUserFullInfoByUid(String uid);
 	
     int deleteByPrimaryKey(String uid);

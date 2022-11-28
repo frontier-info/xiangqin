@@ -17,8 +17,6 @@ public class T01UserSearchInfo {
 
     private String profession;
 
-    private String interest;
-
     private BigDecimal uheightFrom;
 
     private BigDecimal uheightTo;
@@ -27,7 +25,7 @@ public class T01UserSearchInfo {
 
     private BigDecimal uweightTo;
 
-    public T01UserSearchInfo(String uid, String sex, Integer ageFrom, Integer ageTo, String birthPlace, String address, String profession, String interest, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
+    public T01UserSearchInfo(String uid, String sex, Integer ageFrom, Integer ageTo, String birthPlace, String address, String profession, BigDecimal uheightFrom, BigDecimal uheightTo, BigDecimal uweightFrom, BigDecimal uweightTo) {
         this.uid = uid;
         this.sex = sex;
         this.ageFrom = ageFrom;
@@ -35,7 +33,6 @@ public class T01UserSearchInfo {
         this.birthPlace = birthPlace;
         this.address = address;
         this.profession = profession;
-        this.interest = interest;
         this.uheightFrom = uheightFrom;
         this.uheightTo = uheightTo;
         this.uweightFrom = uweightFrom;
@@ -100,14 +97,6 @@ public class T01UserSearchInfo {
 
     public void setProfession(String profession) {
         this.profession = profession == null ? null : profession.trim();
-    }
-
-    public String getInterest() {
-        return interest;
-    }
-
-    public void setInterest(String interest) {
-        this.interest = interest == null ? null : interest.trim();
     }
 
     public BigDecimal getUheightFrom() {

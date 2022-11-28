@@ -10,7 +10,6 @@
       <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="interest" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="uheight_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
       <arg column="uheight_to" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
       <arg column="uweight_from" javaType="java.math.BigDecimal" jdbcType="NUMERIC" />
@@ -18,8 +17,8 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, sex, age_from, age_to, birth_place, address, profession, interest, uheight_from, 
-    uheight_to, uweight_from, uweight_to
+    uid, sex, age_from, age_to, birth_place, address, profession, uheight_from, uheight_to, 
+    uweight_from, uweight_to
   </sql>
   <!--   查询当前用户是否已设置检索条件 -->
   <select id="selectExist" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -42,14 +41,12 @@
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo">
     insert into xiangqin.t01_user_search_info (uid, sex, age_from, 
       age_to, birth_place, address, 
-      profession, interest, uheight_from, 
-      uheight_to, uweight_from, uweight_to
-      )
+      profession, uheight_from, uheight_to, 
+      uweight_from, uweight_to)
     values (#{uid,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{ageFrom,jdbcType=INTEGER}, 
       #{ageTo,jdbcType=INTEGER}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheightFrom,jdbcType=NUMERIC}, 
-      #{uheightTo,jdbcType=NUMERIC}, #{uweightFrom,jdbcType=NUMERIC}, #{uweightTo,jdbcType=NUMERIC}
-      )
+      #{profession,jdbcType=VARCHAR}, #{uheightFrom,jdbcType=NUMERIC}, #{uheightTo,jdbcType=NUMERIC}, 
+      #{uweightFrom,jdbcType=NUMERIC}, #{uweightTo,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo">
     insert into xiangqin.t01_user_search_info
@@ -74,9 +71,6 @@
       </if>
       <if test="profession != null">
         profession,
-      </if>
-      <if test="interest != null">
-        interest,
       </if>
       <if test="uheightFrom != null">
         uheight_from,
@@ -113,9 +107,6 @@
       <if test="profession != null">
         #{profession,jdbcType=VARCHAR},
       </if>
-      <if test="interest != null">
-        #{interest,jdbcType=VARCHAR},
-      </if>
       <if test="uheightFrom != null">
         #{uheightFrom,jdbcType=NUMERIC},
       </if>
@@ -151,9 +142,6 @@
       <if test="profession != null">
         profession = #{profession,jdbcType=VARCHAR},
       </if>
-      <if test="interest != null">
-        interest = #{interest,jdbcType=VARCHAR},
-      </if>
       <if test="uheightFrom != null">
         uheight_from = #{uheightFrom,jdbcType=NUMERIC},
       </if>
@@ -177,7 +165,6 @@
       birth_place = #{birthPlace,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},
-      interest = #{interest,jdbcType=VARCHAR},
       uheight_from = #{uheightFrom,jdbcType=NUMERIC},
       uheight_to = #{uheightTo,jdbcType=NUMERIC},
       uweight_from = #{uweightFrom,jdbcType=NUMERIC},

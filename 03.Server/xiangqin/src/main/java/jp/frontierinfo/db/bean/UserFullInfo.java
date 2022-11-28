@@ -57,6 +57,8 @@ public class UserFullInfo {
 
     private Boolean deleteFlg;
 	
-	private Boolean isRelation;
+	private String relationLevel1;
+	
+	private String relationLevel2;
 
 }

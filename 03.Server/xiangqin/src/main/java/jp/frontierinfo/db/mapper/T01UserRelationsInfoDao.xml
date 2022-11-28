@@ -5,12 +5,12 @@
     <constructor>
       <idArg column="uid" javaType="java.lang.String" jdbcType="VARCHAR" />
       <idArg column="relation_id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="is_send" javaType="java.lang.Boolean" jdbcType="BIT" />
-      <arg column="is_relation" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="relation_level1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="relation_level2" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, relation_id, is_send, is_relation
+    uid, relation_id, relation_level1, relation_level2
   </sql>
   <!--   获取向我打过招呼的人的数据 -->
   <select id="selectReceiveRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
@@ -20,7 +20,8 @@
 		basic.sex,
 		basic.introduce,
 		basic.avatar_img avatarImg,
-		relation.is_relation isRelation
+		relation.relation_level1 relationLevel1,
+		relation.relation_level2 relationLevel2
 	from
 		xiangqin.t01_user_relations_info relation
 		inner join xiangqin.t01_user_basic_info basic
@@ -36,7 +37,8 @@
 		basic.sex,
 		basic.introduce,
 		basic.avatar_img avatarImg,
-		relation.is_relation isRelation
+		relation.relation_level1 relationLevel1,
+		relation.relation_level2 relationLevel2
 	from
 		xiangqin.t01_user_relations_info relation
 		inner join xiangqin.t01_user_basic_info basic
@@ -66,10 +68,10 @@
       and relation_id = #{relationId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
-    insert into xiangqin.t01_user_relations_info (uid, relation_id, is_send, 
-      is_relation)
-    values (#{uid,jdbcType=VARCHAR}, #{relationId,jdbcType=VARCHAR}, #{isSend,jdbcType=BIT}, 
-      #{isRelation,jdbcType=BIT})
+    insert into xiangqin.t01_user_relations_info (uid, relation_id, relation_level1, 
+      relation_level2)
+    values (#{uid,jdbcType=VARCHAR}, #{relationId,jdbcType=VARCHAR}, #{relationLevel1,jdbcType=VARCHAR}, 
+      #{relationLevel2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     insert into xiangqin.t01_user_relations_info
@@ -80,11 +82,11 @@
       <if test="relationId != null">
         relation_id,
       </if>
-      <if test="isSend != null">
-        is_send,
+      <if test="relationLevel1 != null">
+        relation_level1,
       </if>
-      <if test="isRelation != null">
-        is_relation,
+      <if test="relationLevel2 != null">
+        relation_level2,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -94,22 +96,22 @@
       <if test="relationId != null">
         #{relationId,jdbcType=VARCHAR},
       </if>
-      <if test="isSend != null">
-        #{isSend,jdbcType=BIT},
+      <if test="relationLevel1 != null">
+        #{relationLevel1,jdbcType=VARCHAR},
       </if>
-      <if test="isRelation != null">
-        #{isRelation,jdbcType=BIT},
+      <if test="relationLevel2 != null">
+        #{relationLevel2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     update xiangqin.t01_user_relations_info
     <set>
-      <if test="isSend != null">
-        is_send = #{isSend,jdbcType=BIT},
+      <if test="relationLevel1 != null">
+        relation_level1 = #{relationLevel1,jdbcType=VARCHAR},
       </if>
-      <if test="isRelation != null">
-        is_relation = #{isRelation,jdbcType=BIT},
+      <if test="relationLevel2 != null">
+        relation_level2 = #{relationLevel2,jdbcType=VARCHAR},
       </if>
     </set>
     where uid = #{uid,jdbcType=VARCHAR}
@@ -117,8 +119,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo">
     update xiangqin.t01_user_relations_info
-    set is_send = #{isSend,jdbcType=BIT},
-      is_relation = #{isRelation,jdbcType=BIT}
+    set relation_level1 = #{relationLevel1,jdbcType=VARCHAR},
+      relation_level2 = #{relationLevel2,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=VARCHAR}
       and relation_id = #{relationId,jdbcType=VARCHAR}
   </update>
