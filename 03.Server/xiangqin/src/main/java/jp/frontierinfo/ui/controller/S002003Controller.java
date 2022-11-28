@@ -29,7 +29,7 @@ public class S002003Controller {
 	/**
 	 * 信息检索首页
 	 */
-	@PrintLog("用户检索条件设定页面的初期表示")
+	@PrintLog("用户择偶要求设定页面的初期表示")
 	@RequestMapping(value="/s002003", method=RequestMethod.POST)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			Model model) {
@@ -39,7 +39,7 @@ public class S002003Controller {
 	/**
 	 * 保存搜索条件
 	 */
-	@PrintLog("用户检索条件设定页面的保存搜索条件按钮点击")
+	@PrintLog("用户择偶要求设定页面的保存搜索条件按钮点击")
 	@RequestMapping(value="/s002003", params="saveSearchCondition", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@Validated S002003Form form, BindingResult result, 
@@ -56,7 +56,7 @@ public class S002003Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s002003";
 		}
-		model.addAttribute("message", "用户检索条件设定成功");
+		model.addAttribute("message", "用户择偶要求设定成功");
 		return "s002001";
 	}
 	

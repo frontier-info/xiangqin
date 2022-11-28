@@ -105,9 +105,9 @@ public class S002001Controller {
 	}
 	
 	/**
-	 * 检索条件设定按钮
+	 * 择偶要求设定按钮
 	 */
-	@PrintLog("用户主页的检索条件设定按钮点击")
+	@PrintLog("用户主页的择偶要求设定按钮点击")
 	@RequestMapping(value="/s002001/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S002003Form form, S002001E002Input input, Model model) {

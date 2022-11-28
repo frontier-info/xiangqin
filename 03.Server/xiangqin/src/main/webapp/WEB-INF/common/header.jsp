@@ -15,7 +15,7 @@
         <a href="${pageContext.request.contextPath}/ui/s002001/e001" class="nav-link">用户信息设定</a>
        </li>
        <li class="nav-item">
-        <a href="${pageContext.request.contextPath}/ui/s002001/e002" class="nav-link">检索条件设定</a>
+        <a href="${pageContext.request.contextPath}/ui/s002001/e002" class="nav-link">择偶要求设定</a>
        </li>
        <li class="nav-item">
         <a href="${pageContext.request.contextPath}/ui/s003001/e001" class="nav-link">我打过招呼的人</a>

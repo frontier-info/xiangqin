@@ -10,10 +10,10 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 public interface T01UserBasicInfoDao {
 	
-	// 查询指定检索条件的30名异性信息
+	// 查询指定择偶要求的30名异性信息
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
 	
-	// 查询指定检索条件的用户全部信息
+	// 查询指定择偶要求的用户全部信息
 	List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo);
 	
 	// 查询指定用户的全部信息

@@ -20,12 +20,12 @@ public class T01UserBasicInfoAccess {
 		this.t01UserBasicInfoDao = t01UserBasicInfoDao;
 	}
 	
-	// 查询指定检索条件的30名异性信息
+	// 查询指定择偶要求的30名异性信息
 	public List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo){
 		return t01UserBasicInfoDao.selectRecommendList(searchInfo);
 	}
 	
-	// 查询指定检索条件的用户全部信息
+	// 查询指定择偶要求的用户全部信息
 	public List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo){
 		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
 	}

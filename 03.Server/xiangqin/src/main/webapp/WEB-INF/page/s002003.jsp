@@ -6,7 +6,7 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>相亲-检索条件设定</title>
+<title>相亲-择偶要求设定</title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">检索条件</h3>
+					<h3 class="panel-title">择偶要求</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -38,7 +38,7 @@
 
 							<h2>
 								<font face="verdana">
-									<font size="6" color="black">请您填入检索条件 
+									<font size="6" color="black">请您填入择偶要求 
 							</h2>
 							<h3>
 								<font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 

@@ -35,7 +35,7 @@ public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S0
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
 		
-		// 获取用户之前设定的检索条件
+		// 获取用户之前设定的择偶要求
 		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
 		
 		BeanUtils.copyProperties(userSearchInfo, output);
