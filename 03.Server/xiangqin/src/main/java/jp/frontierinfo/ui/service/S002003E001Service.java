@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
 import jp.frontierinfo.ui.input.S002003E001Input;
 import jp.frontierinfo.ui.output.S002003E001Output;
@@ -14,9 +15,13 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 	@Override
 	public S002003E001Output execute(S002003E001Input input) throws BusinessException {
 		S002003E001Output output = new S002003E001Output();
+		
+		// 获取用户基本信息以设定择偶性别
+		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
+		
 		T01UserSearchInfo info = new T01UserSearchInfo();
 		info.setUid(input.getUid());
-		info.setSex(input.getSex());
+		info.setSex(userBasicInfo.getSex()=="男"?"女":"男");
 		info.setAgeFrom(input.getAgeFrom());
 		info.setAgeTo(input.getAgeTo());
 		info.setBirthPlace(input.getBirthPlace());
@@ -27,7 +32,7 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 		info.setUweightFrom(input.getUweightFrom());
 		info.setUweightTo(input.getUweightTo());
 		
-		t01UserSearchInfoAccess.updateByPrimaryKeySelective(info);
+		t01UserSearchInfoAccess.updateByPrimaryKey(info);
 		
 		return output;
 	}

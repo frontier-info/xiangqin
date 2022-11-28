@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.constant.ConstantInfo;
@@ -32,6 +34,7 @@ import jp.frontierinfo.ui.service.S002001Service;
 
 @Controller
 @RequestMapping("/ui")  
+@SessionAttributes(value= {"s002003Form"}) 
 public class S002001Controller {
 	
 	@Autowired
@@ -42,6 +45,11 @@ public class S002001Controller {
 	
 	@Autowired
 	private S002001E002Service s002001E002Service;
+	
+	@ModelAttribute("s002003Form")
+	public S002003Form getS002003Form() {
+		return new S002003Form();
+	}
 	
 	/**
 	 * 首页按钮
@@ -72,6 +80,10 @@ public class S002001Controller {
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
         	return "s001001";
+		}
+		// 检索0件时
+		if(output.getUserSimpleInfoLi().size() == 0) {
+			model.addAttribute("message", "未查询到符合当前择偶条件的异性信息,请变更择偶条件.");
 		}
 
 		BeanUtils.copyProperties(output, form);
@@ -110,7 +122,7 @@ public class S002001Controller {
 	@PrintLog("用户主页的择偶要求设定按钮点击")
 	@RequestMapping(value="/s002001/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
-			S002003Form form, S002001E002Input input, Model model) {
+			@ModelAttribute() S002003Form form, S002001E002Input input, Model model) {
 		S002001E002Output output = new S002001E002Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
@@ -119,6 +131,11 @@ public class S002001Controller {
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
         	return "s001001";
+		}
+		
+		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode())) {
+			// 普通用户在页面提示择偶条件一条的限制
+			model.addAttribute("message", "普通用户只能设定一个择偶条件.");
 		}
 
 		BeanUtils.copyProperties(output, form);

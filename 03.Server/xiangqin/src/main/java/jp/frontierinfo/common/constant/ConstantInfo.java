@@ -28,6 +28,18 @@ public class ConstantInfo {
 	}
 	
 	/**
+	 * 用户权限数据
+	 */
+	// 普通用户
+	public static final String USER_RANK_NORMAL = "01";
+	// VIP用户
+	public static final String USER_RANK_VIP = "02";
+	// 普通管理员
+	public static final String USER_RANK_NORMAL_MANAGER = "03";
+	// 高级管理员
+	public static final String USER_RANK_HIGH_MANAGER = "04";
+	
+	/**
 	 * 页面用性别单选按钮数据
 	 */
 	public static List<String> sexLi;

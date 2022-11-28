@@ -48,13 +48,6 @@
 
 								<div>
 									<p>
-										<label for="uname">性别：</label>
-										<form:radiobuttons path="sex" items="${s002003Form.sexLi}" />
-									</p>
-								</div>
-
-								<div>
-									<p>
 										<label for="ageFrom">年龄：从</label>
 										<form:input class="form-control" path="ageFrom"/>
 										<label for="ageTo">到</label>

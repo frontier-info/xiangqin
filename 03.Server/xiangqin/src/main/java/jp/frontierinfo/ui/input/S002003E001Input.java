@@ -8,8 +8,6 @@ import lombok.Data;
 public class S002003E001Input {
 
 	private String uid;
-
-	private String sex;
 	
 	private Integer ageFrom;
 	

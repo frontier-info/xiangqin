@@ -8,15 +8,11 @@ import lombok.Data;
 @Data
 public class S002001E002Output {
 	
-	private List<String> sexLi;
-	
 	private List<String> birthPlaceLi;
 	
 	private List<String> addressLi;
 	
 	private List<String> professionLi;
-
-	private String sex;
 	
 	private Integer ageFrom;
 	
