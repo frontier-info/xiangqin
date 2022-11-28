@@ -28,6 +28,18 @@ public class ConstantInfo {
 	}
 	
 	/**
+	 * 用户审查阶段数据
+	 */
+	// 00:未提交审核
+	public static final String USER_CENSOR_STATUS_00 = "00";
+	// 01:审核中
+	public static final String USER_CENSOR_STATUS_01 = "01";
+	// 02:审核通过
+	public static final String USER_CENSOR_STATUS_02 = "02";
+	// 03:审核拒绝
+	public static final String USER_CENSOR_STATUS_03 = "03";
+	
+	/**
 	 * 用户权限数据
 	 */
 	// 普通用户
@@ -35,9 +47,9 @@ public class ConstantInfo {
 	// VIP用户
 	public static final String USER_RANK_VIP = "02";
 	// 普通管理员
-	public static final String USER_RANK_NORMAL_MANAGER = "03";
+	public static final String USER_RANK_NORMAL_MANAGER = "08";
 	// 高级管理员
-	public static final String USER_RANK_HIGH_MANAGER = "04";
+	public static final String USER_RANK_HIGH_MANAGER = "09";
 	
 	/**
 	 * 页面用性别单选按钮数据

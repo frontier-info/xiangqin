@@ -39,6 +39,24 @@ public class S002002E001Input {
     private MultipartFile uimages3File;
 
     private MultipartFile identificationImgFile;
+
+    private Integer requireAgeFrom;
+
+    private Integer requireAgeTo;
+
+    private String requireBirthPlace;
+
+    private String requireAddress;
+
+    private String requireProfession;
+
+    private BigDecimal requireHeightFrom;
+
+    private BigDecimal requireHeightTo;
+
+    private BigDecimal requireWeightFrom;
+
+    private BigDecimal requireWeightTo;
     
     // 服务器绝对路径
     private String realpath;

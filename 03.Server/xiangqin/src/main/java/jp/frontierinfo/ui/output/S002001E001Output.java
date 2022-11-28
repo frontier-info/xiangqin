@@ -16,6 +16,12 @@ public class S002001E001Output {
 	private List<String> addressLi;
 	
 	private List<String> professionLi;
+	
+	private List<String> requireBirthPlaceLi;
+	
+	private List<String> requireAddressLi;
+	
+	private List<String> requireProfessionLi;
 
     private String uname;
 
@@ -46,5 +52,23 @@ public class S002001E001Output {
     private String uimages3;
 
     private String identificationImg;
+
+    private Integer requireAgeFrom;
+
+    private Integer requireAgeTo;
+
+    private String requireBirthPlace;
+
+    private String requireAddress;
+
+    private String requireProfession;
+
+    private BigDecimal requireHeightFrom;
+
+    private BigDecimal requireHeightTo;
+
+    private BigDecimal requireWeightFrom;
+
+    private BigDecimal requireWeightTo;
 
 }   

@@ -42,6 +42,15 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setUimages2(savefile(input.getUimages2File(), realpath, fileSavePath));
 		basicInfo.setUimages3(savefile(input.getUimages3File(), realpath, fileSavePath));
 		basicInfo.setIdentificationImg(savefile(input.getIdentificationImgFile(), realpath, fileSavePath));
+		basicInfo.setRequireAgeFrom(input.getRequireAgeFrom());
+		basicInfo.setRequireAgeTo(input.getRequireAgeTo());
+		basicInfo.setRequireBirthPlace(input.getRequireBirthPlace());
+		basicInfo.setRequireAddress(input.getRequireAddress());
+		basicInfo.setRequireProfession(input.getRequireProfession());
+		basicInfo.setRequireHeightFrom(input.getRequireHeightFrom());
+		basicInfo.setRequireHeightTo(input.getRequireHeightTo());
+		basicInfo.setRequireWeightFrom(input.getRequireWeightFrom());
+		basicInfo.setRequireWeightTo(input.getRequireWeightTo());
 		
 		t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
 				

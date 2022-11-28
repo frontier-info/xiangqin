@@ -17,9 +17,8 @@ body {
 <body>
 
 	<div class="row">
-
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<!--   引入导航栏 -->
 			<%@include file="../common/header.jsp"%>
 		</div>
@@ -28,32 +27,25 @@ body {
 	</div>
 	<form:form modelAttribute="s002002Form" action="/xiangqin/ui/s002002" method="post" enctype="multipart/form-data">
 	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">用户主页</h3>
+					<h3 class="panel-title">个人信息设定</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-4">
+						<div class="col-md-12">
 				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
 				          <c:if test="${not empty message}">
 				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
 				          </c:if>
-
-							<h2>
-								<font face="verdana">
-									<font size="6" color="black">请您填入个人信息 
-							</h2>
-							<h3>
-								<font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 
-							</h3>
+							<h2><font size="6" color="black">请您填入个人信息 </font></h2>
+							<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 </font></h3>
 							<hr />
-
-
-								<div>
+							<!-- 检索条件区域 -->
+							<div class="form-inline row">
+								<div class="col-md-3">
 									<div style="display: inline-block;">
 										<c:if test="${empty s002002Form.avatarImg}">
 											<img src="${pageContext.request.contextPath}/resources/image/blank_avatar.jfif"
@@ -75,23 +67,7 @@ body {
 										</p>
 									</div>
 								</div>
-								<br>
-								<div>
-									<p>
-										<label for="sex">性别：</label>
-										<form:radiobuttons path="sex" items="${s002002Form.sexLi}" />
-									</p>
-								</div>
-
-								<div>
-									<p>
-										<label for="birthDate">出生年月日:</label>
-										<fmt:formatDate pattern="yyyy-MM-dd" value="${s002002Form.birthDate}" var="userBirthDate"/>
-										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}">
-									</p>
-								</div>
-
-								<div>
+								<div class="col-md-3">
 									<p>
 										<label for="birthPlace">出生地:</label>
 										<form:select path="birthPlace" class="form-control">
@@ -100,7 +76,29 @@ body {
 										</form:select>
 									</p>
 								</div>
-								<div>
+								<div class="col-md-3">
+									<p>
+										<label for="birthDate">出生年月日:</label>
+										<fmt:formatDate pattern="yyyy-MM-dd" value="${s002002Form.birthDate}" var="userBirthDate"/>
+										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}">
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label for="interest">兴趣:</label>
+										<form:input class="form-control" path="interest"/>
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3">
+								    <br>
+									<p>
+										<label for="sex">性别：</label>
+										<form:radiobuttons path="sex" items="${s002002Form.sexLi}" />
+									</p>
+								</div>
+								<div class="col-md-3">
 									<p>
 										<label for="address">住所:</label>
 										<form:select path="address" class="form-control" >
@@ -109,8 +107,22 @@ body {
 										</form:select>
 									</p>
 								</div>
-
-								<div>
+								<div class="col-md-3">
+									<p>
+										<label for="uheight">身高:</label>
+										<form:input class="form-control" path="uheight"/>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label for="introduce">自我介绍:</label>
+										<form:textarea class="form-control" path="introduce" rows="2" />
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
 									<p>
 										<label for="profession">职业:</label>
 										<form:select path="profession" class="form-control" >
@@ -119,43 +131,20 @@ body {
 										</form:select>
 									</p>
 								</div>
-
-								<div>
-									<p>
-										<label for="interest">兴趣:</label>
-										<form:input class="form-control" path="interest"/>
-									</p>
-								</div>
-
-								<div>
-									<p>
-										<label for="uheight">身高:</label>
-										<form:input class="form-control" path="uheight"/>
-									</p>
-
-								</div>
-
-								<div>
+								<div class="col-md-3">
 									<p>
 										<label for="uweight">体重:</label>
 										<form:input class="form-control" path="uweight"/>
 									</p>
 								</div>
-
-								<div>
-									<p>
-										<label for="introduce">自我介绍:</label>
-
-										<form:textarea class="form-control" path="introduce" rows="13" onblur="check_note_input(this);countWorkNums(1);" onkeyup="countWorkNums(1);" onfocus="click_note_input(this);clearText(this);countWorkNums(1);"/>
-									</p>
-								</div>
+							</div>
 						</div>
-						<div class="col-md-6"></div>
 					</div>
+					<hr size="2" color="#ffffff">
 					<div class="row">
 						<!-- 用户图片上传区 -->
-						<div class="col-md-2"></div>
-						<div class="col-md-10">
+						<div class="col-md-1"></div>
+						<div class="col-md-6">
 							<div>
 								<label for="uimages">上传照片(共3张):</label>
 								<br>
@@ -204,6 +193,8 @@ body {
 								<input type="file" class="form-control" id="uimages3_input"
 									name="uimages3File" style="display:none" onchange="input_file_onchange(this, '#uimages3')">
 							</div>
+						</div>
+						<div class="col-md-4">
 							<div>
 								<label for="identificationImg">上传身份验证照片(共1张,在留卡,住民票等):</label>
 								<br>
@@ -223,6 +214,76 @@ body {
 								</div>
 								<input type="file" class="form-control" id="identification_img_input"
 									name="identificationImgFile" style="display:none" onchange="input_file_onchange(this, '#identification_img')">
+							</div>
+						</div>
+					</div>
+					<hr size="2" color="#ffffff">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>择偶条件</h4>
+							<!-- 择偶条件区域 -->
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+									<p>
+										<label for="birthPlace">出生地:</label>
+										<form:select path="requireBirthPlace" class="form-control">
+											<option value="">--请选择地区--</option>
+										    <form:options items="${s002002Form.requireBirthPlaceLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>年龄：</label> 
+										<label for="ageFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireAgeFrom"/> 
+										<label for="ageTo">到</label> 
+										<form:input class="form-control" size="3" path="requireAgeTo"/>
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+									<p>
+										<label for="address">住所:</label>
+										<form:select path="requireAddress" class="form-control" >
+											<option value="">--请选择地区--</option>
+								            <form:options items="${s002002Form.requireAddressLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>身高：</label> 
+										<label for="uheightFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireHeightFrom"/> 
+										<label for="uheightTo">到</label> 
+										<form:input class="form-control" size="3" path="requireHeightTo"/>
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+									<p>
+										<label for="profession">职业:</label>
+										<form:select path="requireProfession" class="form-control" >
+											<option value="">--请选择行业--</option>
+								            <form:options items="${s002002Form.requireProfessionLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>体重：</label> 
+										<label for="uweightFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireWeightFrom"/> 
+										<label for="uweightTo">到</label> 
+										<form:input class="form-control" size="3" path="requireWeightTo"/>
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>

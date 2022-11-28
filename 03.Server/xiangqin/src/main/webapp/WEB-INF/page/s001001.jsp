@@ -12,9 +12,7 @@
   <div class="row">
    <div class="col-md-4"></div>
    <div class="col-md-4">
-    <div class="page-header">
-     <h1>XiangQin</h1>
-    </div>
+     <h1><a class="navbar-brand" href="${pageContext.request.contextPath}/ui/s001001">XiangQin</a></h1>
    </div>
    <div class="col-md-4"></div>
   </div>

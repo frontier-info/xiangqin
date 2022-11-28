@@ -74,10 +74,6 @@ public class S001001Controller extends AbstractController {
 			return "forward:/ui/s009020/e000";
 		} else {
 			// 01,02:用户->跳转后台管理(普通)页面
-			// 普通用户检查用户状态,若未提交审核,则提示用户填写个人信息并提交审核
-			// 若审核中时,提示用户个人信息正在审核,请等候审核结束后方可使用
-			// 若审核通过时,择偶要求设定按钮显示未活性
-			// 若审核失败时,提示用户审核失败理由
 			return "forward:/ui/s002001/e000";
 		}
 		

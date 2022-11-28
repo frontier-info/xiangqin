@@ -11,9 +11,8 @@
 <body>
 
 	<div class="row">
-
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<!--   引入导航栏 -->
 			<%@include file="../common/header.jsp"%>
 		</div>
@@ -22,8 +21,8 @@
 	</div>
     <form:form modelAttribute="s002001Form" action="/xiangqin/ui/s002001" method="post">
 	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">用户主页</h3>

@@ -6,16 +6,13 @@
   <%@ include file="../common/include_script.jsp"%>
   <%@ include file="../common/include_css.jsp"%>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="save" content="history">
   <title>相亲-找回密码</title>
 </head>
 <body>
 <div class="row">								
    <div class="col-md-4"></div>								
    <div class="col-md-4">								
-	   <div class="page-header">							
-	   		<h1>XiangQin</h1>					
-	   </div>							
+   	<h1><a class="navbar-brand" href="${pageContext.request.contextPath}/ui/s001001">XiangQin</a></h1>			
    </div>								
    <div class="col-md-4"></div>								
 </div>								

@@ -26,14 +26,17 @@ public class S002001E001Service extends AbstractServiceImpl<S002001E001Input, S0
 		// 获取籍贯下拉列表数据
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");
 		output.setBirthPlaceLi(birthPlaceLi);
+		output.setRequireBirthPlaceLi(birthPlaceLi);
 		
 		// 获取现住址下拉列表数据
 		List<String> addressLi = m01PulldownInfoAccess.selectPulldownLi("02");
 		output.setAddressLi(addressLi);
+		output.setRequireAddressLi(addressLi);
 		
 		// 获取职业下拉列表数据
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
+		output.setRequireProfessionLi(professionLi);
 		
 		// 获取用户之前设定的个人信息
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());

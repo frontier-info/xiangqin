@@ -62,17 +62,35 @@ public class S002001Controller {
 	}
 
 	/**
-	 * 登录后跳转用户主页
+	 * 用户主页
 	 */
-	@PrintLog("登录后跳转用户主页")
+	@PrintLog("用户主页")
 	@RequestMapping(value="/s002001/e000", method=RequestMethod.POST)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			S002001Form form, BindingResult result, 
 			S002001Input input, Model model) {
 
-		//用户信息备选人员信息跳转
+		// 获取用户登录信息
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
+        
+		// 普通用户检查用户状态,若未提交审核,则提示用户填写个人信息并提交审核
+        if(ConstantInfo.USER_CENSOR_STATUS_00.equals(userLoginInfo.getUserStatusCode())) {
+			model.addAttribute("message", "请填写个人基本信息等待审核后使用.");
+			return "s002001";
+        }
+		// 若审核中时,提示用户个人信息正在审核,请等候审核结束后方可使用
+        if(ConstantInfo.USER_CENSOR_STATUS_01.equals(userLoginInfo.getUserStatusCode())) {
+        	model.addAttribute("message", "您填写的个人基本信息正在审核中,请稍后登录查看");
+        	return "s002001";
+        }
+		// 若审核失败时,提示用户审核失败理由
+        if(ConstantInfo.USER_CENSOR_STATUS_03.equals(userLoginInfo.getUserStatusCode())) {
+        	model.addAttribute("message", "审核结果:"+userLoginInfo.getUserCensorResult());
+        	return "s002001";
+        }
+        // 若审核通过时,检索条件设定按钮显示为活性 TODO
+        // 获取符合检索条件的异性信息
         
 		S002001Output output = new S002001Output();
 		try {

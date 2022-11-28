@@ -11,9 +11,8 @@
 <body>
 
 	<div class="row">
-
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<!--   引入导航栏 -->
 			<%@include file="../common/header.jsp"%>
 		</div>
@@ -21,11 +20,11 @@
 
 	</div>
 	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">择偶要求</h3>
+					<h3 class="panel-title">检索条件设定</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
