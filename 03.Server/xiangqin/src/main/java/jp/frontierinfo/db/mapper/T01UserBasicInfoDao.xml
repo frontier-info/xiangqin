@@ -7,6 +7,7 @@
       <arg column="uname" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="sex" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="birth_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="birth_place" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="profession" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -31,7 +32,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    uid, uname, sex, birth_date, birth_place, address, profession, interest, uheight, 
+    uid, uname, sex, birth_date, age, birth_place, address, profession, interest, uheight, 
     uweight, introduce, avatar_img, uimages1, uimages2, uimages3, identification_img, 
     require_age_from, require_age_to, require_birth_place, require_address, require_profession, 
     require_height_from, require_height_to, require_weight_from, require_weight_to
@@ -83,6 +84,7 @@
 	    , basic.uname
 	    , basic.sex
 	    , basic.birth_date birthDate
+	    , basic.age
 	    , login.mobile
 	    , login.email
 	    , basic.birth_place birthPlace
@@ -164,6 +166,7 @@
 	    , basic.uname
 	    , basic.sex
 	    , basic.birth_date birthDate
+	    , basic.age
 	    , login.mobile
 	    , login.email
 	    , basic.birth_place birthPlace
@@ -211,23 +214,23 @@
   </delete>
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info (uid, uname, sex, 
-      birth_date, birth_place, address, 
-      profession, interest, uheight, 
-      uweight, introduce, avatar_img, 
-      uimages1, uimages2, uimages3, 
-      identification_img, require_age_from, require_age_to, 
-      require_birth_place, require_address, require_profession, 
-      require_height_from, require_height_to, require_weight_from, 
-      require_weight_to)
+      birth_date, age, birth_place, 
+      address, profession, interest, 
+      uheight, uweight, introduce, 
+      avatar_img, uimages1, uimages2, 
+      uimages3, identification_img, require_age_from, 
+      require_age_to, require_birth_place, require_address, 
+      require_profession, require_height_from, require_height_to, 
+      require_weight_from, require_weight_to)
     values (#{uid,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
-      #{birthDate,jdbcType=DATE}, #{birthPlace,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{uheight,jdbcType=NUMERIC}, 
-      #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, #{avatarImg,jdbcType=VARCHAR}, 
-      #{uimages1,jdbcType=VARCHAR}, #{uimages2,jdbcType=VARCHAR}, #{uimages3,jdbcType=VARCHAR}, 
-      #{identificationImg,jdbcType=VARCHAR}, #{requireAgeFrom,jdbcType=INTEGER}, #{requireAgeTo,jdbcType=INTEGER}, 
-      #{requireBirthPlace,jdbcType=VARCHAR}, #{requireAddress,jdbcType=VARCHAR}, #{requireProfession,jdbcType=VARCHAR}, 
-      #{requireHeightFrom,jdbcType=NUMERIC}, #{requireHeightTo,jdbcType=NUMERIC}, #{requireWeightFrom,jdbcType=NUMERIC}, 
-      #{requireWeightTo,jdbcType=NUMERIC})
+      #{birthDate,jdbcType=DATE}, #{age,jdbcType=INTEGER}, #{birthPlace,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, 
+      #{uheight,jdbcType=NUMERIC}, #{uweight,jdbcType=NUMERIC}, #{introduce,jdbcType=VARCHAR}, 
+      #{avatarImg,jdbcType=VARCHAR}, #{uimages1,jdbcType=VARCHAR}, #{uimages2,jdbcType=VARCHAR}, 
+      #{uimages3,jdbcType=VARCHAR}, #{identificationImg,jdbcType=VARCHAR}, #{requireAgeFrom,jdbcType=INTEGER}, 
+      #{requireAgeTo,jdbcType=INTEGER}, #{requireBirthPlace,jdbcType=VARCHAR}, #{requireAddress,jdbcType=VARCHAR}, 
+      #{requireProfession,jdbcType=VARCHAR}, #{requireHeightFrom,jdbcType=NUMERIC}, #{requireHeightTo,jdbcType=NUMERIC}, 
+      #{requireWeightFrom,jdbcType=NUMERIC}, #{requireWeightTo,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserBasicInfo">
     insert into xiangqin.t01_user_basic_info
@@ -243,6 +246,9 @@
       </if>
       <if test="birthDate != null">
         birth_date,
+      </if>
+      <if test="age != null">
+        age,
       </if>
       <if test="birthPlace != null">
         birth_place,
@@ -321,6 +327,9 @@
       <if test="birthDate != null">
         #{birthDate,jdbcType=DATE},
       </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
       <if test="birthPlace != null">
         #{birthPlace,jdbcType=VARCHAR},
       </if>
@@ -398,6 +407,9 @@
       <if test="birthDate != null">
         birth_date = #{birthDate,jdbcType=DATE},
       </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
       <if test="birthPlace != null">
         birth_place = #{birthPlace,jdbcType=VARCHAR},
       </if>
@@ -469,6 +481,7 @@
     set uname = #{uname,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       birth_date = #{birthDate,jdbcType=DATE},
+      age = #{age,jdbcType=INTEGER},
       birth_place = #{birthPlace,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       profession = #{profession,jdbcType=VARCHAR},

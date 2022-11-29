@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-   <nav class="navbar navbar-primary" role="navigation">
+   <nav class="navbar navbar-pink" role="navigation">
     <div class="container-fluid">
      <div class="navbar-header">
       <a class="navbar-brand" href="${pageContext.request.contextPath}/ui/s002001">XiangQin</a>

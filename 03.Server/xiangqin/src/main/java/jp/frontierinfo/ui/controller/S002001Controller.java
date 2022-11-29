@@ -58,6 +58,21 @@ public class S002001Controller {
 	@RequestMapping(value="/s002001", method=RequestMethod.GET)
 	public String e010(HttpServletRequest request, HttpServletResponse response, 
 			Model model) {
+
+		// 获取用户登录信息
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+        
+        // 跳转普通管理员
+        if(ConstantInfo.USER_RANK_NORMAL_MANAGER.equals(userLoginInfo.getUserRankCode())) {
+        	return "forward:/ui/s009010/e000";
+        }
+        
+        // 跳转高级管理员
+        if(ConstantInfo.USER_RANK_HIGH_MANAGER.equals(userLoginInfo.getUserRankCode())) {
+        	return "forward:/ui/s009020/e000";
+        }
+        
+        // 跳转普通用户
 		return "s002001";
 	}
 

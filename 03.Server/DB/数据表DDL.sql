@@ -1,5 +1,5 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/28 19:09:52
+-- Date/Time    : 2022/11/28 23:06:16
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
@@ -61,6 +61,7 @@ create table xiangqin.t01_user_basic_info (
   , uname varchar
   , sex varchar
   , birth_date date
+  , age integer
   , birth_place varchar
   , address varchar
   , profession varchar
@@ -135,6 +136,7 @@ comment on column xiangqin.t01_user_basic_info.uid is '用户ID';
 comment on column xiangqin.t01_user_basic_info.uname is '姓名';
 comment on column xiangqin.t01_user_basic_info.sex is '性别';
 comment on column xiangqin.t01_user_basic_info.birth_date is '出生年月';
+comment on column xiangqin.t01_user_basic_info.age is '年龄';
 comment on column xiangqin.t01_user_basic_info.birth_place is '籍贯';
 comment on column xiangqin.t01_user_basic_info.address is '现住址';
 comment on column xiangqin.t01_user_basic_info.profession is '职业';

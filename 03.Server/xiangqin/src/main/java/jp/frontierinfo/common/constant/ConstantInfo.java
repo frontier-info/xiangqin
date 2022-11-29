@@ -52,6 +52,12 @@ public class ConstantInfo {
 	public static final String USER_RANK_HIGH_MANAGER = "09";
 	
 	/**
+	 * 性别
+	 */
+	public static final String MALE = "男";
+	public static final String FEMALE = "女";
+	
+	/**
 	 * 页面用性别单选按钮数据
 	 */
 	public static List<String> sexLi;

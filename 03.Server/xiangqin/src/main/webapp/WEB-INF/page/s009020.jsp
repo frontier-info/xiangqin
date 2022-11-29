@@ -12,25 +12,8 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-		   <!--   导航栏 -->
-		   <nav class="navbar navbar-primary" role="navigation">
-		    <div class="container-fluid">
-		     <div class="navbar-header">
-		      <a class="navbar-brand" href="${pageContext.request.contextPath}/ui/s009020/e000">XiangQin</a>
-		     </div>
-		     <div>
-		      <!--向右对齐-->
-		      <ul class="nav nav-pills navbar-right">
-		       <li class="nav-item">
-		        <a href="${pageContext.request.contextPath}/ui/s009020/e000" class="nav-link">首页</a>
-		       </li>
-		       <li class="nav-item">
-		        <a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">退出登录</a>
-		       </li>
-		      </ul>
-		     </div>
-		    </div>
-		   </nav>
+			<!--   引入导航栏 -->
+			<%@include file="../common/header.jsp"%>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
@@ -38,8 +21,8 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
+			<div class="panel panel-pink">
+				<div class="panel-heading pink">
 					<h3 class="panel-title">后台管理(高级)</h3>
 				</div>
 				<div class="panel-body">
@@ -183,8 +166,8 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
+			<div class="panel panel-pink">
+				<div class="panel-heading pink">
 					<h3 class="panel-title">检索结果</h3>
 				</div>
 				<div class="panel-body">

@@ -12,6 +12,8 @@ public class T01UserBasicInfo {
 
     private Date birthDate;
 
+    private Integer age;
+
     private String birthPlace;
 
     private String address;
@@ -54,11 +56,12 @@ public class T01UserBasicInfo {
 
     private BigDecimal requireWeightTo;
 
-    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String avatarImg, String uimages1, String uimages2, String uimages3, String identificationImg, Integer requireAgeFrom, Integer requireAgeTo, String requireBirthPlace, String requireAddress, String requireProfession, BigDecimal requireHeightFrom, BigDecimal requireHeightTo, BigDecimal requireWeightFrom, BigDecimal requireWeightTo) {
+    public T01UserBasicInfo(String uid, String uname, String sex, Date birthDate, Integer age, String birthPlace, String address, String profession, String interest, BigDecimal uheight, BigDecimal uweight, String introduce, String avatarImg, String uimages1, String uimages2, String uimages3, String identificationImg, Integer requireAgeFrom, Integer requireAgeTo, String requireBirthPlace, String requireAddress, String requireProfession, BigDecimal requireHeightFrom, BigDecimal requireHeightTo, BigDecimal requireWeightFrom, BigDecimal requireWeightTo) {
         this.uid = uid;
         this.uname = uname;
         this.sex = sex;
         this.birthDate = birthDate;
+        this.age = age;
         this.birthPlace = birthPlace;
         this.address = address;
         this.profession = profession;
@@ -116,6 +119,14 @@ public class T01UserBasicInfo {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getBirthPlace() {

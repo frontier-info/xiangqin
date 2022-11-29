@@ -14,6 +14,8 @@ public class UserFullInfo {
     private String sex;
 
     private Date birthDate;
+
+    private Integer age;
     
     private String mobile;
     

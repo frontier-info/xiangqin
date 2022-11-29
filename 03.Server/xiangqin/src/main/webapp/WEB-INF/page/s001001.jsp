@@ -12,15 +12,15 @@
   <div class="row">
    <div class="col-md-4"></div>
    <div class="col-md-4">
-     <h1><a class="navbar-brand" href="${pageContext.request.contextPath}/ui/s001001">XiangQin</a></h1>
+     <h1><a class="navbar-brand pink" href="${pageContext.request.contextPath}/ui/s001001">XiangQin</a></h1>
    </div>
    <div class="col-md-4"></div>
   </div>
   <div class="row">
    <div class="col-md-4"></div>
    <div class="col-md-4">
-    <div class="panel panel-primary">
-     <div class="panel-heading">
+    <div class="panel panel-pink">
+     <div class="panel-heading pink">
       <h3 class="panel-title">用户登录</h3>
      </div>
      <div class="panel-body">
