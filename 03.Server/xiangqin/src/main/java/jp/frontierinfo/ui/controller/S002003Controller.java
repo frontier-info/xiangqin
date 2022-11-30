@@ -32,9 +32,9 @@ public class S002003Controller {
 	private S002003E001Service s002003E001Service;
 	
 	/**
-	 * 保存搜索条件
+	 * 保存检索条件
 	 */
-	@PrintLog("用户择偶要求设定页面的保存搜索条件按钮点击")
+	@PrintLog("用户检索条件设定页面的保存检索条件按钮点击")
 	@RequestMapping(value="/s002003", params="saveSearchCondition", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s002003Form") S002003Form form, BindingResult result, 
@@ -48,7 +48,7 @@ public class S002003Controller {
         // 普通用户检查是否设定了两个以上条件
 		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode()) && 
 				normalUserSearchCheck(input) > 1) {
-			model.addAttribute("message", "普通用户只能设定一个择偶条件.");
+			model.addAttribute("message", "普通用户只能设定一个检索条件.");
 			model.addAttribute("s002003Form", form);
         	return "s002003";
 		}
@@ -59,7 +59,7 @@ public class S002003Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s002003";
 		}
-		model.addAttribute("message", "用户择偶要求设定成功");
+		model.addAttribute("message", "用户检索条件设定成功");
 		return "forward:/ui/s002001/e000";
 	}
 	

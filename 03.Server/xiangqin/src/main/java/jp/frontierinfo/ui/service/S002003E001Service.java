@@ -19,7 +19,12 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 		// 获取用户基本信息以设定择偶性别
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
 		
-		T01UserSearchInfo info = new T01UserSearchInfo();
+		T01UserSearchInfo info = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
+		boolean existFlg = true;
+		if(info == null) {
+			existFlg = false;
+			info = new T01UserSearchInfo();
+		}
 		info.setUid(input.getUid());
 		info.setSex(userBasicInfo.getSex()=="男"?"女":"男");
 		info.setAgeFrom(input.getAgeFrom());
@@ -31,8 +36,11 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 		info.setUheightTo(input.getUheightTo());
 		info.setUweightFrom(input.getUweightFrom());
 		info.setUweightTo(input.getUweightTo());
-		
-		t01UserSearchInfoAccess.updateByPrimaryKey(info);
+		if(existFlg) {
+			t01UserSearchInfoAccess.updateByPrimaryKey(info);
+		} else {
+			t01UserSearchInfoAccess.insert(info);
+		}
 		
 		return output;
 	}

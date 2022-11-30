@@ -5,15 +5,8 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>相亲-登录</title>
+<title>相亲-个人信息设定</title>
 </head>
-
-<style>
-body {
-	background-color: whitesmoke;
-}
-</style>
-
 <body>
 
 	<div class="row">
@@ -323,15 +316,12 @@ body {
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="button-default" data-dismiss="modal" value="关闭"/>
 					<input type="submit" class="button-success" value="提交"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
 	</form:form>
-	<!--   引入版权信息栏 -->
-	<%@include file="../common/footer.jsp"%>
 
 </body>
 <script>

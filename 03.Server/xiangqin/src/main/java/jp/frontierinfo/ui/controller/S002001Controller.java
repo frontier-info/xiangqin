@@ -101,12 +101,12 @@ public class S002001Controller {
         }
 		// 若审核失败时,提示用户审核失败理由
         if(ConstantInfo.USER_CENSOR_STATUS_03.equals(userLoginInfo.getUserStatusCode())) {
-        	model.addAttribute("message", "审核结果:"+userLoginInfo.getUserCensorResult());
+        	model.addAttribute("message", "审核因以下原因未通过:"+userLoginInfo.getUserCensorResult());
         	return "s002001";
         }
-        // 若审核通过时,检索条件设定按钮显示为活性 TODO
-        // 获取符合检索条件的异性信息
+        // 当审核通过时,检索条件设定按钮显示为活性
         
+        // 获取符合检索条件的异性信息
 		S002001Output output = new S002001Output();
 		try {
 			output = s002001Service.execute(input);
@@ -114,9 +114,17 @@ public class S002001Controller {
 			model.addAttribute("message", e.getMessage());
         	return "s001001";
 		}
-		// 检索0件时
+		
+		// 用户未设置检索条件时,提示用户设置检索条件
+		if(output.getUserSimpleInfoLi() == null) {
+			model.addAttribute("message", "设定检索条件后显示异性信息");
+			return "s002001";
+		}
+		
+		// 检索结果0件时
 		if(output.getUserSimpleInfoLi().size() == 0) {
-			model.addAttribute("message", "未查询到符合当前择偶条件的异性信息,请变更择偶条件.");
+			model.addAttribute("message", "未查询到符合当前检索条件的异性信息,请变更检索条件.");
+			return "s002001";
 		}
 
 		BeanUtils.copyProperties(output, form);

@@ -51,6 +51,11 @@ public class S002002Controller extends AbstractController {
 			model.addAttribute("message", e.getMessage());
         	return "s002002";
 		}
+		// 用户第一次提交基本信息时,提示审核进度
+		if(ConstantInfo.USER_CENSOR_STATUS_00.equals(userLoginInfo.getUserStatusCode())) {
+			model.addAttribute("message", "用户信息设定成功,您填写的个人基本信息以提交审核,请稍后登录查看");
+			return "s002001";
+		}
 		model.addAttribute("message", "用户信息设定成功");
 		
 		return "s002001";

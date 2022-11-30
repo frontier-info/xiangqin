@@ -35,8 +35,6 @@ public class S001002E002Service extends AbstractServiceImpl<S001002E002Input, S0
 		t01UserLoginInfoAccess.insert(info);		
 		// 用户基本信息表插入占位数据
 		t01UserBasicInfoAccess.insert(basicInfo);		
-		// 用户择偶要求表插入占位数据
-		t01UserSearchInfoAccess.insert(searchInfo);		
 		return output;
 	}
 

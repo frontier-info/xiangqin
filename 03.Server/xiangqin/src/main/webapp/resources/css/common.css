@@ -1,3 +1,8 @@
+/* 页面提示信息样式 */
+.alert{
+	width: 300px;
+}
+
 /* 头像格式 */
 .avatar {
 	width: 60px;
@@ -101,6 +106,9 @@
 .nav-link {
 	color: #fff;
 }
+.nav-link.disabled {
+	color: #dddddd85;
+}
 
 /* 面板样式 */
 .panel-heading.pink {
@@ -117,6 +125,7 @@
 }
 /* 面板边框样式 */
 .panel.panel-pink {
+	min-height: 400px;
 	border-color: #FFC0CB;
 }
 

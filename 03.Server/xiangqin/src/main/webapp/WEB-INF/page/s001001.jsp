@@ -28,11 +28,9 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
        <form:form modelAttribute="s001001Form" action="/xiangqin/ui/s001001" method="post">
-       <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
+		<!--   引入页面提示信息 -->
+		<%@include file="../common/message.jsp"%>
          <div class="form-group">
-          <c:if test="${not empty message}">
-           <div class="alert alert-success" role="alert"><p>${message}</p></div>
-          </c:if>
           <label for="name">手机</label>
           <form:input class="form-control" path="mobile" />
           <label for="name">密码</label>

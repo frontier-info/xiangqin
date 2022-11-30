@@ -31,10 +31,8 @@
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
-				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
-				          <c:if test="${not empty message}">
-				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
-				          </c:if>
+							<!--   引入页面提示信息 -->
+							<%@include file="../common/message.jsp"%>
 							<ul style="list-style-type: none;">
 							<c:forEach items="${s002001Form.userSimpleInfoLi}" var="userSimpleInfo">
 								<li>

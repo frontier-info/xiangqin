@@ -43,6 +43,9 @@
       uid, uname, sex, introduce, avatar_img avatarImg
     from xiangqin.t01_user_basic_info
     <where>
+      <if test="uid != null">
+        and uid != #{uid,jdbcType=VARCHAR}
+      </if>
       <if test="sex != null">
         and sex = #{sex,jdbcType=VARCHAR}
       </if>

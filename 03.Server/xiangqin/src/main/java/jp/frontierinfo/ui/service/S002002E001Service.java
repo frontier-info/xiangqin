@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.common.utils.DateUtils;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
+import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.input.S002002E001Input;
 import jp.frontierinfo.ui.output.S002002E001Output;
 
@@ -54,6 +56,13 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		basicInfo.setRequireWeightTo(input.getRequireWeightTo());
 		
 		t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
+		
+		// 提交个人信息更改时,若用户状态为00:未提交审核时,更新状态为01:审核中
+		T01UserLoginInfo loginInfo = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
+		if(ConstantInfo.USER_CENSOR_STATUS_00.equals(loginInfo.getUserStatusCode())) {
+			loginInfo.setUserStatusCode(ConstantInfo.USER_CENSOR_STATUS_01);
+			t01UserLoginInfoAccess.updateByPrimaryKey(loginInfo);
+		}
 				
 		return new S002002E001Output();
 	}

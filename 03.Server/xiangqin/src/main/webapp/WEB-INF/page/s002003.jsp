@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,7 +5,7 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>相亲-择偶要求设定</title>
+<title>相亲-检索条件设定</title>
 </head>
 <body>
 
@@ -106,7 +105,7 @@
 								<div class="col-md-1"></div>
 								<div class="col-md-3">
 									<input type="reset" class="button-default" value="信息重置">
-									<input type="submit" class="button-success" name="saveSearchCondition" value="保存搜索条件">
+									<input type="submit" class="button-success" name="saveSearchCondition" value="保存检索条件">
 								</div>
 							</div>
 						</div>

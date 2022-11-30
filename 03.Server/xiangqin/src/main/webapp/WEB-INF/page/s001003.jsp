@@ -27,12 +27,10 @@
 				<div class="row">				
 					<div class="col-md-3"></div>			
 					<div class="col-md-6">			
-						<form:form modelAttribute="s001003Form" action="/xiangqin/ui/s001003" method="post">		
+						<form:form modelAttribute="s001003Form" action="/xiangqin/ui/s001003" method="post">	
+							<!--   引入页面提示信息 -->
+							<%@include file="../common/message.jsp"%>	
 							<div class="form-group">
-								<form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
-								<c:if test="${not empty message}">
-						           <div class="alert alert-success" role="alert"><p>${message}</p></div>
-						        </c:if>
 						        <div>
 									<label for="mobile">手机</label>	
 									<form:input class="form-control" type="text" path="mobile" placeholder="请输入手机号"/>

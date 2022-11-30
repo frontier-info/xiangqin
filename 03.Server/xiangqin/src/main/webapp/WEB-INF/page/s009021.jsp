@@ -224,7 +224,6 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
 					<input type="submit" class="btn button-success" name="changeUserRank" value="变更用户权限"/>
 				</div>
 			</div><!-- /.modal-content -->
@@ -261,7 +260,6 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
 					<input type="submit" class="btn button-success" name="updateUserStatus" value="提交审查结果"/>
 				</div>
 			</div><!-- /.modal-content -->
@@ -285,7 +283,6 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
 					<input type="submit" class="btn button-danger" name="deleteUser" value="删除用户"/>
 				</div>
 			</div><!-- /.modal-content -->

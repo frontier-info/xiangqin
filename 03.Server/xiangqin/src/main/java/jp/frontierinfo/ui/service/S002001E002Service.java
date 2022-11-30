@@ -33,8 +33,9 @@ public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S0
 		
 		// 获取用户之前设定的择偶要求
 		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
-		
-		BeanUtils.copyProperties(userSearchInfo, output);
+		if(userSearchInfo != null) {
+			BeanUtils.copyProperties(userSearchInfo, output);
+		}
 		
 		return output;
 	}

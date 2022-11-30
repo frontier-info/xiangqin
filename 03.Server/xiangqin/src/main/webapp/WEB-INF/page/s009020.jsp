@@ -267,7 +267,6 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
 					<input type="submit" class="btn btn-primary" name="addUser" value="添加用户"/>
 				</div>
 			</div><!-- /.modal-content -->
