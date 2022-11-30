@@ -143,6 +143,7 @@
 /* 整体 */
 body{
 	background-color: #f0f0f0;
+	overflow-y:scroll;
 } 
 
 /* 区域标题 */ 
@@ -150,6 +151,13 @@ body{
 	font-size: 18px;
 	font-weight: bold;
 	color: #815463;
+}
+
+/* 区域标题(小) */ 
+.area-title-min{
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF668A;
 }
 
 /* 按钮样式 */ 

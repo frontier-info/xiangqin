@@ -1,6 +1,8 @@
 package jp.frontierinfo.db.access;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -20,12 +22,20 @@ public class T01UserBasicInfoAccess {
 		this.t01UserBasicInfoDao = t01UserBasicInfoDao;
 	}
 	
-	// 查询指定择偶要求的30名异性信息
+	// 查询指定检索条件的30名异性信息
 	public List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo){
 		return t01UserBasicInfoDao.selectRecommendList(searchInfo);
 	}
 	
-	// 查询指定择偶要求的用户全部信息
+	// 指定检索条件的查询结果不满30名时,从数据库随机补位至30名
+	public List<UserSimpleInfo> selectRandomList(List<String> uids, int limit){
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("exceptList", uids);
+		params.put("limit", limit);
+		return t01UserBasicInfoDao.selectRandomList(params);
+	}
+	
+	// 查询指定检索条件的用户全部信息
 	public List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo){
 		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
 	}

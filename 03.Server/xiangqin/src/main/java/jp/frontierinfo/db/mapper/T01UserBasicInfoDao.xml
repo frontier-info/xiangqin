@@ -78,7 +78,22 @@
       </if>
     </where>
     limit 30   
-     
+  </select>
+  <!--   指定检索条件的查询结果不满30名时,从数据库随机补位至30名 -->
+  <select id="selectRandomList" parameterType="java.util.Map" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
+    select 
+      uid, uname, sex, introduce, avatar_img avatarImg
+    from xiangqin.t01_user_basic_info
+    <where>
+      <if test="exceptList.size() > 0">
+        uid not in         
+        <foreach collection="exceptList" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+      </if>
+    </where>
+    order by random()
+    limit #{limit}   
   </select>
   <!--   查询指定检索条件的用户全部信息 -->
   <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.bean.BackstageSerachInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">

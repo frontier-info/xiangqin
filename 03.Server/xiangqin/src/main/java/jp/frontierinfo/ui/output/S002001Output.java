@@ -9,4 +9,6 @@ import lombok.Data;
 public class S002001Output {
 	
 	   private List<UserSimpleInfo> userSimpleInfoLi;
+	   
+	   private List<UserSimpleInfo> randomUserSimpleInfoLi;
 }   

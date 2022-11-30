@@ -3,6 +3,7 @@ package jp.frontierinfo.ui.service;
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
@@ -26,7 +27,7 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 			info = new T01UserSearchInfo();
 		}
 		info.setUid(input.getUid());
-		info.setSex(userBasicInfo.getSex()=="男"?"女":"男");
+		info.setSex(ConstantInfo.MALE.equals(userBasicInfo.getSex())?"女":"男");
 		info.setAgeFrom(input.getAgeFrom());
 		info.setAgeTo(input.getAgeTo());
 		info.setBirthPlace(input.getBirthPlace());

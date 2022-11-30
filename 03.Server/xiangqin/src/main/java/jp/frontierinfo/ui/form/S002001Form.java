@@ -9,7 +9,7 @@ import lombok.Data;
 public class S002001Form {
 	
    private List<UserSimpleInfo> userSimpleInfoLi;
-    
-
+   
+   private List<UserSimpleInfo> randomUserSimpleInfoLi;
     
 }

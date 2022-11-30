@@ -33,14 +33,20 @@
 						<div class="col-md-8">
 							<!--   引入页面提示信息 -->
 							<%@include file="../common/message.jsp"%>
+							<h5 class="area-title-min">已为您找到符合检索条件的异性信息</h5>
 							<ul style="list-style-type: none;">
 							<c:forEach items="${s002001Form.userSimpleInfoLi}" var="userSimpleInfo">
 								<li>
 									<div class="media">
 										<div class="media-left media-top">
-											<img
-												src="${pageContext.request.contextPath}/${userSimpleInfo.avatarImg}"
-												class="media-object" style="width: 90px">
+											<c:if test="${empty userSimpleInfo.avatarImg}">
+												<img src="${pageContext.request.contextPath}/resources/image/blank_avatar.jfif"
+													class="media-object avatar">
+											</c:if>
+											<c:if test="${not empty userSimpleInfo.avatarImg}">
+												<img src="${pageContext.request.contextPath}/${userSimpleInfo.avatarImg}"
+													class="media-object avatar">
+											</c:if>
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading">
@@ -53,8 +59,33 @@
 								</li>
 							</c:forEach>
 							</ul>
-
-
+							<hr>
+							<h5 class="area-title-min">到底了.您可能喜欢...</h5>
+							<ul style="list-style-type: none;">
+							<c:forEach items="${s002001Form.randomUserSimpleInfoLi}" var="randomUserSimpleInfo">
+								<li>
+									<div class="media">
+										<div class="media-left media-top">
+											<c:if test="${empty randomUserSimpleInfo.avatarImg}">
+												<img src="${pageContext.request.contextPath}/resources/image/blank_avatar.jfif"
+													class="media-object avatar">
+											</c:if>
+											<c:if test="${not empty randomUserSimpleInfo.avatarImg}">
+												<img src="${pageContext.request.contextPath}/${randomUserSimpleInfo.avatarImg}"
+													class="media-object avatar">
+											</c:if>
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">
+											<a href="${pageContext.request.contextPath}/ui/s005001/e000?uid=${randomUserSimpleInfo.uid}">${randomUserSimpleInfo.uname}</a>
+											</h4>
+											<p>${randomUserSimpleInfo.sex}</p>
+											<p>${randomUserSimpleInfo.introduce}</p>
+										</div>
+									</div>
+								</li>
+							</c:forEach>
+							</ul>
 						</div>
 						<div class="col-md-2"></div>
 					</div>

@@ -33,7 +33,7 @@
 				          <c:if test="${not empty message}">
 				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
 				          </c:if>
-							<h2><font size="6" color="pink">请您填检索条件 </font></h2>
+							<h2><font size="5" color="pink">请您填检索条件 </font></h2>
 							<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 </font></h3>
 							<hr />
 							<!-- 检索条件区域 -->

@@ -1,6 +1,7 @@
 package jp.frontierinfo.db.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import jp.frontierinfo.db.bean.BackstageSerachInfo;
 import jp.frontierinfo.db.bean.UserFullInfo;
@@ -10,13 +11,16 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 public interface T01UserBasicInfoDao {
 	
-	// ²éÑ¯Ö¸¶¨ÔñÅ¼ÒªÇóµÄ30ÃûÒìĞÔĞÅÏ¢
+	// æŸ¥è¯¢æŒ‡å®šæ‹©å¶è¦æ±‚çš„30åå¼‚æ€§ä¿¡æ¯
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
 	
-	// ²éÑ¯Ö¸¶¨ÔñÅ¼ÒªÇóµÄÓÃ»§È«²¿ĞÅÏ¢
+	// æŒ‡å®šæ£€ç´¢æ¡ä»¶çš„æŸ¥è¯¢ç»“æœä¸æ»¡30åæ—¶,ä»æ•°æ®åº“éšæœºè¡¥ä½è‡³30å
+	List<UserSimpleInfo> selectRandomList(Map<String, Object> params);
+	
+	// æŸ¥è¯¢æŒ‡å®šæ‹©å¶è¦æ±‚çš„ç”¨æˆ·å…¨éƒ¨ä¿¡æ¯
 	List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo);
 	
-	// ²éÑ¯Ö¸¶¨ÓÃ»§µÄÈ«²¿ĞÅÏ¢
+	// æŸ¥è¯¢æŒ‡å®šç”¨æˆ·çš„å…¨éƒ¨ä¿¡æ¯
 	UserFullInfo selectUserFullInfoByUid(String uid);
 	
     int deleteByPrimaryKey(String uid);

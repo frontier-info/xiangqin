@@ -1,5 +1,6 @@
 package jp.frontierinfo.ui.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -30,8 +31,15 @@ public class S002001Service extends AbstractServiceImpl<S002001Input, S002001Out
 		}
 		
 		List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
-		
 		output.setUserSimpleInfoLi(userSimpleInfoLi);
+		
+		// 符合条件的异性信息不满30名时,从数据库随机补位至30名
+		List<String> exceptList = new ArrayList<>();
+		for(UserSimpleInfo userSimpleInfo : userSimpleInfoLi) {
+			exceptList.add(userSimpleInfo.getUid());
+		}
+		List<UserSimpleInfo> randomUserSimpleInfoLi = t01UserBasicInfoAccess.selectRandomList(exceptList,3);
+		output.setRandomUserSimpleInfoLi(randomUserSimpleInfoLi);
 		
 	    return output;
 

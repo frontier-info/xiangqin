@@ -73,14 +73,14 @@ public class S002001Controller {
         }
         
         // 跳转普通用户
-		return "s002001";
+		return "forward:/ui/s002001/e000";
 	}
 
 	/**
 	 * 用户主页
 	 */
 	@PrintLog("用户主页")
-	@RequestMapping(value="/s002001/e000", method=RequestMethod.POST)
+	@RequestMapping(value="/s002001/e000", method= {RequestMethod.POST, RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			S002001Form form, BindingResult result, 
 			S002001Input input, Model model) {
@@ -129,7 +129,6 @@ public class S002001Controller {
 
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s002001Form", form);
-	
 		
 	return "s002001";
 	}
