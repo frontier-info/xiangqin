@@ -22,9 +22,6 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="panel panel-pink">
-				<div class="panel-heading pink">
-					<h3 class="panel-title">用户详细信息</h3>
-				</div>
 				<div class="panel-body">
 					<div class="row">
 					  <!-- 提示信息区域 -->
@@ -38,31 +35,31 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户详细信息 -->
+							<!-- 用户基本信息 -->
 							<div class="row">
 								<div class="col-md-1"></div>
-								<div class="col-md-3">
+								<div class="col-md-3" style="height: 400px;">
 								  <!-- 显示用户照片和身份验证照片 -->
-									<div class="swiper-container" id="case4">
+									<div class="swiper-container" >
 									    <div class="swiper-wrapper">
 										  <c:if test="${not empty s009020Form.userFullInfo.uimages1}">
 							      			<div class="swiper-slide">
-							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages1}" style="width:100%;"/>
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages1}" class="uimages"/>
 							      			</div>
 							      		  </c:if>
 										  <c:if test="${not empty s009020Form.userFullInfo.uimages2}">
 							      			<div class="swiper-slide">
-							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages2}" style="width:100%;"/>
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages2}" class="uimages"/>
 							      			</div>
 							      		  </c:if>
 										  <c:if test="${not empty s009020Form.userFullInfo.uimages3}">
 							      			<div class="swiper-slide">
-							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages3}" style="width:100%;"/>
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.uimages3}" class="uimages"/>
 							      			</div>
 							      		  </c:if>
 										  <c:if test="${not empty s009020Form.userFullInfo.identificationImg}">
 							      			<div class="swiper-slide">
-							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.identificationImg}" style="width:100%;"/>
+							      				<img src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.identificationImg}" class="uimages"/>
 							      			</div>
 							      		  </c:if>
 									    </div>
@@ -73,40 +70,126 @@
 									</div>
 								</div>
 								<div class="col-md-7">
-									<div class="media">
-										<div class="media-left media-top">
-											<img
-												src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.avatarImg}"
-												class="media-object avatar">
+									<!-- 用户基本信息 -->
+									<div class="row">
+										<div class="col-md-10">
+										  <!-- 显示用户基本信息 -->
+										  <h4 class="area-title">基本资料</h4>
 										</div>
-										<div class="media-body">
-											<h4 class="media-heading">用户名:${s009020Form.userFullInfo.uname}</h4>
-											<p>性别:${s009020Form.userFullInfo.sex}</p>
-											<p>自我介绍:${s009020Form.userFullInfo.introduce}</p>
-											<p>出生年月日:<fmt:formatDate type="date" value="${s009020Form.userFullInfo.birthDate}"/></p>
-											<p>出生地:${s009020Form.userFullInfo.birthPlace}</p>
-											<p>住所:${s009020Form.userFullInfo.address}</p>
-											<p>职业:${s009020Form.userFullInfo.profession}</p>
-											<p>兴趣:${s009020Form.userFullInfo.interest}</p>
-											<p>身高:${s009020Form.userFullInfo.uheight}</p>
-											<p>体重:${s009020Form.userFullInfo.uweight}</p>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="media">
+												<div class="media-left media-top">
+													<img
+														src="${pageContext.request.contextPath}/${s009020Form.userFullInfo.avatarImg}"
+														class="media-object avatar">
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading"><span class="label label-default">${s009020Form.userFullInfo.uname}</span></h4>
+													<c:if test="${s009020Form.userFullInfo.sex == ConstantInfo.MALE}">
+													  <img src="${pageContext.request.contextPath}/resources/image/sex_male.png" class="ugrade2"/>
+									      		    </c:if>
+													<c:if test="${s009020Form.userFullInfo.sex == ConstantInfo.FEMALE}">
+													  <img src="${pageContext.request.contextPath}/resources/image/sex_female.png" class="ugrade2"/>
+									      		    </c:if>
+												</div>
+											</div>
+											<div class="media">
+												<div class="media-body">
+												  <ul style="list-style-type: none;">
+													<li><span class="label label-pink">年龄:</span><div class="udata">${s009020Form.userFullInfo.age}岁</div></li>
+													<li><span class="label label-pink">身高:</span><div class="udata">${s009020Form.userFullInfo.uheight}cm</div></li>
+													<li><div class="udata introduce" style="width: 250px;"><font class="zeaicolor">自我介绍: </font>${s009020Form.userFullInfo.introduce}</div></li>
+												  </ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<br>
+											<br>
+											<br>
+											<div class="media">
+												<div class="media-body">
+													<span class="label label-pink">当前用户权限:</span><div class="udata">${s009020Form.userFullInfo.userRankName}</div>
+													<span class="label label-pink">当前用户审查状态:</span><div class="udata">${s009020Form.userFullInfo.userStatusName}</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<hr>
+									<div class="row">
+										<div class="col-md-12">
+											<input type="button" class="form-control btn-success" data-toggle="modal" data-target="#changeUserRankModal" value="变更用户权限" />
+											<input type="button" class="form-control btn-success" data-toggle="modal" data-target="#updateUserStatusModal" value="新用户审查结果" />
+											<input type="button" class="form-control btn-danger" data-toggle="modal" data-target="#deleteUserModal" value="删除用户" />
 										</div>
 									</div>
 								</div>
 								<div class="col-md-1"></div>
 							</div>
-							<hr size="2" color="#ffffff">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="panel panel-pink">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- 用户详细信息 -->
 							<div class="row">
-								<div class="col-md-2"></div>
-								<div class="col-md-2">
-									<p>当前用户权限:${s009020Form.userFullInfo.userRankName}</p>
-									<p>当前用户审查状态:${s009020Form.userFullInfo.userStatusName}</p>
-									<input type="button" class="form-control" data-toggle="modal" data-target="#changeUserRankModal" value="变更用户权限" />
-									<input type="button" class="form-control" data-toggle="modal" data-target="#updateUserStatusModal" value="新用户审查结果" />
-									<input type="button" class="form-control" data-toggle="modal" data-target="#deleteUserModal" value="删除用户" />
-									
+								<div class="col-md-1"></div>
+								<div class="col-md-10">
+								  <!-- 显示用户详细信息 -->
+								  <h4 class="area-title">详细资料</h4>
 								</div>
-								<div class="col-md-8"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">出生地:</span><div class="udata">${s009020Form.userFullInfo.birthPlace}</div></li>
+									<li><span class="label label-pink">住所: </span><div class="udata">${s009020Form.userFullInfo.address}</div></li>
+									<li><span class="label label-pink">职业: </span><div class="udata">${s009020Form.userFullInfo.profession}</div></li>
+								  </ul>
+								</div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">体重: </span><div class="udata">${s009020Form.userFullInfo.uweight}kg</div></li>
+									<li><div class="udata interest"><font class="zeaicolor">兴趣: </font>${s009020Form.userFullInfo.interest}</div></li>
+								  </ul>
+								</div>
+							</div>
+							<hr>
+							<!-- 用户择偶要求 -->
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-10">
+								  <!-- 显示用户择偶要求 -->
+								  <h4 class="area-title">择偶要求</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">出生地:</span><div class="udata">${s009020Form.userFullInfo.requireBirthPlace}</div></li>
+									<li><span class="label label-pink">住所: </span><div class="udata">${s009020Form.userFullInfo.requireAddress}</div></li>
+									<li><span class="label label-pink">职业: </span><div class="udata">${s009020Form.userFullInfo.requireProfession}</div></li>
+								  </ul>
+								</div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">年龄范围:</span><div class="udata">${s009020Form.userFullInfo.requireAgeFrom}~${s009020Form.userFullInfo.requireAgeTo}岁</div></li>
+									<li><span class="label label-pink">身高范围:</span><div class="udata">${s009020Form.userFullInfo.requireHeightFrom}~${s009020Form.userFullInfo.requireHeightTo}cm</div></li>
+									<li><span class="label label-pink">体重范围:</span><div class="udata">${s009020Form.userFullInfo.requireWeightFrom}~${s009020Form.userFullInfo.requireWeightTo}kg</div></li>
+								  </ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -142,7 +225,7 @@
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-primary" name="changeUserRank" value="变更用户权限"/>
+					<input type="submit" class="btn btn-success" name="changeUserRank" value="变更用户权限"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -179,7 +262,7 @@
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-primary" name="updateUserStatus" value="提交用户审查结果"/>
+					<input type="submit" class="btn btn-success" name="updateUserStatus" value="提交审查结果"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -203,7 +286,7 @@
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-primary" name="deleteUser" value="删除用户"/>
+					<input type="submit" class="btn btn-danger" name="deleteUser" value="删除用户"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -213,8 +296,8 @@
 
 </body>
 <script>
-	var swiper = new Swiper('#case4', {
-		loop : false, //允许从第一张到最后一张，或者从最后一张到第一张  循环属性
+	var swiper = new Swiper('.swiper-container', {
+		loop : true, //允许从第一张到最后一张，或者从最后一张到第一张  循环属性
 		slidesPerView : 1, // 设置显示1张
 		//centeredSlides : true,     //使当前图片居中显示
 		freeMode : true, // 使幻灯片滑动时不止滑动一格，且不会自动贴合 

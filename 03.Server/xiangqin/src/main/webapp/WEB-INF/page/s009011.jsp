@@ -38,7 +38,7 @@
 							<!-- 用户基本信息 -->
 							<div class="row">
 								<div class="col-md-1"></div>
-								<div class="col-md-3">
+								<div class="col-md-3" style="height: 400px;">
 								  <!-- 显示用户照片和身份验证照片 -->
 									<div class="swiper-container" >
 									    <div class="swiper-wrapper">
@@ -70,6 +70,13 @@
 									</div>
 								</div>
 								<div class="col-md-7">
+									<!-- 用户基本信息 -->
+									<div class="row">
+										<div class="col-md-10">
+										  <!-- 显示用户基本信息 -->
+										  <h4 class="area-title">基本资料</h4>
+										</div>
+									</div>
 									<div class="media">
 										<div class="media-left media-top">
 											<img
@@ -89,9 +96,9 @@
 									<div class="media">
 										<div class="media-body">
 										  <ul style="list-style-type: none;">
-											<li><span class="label label-pink">年龄:</span><div class="udata">${s009010Form.userFullInfo.age}"</div></li>
-											<li><span class="label label-pink">身高:</span><div class="udata">${s009010Form.userFullInfo.uheight}</div></li>
-											<li><span class="label label-pink">自我介绍:</span><div class="udata introduce">${s009010Form.userFullInfo.introduce}</div></li>
+											<li><span class="label label-pink">年龄:</span><div class="udata">${s009010Form.userFullInfo.age}岁</div></li>
+											<li><span class="label label-pink">身高:</span><div class="udata">${s009010Form.userFullInfo.uheight}cm</div></li>
+											<li><div class="udata introduce"><font class="zeaicolor">自我介绍: </font>${s009010Form.userFullInfo.introduce}</div></li>
 										  </ul>
 										</div>
 									</div>
@@ -116,13 +123,22 @@
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
 								  <!-- 显示用户详细信息 -->
-								  <h1>详细资料</h1>
+								  <h4 class="area-title">详细资料</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">出生地:</span><div class="udata">${s009010Form.userFullInfo.birthPlace}</div></li>
-									<li><span class="label label-pink">住所:</span><div class="udata">${s009010Form.userFullInfo.address}</div></li>
-									<li><span class="label label-pink">职业:</span><div class="udata">${s009010Form.userFullInfo.profession}</div></li>
-									<li><span class="label label-pink">兴趣:</span><div class="udata">${s009010Form.userFullInfo.interest}</div></li>
-									<li><span class="label label-pink">体重:</span><div class="udata">${s009010Form.userFullInfo.uweight}</div></li>
+									<li><span class="label label-pink">住所: </span><div class="udata">${s009010Form.userFullInfo.address}</div></li>
+									<li><span class="label label-pink">职业: </span><div class="udata">${s009010Form.userFullInfo.profession}</div></li>
+								  </ul>
+								</div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">体重: </span><div class="udata">${s009010Form.userFullInfo.uweight}kg</div></li>
+									<li><div class="udata interest"><font class="zeaicolor">兴趣: </font>${s009010Form.userFullInfo.interest}</div></li>
 								  </ul>
 								</div>
 							</div>
@@ -132,14 +148,23 @@
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
 								  <!-- 显示用户择偶要求 -->
-								  <h1>择偶要求</h1>
+								  <h4 class="area-title">择偶要求</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
-									<li><span class="label label-pink">年龄范围:</span><div class="udata">${s009010Form.userFullInfo.birthPlace}</div></li>
-									<li><span class="label label-pink">身高范围:</span><div class="udata">${s009010Form.userFullInfo.address}</div></li>
-									<li><span class="label label-pink">体重范围:</span><div class="udata">${s009010Form.userFullInfo.profession}</div></li>
-									<li><span class="label label-pink">出生地:</span><div class="udata">${s009010Form.userFullInfo.interest}</div></li>
-									<li><span class="label label-pink">住所:</span><div class="udata">${s009010Form.userFullInfo.uweight}</div></li>
-									<li><span class="label label-pink">职业:</span><div class="udata">${s009010Form.userFullInfo.uweight}</div></li>
+									<li><span class="label label-pink">出生地:</span><div class="udata">${s009010Form.userFullInfo.requireBirthPlace}</div></li>
+									<li><span class="label label-pink">住所: </span><div class="udata">${s009010Form.userFullInfo.requireAddress}</div></li>
+									<li><span class="label label-pink">职业: </span><div class="udata">${s009010Form.userFullInfo.requireProfession}</div></li>
+								  </ul>
+								</div>
+								<div class="col-md-3">
+								  <ul style="list-style-type: none;">
+									<li><span class="label label-pink">年龄范围:</span><div class="udata">${s009010Form.userFullInfo.requireAgeFrom}~${s009010Form.userFullInfo.requireAgeTo}岁</div></li>
+									<li><span class="label label-pink">身高范围:</span><div class="udata">${s009010Form.userFullInfo.requireHeightFrom}~${s009010Form.userFullInfo.requireHeightTo}cm</div></li>
+									<li><span class="label label-pink">体重范围:</span><div class="udata">${s009010Form.userFullInfo.requireWeightFrom}~${s009010Form.userFullInfo.requireWeightTo}kg</div></li>
 								  </ul>
 								</div>
 							</div>

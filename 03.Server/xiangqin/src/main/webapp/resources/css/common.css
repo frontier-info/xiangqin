@@ -29,17 +29,41 @@
 .udata {
 	border: #ddd 1px solid;
 	line-height: 20px;
+	width: 150px;
 	display: inline-block;
 	margin: 5px 5px;
 	padding: 0 10px;
 }
 
+/* 用户信息(个人介绍)样式 */
 .udata.introduce {
-	border: #ddd 1px solid;
-	line-height: 30px;
-	display: inline-block;
-	margin: 5px 5px;
-	padding: 0 10px;
+    border-radius: 2px;
+    width: 530px;
+    margin: 5px 0 5px 0;
+    height: 80px;
+    overflow: hidden;
+    line-height: 200%;
+    color: #8d8d8d;
+    background-color: #f8f8f8;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* 用户信息(兴趣)样式 */
+.udata.interest {
+    border-radius: 2px;
+    width: 250px;
+    margin: 5px 0 5px 0;
+    height: 60px;
+    overflow: hidden;
+    line-height: 200%;
+    color: #8d8d8d;
+    background-color: #f8f8f8;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 12px;
 }
 
 /* 用户性别图标 */
@@ -80,14 +104,50 @@
 
 /* 面板样式 */
 .panel-heading.pink {
-	background-color: #FF69B4;
+	background-color: #ff69b463;
 	border-color: #FFC0CB;
 }
 .panel-title {
-    font-size: 18px;
+    font-size: 14px;
 	color: #fff;
 }
 .panel.panel-pink {
 	border-color: #FFC0CB;
 }
 
+/* 字体样式 */
+.zeaicolor {
+    color: #FF668A;
+}
+
+/* 整体 */
+body{
+	background-color: #f0f0f0;
+} 
+
+/* 区域标题 */ 
+.area-title{
+	font-size: 18px;
+	font-weight: bold;
+	color: #815463;
+}
+
+/* 按钮样式 */ 
+.btn-default{
+	width: 120px;
+	height: 44px;
+	border-radius: 18px;
+	display: inline-block;
+}
+.btn-success{
+	width: 120px;
+	height: 44px;
+	border-radius: 18px;
+	display: inline-block;
+}
+.btn-danger{
+	width: 120px;
+	height: 44px;
+	border-radius: 18px;
+	display: inline-block;
+}

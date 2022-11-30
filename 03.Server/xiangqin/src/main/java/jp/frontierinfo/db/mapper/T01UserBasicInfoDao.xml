@@ -99,6 +99,15 @@
 	    , basic.uimages2
 	    , basic.uimages3
 	    , basic.identification_img identificationImg
+	    , basic.require_age_from requireAgeFrom
+	    , basic.require_age_to requireAgeTo
+	    , basic.require_birth_place requireBirthPlace
+	    , basic.require_address requireAddress
+	    , basic.require_profession requireProfession
+	    , basic.require_height_from requireHeightFrom
+	    , basic.require_height_to requireHeightTo
+	    , basic.require_weight_from requireWeightFrom
+	    , basic.require_weight_to requireWeightTo
 	    , login.user_status_code userStatusCode
 	    , code_user_status.master_name userStatusName
 	    , login.user_rank_code userRankCode
@@ -181,6 +190,15 @@
 	    , basic.uimages2
 	    , basic.uimages3
 	    , basic.identification_img identificationImg
+	    , basic.require_age_from requireAgeFrom
+	    , basic.require_age_to requireAgeTo
+	    , basic.require_birth_place requireBirthPlace
+	    , basic.require_address requireAddress
+	    , basic.require_profession requireProfession
+	    , basic.require_height_from requireHeightFrom
+	    , basic.require_height_to requireHeightTo
+	    , basic.require_weight_from requireWeightFrom
+	    , basic.require_weight_to requireWeightTo
 	    , login.user_status_code userStatusCode
 	    , code_user_status.master_name userStatusName
 	    , login.user_rank_code userRankCode
