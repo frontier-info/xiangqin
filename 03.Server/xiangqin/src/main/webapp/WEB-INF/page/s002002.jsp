@@ -40,7 +40,7 @@ body {
 				          <c:if test="${not empty message}">
 				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
 				          </c:if>
-							<h2><font size="6" color="black">请您填入个人信息 </font></h2>
+							<h2><font size="6" color="pink">请您填入个人信息 </font></h2>
 							<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 </font></h3>
 							<hr />
 							<!-- 检索条件区域 -->
@@ -78,14 +78,14 @@ body {
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="birthDate">出生年月日:</label>
+										<label for="birthDate">出生年月:</label>
 										<fmt:formatDate pattern="yyyy-MM-dd" value="${s002002Form.birthDate}" var="userBirthDate"/>
 										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}">
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="interest">兴趣:</label>
+										<label for="interest">兴趣:  </label>
 										<form:input class="form-control" path="interest"/>
 									</p>
 								</div>
@@ -94,13 +94,13 @@ body {
 								<div class="col-md-3">
 								    <br>
 									<p>
-										<label for="sex">性别：</label>
+										<label for="sex">      性别：</label>
 										<form:radiobuttons path="sex" items="${s002002Form.sexLi}" />
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="address">住所:</label>
+										<label for="address">住所: </label>
 										<form:select path="address" class="form-control" >
 											<option value="">--请选择地区--</option>
 								            <form:options items="${s002002Form.addressLi}"/>
@@ -109,7 +109,7 @@ body {
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="uheight">身高:</label>
+										<label for="uheight">身高:  </label>
 										<form:input class="form-control" path="uheight"/>
 									</p>
 								</div>
@@ -124,7 +124,7 @@ body {
 								<div class="col-md-3"></div>
 								<div class="col-md-3">
 									<p>
-										<label for="profession">职业:</label>
+										<label for="profession">职业: </label>
 										<form:select path="profession" class="form-control" >
 											<option value="">--请选择行业--</option>
 								            <form:options items="${s002002Form.professionLi}"/>
@@ -133,7 +133,7 @@ body {
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="uweight">体重:</label>
+										<label for="uweight">体重:  </label>
 										<form:input class="form-control" path="uweight"/>
 									</p>
 								</div>
@@ -142,9 +142,83 @@ body {
 					</div>
 					<hr size="2" color="#ffffff">
 					<div class="row">
+						<div class="col-md-12">
+							<!-- 择偶条件区域 -->
+							<div class="form-inline row">
+								<div class="col-md-3">
+									<h4>择偶条件</h4>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label for="birthPlace">出生地:</label>
+										<form:select path="requireBirthPlace" class="form-control">
+											<option value="">--请选择地区--</option>
+										    <form:options items="${s002002Form.requireBirthPlaceLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>年龄：</label> 
+										<label for="ageFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireAgeFrom"/> 
+										<label for="ageTo">到</label> 
+										<form:input class="form-control" size="3" path="requireAgeTo"/>
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+									<p>
+										<label for="address">住所: </label>
+										<form:select path="requireAddress" class="form-control" >
+											<option value="">--请选择地区--</option>
+								            <form:options items="${s002002Form.requireAddressLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>身高：</label> 
+										<label for="uheightFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireHeightFrom"/> 
+										<label for="uheightTo">到</label> 
+										<form:input class="form-control" size="3" path="requireHeightTo"/>
+									</p>
+								</div>
+							</div>
+							<div class="form-inline row">
+								<div class="col-md-3"></div>
+								<div class="col-md-3">
+									<p>
+										<label for="profession">职业: </label>
+										<form:select path="requireProfession" class="form-control" >
+											<option value="">--请选择行业--</option>
+								            <form:options items="${s002002Form.requireProfessionLi}"/>
+										</form:select>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label>体重：</label> 
+										<label for="uweightFrom">从</label> 
+										<form:input class="form-control" size="3" path="requireWeightFrom"/> 
+										<label for="uweightTo">到</label> 
+										<form:input class="form-control" size="3" path="requireWeightTo"/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr size="2" color="#ffffff">
+					<div class="row">
 						<!-- 用户图片上传区 -->
-						<div class="col-md-1"></div>
+						<div class="col-md-1">
+							<h4>个人照片</h4>
+						</div>
 						<div class="col-md-6">
+							<!-- 个人照片区域 -->
 							<div>
 								<label for="uimages">上传照片(共3张):</label>
 								<br>
@@ -217,83 +291,13 @@ body {
 							</div>
 						</div>
 					</div>
-					<hr size="2" color="#ffffff">
-					<div class="row">
-						<div class="col-md-12">
-							<h4>择偶条件</h4>
-							<!-- 择偶条件区域 -->
-							<div class="form-inline row">
-								<div class="col-md-3"></div>
-								<div class="col-md-3">
-									<p>
-										<label for="birthPlace">出生地:</label>
-										<form:select path="requireBirthPlace" class="form-control">
-											<option value="">--请选择地区--</option>
-										    <form:options items="${s002002Form.requireBirthPlaceLi}"/>
-										</form:select>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<label>年龄：</label> 
-										<label for="ageFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireAgeFrom"/> 
-										<label for="ageTo">到</label> 
-										<form:input class="form-control" size="3" path="requireAgeTo"/>
-									</p>
-								</div>
-							</div>
-							<div class="form-inline row">
-								<div class="col-md-3"></div>
-								<div class="col-md-3">
-									<p>
-										<label for="address">住所:</label>
-										<form:select path="requireAddress" class="form-control" >
-											<option value="">--请选择地区--</option>
-								            <form:options items="${s002002Form.requireAddressLi}"/>
-										</form:select>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<label>身高：</label> 
-										<label for="uheightFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireHeightFrom"/> 
-										<label for="uheightTo">到</label> 
-										<form:input class="form-control" size="3" path="requireHeightTo"/>
-									</p>
-								</div>
-							</div>
-							<div class="form-inline row">
-								<div class="col-md-3"></div>
-								<div class="col-md-3">
-									<p>
-										<label for="profession">职业:</label>
-										<form:select path="requireProfession" class="form-control" >
-											<option value="">--请选择行业--</option>
-								            <form:options items="${s002002Form.requireProfessionLi}"/>
-										</form:select>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<label>体重：</label> 
-										<label for="uweightFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireWeightFrom"/> 
-										<label for="uweightTo">到</label> 
-										<form:input class="form-control" size="3" path="requireWeightTo"/>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="row">
 						<!-- 按钮区 -->
-						<div class="col-md-2"></div>
+						<div class="col-md-1"></div>
 						<div class="col-md-3">
 							<div>
-								<input type="reset" class="form-control" value="信息重置">
-								<input type="button" class="form-control" data-toggle="modal" data-target="#userInfoUpdate" value="提交个人信息" />
+								<input type="reset" class="button-default" value="信息重置">
+								<input type="button" class="button-success" data-toggle="modal" data-target="#userInfoUpdate" value="提交个人信息" />
 							</div>
 						</div>
 					</div>
@@ -319,8 +323,8 @@ body {
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-primary" value="提交"/>
+					<input type="button" class="button-default" data-dismiss="modal" value="关闭"/>
+					<input type="submit" class="button-success" value="提交"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->

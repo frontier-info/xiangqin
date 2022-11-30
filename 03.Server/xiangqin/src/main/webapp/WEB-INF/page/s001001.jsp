@@ -38,13 +38,12 @@
           <label for="name">密码</label>
           <form:password class="form-control" path="password" />
           <hr>
-          <button type="submit" class="btn btn-default" name="login">登录</button>
-          <button type="submit" class="btn btn-default" name="register">注册</button>
-          <button type="submit" class="btn btn-default" name="repassword">忘记密码</button>
+          <button type="submit" class="button-success" name="login">登录</button>
+          <button type="submit" class="button-success" name="register">注册</button>
+          <button type="submit" class="button-success" name="repassword">忘记密码</button>
          </div>
         </form:form>
        </div>
-       <div class="col-md-3"></div>
       </div>
      </div>
     </div>

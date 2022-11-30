@@ -147,6 +147,7 @@ body{
 .button-default{
 	width: 120px;
 	height: 44px;
+    margin: 5px;
 	color: #8d8d8d;
 	background-color: #f2699163;
 	border-color: #f2699163;
@@ -156,6 +157,7 @@ body{
 .button-success{
 	width: 120px;
 	height: 44px;
+    margin: 5px;
 	color: #fff;
 	background-color: #ff69b49e;
 	border-color: #ff69b49e;
@@ -165,6 +167,7 @@ body{
 .button-danger{
 	width: 120px;
 	height: 44px;
+    margin: 5px;
 	color: #fff;
 	background-color: #ea366bd1;
 	border-color: #ea366bd1;

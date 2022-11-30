@@ -38,14 +38,14 @@
 									<form:input class="form-control" type="text" path="mobile" placeholder="请输入手机号"/>
 									<label for="smsCode">验证码</label>	
 									<form:input class="form-control" type="text" path="smsCode" value=""/>
-									<button type="submit" class="btn btn-default" name="getVerificationCode" >发送验证码</button>				
+									<button type="submit" class="button-success" name="getVerificationCode" >发送验证码</button>				
 									<hr>
 									<label for="password">密码</label>	
 									<input class="form-control" type="password" name="password" value=""/>
 									<label for="repassword">重复密码</label>	
 									<input class="form-control" type="password" name="repassword" value=""/>
 									<hr>	
-									<button type="submit" class="btn btn-default" name="changePassword" >重置密码</button>
+									<button type="submit" class="button-success" name="changePassword" >重置密码</button>
 								</div>
 							</div>	
 						</form:form>

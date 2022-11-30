@@ -37,14 +37,14 @@
           <form:input class="form-control" placeholder="手机号码" path="mobile"/>
           <label for="smsCode">验证码</label>
           <form:input class="form-control" placeholder="短信验证码" path="smsCode"/>
- 		  <button type="submit" class="btn btn-default" name="getVerificationCode">获取验证码</button>
+ 		  <button type="submit" class="button-success" name="getVerificationCode">获取验证码</button>
  		  <hr>
  		  <label for="password">密码</label>
  		  <form:password class="form-control" path="password"/>
  		 <hr> <label for="repassword">确认密码</label>
  		  <form:password class="form-control" path="repassword"/>
  		  <hr>
-          <button type="submit" class="btn btn-default" name="register">注册</button>
+          <button type="submit" class="button-success" name="register">注册</button>
          </div>
         </form:form>
        </div>
