@@ -25,7 +25,7 @@
 				<div class="panel-heading pink">
 					<h3 class="panel-title">后台管理(普通)</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 					  <!-- 提示信息区域 -->
 					  <div class="col-md-3"></div>
@@ -165,7 +165,7 @@
 				<div class="panel-heading pink">
 					<h3 class="panel-title">检索结果</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
 							<!-- 检索结果区域 -->

@@ -27,7 +27,7 @@
 				<div class="panel-heading pink">
 					<h3 class="panel-title">我打过招呼的人</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">

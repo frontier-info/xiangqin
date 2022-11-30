@@ -33,7 +33,7 @@ body {
 				<div class="panel-heading pink">
 					<h3 class="panel-title">个人信息设定</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
 				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>

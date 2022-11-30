@@ -22,7 +22,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="panel panel-pink">
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 					  <!-- 提示信息区域 -->
 					  <div class="col-md-3"></div>
@@ -115,7 +115,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="panel panel-pink">
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
 							<!-- 用户详细信息 -->

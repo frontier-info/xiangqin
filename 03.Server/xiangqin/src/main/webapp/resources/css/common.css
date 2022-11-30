@@ -111,6 +111,11 @@
     font-size: 14px;
 	color: #fff;
 }
+/* 面板字体样式 */
+.panel-body.pink {
+	color: #ff69b49e;
+}
+/* 面板边框样式 */
 .panel.panel-pink {
 	border-color: #FFC0CB;
 }
@@ -118,6 +123,12 @@
 /* 字体样式 */
 .zeaicolor {
     color: #FF668A;
+}
+
+/* 表单样式 */
+.form-control{
+	border: 1px solid #ff69b49e;
+	color: #ff69b49e;
 }
 
 /* 整体 */
@@ -133,21 +144,30 @@ body{
 }
 
 /* 按钮样式 */ 
-.btn-default{
+.button-default{
 	width: 120px;
 	height: 44px;
+	color: #8d8d8d;
+	background-color: #f2699163;
+	border-color: #f2699163;
 	border-radius: 18px;
 	display: inline-block;
 }
-.btn-success{
+.button-success{
 	width: 120px;
 	height: 44px;
+	color: #fff;
+	background-color: #ff69b49e;
+	border-color: #ff69b49e;
 	border-radius: 18px;
 	display: inline-block;
 }
-.btn-danger{
+.button-danger{
 	width: 120px;
 	height: 44px;
+	color: #fff;
+	background-color: #ea366bd1;
+	border-color: #ea366bd1;
 	border-radius: 18px;
 	display: inline-block;
 }

@@ -22,7 +22,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="panel panel-pink">
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 					  <!-- 提示信息区域 -->
 					  <div class="col-md-3"></div>
@@ -120,9 +120,9 @@
 									<hr>
 									<div class="row">
 										<div class="col-md-12">
-											<input type="button" class="form-control btn-success" data-toggle="modal" data-target="#changeUserRankModal" value="变更用户权限" />
-											<input type="button" class="form-control btn-success" data-toggle="modal" data-target="#updateUserStatusModal" value="新用户审查结果" />
-											<input type="button" class="form-control btn-danger" data-toggle="modal" data-target="#deleteUserModal" value="删除用户" />
+											<input type="button" class="button-success" data-toggle="modal" data-target="#changeUserRankModal" value="变更用户权限" />
+											<input type="button" class="button-success" data-toggle="modal" data-target="#updateUserStatusModal" value="新用户审查结果" />
+											<input type="button" class="button-danger" data-toggle="modal" data-target="#deleteUserModal" value="删除用户" />
 										</div>
 									</div>
 								</div>
@@ -138,7 +138,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="panel panel-pink">
-				<div class="panel-body">
+				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
 							<!-- 用户详细信息 -->
@@ -224,8 +224,8 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-success" name="changeUserRank" value="变更用户权限"/>
+					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
+					<input type="submit" class="btn button-success" name="changeUserRank" value="变更用户权限"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -261,8 +261,8 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-success" name="updateUserStatus" value="提交审查结果"/>
+					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
+					<input type="submit" class="btn button-success" name="updateUserStatus" value="提交审查结果"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -285,8 +285,8 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"/>
-					<input type="submit" class="btn btn-danger" name="deleteUser" value="删除用户"/>
+					<input type="button" class="btn button-default" data-dismiss="modal" value="关闭"/>
+					<input type="submit" class="btn button-danger" name="deleteUser" value="删除用户"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
