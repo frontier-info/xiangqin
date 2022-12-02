@@ -17,10 +17,12 @@ public class T01UserRelationsInfoAccess {
 	public T01UserRelationsInfoAccess(T01UserRelationsInfoDao t01UserRelationsInfoDao) {
 		this.t01UserRelationsInfoDao = t01UserRelationsInfoDao;
 	}
+	
 	// 获取向我打过招呼的人的数据
 	public List<UserSimpleInfo> selectReceiveRelation(String uid){
 		return t01UserRelationsInfoDao.selectReceiveRelation(uid);
 	}
+	
 	// 获取我打过招呼的人的数据
 	public List<UserSimpleInfo> selectSendRelation(String uid){
 		return t01UserRelationsInfoDao.selectSendRelation(uid);
@@ -29,6 +31,16 @@ public class T01UserRelationsInfoAccess {
 	// 查询当前用户是否已向该指定异性发送过邀约信息
 	public int selectExist(String uid, String relationId){
 		return t01UserRelationsInfoDao.selectExist(new T01UserRelationsInfoKey(uid, relationId));
+	}
+	
+	// 查询当前用户是否已向该指定异性发送过邀约信息
+	public int selectRelationCount(String uid){
+		return t01UserRelationsInfoDao.selectRelationCount(uid);
+	}
+	
+	// 查询当前用户是否已向该指定异性发送过邀约信息
+	public int selectRelationSuccessCount(T01UserRelationsInfo record){
+		return t01UserRelationsInfoDao.selectRelationSuccessCount(record);
 	}
 
 	public int insert(T01UserRelationsInfo record) {

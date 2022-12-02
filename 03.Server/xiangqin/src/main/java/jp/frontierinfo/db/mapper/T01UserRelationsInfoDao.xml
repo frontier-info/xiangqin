@@ -47,12 +47,29 @@
 		relation.relation_id = #{uid,jdbcType=VARCHAR}
   </select>
   <!--   查询当前用户是否已向该指定异性发送过邀约信息 -->
-  <select id="selectExist" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultType="java.lang.Integer">
+  <select id="selectExist" parameterType="java.lang.String" resultType="java.lang.Integer">
     select 
       count(*)
     from xiangqin.t01_user_relations_info
     where uid = #{uid,jdbcType=VARCHAR}
       and relation_id = #{relationId,jdbcType=VARCHAR}
+  </select>
+  <!--   查询当前用户的邀约次数 -->
+  <select id="selectRelationCount" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfo" resultType="java.lang.Integer">
+    select 
+      count(*)
+    from xiangqin.t01_user_relations_info
+    where uid = #{uid,jdbcType=VARCHAR}
+      and relation_id = #{relationId,jdbcType=VARCHAR}
+  </select>
+  <!--   查询当前用户的邀约成功次数 -->
+  <select id="selectRelationSuccessCount" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultType="java.lang.Integer">
+    select 
+      count(*)
+    from xiangqin.t01_user_relations_info
+    where uid = #{uid,jdbcType=VARCHAR}
+      and relation_level1 = #{relationLevel1,jdbcType=VARCHAR}
+      and relation_level2 = #{relationLevel2,jdbcType=VARCHAR}
   </select>
   <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->
   <select id="selectByPrimaryKey" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultMap="BaseResultMap">

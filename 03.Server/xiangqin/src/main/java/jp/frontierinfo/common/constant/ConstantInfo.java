@@ -66,6 +66,14 @@ public class ConstantInfo {
 	public static final String RELATION_LEVEL_2_DISAGREE = "拒绝";
 	
 	/**
+	 * 普通用户的使用权限
+	 */
+	// 普通用户打招呼次数限制
+	public static final int RELATION_COUNT = 10;
+	// 普通用户打招呼成功次数限制
+	public static final int RELATION_SUCCESS_COUNT = 3;
+	
+	/**
 	 * 性别
 	 */
 	public static final String MALE = "男";

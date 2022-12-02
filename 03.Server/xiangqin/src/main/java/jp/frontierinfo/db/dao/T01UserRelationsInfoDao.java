@@ -8,14 +8,20 @@ import jp.frontierinfo.db.entity.T01UserRelationsInfoKey;
 
 public interface T01UserRelationsInfoDao {
 	
-	// »ñÈ¡ÏòÎÒ´ò¹ıÕĞºôµÄÈËµÄÊı¾İ
+	// è·å–å‘æˆ‘æ‰“è¿‡æ‹›å‘¼çš„äººçš„æ•°æ®
 	List<UserSimpleInfo> selectReceiveRelation(String uid);
 	
-	// »ñÈ¡ÎÒ´ò¹ıÕĞºôµÄÈËµÄÊı¾İ
+	// è·å–æˆ‘æ‰“è¿‡æ‹›å‘¼çš„äººçš„æ•°æ®
 	List<UserSimpleInfo> selectSendRelation(String uid);
 	
-	// ²éÑ¯µ±Ç°ÓÃ»§ÊÇ·ñÒÑÏò¸ÃÖ¸¶¨ÒìĞÔ·¢ËÍ¹ıÑûÔ¼ĞÅÏ¢
+	// æŸ¥è¯¢å½“å‰ç”¨æˆ·æ˜¯å¦å·²å‘è¯¥æŒ‡å®šå¼‚æ€§å‘é€è¿‡é‚€çº¦ä¿¡æ¯
 	int selectExist(T01UserRelationsInfoKey key);
+	
+	// æŸ¥è¯¢å½“å‰ç”¨æˆ·æ˜¯å¦å·²å‘è¯¥æŒ‡å®šå¼‚æ€§å‘é€è¿‡é‚€çº¦ä¿¡æ¯
+	int selectRelationCount(String uid);
+	
+	// æŸ¥è¯¢å½“å‰ç”¨æˆ·æ˜¯å¦å·²å‘è¯¥æŒ‡å®šå¼‚æ€§å‘é€è¿‡é‚€çº¦ä¿¡æ¯
+	int selectRelationSuccessCount(T01UserRelationsInfo record);
 	
     int deleteByPrimaryKey(T01UserRelationsInfoKey key);
 

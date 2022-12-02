@@ -192,6 +192,9 @@ public class S002001Controller {
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
 			S001001Form form, S001001E001Input input) {
 		
+		// 退出登录时清空Session
+		request.getSession().invalidate();
+		
 		return "s001001";
 	}
 	
