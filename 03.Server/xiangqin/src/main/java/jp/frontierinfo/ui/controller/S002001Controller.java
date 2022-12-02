@@ -157,9 +157,9 @@ public class S002001Controller {
 	}
 	
 	/**
-	 * 择偶要求设定按钮
+	 * 检索条件设定按钮
 	 */
-	@PrintLog("用户主页的择偶要求设定按钮点击")
+	@PrintLog("用户主页的检索条件设定按钮点击")
 	@RequestMapping(value="/s002001/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute() S002003Form form, S002001E002Input input, Model model) {
@@ -174,8 +174,8 @@ public class S002001Controller {
 		}
 		
 		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode())) {
-			// 普通用户在页面提示择偶条件一条的限制
-			model.addAttribute("message", "普通用户只能设定一个择偶条件.");
+			// 普通用户在页面提示检索条件一条的限制
+			model.addAttribute("message", "普通用户只能设定一个检索条件.");
 		}
 
 		BeanUtils.copyProperties(output, form);
@@ -195,15 +195,4 @@ public class S002001Controller {
 		return "s001001";
 	}
 	
-	
-	/**
-	 * 向我打招呼的人按钮
-	 */
-	@RequestMapping(value="/s002001", params="d", method=RequestMethod.POST)
-	public String e004(HttpServletRequest request, HttpServletResponse response, 
-			S001001Form form, S001001E001Input input,Model model) {
-		System.out.println("向我打招呼的人002001");
-		//s004001Controller.e001(request, response,form, null, input, model);
-		return "forward:/ui/s004001";
-	}
 }

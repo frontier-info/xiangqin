@@ -50,7 +50,7 @@
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading">
-											<a href="${pageContext.request.contextPath}/ui/s005001/e000?uid=${userSimpleInfo.uid}">${userSimpleInfo.uname}</a>
+											<a href="${pageContext.request.contextPath}/ui/s005001/e000?relationId=${userSimpleInfo.relationId}">${userSimpleInfo.uname}</a>
 											</h4>
 											<p>${userSimpleInfo.sex}</p>
 											<p>${userSimpleInfo.introduce}</p>
@@ -77,7 +77,7 @@
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading">
-											<a href="${pageContext.request.contextPath}/ui/s005001/e000?uid=${randomUserSimpleInfo.uid}">${randomUserSimpleInfo.uname}</a>
+											<a href="${pageContext.request.contextPath}/ui/s005001/e000?relationId=${randomUserSimpleInfo.relationId}">${randomUserSimpleInfo.uname}</a>
 											</h4>
 											<p>${randomUserSimpleInfo.sex}</p>
 											<p>${randomUserSimpleInfo.introduce}</p>

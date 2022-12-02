@@ -6,4 +6,6 @@ import lombok.Data;
 public class S005001E000Input {
 	
     private String uid;
+    
+    private String relationId;
 }

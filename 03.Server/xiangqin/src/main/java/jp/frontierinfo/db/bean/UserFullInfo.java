@@ -7,7 +7,10 @@ import lombok.Data;
 
 @Data
 public class UserFullInfo {
+	
     private String uid;
+    
+    private String relationId;
 
     private String uname;
 

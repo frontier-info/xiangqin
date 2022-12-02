@@ -40,7 +40,7 @@
   <!--   查询指定检索条件的30名异性信息 -->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
-      uid, uname, sex, introduce, avatar_img avatarImg
+      uid relationId, uname, sex, introduce, avatar_img avatarImg
     from xiangqin.t01_user_basic_info
     <where>
       <if test="uid != null">
@@ -82,7 +82,7 @@
   <!--   指定检索条件的查询结果不满30名时,从数据库随机补位至30名 -->
   <select id="selectRandomList" parameterType="java.util.Map" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
-      uid, uname, sex, introduce, avatar_img avatarImg
+      uid relationId, uname, sex, introduce, avatar_img avatarImg
     from xiangqin.t01_user_basic_info
     <where>
       <if test="exceptList.size() > 0">
@@ -95,7 +95,91 @@
     order by random()
     limit #{limit}   
   </select>
-  <!--   查询指定检索条件的用户全部信息 -->
+  <!--   获取点击用户的全部信息(业务页面用) -->
+  <select id="selectUserFullInfoByUid" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+    select
+        basic.uid relationId
+        , basic.uname
+        , basic.sex
+        , basic.birth_date birthDate
+        , basic.age
+        , login.mobile
+        , login.email
+        , basic.birth_place birthPlace
+        , basic.address
+        , basic.profession
+        , basic.interest
+        , basic.uheight
+        , basic.uweight
+        , basic.introduce
+        , basic.avatar_img avatarImg
+        , basic.uimages1
+        , basic.uimages2
+        , basic.uimages3
+        , basic.require_age_from requireAgeFrom
+	    , basic.require_age_to requireAgeTo
+	    , basic.require_birth_place requireBirthPlace
+	    , basic.require_address requireAddress
+	    , basic.require_profession requireProfession
+	    , basic.require_height_from requireHeightFrom
+	    , basic.require_height_to requireHeightTo
+	    , basic.require_weight_from requireWeightFrom
+	    , basic.require_weight_to requireWeightTo
+        , relations.relation_level1 relationLevel1
+        , relations.relation_level2 relationLevel2
+	from
+	    xiangqin.t01_user_basic_info basic
+	    inner join xiangqin.t01_user_login_info login
+	    on basic.uid = login.uid
+        left join xiangqin.t01_user_relations_info relations
+        on relations.uid = #{uid,jdbcType=VARCHAR}
+        and relations.relation_id = #{relationId,jdbcType=VARCHAR}
+    where
+    	basic.uid = #{relationId,jdbcType=VARCHAR}
+  </select>
+  <!--   获取点击用户的全部信息(业务页面用,向我打招呼的人用) -->
+  <select id="selectUserFullInfoByRelationId" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+    select
+        basic.uid relationId
+        , basic.uname
+        , basic.sex
+        , basic.birth_date birthDate
+        , basic.age
+        , login.mobile
+        , login.email
+        , basic.birth_place birthPlace
+        , basic.address
+        , basic.profession
+        , basic.interest
+        , basic.uheight
+        , basic.uweight
+        , basic.introduce
+        , basic.avatar_img avatarImg
+        , basic.uimages1
+        , basic.uimages2
+        , basic.uimages3
+        , basic.require_age_from requireAgeFrom
+	    , basic.require_age_to requireAgeTo
+	    , basic.require_birth_place requireBirthPlace
+	    , basic.require_address requireAddress
+	    , basic.require_profession requireProfession
+	    , basic.require_height_from requireHeightFrom
+	    , basic.require_height_to requireHeightTo
+	    , basic.require_weight_from requireWeightFrom
+	    , basic.require_weight_to requireWeightTo
+        , relations.relation_level1 relationLevel1
+        , relations.relation_level2 relationLevel2
+	from
+	    xiangqin.t01_user_basic_info basic
+	    inner join xiangqin.t01_user_login_info login
+	    on basic.uid = login.uid
+        left join xiangqin.t01_user_relations_info relations
+        on relations.relation_id = #{uid,jdbcType=VARCHAR}
+        and relations.uid = #{relationId,jdbcType=VARCHAR}
+    where
+    	basic.uid = #{relationId,jdbcType=VARCHAR}
+  </select>
+  <!--   查询指定检索条件的用户全部信息(管理员页面用) -->
   <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.bean.BackstageSerachInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
 	    login.uid
@@ -186,8 +270,8 @@
     </where>
      
   </select>
-  <!--   查询指定用户的全部信息 -->
-  <select id="selectUserFullInfoByUid" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
+  <!--   查询指定用户的全部信息(管理员页面用) -->
+  <select id="selectUserFullInfoByUidForBackstage" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
 	    basic.uid
 	    , basic.uname

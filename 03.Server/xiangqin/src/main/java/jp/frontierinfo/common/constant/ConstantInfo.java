@@ -52,6 +52,20 @@ public class ConstantInfo {
 	public static final String USER_RANK_HIGH_MANAGER = "09";
 	
 	/**
+	 * 用户操作数据
+	 */
+	// 向异性用户发起打招呼请求
+	public static final String RELATION_LEVEL_1_REQUEST = "请求";
+	// 异性用户同意打招呼请求
+	public static final String RELATION_LEVEL_1_AGREE = "同意";
+	// 异性用户拒绝打招呼请求
+	public static final String RELATION_LEVEL_1_DISAGREE = "拒绝";
+	// 异性用户同意获取联系方式
+	public static final String RELATION_LEVEL_2_AGREE = "同意";
+	// 异性用户拒绝获取联系方式
+	public static final String RELATION_LEVEL_2_DISAGREE = "拒绝";
+	
+	/**
 	 * 性别
 	 */
 	public static final String MALE = "男";

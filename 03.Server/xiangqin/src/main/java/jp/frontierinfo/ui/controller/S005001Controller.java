@@ -18,7 +18,6 @@ import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.form.S005001Form;
-import jp.frontierinfo.ui.form.S009010Form;
 import jp.frontierinfo.ui.input.S005001E000Input;
 import jp.frontierinfo.ui.input.S005001E001Input;
 import jp.frontierinfo.ui.output.S005001E000Output;
@@ -52,6 +51,8 @@ public class S005001Controller {
 			S005001E000Input input, Model model) {
 		
 		S005001E000Output output = new S005001E000Output();
+		T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+        input.setUid(userLoginInfo.getUid());
 		try {
 			output = s005001E000Service.execute(input);
 		} catch (BusinessException e) {
@@ -86,6 +87,8 @@ public class S005001Controller {
 		}
 
 		model.addAttribute("message", "打招呼成功!");
+
+		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s005001Form", form);
 
 		return "s005001";

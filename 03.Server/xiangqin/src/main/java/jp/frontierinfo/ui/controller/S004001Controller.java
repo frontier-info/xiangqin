@@ -23,6 +23,7 @@ import jp.frontierinfo.ui.input.S004001E002Input;
 import jp.frontierinfo.ui.input.S004001E003Input;
 import jp.frontierinfo.ui.output.S004001E001Output;
 import jp.frontierinfo.ui.output.S004001E002Output;
+import jp.frontierinfo.ui.output.S004001E003Output;
 import jp.frontierinfo.ui.service.S004001E001Service;
 import jp.frontierinfo.ui.service.S004001E002Service;
 import jp.frontierinfo.ui.service.S004001E003Service;
@@ -82,6 +83,8 @@ public class S004001Controller {
 			S004001E002Input input, Model model) {
 		
 		S004001E002Output output = new S004001E002Output();
+        T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+        input.setUid(userLoginInfo.getUid());
 		try {
 			output = s004001E002Service.execute(input);
 		} catch (BusinessException e) {
@@ -96,25 +99,58 @@ public class S004001Controller {
 	}
 	
 	/**
-	 * 同意操作
+	 * 同意交换个人照片操作
 	 */
-	@PrintLog("同意操作")
-	@RequestMapping(value="/s004001/e003", params="agree",  method= {RequestMethod.POST})
-	public String e003_agree(HttpServletRequest request, HttpServletResponse response, 
+	@PrintLog("同意交换个人照片操作")
+	@RequestMapping(value="/s004001/e003", params="relationLevel1Agree",  method= {RequestMethod.POST})
+	public String e003RelationLevel1Agree(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
 			S004001E003Input input, Model model) {
+		
+		S004001E003Output output = new S004001E003Output();
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
 		input.setRelationLevel1("同意");
 		try {
-			s004001E003Service.execute(input);
+			output = s004001E003Service.execute(input);
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
         	return "s004001";
 		}
 		model.addAttribute("message", "操作成功");
 
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s004001Form", form);
+		
+		return "s004002";
+	}
+	
+	/**
+	 * 同意交换联系方式操作
+	 */
+	@PrintLog("同意交换联系方式操作")
+	@RequestMapping(value="/s004001/e003", params="relationLevel2Agree",  method= {RequestMethod.POST})
+	public String e003RelationLevel2Agree(HttpServletRequest request, HttpServletResponse response, 
+			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
+			S004001E003Input input, Model model) {
+		
+		S004001E003Output output = new S004001E003Output();
+		
+		T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+		input.setUid(userLoginInfo.getUid());
+		input.setRelationLevel2("同意");
+		try {
+			output = s004001E003Service.execute(input);
+		} catch (BusinessException e) {
+			model.addAttribute("message", e.getMessage());
+			return "s004001";
+		}
+		model.addAttribute("message", "操作成功");
+		
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s004001Form", form);
+		
 		return "s004002";
 	}
 	
@@ -123,21 +159,28 @@ public class S004001Controller {
 	 */
 	@PrintLog("拒绝操作")
 	@RequestMapping(value="/s004001/e003", params="reject",  method= {RequestMethod.POST})
-	public String e003_reject(HttpServletRequest request, HttpServletResponse response, 
+	public String e003Reject(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
 			S004001E003Input input, Model model) {
+		
+		S004001E003Output output = new S004001E003Output();
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+		// 拒绝时交友阶段1和2都更新为拒绝
         input.setUid(userLoginInfo.getUid());
 		input.setRelationLevel1("拒绝");
+		input.setRelationLevel2("拒绝");
 		try {
-			s004001E003Service.execute(input);
+			output = s004001E003Service.execute(input);
 		} catch (BusinessException e) {
 			model.addAttribute("message", e.getMessage());
         	return "s004001";
 		}
 		model.addAttribute("message", "操作成功");
 
+		BeanUtils.copyProperties(output, form);
+		model.addAttribute("s004001Form", form);
+		
 		return "s004002";
 	}
 }

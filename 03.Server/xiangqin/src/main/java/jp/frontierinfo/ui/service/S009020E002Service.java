@@ -19,7 +19,7 @@ public class S009020E002Service extends AbstractServiceImpl<S009020E002Input, S0
 		
 		S009020E002Output output = new S009020E002Output();
 		
-		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getUid());
+		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUidForBackstage(input.getUid());
 		output.setUserFullInfo(userFullInfo);
 		
 		// 获取用户状态下拉列表数据

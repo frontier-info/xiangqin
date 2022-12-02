@@ -12,27 +12,10 @@
   <sql id="Base_Column_List">
     uid, relation_id, relation_level1, relation_level2
   </sql>
-  <!--   获取向我打过招呼的人的数据 -->
-  <select id="selectReceiveRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
-	select
-	    basic.uid,
-		basic.uname,
-		basic.sex,
-		basic.introduce,
-		basic.avatar_img avatarImg,
-		relation.relation_level1 relationLevel1,
-		relation.relation_level2 relationLevel2
-	from
-		xiangqin.t01_user_relations_info relation
-		inner join xiangqin.t01_user_basic_info basic
-		on relation.uid = basic.uid
-	where
-		relation.relation_id = #{uid,jdbcType=VARCHAR}
-  </select>
   <!--   获取我打过招呼的人的数据 -->
   <select id="selectSendRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
 	select
-	    basic.uid,
+	    basic.uid relationId,
 		basic.uname,
 		basic.sex,
 		basic.introduce,
@@ -45,6 +28,23 @@
 		on relation.relation_id = basic.uid
 	where
 		relation.uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <!--   获取向我打过招呼的人的数据 -->
+  <select id="selectReceiveRelation" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
+	select
+	    basic.uid relationId,
+		basic.uname,
+		basic.sex,
+		basic.introduce,
+		basic.avatar_img avatarImg,
+		relation.relation_level1 relationLevel1,
+		relation.relation_level2 relationLevel2
+	from
+		xiangqin.t01_user_relations_info relation
+		inner join xiangqin.t01_user_basic_info basic
+		on relation.uid = basic.uid
+	where
+		relation.relation_id = #{uid,jdbcType=VARCHAR}
   </select>
   <!--   查询当前用户是否已向该指定异性发送过邀约信息 -->
   <select id="selectExist" parameterType="jp.frontierinfo.db.entity.T01UserRelationsInfoKey" resultType="java.lang.Integer">

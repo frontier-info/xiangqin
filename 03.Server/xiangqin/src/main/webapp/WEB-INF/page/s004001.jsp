@@ -42,14 +42,26 @@
 										<div class="media-left media-top">
 											<img
 												src="${pageContext.request.contextPath}/${userSimpleInfo.avatarImg}"
-												class="media-object" style="width: 90px">
+												class="media-object avatar">
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading">
-											<a href="${pageContext.request.contextPath}/ui/s004001/e002?relationId=${userSimpleInfo.uid}">${userSimpleInfo.uname}</a>
+											<a href="${pageContext.request.contextPath}/ui/s004001/e002?relationId=${userSimpleInfo.relationId}">${userSimpleInfo.uname}</a>
 											</h4>
 											<p>${userSimpleInfo.sex}</p>
 											<p>${userSimpleInfo.introduce}</p>
+								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_REQUEST}">
+								             <p>未回应对方</p>
+								            </c:if>
+								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_AGREE}">
+								             <p>已同意查看个人照片</p>
+								            </c:if>
+								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_DISAGREE}">
+								             <p>已拒绝</p>
+								            </c:if>
+								            <c:if test="${userSimpleInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_AGREE}">
+								             <p>已同意交换联系方式</p>
+								            </c:if>
 										</div>
 									</div>
 								</li>

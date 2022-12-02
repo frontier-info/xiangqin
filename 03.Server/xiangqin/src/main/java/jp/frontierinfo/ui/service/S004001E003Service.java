@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.db.bean.UserFullInfo;
 import jp.frontierinfo.db.entity.T01UserRelationsInfo;
 import jp.frontierinfo.ui.input.S004001E003Input;
 import jp.frontierinfo.ui.output.S004001E003Output;
@@ -23,6 +24,10 @@ public class S004001E003Service extends AbstractServiceImpl<S004001E003Input, S0
 		userRelationsInfo.setRelationLevel1(input.getRelationLevel1());
 		userRelationsInfo.setRelationLevel2(input.getRelationLevel2());
 		t01UserRelationsInfoAccess.updateByPrimaryKeySelective(userRelationsInfo);
+		
+		// 获取更新后的邀约对象详细信息
+		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getUid(), input.getRelationId());
+		output.setUserFullInfo(userFullInfo);
 		
 		return output;
 	}

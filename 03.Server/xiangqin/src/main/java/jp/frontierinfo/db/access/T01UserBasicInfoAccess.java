@@ -35,14 +35,24 @@ public class T01UserBasicInfoAccess {
 		return t01UserBasicInfoDao.selectRandomList(params);
 	}
 	
-	// 查询指定检索条件的用户全部信息
+	// 获取点击用户的全部信息(业务页面用)
+	public UserFullInfo selectUserFullInfoByUid(String uid, String relationId){
+		return t01UserBasicInfoDao.selectUserFullInfoByUid(uid, relationId);
+	}
+	
+	// 获取点击用户的全部信息(业务页面用,向我打招呼的人用)
+	public UserFullInfo selectUserFullInfoByRelationId(String uid, String relationId){
+		return t01UserBasicInfoDao.selectUserFullInfoByRelationId(uid, relationId);
+	}
+	
+	// 查询指定检索条件的用户全部信息(管理员页面用)
 	public List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo){
 		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
 	}
 	
-	// 查询指定用户的全部信息
-	public UserFullInfo selectUserFullInfoByUid(String uid){
-		return t01UserBasicInfoDao.selectUserFullInfoByUid(uid);
+	// 查询指定用户的全部信息(管理员页面用)
+	public UserFullInfo selectUserFullInfoByUidForBackstage(String uid){
+		return t01UserBasicInfoDao.selectUserFullInfoByUidForBackstage(uid);
 	}
 
 	public int deleteByPrimaryKey(String uid) {

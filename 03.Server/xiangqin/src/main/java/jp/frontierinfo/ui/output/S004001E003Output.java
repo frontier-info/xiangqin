@@ -5,4 +5,6 @@ import lombok.Data;
 
 @Data
 public class S004001E003Output {
+	
+	private UserFullInfo userFullInfo;
 }   

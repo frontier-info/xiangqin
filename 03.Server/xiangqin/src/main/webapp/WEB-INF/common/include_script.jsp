@@ -13,5 +13,6 @@
   <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/DataTables/DataTables-1.10.25/js/jquery.dataTables.min.js" charset="UTF-8"></script>
   <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/swiper-bundle.js"></script>
   <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 		
 <!-- [script] tags end ========================================================================================= -->
