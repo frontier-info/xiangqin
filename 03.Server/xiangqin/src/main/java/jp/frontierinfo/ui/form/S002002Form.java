@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -28,7 +29,10 @@ public class S002002Form {
     private String uname;
 
     private String sex;
-
+    
+	private String email;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     private String birthPlace;

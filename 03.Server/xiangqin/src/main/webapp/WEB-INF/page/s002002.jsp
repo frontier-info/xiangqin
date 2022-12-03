@@ -78,7 +78,7 @@
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="interest">兴趣:  </label>
+										<label for="interest">兴趣: </label>
 										<form:input class="form-control" path="interest"/>
 									</p>
 								</div>
@@ -103,13 +103,13 @@
 								<div class="col-md-3">
 									<p>
 										<label for="uheight">身高:  </label>
-										<form:input class="form-control" path="uheight"/>
+										<form:input class="form-control" path="uheight" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/>
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
-										<label for="introduce">自我介绍:</label>
-										<form:textarea class="form-control" path="introduce" rows="2" />
+										<label for="introduce">邮箱: </label>
+										<form:input class="form-control" path="email"/>
 									</p>
 								</div>
 							</div>
@@ -127,7 +127,13 @@
 								<div class="col-md-3">
 									<p>
 										<label for="uweight">体重:  </label>
-										<form:input class="form-control" path="uweight"/>
+										<form:input class="form-control" path="uweight" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/>
+									</p>
+								</div>
+								<div class="col-md-3">
+									<p>
+										<label for="introduce">自我介绍:</label>
+										<form:textarea class="form-control" path="introduce" rows="2" />
 									</p>
 								</div>
 							</div>
@@ -154,9 +160,9 @@
 									<p>
 										<label>年龄：</label> 
 										<label for="ageFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireAgeFrom"/> 
+										<form:input class="form-control" size="3" path="requireAgeFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/> 
 										<label for="ageTo">到</label> 
-										<form:input class="form-control" size="3" path="requireAgeTo"/>
+										<form:input class="form-control" size="3" path="requireAgeTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/>
 									</p>
 								</div>
 							</div>
@@ -175,9 +181,9 @@
 									<p>
 										<label>身高：</label> 
 										<label for="uheightFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireHeightFrom"/> 
+										<form:input class="form-control" size="3" path="requireHeightFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/> 
 										<label for="uheightTo">到</label> 
-										<form:input class="form-control" size="3" path="requireHeightTo"/>
+										<form:input class="form-control" size="3" path="requireHeightTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/>
 									</p>
 								</div>
 							</div>
@@ -196,9 +202,9 @@
 									<p>
 										<label>体重：</label> 
 										<label for="uweightFrom">从</label> 
-										<form:input class="form-control" size="3" path="requireWeightFrom"/> 
+										<form:input class="form-control" size="3" path="requireWeightFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/> 
 										<label for="uweightTo">到</label> 
-										<form:input class="form-control" size="3" path="requireWeightTo"/>
+										<form:input class="form-control" size="3" path="requireWeightTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"  required="required"/>
 									</p>
 								</div>
 							</div>
@@ -210,7 +216,7 @@
 						<div class="col-md-1">
 							<h4>个人照片</h4>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<!-- 个人照片区域 -->
 							<div>
 								<label for="uimages">上传照片(共3张):</label>
@@ -261,11 +267,9 @@
 									name="uimages3File" style="display:none" onchange="input_file_onchange(this, '#uimages3')">
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<div>
 								<label for="identificationImg">上传身份验证照片(共1张,在留卡,住民票等):</label>
-								<br>
-								<label for="identification">※仅用于用户验证真实性</label>
 								<br>
 								<div class="uimages_div">
 									<c:if test="${empty s002002Form.identificationImg}">
@@ -281,6 +285,8 @@
 								</div>
 								<input type="file" class="form-control" id="identification_img_input"
 									name="identificationImgFile" style="display:none" onchange="input_file_onchange(this, '#identification_img')">
+								<br>
+								<label for="identification">※仅用于验证用户真实性</label>
 							</div>
 						</div>
 					</div>
@@ -290,36 +296,13 @@
 						<div class="col-md-3">
 							<div>
 								<input type="reset" class="button-default" value="信息重置">
-								<input type="button" class="button-success" data-toggle="modal" data-target="#userInfoUpdate" value="提交个人信息" />
+								<input type="submit" class="button-success" value="提交个人信息" />
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- 模态框（Modal） -->
-	<div class="modal fade" id="userInfoUpdate" tabindex="-1" role="dialog" aria-labelledby="userInfoUpdateLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-						&times;
-					</button>
-					<h4 class="modal-title" id="userInfoUpdateLabel">
-						提交用户信息
-					</h4>
-				</div>
-				<div class="modal-body">
-					<p>
-						<label>确定要提交用户信息吗?</label>
-					</p>
-				</div>
-				<div class="modal-footer">
-					<input type="submit" class="button-success" value="提交"/>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal -->
 	</div>
 	</form:form>
 

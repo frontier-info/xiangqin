@@ -34,7 +34,7 @@ import jp.frontierinfo.ui.service.S002001Service;
 
 @Controller
 @RequestMapping("/ui")  
-@SessionAttributes(value= {"s002003Form"}) 
+@SessionAttributes(value= {"s002002Form", "s002003Form"}) 
 public class S002001Controller {
 	
 	@Autowired
@@ -45,6 +45,11 @@ public class S002001Controller {
 	
 	@Autowired
 	private S002001E002Service s002001E002Service;
+	
+	@ModelAttribute("s002002Form")
+	public S002002Form getS002002Form() {
+		return new S002002Form();
+	}
 	
 	@ModelAttribute("s002003Form")
 	public S002003Form getS002003Form() {
@@ -138,7 +143,7 @@ public class S002001Controller {
 	@PrintLog("用户主页的用户信息设定按钮点击")
 	@RequestMapping(value="/s002001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
-			S002002Form form, BindingResult result, 
+			@ModelAttribute() S002002Form form, BindingResult result, 
 			S002001E001Input input, Model model) {
 		S002001E001Output output = new S002001E001Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);

@@ -10,7 +10,7 @@ public class S001002E002Input {
 
 	@NotBlank()
 	@Length(max=11)
-//	@Pattern(message="请输入正确的手机号",regexp="^(070|080|090)\\d{8}$")
+//	@Pattern(message="请输入正确的手机号",regexp="^(070|080|090)\\d{8}$") TODO
 	private String mobile;
 	
 	@NotBlank()

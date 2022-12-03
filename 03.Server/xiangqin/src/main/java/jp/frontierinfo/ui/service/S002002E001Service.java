@@ -26,8 +26,13 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		// 获取服务器相对路径
 		String fileSavePath = input.getFileSavePath();
 		
-		T01UserBasicInfo basicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
+		// 更新用户邮箱地址
+		T01UserLoginInfo loginInfo = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
+		loginInfo.setEmail(input.getEmail());
+		t01UserLoginInfoAccess.updateByPrimaryKeySelective(loginInfo);
 		
+		// 更新用户基本信息
+		T01UserBasicInfo basicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
 		basicInfo.setUname(input.getUname());
     	basicInfo.setSex(input.getSex());
 		basicInfo.setBirthDate(DateUtils.stringToDate(input.getBirthDate()));
@@ -58,7 +63,6 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
 		
 		// 提交个人信息更改时,若用户状态为00:未提交审核时,更新状态为01:审核中
-		T01UserLoginInfo loginInfo = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
 		if(ConstantInfo.USER_CENSOR_STATUS_00.equals(loginInfo.getUserStatusCode())) {
 			loginInfo.setUserStatusCode(ConstantInfo.USER_CENSOR_STATUS_01);
 			t01UserLoginInfoAccess.updateByPrimaryKey(loginInfo);
