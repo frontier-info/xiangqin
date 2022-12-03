@@ -24,7 +24,7 @@ public class NoLoginInterceptor implements HandlerInterceptor{
 			throws Exception {
 		// 判断当前用户是否登录
 		if(request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO) == null) {
-			request.setAttribute("", "登录过期,请重新登录");
+			request.setAttribute("message", "登录过期,请重新登录");
 			logger.debug("URL:"+request.getRequestURL());
 			request.getRequestDispatcher("/ui/s001001").forward(request, response);
 			return false;
