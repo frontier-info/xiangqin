@@ -20,6 +20,8 @@ public class FIWebConfigurer implements WebMvcConfigurer {
                 .addPathPatterns("/ui/**") // 拦截所有请求，不包括静态资源文件
                 .excludePathPatterns("/ui/s001001", 
                 		"/ui/s002001/e003", 
+                		"/ui/s001002", 
+                		"/ui/s001003", 
                 		"/resources/js/**",
                 		"/resources/css/**",
                 		"/resources/image/**"); 
