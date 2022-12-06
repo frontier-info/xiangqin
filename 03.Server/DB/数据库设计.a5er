@@ -55,12 +55,13 @@ Field="密码","password","varchar",,,"","",$FFFFFFFF,""
 Field="用户状态","user_status_code","varchar",,,"","00:未提交审核,01:审核中,02:审核通过,03:审核拒绝",$FFFFFFFF,""
 Field="审核结果","user_censor_result","varchar",,,"","例:身份信息不清晰",$FFFFFFFF,""
 Field="用户级别","user_rank_code","varchar",,,"","01:普通用户,02:高级用户,08:普通管理员,09:高级管理员",$FFFFFFFF,""
-Field="创建时间","create_time","date",,,"","",$FFFFFFFF,""
+Field="注册时间","create_time","timestamp",,,"","",$FFFFFFFF,""
+Field="最后登录时间","last_login_time","timestamp",,,"","",$FFFFFFFF,""
 Field="删除标记","delete_flg","boolean",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20221118141623
+ModifiedDateTime=20221206125218
 Position="MAIN",300,150,245,496
 ZOrder=0
 

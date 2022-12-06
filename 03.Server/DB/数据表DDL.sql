@@ -1,5 +1,5 @@
 -- Project Name : xiangqin
--- Date/Time    : 2022/11/28 23:06:16
+-- Date/Time    : 2022/12/6 12:52:32
 -- Author       : wuzhusong
 -- RDBMS Type   : PostgreSQL
 -- Application  : A5:SQL Mk-2
@@ -97,7 +97,8 @@ create table xiangqin.t01_user_login_info (
   , user_status_code varchar
   , user_censor_result varchar
   , user_rank_code varchar
-  , create_time date
+  , create_time timestamp
+  , last_login_time timestamp
   , delete_flg boolean
   , constraint t01_user_login_info_PKC primary key (uid)
 ) ;
@@ -167,6 +168,7 @@ comment on column xiangqin.t01_user_login_info.password is '密码';
 comment on column xiangqin.t01_user_login_info.user_status_code is '用户状态:00:未提交审核,01:审核中,02:审核通过,03:审核拒绝';
 comment on column xiangqin.t01_user_login_info.user_censor_result is '审核结果:例:身份信息不清晰';
 comment on column xiangqin.t01_user_login_info.user_rank_code is '用户级别:01:普通用户,02:高级用户,08:普通管理员,09:高级管理员';
-comment on column xiangqin.t01_user_login_info.create_time is '创建时间';
+comment on column xiangqin.t01_user_login_info.create_time is '注册时间';
+comment on column xiangqin.t01_user_login_info.last_login_time is '最后登录时间';
 comment on column xiangqin.t01_user_login_info.delete_flg is '删除标记';
 

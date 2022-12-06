@@ -10,13 +10,14 @@
       <arg column="user_status_code" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="user_censor_result" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="user_rank_code" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="last_login_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="delete_flg" javaType="java.lang.Boolean" jdbcType="BIT" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code, 
-    create_time, delete_flg
+    create_time, last_login_time, delete_flg
   </sql>
   <!--   用户存在与否验证(手机号) -->
   <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -63,12 +64,12 @@
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info (uid, mobile, email, 
       password, user_status_code, user_censor_result, 
-      user_rank_code, create_time, delete_flg
-      )
+      user_rank_code, create_time, last_login_time, 
+      delete_flg)
     values (#{uid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{userStatusCode,jdbcType=VARCHAR}, #{userCensorResult,jdbcType=VARCHAR}, 
-      #{userRankCode,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{deleteFlg,jdbcType=BIT}
-      )
+      #{userRankCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{deleteFlg,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info
@@ -97,6 +98,9 @@
       <if test="createTime != null">
         create_time,
       </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
       <if test="deleteFlg != null">
         delete_flg,
       </if>
@@ -124,7 +128,10 @@
         #{userRankCode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="deleteFlg != null">
         #{deleteFlg,jdbcType=BIT},
@@ -153,7 +160,10 @@
         user_rank_code = #{userRankCode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="deleteFlg != null">
         delete_flg = #{deleteFlg,jdbcType=BIT},
@@ -169,7 +179,8 @@
       user_status_code = #{userStatusCode,jdbcType=VARCHAR},
       user_censor_result = #{userCensorResult,jdbcType=VARCHAR},
       user_rank_code = #{userRankCode,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       delete_flg = #{deleteFlg,jdbcType=BIT}
     where uid = #{uid,jdbcType=VARCHAR}
   </update>

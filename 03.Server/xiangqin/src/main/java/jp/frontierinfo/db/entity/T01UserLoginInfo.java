@@ -19,9 +19,11 @@ public class T01UserLoginInfo {
 
     private Date createTime;
 
+    private Date lastLoginTime;
+
     private Boolean deleteFlg;
 
-    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatusCode, String userCensorResult, String userRankCode, Date createTime, Boolean deleteFlg) {
+    public T01UserLoginInfo(String uid, String mobile, String email, String password, String userStatusCode, String userCensorResult, String userRankCode, Date createTime, Date lastLoginTime, Boolean deleteFlg) {
         this.uid = uid;
         this.mobile = mobile;
         this.email = email;
@@ -30,6 +32,7 @@ public class T01UserLoginInfo {
         this.userCensorResult = userCensorResult;
         this.userRankCode = userRankCode;
         this.createTime = createTime;
+        this.lastLoginTime = lastLoginTime;
         this.deleteFlg = deleteFlg;
     }
 
@@ -101,6 +104,14 @@ public class T01UserLoginInfo {
         this.createTime = createTime;
     }
 
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
     public Boolean getDeleteFlg() {
         return deleteFlg;
     }
@@ -116,6 +127,7 @@ public class T01UserLoginInfo {
 		result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
 		result = prime * result + ((deleteFlg == null) ? 0 : deleteFlg.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((lastLoginTime == null) ? 0 : lastLoginTime.hashCode());
 		result = prime * result + ((mobile == null) ? 0 : mobile.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
@@ -149,6 +161,11 @@ public class T01UserLoginInfo {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (lastLoginTime == null) {
+			if (other.lastLoginTime != null)
+				return false;
+		} else if (!lastLoginTime.equals(other.lastLoginTime))
+			return false;
 		if (mobile == null) {
 			if (other.mobile != null)
 				return false;
@@ -181,5 +198,4 @@ public class T01UserLoginInfo {
 			return false;
 		return true;
 	}
-    
 }

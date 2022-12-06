@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.common.utils.SHA256Util;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.db.entity.T01UserSearchInfo;
@@ -22,7 +23,7 @@ public class S001002E002Service extends AbstractServiceImpl<S001002E002Input, S0
 		T01UserLoginInfo info = new T01UserLoginInfo();
 		info.setUid(uid);
 		info.setMobile(input.getMobile());
-		info.setPassword(input.getPassword());
+		info.setPassword(SHA256Util.getSHA256(input.getPassword()));
 		info.setUserStatusCode("00");
 		info.setUserRankCode("01");
 		info.setCreateTime(new Date());
