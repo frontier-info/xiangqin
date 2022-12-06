@@ -40,41 +40,50 @@
   <!--   查询指定检索条件的30名异性信息 -->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
-      uid relationId, uname, sex, introduce, avatar_img avatarImg
-    from xiangqin.t01_user_basic_info
+      basic_info.uid relationId, 
+      basic_info.uname, 
+      basic_info.sex, 
+      basic_info.introduce, 
+      basic_info.avatar_img avatarImg
+    from xiangqin.t01_user_basic_info basic_info
+    inner join xiangqin.t01_user_login_info login_info
+    on login_info.uid = basic_info.uid
+    and login_info.user_rank_code not in ('08','09')
+    and login_info.user_status_code = '02'
+    and login_info.delete_flg = false
     <where>
       <if test="uid != null">
-        and uid != #{uid,jdbcType=VARCHAR}
+        and basic_info.uid != #{uid,jdbcType=VARCHAR}
       </if>
       <if test="sex != null">
-        and sex = #{sex,jdbcType=VARCHAR}
+        and basic_info.sex = #{sex,jdbcType=VARCHAR}
       </if>
       <if test="ageFrom != null and ageFrom != ''">
-        and date_part('year',age(birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
+        and date_part('year',age(basic_info.birth_date)) <![CDATA[>=]]> #{ageFrom,jdbcType=INTEGER}
       </if>
       <if test="ageTo != null and ageTo != ''">
-        and date_part('year',age(birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
+        and date_part('year',age(basic_info.birth_date)) <![CDATA[<]]> #{ageTo,jdbcType=INTEGER}
       </if>
       <if test="birthPlace != null and birthPlace != ''">
-        and birth_place = #{birthPlace,jdbcType=VARCHAR}
+        and basic_info.birth_place = #{birthPlace,jdbcType=VARCHAR}
       </if>
       <if test="address != null and address != ''">
-        and address = #{address,jdbcType=VARCHAR}
+        and basic_info.address = #{address,jdbcType=VARCHAR}
       </if>
       <if test="profession != null and profession != ''">
-        and profession = #{profession,jdbcType=VARCHAR}
+        and basic_info.profession = #{profession,jdbcType=VARCHAR}
       </if>
       <if test="uheightFrom != null and uheightFrom != ''">
-        and uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
+        and basic_info.uheight <![CDATA[>=]]> #{uheightFrom,jdbcType=NUMERIC}
       </if>
       <if test="uheightTo != null and uheightTo != ''">
-        and uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
+        and basic_info.uheight <![CDATA[<]]> #{uheightTo,jdbcType=NUMERIC}
       </if>
       <if test="uweightFrom != null and uweightFrom != ''">
-        and uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
+        and basic_info.uweight <![CDATA[>=]]> #{uweightFrom,jdbcType=NUMERIC}
       </if>
       <if test="uweightTo != null and uweightTo != ''">
-        and uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
+        and basic_info.uweight <![CDATA[<]]> #{uweightTo,jdbcType=NUMERIC}
       </if>
     </where>
     limit 30   
@@ -82,11 +91,20 @@
   <!--   指定检索条件的查询结果不满30名时,从数据库随机补位至30名 -->
   <select id="selectRandomList" parameterType="java.util.Map" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
-      uid relationId, uname, sex, introduce, avatar_img avatarImg
-    from xiangqin.t01_user_basic_info
+      basic_info.uid relationId, 
+      basic_info.uname, 
+      basic_info.sex, 
+      basic_info.introduce, 
+      basic_info.avatar_img avatarImg
+    from xiangqin.t01_user_basic_info basic_info
+    inner join xiangqin.t01_user_login_info login_info
+    on login_info.uid = basic_info.uid
+    and login_info.user_rank_code not in ('08','09')
+    and login_info.user_status_code = '02'
+    and login_info.delete_flg = false
     <where>
       <if test="exceptList.size() > 0">
-        uid not in         
+        basic_info.uid not in         
         <foreach collection="exceptList" index="index" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>

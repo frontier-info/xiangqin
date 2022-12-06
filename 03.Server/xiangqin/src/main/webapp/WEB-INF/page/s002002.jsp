@@ -29,10 +29,8 @@
 				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
-				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
-				          <c:if test="${not empty message}">
-				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
-				          </c:if>
+							<!--   引入页面提示信息 -->
+							<%@include file="../common/message.jsp"%>
 							<h2><font size="5" color="pink">请您填入个人信息 </font></h2>
 							<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 </font></h3>
 							<hr>
@@ -56,7 +54,7 @@
 									<div style="display: inline-block; position: absolute; margin-left:20px;">
 										<p>
 											<label for="uname">用户名:</label>
-											<form:input class="form-control" path="uname"/>
+											<form:input class="form-control" path="uname" maxlength="10" required="required"/>
 										</p>
 									</div>
 								</div>
@@ -73,13 +71,13 @@
 									<p>
 										<label for="birthDate">出生年月:</label>
 										<fmt:formatDate pattern="yyyy-MM-dd" value="${s002002Form.birthDate}" var="userBirthDate"/>
-										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}">
+										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}" required="required">
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
 										<label for="interest">兴趣: </label>
-										<form:input class="form-control" path="interest"/>
+										<form:input class="form-control" path="interest" maxlength="50" required="required"/>
 									</p>
 								</div>
 							</div>
@@ -109,7 +107,7 @@
 								<div class="col-md-3">
 									<p>
 										<label for="introduce">邮箱: </label>
-										<form:input class="form-control" path="email"/>
+										<form:input class="form-control" path="email" maxlength="50" required="required"/>
 									</p>
 								</div>
 							</div>
@@ -133,7 +131,7 @@
 								<div class="col-md-3">
 									<p>
 										<label for="introduce">自我介绍:</label>
-										<form:textarea class="form-control" path="introduce" rows="2" />
+										<form:textarea class="form-control" path="introduce" rows="2" maxlength="100" required="required"/>
 									</p>
 								</div>
 							</div>
@@ -308,6 +306,48 @@
 
 </body>
 <script>
+
+	// 表单校验
+// 	function inputcheck(){
+// 		var message = new Array();
+// 		var imgSize = 2048;
+// 		$("#message").html("");
+// 		// 校验单选按钮非空
+// 		if(isEmpty($("input[name='sex']:checked"))){
+// 			message.push("请选择性别");
+// 		}
+// 		// 校验下拉列表值非空
+// 		if(isEmpty($("input[name='birthPlace']").val())){
+// 			message.push("请选择出生地");
+// 		}
+// 		if(isEmpty($("input[name='address']").val())){
+// 			message.push("请选择住所");
+// 		}
+// 		if(isEmpty($("input[name='profession']").val())){
+// 			message.push("请选择职业");
+// 		}
+// 		if(isEmpty($("input[name='requireBirthPlace']").val())){
+// 			message.push("请选择择偶条件-出生地");
+// 		}
+// 		if(isEmpty($("input[name='requireAddress']").val())){
+// 			message.push("请选择择偶条件-住所");
+// 		}
+// 		if(isEmpty($("input[name='requireProfession']").val())){
+// 			message.push("请选择择偶条件-职业");
+// 		}
+// 		// 校验上传图片非空及大小限制
+// 		if(isEmpty($("input[name='avatarImgFile']").val())){
+// 			message.push("请选择头像图片");
+// 		}
+// 		console.log($("input[name='avatarImgFile']").size);
+// 		console.log(message);
+// 		if(message.length > 0){
+// 			$("#message").append("<div class='alert alert-success'></div>");
+// 			message.forEach(function(elem) {
+// 			$(".alert-success").append("<p>"+elem+"</p>");
+// 			});
+// 		}
+// 	}
 
 	// 点击图片触发方法
 	function img_onclick(input_id) {

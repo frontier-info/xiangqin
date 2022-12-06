@@ -26,7 +26,7 @@ public class S004001E003Service extends AbstractServiceImpl<S004001E003Input, S0
 		t01UserRelationsInfoAccess.updateByPrimaryKeySelective(userRelationsInfo);
 		
 		// 获取更新后的邀约对象详细信息
-		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getUid(), input.getRelationId());
+		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByRelationId(input.getUid(), input.getRelationId());
 		output.setUserFullInfo(userFullInfo);
 		
 		return output;

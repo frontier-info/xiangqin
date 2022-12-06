@@ -24,6 +24,7 @@
       count(*)
     from xiangqin.t01_user_login_info
     where mobile = #{mobile,jdbcType=VARCHAR}
+    and delete_flg = false
   </select>
   <!--   用户登录验证(手机号) -->
   <select id="loginVerifyWithPhone" parameterType="java.util.Map" resultMap="BaseResultMap">
@@ -32,6 +33,7 @@
     from xiangqin.t01_user_login_info
     where mobile = #{mobile,jdbcType=VARCHAR}
       and password = #{password,jdbcType=VARCHAR}
+      and delete_flg = false
   </select>
   <!-- password -->
   <update id="updateBymobile" parameterType="java.lang.String" >

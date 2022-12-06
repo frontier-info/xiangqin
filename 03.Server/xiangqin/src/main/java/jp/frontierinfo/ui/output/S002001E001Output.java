@@ -26,6 +26,8 @@ public class S002001E001Output {
     private String uname;
 
     private String sex;
+    
+	private String email;
 
     private Date birthDate;
 

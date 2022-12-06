@@ -29,10 +29,8 @@
 				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
-				          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
-				          <c:if test="${not empty message}">
-				           <div class="alert alert-success" role="alert"><p>${message}</p></div>
-				          </c:if>
+							<!--   引入页面提示信息 -->
+							<%@include file="../common/message.jsp"%>
 							<h2><font size="5" color="pink">请您填检索条件 </font></h2>
 							<h3><font size="3" color="pink">💛金凤玉露一相逢，便胜却人间无数。💛 </font></h3>
 							<hr />
@@ -52,9 +50,9 @@
 									<p>
 										<label>年龄：</label> 
 										<label for="ageFrom">从</label> 
-										<form:input class="form-control" size="3" path="ageFrom"/> 
+										<form:input class="form-control" size="3" path="ageFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/> 
 										<label for="ageTo">到</label> 
-										<form:input class="form-control" size="3" path="ageTo"/>
+										<form:input class="form-control" size="3" path="ageTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/>
 									</p>
 								</div>
 							</div>
@@ -73,9 +71,9 @@
 									<p>
 										<label>身高：</label> 
 										<label for="uheightFrom">从</label> 
-										<form:input class="form-control" size="3" path="uheightFrom"/> 
+										<form:input class="form-control" size="3" path="uheightFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/> 
 										<label for="uheightTo">到</label> 
-										<form:input class="form-control" size="3" path="uheightTo"/>
+										<form:input class="form-control" size="3" path="uheightTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/>
 									</p>
 								</div>
 							</div>
@@ -94,9 +92,9 @@
 									<p>
 										<label>体重：</label> 
 										<label for="uweightFrom">从</label> 
-										<form:input class="form-control" size="3" path="uweightFrom"/> 
+										<form:input class="form-control" size="3" path="uweightFrom" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/> 
 										<label for="uweightTo">到</label> 
-										<form:input class="form-control" size="3" path="uweightTo"/>
+										<form:input class="form-control" size="3" path="uweightTo" pattern="[0-9]{1,3}" title="请输入3位以内正整数"/>
 									</p>
 								</div>
 							</div>

@@ -79,6 +79,15 @@ public class ConstantInfo {
 	public static final String MALE = "男";
 	public static final String FEMALE = "女";
 	
+	
+	/**
+	 * 用户上传照片大小
+	 */
+	// 头像上限 100KB
+	public static final long AVATAR_IMG_SIZE = 100*1024;
+	// 个人照片上限 3MB
+	public static final long USER_IMG_SIZE = 3*1024*1024;
+	
 	/**
 	 * 页面用性别单选按钮数据
 	 */

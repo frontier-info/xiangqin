@@ -9,6 +9,7 @@ import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.db.entity.T01UserBasicInfo;
+import jp.frontierinfo.db.entity.T01UserLoginInfo;
 import jp.frontierinfo.ui.input.S002001E001Input;
 import jp.frontierinfo.ui.output.S002001E001Output;
 
@@ -40,8 +41,11 @@ public class S002001E001Service extends AbstractServiceImpl<S002001E001Input, S0
 		
 		// 获取用户之前设定的个人信息
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
-		
 		BeanUtils.copyProperties(userBasicInfo, output);
+		
+		// 获取用户之前设定的邮箱信息
+		T01UserLoginInfo loginInfo = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
+		output.setEmail(loginInfo.getEmail());
 		
 		return output;
 	}

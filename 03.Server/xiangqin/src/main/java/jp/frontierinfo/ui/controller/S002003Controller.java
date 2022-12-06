@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.alibaba.druid.util.StringUtils;
 
+import jp.frontierinfo.api.abstractcls.AbstractController;
 import jp.frontierinfo.common.annotation.PrintLog;
 import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
@@ -26,7 +25,7 @@ import jp.frontierinfo.ui.service.S002003E001Service;
 @Controller
 @RequestMapping("/ui") 
 @SessionAttributes(value="s002003Form") 
-public class S002003Controller {
+public class S002003Controller extends AbstractController {
 
 	@Autowired
 	private S002003E001Service s002003E001Service;
@@ -37,19 +36,26 @@ public class S002003Controller {
 	@PrintLog("用户检索条件设定页面的保存检索条件按钮点击")
 	@RequestMapping(value="/s002003", params="saveSearchCondition", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
-			@ModelAttribute("s002003Form") S002003Form form, BindingResult result, 
-			@Validated S002003E001Input input, Model model) {
-        if(result.hasErrors()) {
-        	return "s002003";
-        }
+			@ModelAttribute("s002003Form") S002003Form form, 
+			S002003E001Input input, 
+			Model model) {
+		
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
+        
+        // 用户设置条件个数
+        int count = normalUserSearchCheck(input);
+        
+        // 未设置条件时的提示信息
+        if(count == 0) {
+			model.addAttribute("message", "请设置检索条件.");
+        	return "s002003";
+        }
 
         // 普通用户检查是否设定了两个以上条件
 		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode()) && 
-				normalUserSearchCheck(input) > 1) {
+				count > 1) {
 			model.addAttribute("message", "普通用户只能设定一个检索条件.");
-			model.addAttribute("s002003Form", form);
         	return "s002003";
 		}
 		S002003E001Output output = new S002003E001Output();
