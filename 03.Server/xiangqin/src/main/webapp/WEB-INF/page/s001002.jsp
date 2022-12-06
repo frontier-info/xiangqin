@@ -39,9 +39,10 @@
  		  <hr>
  		  <label for="password">密码</label>
  		  <form:password class="form-control" path="password"/>
- 		 <hr> <label for="repassword">确认密码</label>
+ 		  <label for="repassword">确认密码</label>
  		  <form:password class="form-control" path="repassword"/>
  		  <hr>
+ 		  <form:checkbox path="agree" value="agree"/>已阅读和同意相亲网的<a data-toggle="modal" data-target="#agreeModal">服务协议</a>
           <button type="submit" class="button-success" name="register">注册</button>
          </div>
         </form:form>
@@ -52,6 +53,25 @@
     </div>
    </div>
   </div>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="agreeModal" tabindex="-1" role="dialog" aria-labelledby="agreeModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="agreeModalLabel">
+						服务协议
+					</h4>
+				</div>
+				<div class="modal-body">
+				<!--   引入服务协议 -->
+				<%@include file="../common/agree.jsp"%>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
 
 </body>
 </html>

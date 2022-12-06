@@ -12,4 +12,6 @@ public class S001002Form {
 	
 	private String repassword;
 	
+	private String agree;
+	
 }

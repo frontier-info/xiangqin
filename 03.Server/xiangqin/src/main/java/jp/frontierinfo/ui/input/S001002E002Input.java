@@ -21,4 +21,7 @@ public class S001002E002Input {
 	
 	@NotBlank()
 	private String repassword;
+
+	@NotBlank()
+	private String agree;
 }
