@@ -6,7 +6,7 @@
     <contextName>logback</contextName>
     <property name="log.pattern" 
     	value="[%d] [%thread] [%-5level] [%file] %msg%n"/>
-    <property name="log.path" value="C:/Frontier-info/xiangqin/logs/"></property>
+    <property name="log.path" value="/Frontier-info/xiangqin/logs/"></property>
     
     <!--ConsoleAppender 用于在屏幕上输出日志-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -56,7 +56,7 @@
     <!--root是默认的logger 这里设定输出级别是debug-->
     <root level="info">
         <appender-ref ref="console"/>
-<!--         <appender-ref ref="file"/> -->
+        <appender-ref ref="file"/>
         <!--定义了两个appender，日志会通过往这两个appender里面写-->
     </root>
 

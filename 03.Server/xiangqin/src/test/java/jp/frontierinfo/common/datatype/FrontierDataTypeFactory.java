@@ -13,6 +13,8 @@ public class FrontierDataTypeFactory extends PostgresqlDataTypeFactory{
     private static final Logger logger = LoggerFactory.getLogger(FrontierDataTypeFactory.class);
 
     public static final DataType POSTGRES_DATE = new DateDataType();
+    
+    public static final TimestampDataType POSTGRES_TIMESTAMP = new TimestampDataType();
 
     public DataType createDataType(int sqlType, String sqlTypeName) throws DataTypeException
     {
@@ -23,6 +25,11 @@ public class FrontierDataTypeFactory extends PostgresqlDataTypeFactory{
         if (sqlTypeName.startsWith("date"))
         {
             return POSTGRES_DATE;
+        }
+        // timestamp
+        if (sqlTypeName.startsWith("timestamp"))
+        {
+        	return POSTGRES_TIMESTAMP;
         }
 
         return super.createDataType(sqlType, sqlTypeName);

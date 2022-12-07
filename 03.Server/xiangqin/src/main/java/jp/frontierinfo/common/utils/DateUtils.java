@@ -22,6 +22,17 @@ public class DateUtils {
 		}
 		return res;
 	}
+	
+	public static Date stringToTimestamp(String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		Date res = null;
+		try {
+			res = sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
 
 	/**
 	 * 计算年龄

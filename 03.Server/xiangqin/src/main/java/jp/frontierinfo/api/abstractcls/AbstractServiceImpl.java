@@ -2,6 +2,9 @@ package jp.frontierinfo.api.abstractcls;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jp.frontierinfo.db.access.M01CodeMasterInfoAccess;
 import jp.frontierinfo.db.access.M01PulldownInfoAccess;
 import jp.frontierinfo.db.access.S01SequenceAccess;
@@ -11,6 +14,8 @@ import jp.frontierinfo.db.access.T01UserRelationsInfoAccess;
 import jp.frontierinfo.db.access.T01UserSearchInfoAccess;
 
 public abstract class AbstractServiceImpl<I, O> implements AbstractService<I, O>{
+	
+	public Logger logger = LoggerFactory.getLogger(AbstractServiceImpl.class);
 	
 	@Resource // 用户登录信息表
 	public T01UserLoginInfoAccess t01UserLoginInfoAccess;
