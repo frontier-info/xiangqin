@@ -112,7 +112,9 @@ public class ConstantInfo {
 	/**
 	 * 用户图片保存路径
 	 */
-	public static final String FILE_SAVE_PATH = "resources\\userdata\\uid_";
+	public static final String FILE_SAVE_PATH = "/Frontier-info/xiangqin/userdata";
+	public static final String FILE_SAVE_UID_PATH = "/uid_";
+	public static final String FILE_STATIC_PATH = "static";
 	
 	
 }

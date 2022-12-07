@@ -87,7 +87,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return fileSavePath + "\\" + fileName;
+		return fileSavePath + "/" + fileName;
 	}
 
 }

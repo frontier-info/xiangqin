@@ -51,8 +51,8 @@ public class S002002Controller extends AbstractController {
         }
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
-        input.setRealpath(request.getServletContext().getRealPath(ConstantInfo.FILE_SAVE_PATH + userLoginInfo.getUid()));
-        input.setFileSavePath(ConstantInfo.FILE_SAVE_PATH + userLoginInfo.getUid());
+        input.setRealpath(ConstantInfo.FILE_SAVE_PATH + ConstantInfo.FILE_SAVE_UID_PATH +userLoginInfo.getUid());
+        input.setFileSavePath(ConstantInfo.FILE_STATIC_PATH + ConstantInfo.FILE_SAVE_UID_PATH +userLoginInfo.getUid());
 		try {
 			s002002E001Service.execute(input);
 		} catch (BusinessException e) {
