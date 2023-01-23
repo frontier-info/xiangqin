@@ -6,13 +6,13 @@ import jp.frontierinfo.db.entity.T01UserLoginInfo;
 
 public interface T01UserLoginInfoDao {
 	
-	int userExistByPhone(String mobile);
+	int userExistByEmail(String email);
 	
-	T01UserLoginInfo loginVerifyWithPhone(Map<String, String> params);
+	T01UserLoginInfo loginVerifyWithEmail(Map<String, String> params);
     
-    int updateBymobile(String mobile);
+    int updateByEmail(String email);
     
-    int updatePasswordBymobile(String password,String mobile);
+    int updatePasswordByEmail(String password,String email);
 	
     int deleteByPrimaryKey(String uid);
 

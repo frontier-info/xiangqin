@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class S001002Form {
-	private String mobile;
+	private String email;
 	
 	private String smsCode;
 	

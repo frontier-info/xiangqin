@@ -16,13 +16,13 @@ public class S001002E001Service extends AbstractServiceImpl<S001002E001Input, S0
 		S001002E001Output output = new S001002E001Output();
 		String verificationCode;	
 				
-		int count = t01UserLoginInfoAccess.userExistByPhone(input.getMobile());	
+		int count = t01UserLoginInfoAccess.userExistByEmail(input.getEmail());	
 		if(count > 0) {
 			// 用户已存在
 			throw new BusinessException("用户已存在");
 		}
 
-		//生成6位数的验证码
+		//生成6位数的验证码 TODO 在此处添加发送邮件
 		verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
 		logger.debug("用户验证码(注册用):"+verificationCode);
 		output.setVerificationCode(verificationCode);

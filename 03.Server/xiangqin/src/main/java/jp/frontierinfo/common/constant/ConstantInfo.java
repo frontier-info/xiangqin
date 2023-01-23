@@ -17,7 +17,7 @@ public class ConstantInfo {
 	public static final String REGISTER_SMS_CODE = "REGISTER_SMS_CODE";
 	
 	// 手机号SessionKey
-	public static final String REGISTER_MOBEL = "REGISTER_MOBEL";
+	public static final String REGISTER_EMAIL = "REGISTER_EMAIL";
 	
 	// 后台管理页面:用户存续状态键值表
 	public static Map<Object, String> DELETE_STATUS;

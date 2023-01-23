@@ -1,6 +1,5 @@
 package jp.frontierinfo.ui.input;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.Data;
@@ -9,8 +8,7 @@ import lombok.Data;
 public class S001001E001Input {
 
 	@NotBlank()
-	@Length(max=11)
-	private String mobile;
+	private String email;
 
 	@NotBlank()
 	private String password;

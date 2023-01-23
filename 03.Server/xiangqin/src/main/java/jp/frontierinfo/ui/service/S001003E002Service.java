@@ -14,7 +14,7 @@ public class S001003E002Service extends AbstractServiceImpl<S001003E002Input, S0
 	public S001003E002Output execute(S001003E002Input input) throws BusinessException {
 		
 
-		int userUpdate = t01UserLoginInfoAccess.updatePasswordBymobile(input.getPassword(), input.getMobile());
+		int userUpdate = t01UserLoginInfoAccess.updatePasswordByEmail(input.getPassword(), input.getEmail());
 		S001003E002Output output = new S001003E002Output();
 		
 		if(userUpdate != 0) { 

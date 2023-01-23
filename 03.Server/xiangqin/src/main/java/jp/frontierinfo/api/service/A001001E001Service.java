@@ -15,12 +15,12 @@ public class A001001E001Service extends AbstractServiceImpl<A001001E001Input, A0
 	@Override
 	public A001001E001Output execute(A001001E001Input input) throws BusinessException {
 		A001001E001Output output = new A001001E001Output();
-		int count = t01UserLoginInfoAccess.userExistByPhone(input.getAccount());
+		int count = t01UserLoginInfoAccess.userExistByEmail(input.getAccount());
 		if(count == 0) {
 			// 用户不存在
 			throw new BusinessException("用户不存在");
 		}
-		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithPhone(input.getAccount(), input.getPassword());
+		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithEmail(input.getAccount(), input.getPassword());
 		if(userLoginInfo != null) {
 			// 用户手机号和密码验证成功
 			output.setUid(userLoginInfo.getUid());

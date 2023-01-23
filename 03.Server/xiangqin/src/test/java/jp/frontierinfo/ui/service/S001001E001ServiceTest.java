@@ -53,7 +53,7 @@ public class S001001E001ServiceTest extends CommonTestCase {
     	
     	// 准备测试对象方法的参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setMobile("1235");
+    	input.setEmail("1235");
     	input.setPassword("13245");
     	
     	try {
@@ -76,7 +76,7 @@ public class S001001E001ServiceTest extends CommonTestCase {
     	
     	// 准备测试对象方法的参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setMobile("1234");
+    	input.setEmail("1234");
     	input.setPassword("1234");
     	
     	try {
@@ -98,7 +98,7 @@ public class S001001E001ServiceTest extends CommonTestCase {
     	
     	// 准备测试对象方法的参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setMobile("1234");
+    	input.setEmail("1234");
     	input.setPassword("123");
     	
     	// 准备测试结果期待值

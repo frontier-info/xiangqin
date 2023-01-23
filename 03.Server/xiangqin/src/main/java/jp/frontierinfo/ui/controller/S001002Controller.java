@@ -58,10 +58,10 @@ public class S001002Controller extends AbstractController {
         	return "s001002";
 		}
 		
-		// 将手机号和验证码存入session
+		// 将邮箱和验证码存入session
 		HttpSession session = request.getSession();
 		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
-		session.setAttribute(ConstantInfo.REGISTER_MOBEL, input.getMobile());
+		session.setAttribute(ConstantInfo.REGISTER_EMAIL, input.getEmail());
 		model.addAttribute("message", "验证码发送成功，请输入验证码");
 
 		return "s001002";
@@ -85,8 +85,8 @@ public class S001002Controller extends AbstractController {
 		// 将验证码从从session里面取出		
 		HttpSession session = request.getSession();
 
-		if(!input.getMobile().equals(session.getAttribute(ConstantInfo.REGISTER_MOBEL).toString())) {
-			model.addAttribute("message", "手机号前后不一致请确认");
+		if(!input.getEmail().equals(session.getAttribute(ConstantInfo.REGISTER_EMAIL).toString())) {
+			model.addAttribute("message", "邮箱前后不一致请确认");
 			return "s001002";
 		}
 

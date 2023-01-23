@@ -32,8 +32,8 @@
 							<%@include file="../common/message.jsp"%>	
 							<div class="form-group">
 						        <div>
-									<label for="mobile">手机</label>	
-									<form:input class="form-control" type="text" path="mobile" placeholder="请输入手机号"/>
+									<label for="mobile">邮箱</label>	
+									<form:input class="form-control" type="text" path="email" placeholder="请输入邮箱"/>
 									<label for="smsCode">验证码</label>	
 									<form:input class="form-control" type="text" path="smsCode" value=""/>
 									<button type="submit" class="button-success" name="getVerificationCode" >发送验证码</button>				

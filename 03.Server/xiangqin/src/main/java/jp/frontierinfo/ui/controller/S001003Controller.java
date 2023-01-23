@@ -35,7 +35,7 @@ public class S001003Controller extends AbstractController {
 	private S001003E002Service s001003E002Service;
 	
 	/**
-	 * 发送验证码按钮、发送验证码同时检测手机号是否存在
+	 * 发送验证码按钮、发送验证码同时检测邮箱是否存在
 	 */
 	@PrintLog("忘记密码页面的获取验证码按钮点击")
 	@RequestMapping(value="/s001003", params="getVerificationCode", method=RequestMethod.POST)
@@ -57,10 +57,10 @@ public class S001003Controller extends AbstractController {
         	return "s001003";
 		}
 		
-		// 将手机号和验证码存入session
+		// 将邮箱和验证码存入session
 		HttpSession session = request.getSession();
 		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
-		session.setAttribute(ConstantInfo.REGISTER_MOBEL, input.getMobile());
+		session.setAttribute(ConstantInfo.REGISTER_EMAIL, input.getEmail());
 		
 		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
 		
@@ -84,8 +84,8 @@ public class S001003Controller extends AbstractController {
 		
 		HttpSession session = request.getSession();
 
-		if(!input.getMobile().equals(session.getAttribute(ConstantInfo.REGISTER_MOBEL).toString())) {
-			model.addAttribute("message", "手机号前后不一致请确认");
+		if(!input.getEmail().equals(session.getAttribute(ConstantInfo.REGISTER_EMAIL).toString())) {
+			model.addAttribute("message", "邮箱前后不一致请确认");
 			return "s001003";
 		}
 

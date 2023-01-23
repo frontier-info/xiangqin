@@ -19,35 +19,35 @@
     uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code, 
     create_time, last_login_time, delete_flg
   </sql>
-  <!--   用户存在与否验证(手机号) -->
-  <select id="userExistByPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
+  <!--   用户存在与否验证(邮箱) -->
+  <select id="userExistByEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
     select 
       count(*)
     from xiangqin.t01_user_login_info
-    where mobile = #{mobile,jdbcType=VARCHAR}
+    where email = #{email,jdbcType=VARCHAR}
     and delete_flg = false
   </select>
-  <!--   用户登录验证(手机号) -->
-  <select id="loginVerifyWithPhone" parameterType="java.util.Map" resultMap="BaseResultMap">
+  <!--   用户登录验证(邮箱) -->
+  <select id="loginVerifyWithEmail" parameterType="java.util.Map" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from xiangqin.t01_user_login_info
-    where mobile = #{mobile,jdbcType=VARCHAR}
+    where email = #{email,jdbcType=VARCHAR}
       and password = #{password,jdbcType=VARCHAR}
       and delete_flg = false
   </select>
   <!-- password -->
-  <update id="updateBymobile" parameterType="java.lang.String" >
+  <update id="updateByEmail" parameterType="java.lang.String" >
     update xiangqin.t01_user_login_info
     set password = #{password,jdbcType=VARCHAR}
-    where mobile = #{mobile,jdbcType=VARCHAR}
+    where email = #{email,jdbcType=VARCHAR}
   </update>
   
   <!-- password -->
-  <update id="updatePasswordBymobile" parameterType="java.lang.String" >
+  <update id="updatePasswordByEmail" parameterType="java.lang.String" >
     update xiangqin.t01_user_login_info
     set password = #{password,jdbcType=VARCHAR}
-    where mobile = #{mobile,jdbcType=VARCHAR}
+    where email = #{email,jdbcType=VARCHAR}
   </update>
   
   <!--  +++++++++++++++++++++++++++++++++++++++++++++++  -->

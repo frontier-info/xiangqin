@@ -31,8 +31,8 @@
 		<!--   引入页面提示信息 -->
 		<%@include file="../common/message.jsp"%>
          <div class="form-group">
-          <label for="name">手机</label>
-          <form:input class="form-control" path="mobile" />
+          <label for="name">邮箱</label>
+          <form:input class="form-control" path="email" />
           <label for="name">密码</label>
           <form:password class="form-control" path="password" />
           <hr>
@@ -47,6 +47,6 @@
     </div>
    </div>
   </div>
-
+<div id="recaptcha-container"></div>
 </body>
 </html>

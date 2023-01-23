@@ -50,7 +50,7 @@
 <!-- 		<table tableName="m01_operate_history" mapperName="{0}Dao" -->
 <!-- 		<table tableName="M0%" mapperName="{0}Dao" -->
 <!-- 		<table tableName="t03_middle_price_curve" mapperName="{0}Dao" -->
-		<table tableName="t01_user_basic_info" mapperName="{0}Dao"
+		<table tableName="t01_user_login_info" mapperName="{0}Dao"
 		    schema = "xiangqin"
             enableCountByExample="false"
             enableDeleteByExample="false"

@@ -23,19 +23,19 @@ public class T01UserLoginInfoAccess {
 	 * @param mobile
 	 * @return
 	 */
-	public int userExistByPhone(String mobile) {
-		return t01UserLoginInfoDao.userExistByPhone(mobile);
+	public int userExistByEmail(String email) {
+		return t01UserLoginInfoDao.userExistByEmail(email);
 	}
 	
 	/**
 	 * 用户登录验证(手机号)
 	 * @return
 	 */
-	public T01UserLoginInfo loginVerifyWithPhone(String mobile, String password) {
+	public T01UserLoginInfo loginVerifyWithEmail(String mobile, String password) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("mobile", mobile);
 		params.put("password", password);
-		return t01UserLoginInfoDao.loginVerifyWithPhone(params);
+		return t01UserLoginInfoDao.loginVerifyWithEmail(params);
 	}
 	
 	/**
@@ -70,11 +70,11 @@ public class T01UserLoginInfoAccess {
 		return t01UserLoginInfoDao.updateByPrimaryKey(record);
 	}
 
-	public int updateBymobile(String mobile) {
-		return t01UserLoginInfoDao.updateBymobile(mobile);
+	public int updateByEmail(String email) {
+		return t01UserLoginInfoDao.updateByEmail(email);
 	}
 	
-	public int updatePasswordBymobile(String password, String mobile) {
-		return t01UserLoginInfoDao.updatePasswordBymobile(password, mobile);
+	public int updatePasswordByEmail(String password, String email) {
+		return t01UserLoginInfoDao.updatePasswordByEmail(password, email);
 	}
 }

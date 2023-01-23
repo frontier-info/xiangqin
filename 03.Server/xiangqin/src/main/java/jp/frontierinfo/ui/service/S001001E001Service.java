@@ -21,18 +21,18 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 	@Override
 	public S001001E001Output execute(S001001E001Input input) throws BusinessException {
 		S001001E001Output output = new S001001E001Output();
-		int count = t01UserLoginInfoAccess.userExistByPhone(input.getMobile());
+		int count = t01UserLoginInfoAccess.userExistByEmail(input.getEmail());
 		if(count == 0) {
 			// 用户不存在
 			throw new BusinessException("用户不存在");
 		}
-		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithPhone(input.getMobile(), SHA256Util.getSHA256(input.getPassword()));
+		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithEmail(input.getEmail(), SHA256Util.getSHA256(input.getPassword()));
 		if(userLoginInfo != null) {
-			// 用户手机号和密码验证成功
+			// 用户邮箱和密码验证成功
 			output.setUserLoginInfo(userLoginInfo);
-			output.setToken(TokenUtils.tokenForLogin(input.getMobile()));
+			output.setToken(TokenUtils.tokenForLogin(input.getEmail()));
 		} else {
-			// 用户手机号或密码错误
+			// 用户邮箱或密码错误
 			throw new BusinessException("用户手机号或密码错误");
 		}
 		

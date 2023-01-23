@@ -22,7 +22,7 @@ public class S001002E002Service extends AbstractServiceImpl<S001002E002Input, S0
 		String uid = s01SequenceAccess.getUid();
 		T01UserLoginInfo info = new T01UserLoginInfo();
 		info.setUid(uid);
-		info.setMobile(input.getMobile());
+		info.setEmail(input.getEmail());
 		info.setPassword(SHA256Util.getSHA256(input.getPassword()));
 		info.setUserStatusCode("00");
 		info.setUserRankCode("01");
