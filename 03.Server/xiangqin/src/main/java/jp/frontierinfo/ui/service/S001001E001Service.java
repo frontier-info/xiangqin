@@ -33,7 +33,7 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 			output.setToken(TokenUtils.tokenForLogin(input.getEmail()));
 		} else {
 			// 用户邮箱或密码错误
-			throw new BusinessException("用户手机号或密码错误");
+			throw new BusinessException("用户邮箱或密码错误");
 		}
 		
 		// 查询当前用户是否完成基本信息设定

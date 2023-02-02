@@ -148,7 +148,7 @@
 										      		    </c:if>
 											  		    <!-- 交友阶段2为同意时 -->
 													    <c:if test="${s003001Form.userFullInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_AGREE}">
-															<div class="udata">${s003001Form.userFullInfo.mobile}</div>
+															<div class="udata">${s003001Form.userFullInfo.email}</div>
 										      		    </c:if>
 										      		</li>
 												  </ul>

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
 import jp.frontierinfo.common.exception.BusinessException;
+import jp.frontierinfo.common.utils.MailUtils;
 import jp.frontierinfo.ui.input.S001002E001Input;
 import jp.frontierinfo.ui.output.S001002E001Output;
 
@@ -24,6 +25,9 @@ public class S001002E001Service extends AbstractServiceImpl<S001002E001Input, S0
 
 		//生成6位数的验证码 TODO 在此处添加发送邮件
 		verificationCode = String.valueOf((int)((Math.random() * 9 + 1) * Math.pow(10, 5)));
+		
+		MailUtils.sendMail(input.getEmail(), verificationCode);
+		
 		logger.debug("用户验证码(注册用):"+verificationCode);
 		output.setVerificationCode(verificationCode);
 		

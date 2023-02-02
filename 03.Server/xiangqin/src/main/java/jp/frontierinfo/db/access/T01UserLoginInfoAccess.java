@@ -19,7 +19,7 @@ public class T01UserLoginInfoAccess {
 	
 	
 	/**
-	 * 用户存在与否验证(手机号)
+	 * 用户存在与否验证(邮箱)
 	 * @param mobile
 	 * @return
 	 */
@@ -28,12 +28,12 @@ public class T01UserLoginInfoAccess {
 	}
 	
 	/**
-	 * 用户登录验证(手机号)
+	 * 用户登录验证(邮箱)
 	 * @return
 	 */
-	public T01UserLoginInfo loginVerifyWithEmail(String mobile, String password) {
+	public T01UserLoginInfo loginVerifyWithEmail(String email, String password) {
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("mobile", mobile);
+		params.put("email", email);
 		params.put("password", password);
 		return t01UserLoginInfoDao.loginVerifyWithEmail(params);
 	}

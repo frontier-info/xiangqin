@@ -31,7 +31,7 @@
 		<!--   引入页面提示信息 -->
 		<%@include file="../common/message.jsp"%>
          <div class="form-group">
-          <label for="mobile">邮箱</label>
+          <label for="email">邮箱</label>
           <form:input class="form-control" placeholder="邮箱" path="email"/>
           <label for="smsCode">验证码</label>
           <form:input class="form-control" placeholder="短信验证码" path="smsCode"/>

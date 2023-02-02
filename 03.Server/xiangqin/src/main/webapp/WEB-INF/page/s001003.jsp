@@ -32,7 +32,7 @@
 							<%@include file="../common/message.jsp"%>	
 							<div class="form-group">
 						        <div>
-									<label for="mobile">邮箱</label>	
+									<label for="email">邮箱</label>	
 									<form:input class="form-control" type="text" path="email" placeholder="请输入邮箱"/>
 									<label for="smsCode">验证码</label>	
 									<form:input class="form-control" type="text" path="smsCode" value=""/>
