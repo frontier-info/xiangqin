@@ -17,7 +17,7 @@ public class S004001E003Service extends AbstractServiceImpl<S004001E003Input, S0
 		
 		S004001E003Output output = new S004001E003Output();
 		
-		// 更新邀约结果
+		// 友達リクエスト操作を更新
 		T01UserRelationsInfo userRelationsInfo = new T01UserRelationsInfo();
 		userRelationsInfo.setUid(input.getRelationId());
 		userRelationsInfo.setRelationId(input.getUid());
@@ -25,7 +25,7 @@ public class S004001E003Service extends AbstractServiceImpl<S004001E003Input, S0
 		userRelationsInfo.setRelationLevel2(input.getRelationLevel2());
 		t01UserRelationsInfoAccess.updateByPrimaryKeySelective(userRelationsInfo);
 		
-		// 获取更新后的邀约对象详细信息
+		// 更新後のリクエスト对象の詳細情報
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByRelationId(input.getUid(), input.getRelationId());
 		output.setUserFullInfo(userFullInfo);
 		

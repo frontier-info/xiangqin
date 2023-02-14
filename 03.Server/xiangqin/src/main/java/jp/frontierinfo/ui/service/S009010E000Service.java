@@ -17,24 +17,24 @@ public class S009010E000Service extends AbstractServiceImpl<S009010E000Input, S0
 	public S009010E000Output execute(S009010E000Input input) throws BusinessException {
 		
 		S009010E000Output output = new S009010E000Output();
-		
-		// 获取籍贯下拉列表数据
+
+		// 出生地のプルダウンリスト情報
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");
 		output.setBirthPlaceLi(birthPlaceLi);
-		
-		// 获取现住址下拉列表数据
+
+		// 居住地のプルダウンリスト情報
 		List<String> addressLi = m01PulldownInfoAccess.selectPulldownLi("02");
 		output.setAddressLi(addressLi);
-		
-		// 获取职业下拉列表数据
+
+		// 職業プルダウンリスト情報
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
-		
-		// 获取用户状态下拉列表数据
+
+		// ユーザー状態プルダウンリスト情報
 		List<PullDownBean> userStatusLi = m01CodeMasterInfoAccess.selectCodeMasterData("01");
 		output.setUserStatusLi(userStatusLi);
-		
-		// 获取用户级别下拉列表数据
+
+		// ユーザーレベルプルダウンリスト情報
 		List<PullDownBean> userRankLi = m01CodeMasterInfoAccess.selectCodeMasterData("02");
 		output.setUserRankLi(userRankLi);
 		

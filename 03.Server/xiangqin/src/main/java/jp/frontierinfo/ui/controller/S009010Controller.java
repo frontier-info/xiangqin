@@ -46,9 +46,9 @@ public class S009010Controller {
 	}
 
 	/**
-	 * 页面初期表示
+	 * 画面初期表示
 	 */
-	@PrintLog("后台管理(普通)页面初期表示")
+	@PrintLog("ユーザー管理(一般)画面初期表示")
 	@RequestMapping(value="/s009010/e000", method= {RequestMethod.POST,RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009010Form") S009010Form form, BindingResult result, 
@@ -69,9 +69,9 @@ public class S009010Controller {
 
 	}
 	/**
-	 * 用户信息检索
+	 * ユーザー情報検索
 	 */
-	@PrintLog("后台管理(普通)页面的用户信息检索")
+	@PrintLog("ユーザー管理(一般)画面のユーザー情報検索")
 	@RequestMapping(value="/s009010", params="search", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009010Form") S009010Form form, BindingResult result, 
@@ -85,7 +85,7 @@ public class S009010Controller {
 		}
 		
 		if(output.getUserFullInfoLi().size() == 0) {
-			model.addAttribute("message", "没有符合条件的用户信息,请调整检索条件");
+			model.addAttribute("message", "条件に合うユーザー情報がありません。検索条件を変更してください。");
 		}
 
 		BeanUtils.copyProperties(output, form);
@@ -94,9 +94,9 @@ public class S009010Controller {
 		return "s009010";
 	}
 	/**
-	 * 用户信息详细
+	 * ユーザー情報詳細
 	 */
-	@PrintLog("后台管理(普通)页面的用户信息详细")
+	@PrintLog("ユーザー管理(一般)画面のユーザー情報詳細")
 	@RequestMapping(value="/s009010/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S009010Form form, BindingResult result, 

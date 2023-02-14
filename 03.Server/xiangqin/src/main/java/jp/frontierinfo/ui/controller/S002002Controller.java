@@ -33,9 +33,9 @@ public class S002002Controller extends AbstractController {
 	private S002002E001Service s002002E001Service;
 	
 	/**
-	 * 用户信息设定页面的提交按钮点击
+	 * ユーザー情報設定画面の登録ボタンクリック
 	 */
-	@PrintLog("用户信息设定页面的提交按钮点击")
+	@PrintLog("ユーザー情報設定画面の登録ボタンクリック")
 	@RequestMapping(value="/s002002", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s002002Form") S002002Form form, BindingResult formResult, 
@@ -59,55 +59,55 @@ public class S002002Controller extends AbstractController {
 			model.addAttribute("message", e.getMessage());
         	return "s002002";
 		}
-		// 用户第一次提交基本信息时,提示审核进度
+		// ユーザーが初めて基本情報設定する時、審査結果を提示
 		if(ConstantInfo.USER_CENSOR_STATUS_00.equals(userLoginInfo.getUserStatusCode())) {
-			model.addAttribute("message", "用户信息设定成功,您填写的个人基本信息已提交审核,请稍后登录查看");
+			model.addAttribute("message", "ユーザー情報設定成功、審査結果を後で確認してください。");
 			return "s002001";
 		}
-		model.addAttribute("message", "用户信息设定成功");
+		model.addAttribute("message", "ユーザー情報が正常に設定されました");
 		
 		return "forward:/ui/s002001/e000";
 	}
 	
 	private boolean inputcheck(S002002Form form, S002002E001Input input, Model model) {
 		if(StringUtils.isEmpty(form.getAvatarImg()) && input.getAvatarImgFile().isEmpty()) {
-			model.addAttribute("message", "请选择头像图片");
+			model.addAttribute("message", "プロフィール写真を選択してください");
 			return true;
 		}
 		if(input.getAvatarImgFile().getSize() > ConstantInfo.AVATAR_IMG_SIZE) {
-			model.addAttribute("message", "头像图片大小不能超过100KB");
+			model.addAttribute("message", "プロフィール写真サイズは 100KB を超えることはできません");
 			return true;
 		}
 		if(StringUtils.isEmpty(form.getUimages1()) && input.getUimages1File().isEmpty()) {
-			model.addAttribute("message", "请选择个人照片1");
+			model.addAttribute("message", "写真1を選択してください");
 			return true;
 		}
 		if(input.getUimages1File().getSize() > ConstantInfo.USER_IMG_SIZE) {
-			model.addAttribute("message", "个人照片1大小不能超过3MB");
+			model.addAttribute("message", "写真1のサイズは3MBを超えることはできません");
 			return true;
 		}
 		if(StringUtils.isEmpty(form.getUimages2()) && input.getUimages2File().isEmpty()) {
-			model.addAttribute("message", "请选择个人照片2");
+			model.addAttribute("message", "写真2を選択してください");
 			return true;
 		}
 		if(input.getUimages2File().getSize() > ConstantInfo.USER_IMG_SIZE) {
-			model.addAttribute("message", "个人照片2大小不能超过3MB");
+			model.addAttribute("message", "写真2のサイズは3MBを超えることはできません");
 			return true;
 		}
 		if(StringUtils.isEmpty(form.getUimages3()) && input.getUimages3File().isEmpty()) {
-			model.addAttribute("message", "请选择个人照片3");
+			model.addAttribute("message", "写真3を選択してください");
 			return true;
 		}
 		if(input.getUimages3File().getSize() > ConstantInfo.USER_IMG_SIZE) {
-			model.addAttribute("message", "个人照片3大小不能超过3MB");
+			model.addAttribute("message", "写真3のサイズは3MBを超えることはできません");
 			return true;
 		}
 		if(StringUtils.isEmpty(form.getIdentificationImg()) && input.getIdentificationImgFile().isEmpty()) {
-			model.addAttribute("message", "请选择身份验证照片");
+			model.addAttribute("message", "身分証明書の写真を選択してください");
 			return true;
 		}
 		if(input.getIdentificationImgFile().getSize() > ConstantInfo.USER_IMG_SIZE) {
-			model.addAttribute("message", "身份验证照片大小不能超过3MB");
+			model.addAttribute("message", "認証写真のサイズは3MBを超えることはできません");
 			return true;
 		}
 		return false;

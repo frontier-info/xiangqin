@@ -32,9 +32,9 @@ public class S001002E002Service extends AbstractServiceImpl<S001002E002Input, S0
 		basicInfo.setUid(uid);
 		T01UserSearchInfo searchInfo = new T01UserSearchInfo();
 		searchInfo.setUid(uid);
-		// 用户登录信息表插入数据
+		// ユーザーログイン情報
 		t01UserLoginInfoAccess.insert(info);		
-		// 用户基本信息表插入占位数据
+		// ユーザー基本情報に空レコードを挿入
 		t01UserBasicInfoAccess.insert(basicInfo);		
 		return output;
 	}

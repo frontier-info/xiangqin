@@ -16,7 +16,7 @@ public class S004001E002Service extends AbstractServiceImpl<S004001E002Input, S0
 		
 		S004001E002Output output = new S004001E002Output();
 		
-		// 获取邀约对象详细信息
+		// 友達リクエスト対象の詳細情報
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByRelationId(input.getUid(), input.getRelationId());
 		output.setUserFullInfo(userFullInfo);
 		

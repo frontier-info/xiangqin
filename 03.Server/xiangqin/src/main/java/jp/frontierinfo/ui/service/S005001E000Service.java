@@ -16,7 +16,7 @@ public class S005001E000Service extends AbstractServiceImpl<S005001E000Input, S0
 		
 		S005001E000Output output = new S005001E000Output();
 		
-		// 添加用户是否已经打过招呼的业务校验 TODO
+		// このユーザーはすでにリクエストされています チェック TODO
 		
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getUid(), input.getRelationId());
 		output.setUserFullInfo(userFullInfo);

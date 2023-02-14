@@ -17,7 +17,7 @@ public class S002003E001Service extends AbstractServiceImpl<S002003E001Input, S0
 	public S002003E001Output execute(S002003E001Input input) throws BusinessException {
 		S002003E001Output output = new S002003E001Output();
 		
-		// 获取用户基本信息以设定择偶性别
+		// ユーザー基本情報を取得
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
 		
 		T01UserSearchInfo info = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());

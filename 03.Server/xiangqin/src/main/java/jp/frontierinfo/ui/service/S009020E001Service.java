@@ -20,7 +20,7 @@ public class S009020E001Service extends AbstractServiceImpl<S009020E001Input, S0
 		
 		S009020E001Output output = new S009020E001Output();
 		
-		// 设定检索条件进行用户检索
+		// 設定した検索条件でユーザー情報を检索
 		BackstageSerachInfo searchInfo = new BackstageSerachInfo();
 		BeanUtils.copyProperties(input, searchInfo);
 		List<UserFullInfo> userFullInfoLi = t01UserBasicInfoAccess.selectUserFullInfoLi(searchInfo);

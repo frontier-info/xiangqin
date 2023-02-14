@@ -35,9 +35,9 @@ public class S001003Controller extends AbstractController {
 	private S001003E002Service s001003E002Service;
 	
 	/**
-	 * 发送验证码按钮、发送验证码同时检测邮箱是否存在
+	 * 認証コードを送信ボタン
 	 */
-	@PrintLog("忘记密码页面的获取验证码按钮点击")
+	@PrintLog("パスワード変更画面の認証コードを送信ボタンクリック")
 	@RequestMapping(value="/s001003", params="getVerificationCode", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			S001003Form form, BindingResult formResult, 
@@ -57,20 +57,20 @@ public class S001003Controller extends AbstractController {
         	return "s001003";
 		}
 		
-		// 将邮箱和验证码存入session
+		// メールアドレスと認証コードをsessionに保持
 		HttpSession session = request.getSession();
 		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
 		session.setAttribute(ConstantInfo.REGISTER_EMAIL, input.getEmail());
 		
-		model.addAttribute("message", "验证码发送成功，请输入验证码"); 
+		model.addAttribute("message", "認証コードが送信されました、認証コードを入力してください"); 
 		
 		return "s001003";
 	}
 
 	/**
-	 * 重置密码按钮
+	 * パスワード変更ボタン
 	 */
-	@PrintLog("忘记密码页面的重置密码按钮点击")
+	@PrintLog("パスワード変更画面のパスワード変更ボタンクリック")
 	@RequestMapping(value="/s001003", params="changePassword", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S001003Form form, BindingResult formResult, 
@@ -85,17 +85,17 @@ public class S001003Controller extends AbstractController {
 		HttpSession session = request.getSession();
 
 		if(!input.getEmail().equals(session.getAttribute(ConstantInfo.REGISTER_EMAIL).toString())) {
-			model.addAttribute("message", "邮箱前后不一致请确认");
+			model.addAttribute("message", "前後に入力されたメールアドレスが間違っています、確認してください");
 			return "s001003";
 		}
 
 		if(!input.getSmsCode().equals(session.getAttribute(ConstantInfo.REGISTER_SMS_CODE).toString())) {
-			model.addAttribute("message", "验证码不一致请重新输入验证码");
+			model.addAttribute("message", "認証コードが一致しません、再度入力してください");
 			return "s001003";
 		}
 		
 		if(!input.getPassword().equals(input.getRepassword())) {
-			model.addAttribute("message", "两次密码输入不一致,请确认");
+			model.addAttribute("message", "入力された２つのパスワードが一致しません。確認してください");
 			return "s001003";
 		}
 		
@@ -105,7 +105,7 @@ public class S001003Controller extends AbstractController {
 			e.printStackTrace();
 		}
 
-		model.addAttribute("message", "用户密码更新完成，请重新登录");
+		model.addAttribute("message", "パスワード変更されました、ログインしてください");
 		model.addAttribute("s001001Form", new S001001Form());
 		return "s001001";
 	}

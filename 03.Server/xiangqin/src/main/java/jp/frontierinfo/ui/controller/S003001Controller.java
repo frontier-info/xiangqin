@@ -35,13 +35,13 @@ public class S003001Controller {
 	private S003001E002Service s003001E002Service;
 
 	/**
-	 * 我打过招呼的人按钮
+	 * リクエスト一覧ボタン
 	 */
 	@RequestMapping(value="/s003001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response,
 			S003001Form form, BindingResult result,
 			S003001E001Input input, Model model) {
-		System.out.println("我打过招呼的人");
+		System.out.println("リクエスト一覧");
 		S003001E001Output output = new S003001E001Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
@@ -59,9 +59,9 @@ public class S003001Controller {
 	}
 	
 	/**
-	 * 我打过招呼的人详细信息
+	 * リクエスト詳細
 	 */
-	@PrintLog("我打过招呼的人详细信息")
+	@PrintLog("リクエスト詳細")
 	@RequestMapping(value="/s003001/e002", method= {RequestMethod.GET})
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s003001Form") S003001Form form, BindingResult result, 

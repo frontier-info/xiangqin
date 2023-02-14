@@ -31,9 +31,9 @@ public class S002003Controller extends AbstractController {
 	private S002003E001Service s002003E001Service;
 	
 	/**
-	 * 保存检索条件
+	 * 検索条件を保存
 	 */
-	@PrintLog("用户检索条件设定页面的保存检索条件按钮点击")
+	@PrintLog("ユーザー検索条件設定画面の検索条件保存ボタンクリック")
 	@RequestMapping(value="/s002003", params="saveSearchCondition", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s002003Form") S002003Form form, 
@@ -43,19 +43,19 @@ public class S002003Controller extends AbstractController {
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
         
-        // 用户设置条件个数
+        // ユーザーが設定された検索条件の数
         int count = normalUserSearchCheck(input);
         
-        // 未设置条件时的提示信息
+        // 検索条件が未設定時の画面メッセージ
         if(count == 0) {
-			model.addAttribute("message", "请设置检索条件.");
+			model.addAttribute("message", "検索条件を追加してください。");
         	return "s002003";
         }
 
-        // 普通用户检查是否设定了两个以上条件
+        // 一般ユーザーの検索条件設定件数チェック
 		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode()) && 
 				count > 1) {
-			model.addAttribute("message", "普通用户只能设定一个检索条件.");
+			model.addAttribute("message", "一般ユーザーは、検索条件を 1 つしか設定できません。");
         	return "s002003";
 		}
 		S002003E001Output output = new S002003E001Output();
@@ -65,12 +65,12 @@ public class S002003Controller extends AbstractController {
 			model.addAttribute("message", e.getMessage());
         	return "s002003";
 		}
-		model.addAttribute("message", "用户检索条件设定成功");
+		model.addAttribute("message", "ユーザー検索条件が設定されました。");
 		return "forward:/ui/s002001/e000";
 	}
 	
 	private int normalUserSearchCheck(S002003E001Input input) {
-		// 条件设定个数
+		// 条件設定数
 		int count = 0;
 		if(input.getAgeFrom() != null || input.getAgeTo() != null) {
 			count++;

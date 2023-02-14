@@ -18,10 +18,6 @@ public class S001003E002Service extends AbstractServiceImpl<S001003E002Input, S0
 		int userUpdate = t01UserLoginInfoAccess.updatePasswordByEmail(SHA256Util.getSHA256(input.getPassword()), input.getEmail());
 		S001003E002Output output = new S001003E002Output();
 		
-		if(userUpdate != 0) { 
-			System.out.println("数据已经更新");
-		}
-		
 		return output;
 	}
 

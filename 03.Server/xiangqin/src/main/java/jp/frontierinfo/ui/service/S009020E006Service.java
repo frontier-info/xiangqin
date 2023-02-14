@@ -16,11 +16,11 @@ public class S009020E006Service extends AbstractServiceImpl<S009020E006Input, S0
 		
 		S009020E006Output output = new S009020E006Output();
 		
-		// 通过用户ID获取用户信息
+		// ユーザーIDでユーザー情報を取得
 		T01UserLoginInfo info = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
 		info.setDeleteFlg(true);
 		
-		// 删除用户
+		// ユーザー情報削除(論理削除)
 		t01UserLoginInfoAccess.updateByPrimaryKey(info);	
 		
 		output.setUid(info.getUid());

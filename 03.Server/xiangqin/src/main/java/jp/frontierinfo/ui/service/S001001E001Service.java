@@ -23,28 +23,28 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		S001001E001Output output = new S001001E001Output();
 		int count = t01UserLoginInfoAccess.userExistByEmail(input.getEmail());
 		if(count == 0) {
-			// 用户不存在
-			throw new BusinessException("用户不存在");
+			// ユーザーが存在しない
+			throw new BusinessException("ユーザーが存在しない");
 		}
 		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithEmail(input.getEmail(), SHA256Util.getSHA256(input.getPassword()));
 		if(userLoginInfo != null) {
-			// 用户邮箱和密码验证成功
+			// ユーザーのメールアドレスとパスワードが認証成功
 			output.setUserLoginInfo(userLoginInfo);
 			output.setToken(TokenUtils.tokenForLogin(input.getEmail()));
 		} else {
-			// 用户邮箱或密码错误
-			throw new BusinessException("用户邮箱或密码错误");
+			// ユーザーのメールアドレスとパスワードが一致しない
+			throw new BusinessException("メールアドレスとパスワードが一致しない");
 		}
 		
-		// 查询当前用户是否完成基本信息设定
+		// ユーザー基本情報を取得
 		T01UserBasicInfo userBasicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(userLoginInfo.getUid());
 		output.setUserBasicInfo(userBasicInfo);
 		
-		// 查询当前用户是否完成择偶对象设定
+		// ユーザーの検索条件を取得
 		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(userLoginInfo.getUid());
 		output.setUserSearchInfo(userSearchInfo);
 		
-		// 更新用户最后登录时间
+		// ユーザーの最終ログイン日時を更新
 		userLoginInfo.setLastLoginTime(new Date());
 		t01UserLoginInfoAccess.updateByPrimaryKeySelective(userLoginInfo);
 		

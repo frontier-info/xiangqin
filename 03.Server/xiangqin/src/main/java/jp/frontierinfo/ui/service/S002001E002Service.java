@@ -19,19 +19,19 @@ public class S002001E002Service extends AbstractServiceImpl<S002001E002Input, S0
 		
 		S002001E002Output output = new S002001E002Output();
 		
-		// 获取籍贯下拉列表数据
+		// 出生地プルダウンリスト情報
 		List<String> birthPlaceLi = m01PulldownInfoAccess.selectPulldownLi("01");
 		output.setBirthPlaceLi(birthPlaceLi);
 		
-		// 获取现住址下拉列表数据
+		// 居住地プルダウンリスト情報
 		List<String> addressLi = m01PulldownInfoAccess.selectPulldownLi("02");
 		output.setAddressLi(addressLi);
 		
-		// 获取职业下拉列表数据
+		// 職業プルダウンリスト情報
 		List<String> professionLi = m01PulldownInfoAccess.selectPulldownLi("03");
 		output.setProfessionLi(professionLi);
 		
-		// 获取用户之前设定的检索条件
+		// ユーザーが前に設定された検索条件
 		T01UserSearchInfo userSearchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
 		if(userSearchInfo != null) {
 			BeanUtils.copyProperties(userSearchInfo, output);

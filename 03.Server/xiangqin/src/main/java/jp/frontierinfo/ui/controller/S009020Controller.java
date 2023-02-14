@@ -70,9 +70,9 @@ public class S009020Controller {
 	}
 
 	/**
-	 * 页面初期表示
+	 * 画面初期表示
 	 */
-	@PrintLog("后台管理(高级)页面初期表示")
+	@PrintLog("ユーザー管理(上級)画面初期表示")
 	@RequestMapping(value="/s009020/e000", method= {RequestMethod.POST,RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009020Form") S009020Form s009020Form, BindingResult result, 
@@ -93,9 +93,9 @@ public class S009020Controller {
 
 	}
 	/**
-	 * 用户信息检索
+	 * ユーザー情報検索
 	 */
-	@PrintLog("后台管理(高级)页面的用户信息检索")
+	@PrintLog("ユーザー管理(上級)画面のユーザー情報検索")
 	@RequestMapping(value="/s009020", params="search", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s009020Form") S009020Form s009020Form, BindingResult result, 
@@ -109,7 +109,7 @@ public class S009020Controller {
 		}
 		
 		if(output.getUserFullInfoLi().size() == 0) {
-			model.addAttribute("message", "没有符合条件的用户信息,请调整检索条件");
+			model.addAttribute("message", "条件に合うユーザー情報がありません。検索条件を変更してください");
 		}
 
 		BeanUtils.copyProperties(output, s009020Form);
@@ -118,9 +118,9 @@ public class S009020Controller {
 		return "s009020";
 	}
 	/**
-	 * 用户信息详细
+	 * ユーザー情報詳細
 	 */
-	@PrintLog("后台管理(高级)页面的用户信息详细")
+	@PrintLog("ユーザー管理(上級)画面のユーザー情報詳細")
 	@RequestMapping(value="/s009020/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S009020Form form, BindingResult result, 
@@ -139,9 +139,9 @@ public class S009020Controller {
 		return "s009021";
 	}
 	/**
-	 * 后台添加用户
+	 * ユーザー手動追加
 	 */
-	@PrintLog("后台管理(高级)页面的用户后台添加")
+	@PrintLog("ユーザー管理(上級)画面のユーザー手動追加")
 	@RequestMapping(value="/s009020", params="addUser", method=RequestMethod.POST)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
 			S009020Form form, BindingResult result, 
@@ -157,15 +157,15 @@ public class S009020Controller {
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s009020Form", form);
 		
-		model.addAttribute("message", "用户添加成功.用户ID:"+output.getUid());
+		model.addAttribute("message", "ユーザーが追加されました.ユーザーID:"+output.getUid());
 
 		return "s009020";
 	}
 
 	/**
-	 * 变更用户权限
+	 * ユーザー権限変更
 	 */
-	@PrintLog("后台管理(高级)页面的用户用户权限变更")
+	@PrintLog("ユーザー管理(上級)画面のユーザー権限変更")
 	@RequestMapping(value="/s009021", params="changeUserRank", method=RequestMethod.POST)
 	public String e004(HttpServletRequest request, HttpServletResponse response, 
 			S009020Form form, BindingResult result, 
@@ -181,15 +181,15 @@ public class S009020Controller {
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s009020Form", form);
 		
-		model.addAttribute("message", "用户权限变更成功.用户ID:"+output.getUid());
+		model.addAttribute("message", "ユーザー権限が変更されました.ユーザーID:"+output.getUid());
 
 		return "s009021";
 	}
 
 	/**
-	 * 新用户审查结果
+	 * ユーザー審査結果
 	 */
-	@PrintLog("后台管理(高级)页面的用户审查结果更新")
+	@PrintLog("ユーザー管理(上級)画面のユーザー審査結果更新")
 	@RequestMapping(value="/s009021", params="updateUserStatus", method=RequestMethod.POST)
 	public String e005(HttpServletRequest request, HttpServletResponse response, 
 			S009020Form form, BindingResult result, 
@@ -205,15 +205,15 @@ public class S009020Controller {
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s009020Form", form);
 		
-		model.addAttribute("message", "用户审查结果更新成功.用户ID:"+output.getUid());
+		model.addAttribute("message", "ユーザー審査結果が更新されました.ユーザーID:"+output.getUid());
 
 		return "s009021";
 	}
 
 	/**
-	 * 删除用户
+	 * ユーザー削除
 	 */
-	@PrintLog("后台管理(高级)页面的用户删除")
+	@PrintLog("ユーザー管理(上級)画面のユーザー削除")
 	@RequestMapping(value="/s009021", params="deleteUser", method=RequestMethod.POST)
 	public String e006(HttpServletRequest request, HttpServletResponse response, 
 			S009020Form form, BindingResult result, 
@@ -229,7 +229,7 @@ public class S009020Controller {
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s009020Form", form);
 		
-		model.addAttribute("message", "用户删除成功.用户ID:"+output.getUid());
+		model.addAttribute("message", "ユーザーが削除されました.ユーザーID:"+output.getUid());
 
 		return "s009021";
 	}

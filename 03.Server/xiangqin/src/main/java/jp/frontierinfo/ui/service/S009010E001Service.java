@@ -19,8 +19,8 @@ public class S009010E001Service extends AbstractServiceImpl<S009010E001Input, S0
 	public S009010E001Output execute(S009010E001Input input) throws BusinessException {
 		
 		S009010E001Output output = new S009010E001Output();
-		
-		// 设定检索条件进行用户检索
+
+		// 設定した検索条件でユーザー情報を检索
 		BackstageSerachInfo searchInfo = new BackstageSerachInfo();
 		BeanUtils.copyProperties(input, searchInfo);
 		List<UserFullInfo> userFullInfoLi = t01UserBasicInfoAccess.selectUserFullInfoLi(searchInfo);

@@ -18,17 +18,17 @@ public class S003001E002Service extends AbstractServiceImpl<S003001E002Input, S0
 		
 		S003001E002Output output = new S003001E002Output();
 		
-		// 普通用户的邀约成功3次限制校验
+		// 一般ユーザーの友達リクエスト3回制限
 		T01UserRelationsInfo relationInfo = new T01UserRelationsInfo();
 		relationInfo.setUid(input.getUid());
 		relationInfo.setRelationLevel1(ConstantInfo.RELATION_LEVEL_1_AGREE);
 		relationInfo.setRelationLevel2(ConstantInfo.RELATION_LEVEL_2_AGREE);
 		int relationSuccessCount = t01UserRelationsInfoAccess.selectRelationSuccessCount(relationInfo);
 		if(relationSuccessCount > ConstantInfo.RELATION_SUCCESS_COUNT) {
-			throw new BusinessException("超过了普通用户的成功邀约次数上限(3次),升级为VIP解锁次数上限.");
+			throw new BusinessException("一般ユーザーの招待成功回数の上限(3回)を超えた場合、VIP解禁回数の上限にアップグレード。");
 		}
 		
-		// 获取邀约对象详细信息
+		// 友達リクエスト对象の詳細情報
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUid(input.getUid(), input.getRelationId());
 		output.setUserFullInfo(userFullInfo);
 		

@@ -20,18 +20,18 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 	@Override
 	public S002002E001Output execute(S002002E001Input input) throws BusinessException {
 
-		// 获取服务器绝对路径
+		// サーバの絶対パス
 		String realpath = input.getRealpath();
 		
-		// 获取服务器相对路径
+		// サーバの相対パス
 		String fileSavePath = input.getFileSavePath();
 		
-		// 更新用户邮箱地址
+		// ユーザーメールアドレスの更新
 		T01UserLoginInfo loginInfo = t01UserLoginInfoAccess.selectByPrimaryKey(input.getUid());
 		loginInfo.setEmail(input.getEmail());
 		t01UserLoginInfoAccess.updateByPrimaryKeySelective(loginInfo);
 		
-		// 更新用户基本信息
+		// ユーザー基本情報の更新
 		T01UserBasicInfo basicInfo = t01UserBasicInfoAccess.selectByPrimaryKey(input.getUid());
 		basicInfo.setUname(input.getUname());
     	basicInfo.setSex(input.getSex());
@@ -62,7 +62,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		
 		t01UserBasicInfoAccess.updateByPrimaryKeySelective(basicInfo);
 		
-		// 提交个人信息更改时,若用户状态为00:未提交审核时,更新状态为01:审核中
+		// ユーザー基本情報更新時、ユーザーの状態が00：未登録審査時、01：審査中に更新
 		if(ConstantInfo.USER_CENSOR_STATUS_00.equals(loginInfo.getUserStatusCode())) {
 			loginInfo.setUserStatusCode(ConstantInfo.USER_CENSOR_STATUS_01);
 			t01UserLoginInfoAccess.updateByPrimaryKey(loginInfo);
@@ -81,7 +81,7 @@ public class S002002E001Service extends AbstractServiceImpl<S002002E001Input, S0
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
 		}
-		// 上传
+		// アップロード
 		try {
 			file.transferTo(targetFile);
 		} catch (Exception e) {

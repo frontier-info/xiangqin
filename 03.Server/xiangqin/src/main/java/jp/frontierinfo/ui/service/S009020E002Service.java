@@ -22,11 +22,11 @@ public class S009020E002Service extends AbstractServiceImpl<S009020E002Input, S0
 		UserFullInfo userFullInfo = t01UserBasicInfoAccess.selectUserFullInfoByUidForBackstage(input.getUid());
 		output.setUserFullInfo(userFullInfo);
 		
-		// 获取用户状态下拉列表数据
+		// ユーザー状態のプルダウンリスト情報を取得
 		List<PullDownBean> userStatusLi = m01CodeMasterInfoAccess.selectCodeMasterData("01");
 		output.setUserStatusLi(userStatusLi);
 		
-		// 获取用户级别下拉列表数据
+		// ユーザーレベルのプルダウンリスト情報を取得
 		List<PullDownBean> userRankLi = m01CodeMasterInfoAccess.selectCodeMasterData("02");
 		output.setUserRankLi(userRankLi);
 		

@@ -31,9 +31,9 @@ public class S001001Controller extends AbstractController {
 	private S001001E001Service s001001E001Service;
 	
 	/**
-	 * 登录页面
+	 * ログイン画面
 	 */
-	@PrintLog("登录页面初期表示")
+	@PrintLog("ログイン画面初期表示")
 	@RequestMapping(value="/s001001", method=RequestMethod.GET)
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			S001001Form form, Model model) {
@@ -41,9 +41,9 @@ public class S001001Controller extends AbstractController {
 	}
 	
 	/**
-	 * 登录按钮
+	 * ログインボタン
 	 */
-	@PrintLog("登录页面的登录按钮点击")
+	@PrintLog("ログイン画面のログインボタンクリック")
 	@RequestMapping(value="/s001001", params="login", method=RequestMethod.POST)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			S001001Form form, BindingResult formResult, 
@@ -65,15 +65,15 @@ public class S001001Controller extends AbstractController {
         T01UserLoginInfo userLoginInfo = output.getUserLoginInfo();
 		request.getSession().setAttribute(ConstantInfo.USER_LOGIN_INFO, userLoginInfo);
 		
-		// 登录后检查用户级别
+		// ログイン後ユーザーレベルをチェック
 		if("08".equals(userLoginInfo.getUserRankCode())) {
-			// 08:普通管理员->跳转后台管理(普通)页面
+			// 08:一般管理員->ユーザー管理(一般)画面に遷移
 			return "forward:/ui/s009010/e000";
 		} else if("09".equals(userLoginInfo.getUserRankCode())) {
-			// 09:普通管理员->跳转后台管理(高级)页面
+			// 09:上級管理員->ユーザー管理(上級)画面に遷移
 			return "forward:/ui/s009020/e000";
 		} else {
-			// 01,02:用户->跳转后台管理(普通)页面
+			// 01,02:ユーザー->ユーザー画面に遷移
 			return "forward:/ui/s002001/e000";
 		}
 		
@@ -81,9 +81,9 @@ public class S001001Controller extends AbstractController {
 	}
 	
 	/**
-	 * 注册按钮
+	 * サインアップボタン
 	 */
-	@PrintLog("登录页面的注册按钮点击")
+	@PrintLog("ログイン画面のサインアップボタンクリック")
 	@RequestMapping(value="/s001001", params="register", method=RequestMethod.POST)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			S001002Form form, Model model) {
@@ -92,9 +92,9 @@ public class S001001Controller extends AbstractController {
 	}
 	
 	/**
-	 * 忘记密码按钮
+	 * パスワード変更ボタン
 	 */
-	@PrintLog("登录页面的忘记密码按钮点击")
+	@PrintLog("ログイン画面のパスワード変更ボタンクリック")
 	@RequestMapping(value="/s001001", params="repassword", method=RequestMethod.POST)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
 			S001003Form form, Model model) {

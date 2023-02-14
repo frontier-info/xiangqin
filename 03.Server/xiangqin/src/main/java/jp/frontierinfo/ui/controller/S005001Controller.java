@@ -42,9 +42,9 @@ public class S005001Controller {
 	}
 	
 	/**
-	 * 页面初期表示
+	 * 画面初期表示
 	 */
-	@PrintLog("打招呼页面初期表示")
+	@PrintLog("友達リクエスト画面初期表示")
 	@RequestMapping(value="/s005001/e000", method= {RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s005001Form") S005001Form form, BindingResult result, 
@@ -68,9 +68,9 @@ public class S005001Controller {
 	}
 	
 	/**
-	 * 打招呼处理
+	 * 友達リクエスト处理
 	 */
-	@PrintLog("打招呼处理")
+	@PrintLog("友達リクエスト处理")
 	@RequestMapping(value="/s005001/e001", method= {RequestMethod.POST})
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s005001Form") S005001Form form, BindingResult result, 
@@ -86,7 +86,7 @@ public class S005001Controller {
         	return "s005001";
 		}
 
-		model.addAttribute("message", "打招呼成功!");
+		model.addAttribute("message", "友達リクエスト成功!");
 
 		BeanUtils.copyProperties(output, form);
 		model.addAttribute("s005001Form", form);

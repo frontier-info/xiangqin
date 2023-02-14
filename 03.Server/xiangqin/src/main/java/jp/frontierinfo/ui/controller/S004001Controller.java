@@ -50,13 +50,13 @@ public class S004001Controller {
 	
 	
 	/**
-	 * 向我打过招呼的人按钮
+	 * 承認待ち一覧ボタン
 	 */
 	@RequestMapping(value="/s004001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result,
 			S004001E001Input input, Model model) {
-		System.out.println("向我打过招呼的人");
+		System.out.println("承認待ち一覧");
 		S004001E001Output output = new S004001E001Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
@@ -74,9 +74,9 @@ public class S004001Controller {
 	}
 	
 	/**
-	 * 向我打过招呼的人详细信息
+	 * 承認待ち詳細
 	 */
-	@PrintLog("向我打过招呼的人详细信息")
+	@PrintLog("承認待ち詳細")
 	@RequestMapping(value="/s004001/e002", method= {RequestMethod.GET})
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
@@ -99,9 +99,9 @@ public class S004001Controller {
 	}
 	
 	/**
-	 * 同意交换个人照片操作
+	 * 写真交換を承認
 	 */
-	@PrintLog("同意交换个人照片操作")
+	@PrintLog("写真交換を承認")
 	@RequestMapping(value="/s004001/e003", params="relationLevel1Agree",  method= {RequestMethod.POST})
 	public String e003RelationLevel1Agree(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
@@ -111,7 +111,7 @@ public class S004001Controller {
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
-		input.setRelationLevel1("同意");
+		input.setRelationLevel1("承認");
 		try {
 			output = s004001E003Service.execute(input);
 		} catch (BusinessException e) {
@@ -127,9 +127,9 @@ public class S004001Controller {
 	}
 	
 	/**
-	 * 同意交换联系方式操作
+	 * 連絡先交換を承認
 	 */
-	@PrintLog("同意交换联系方式操作")
+	@PrintLog("連絡先交換を承認")
 	@RequestMapping(value="/s004001/e003", params="relationLevel2Agree",  method= {RequestMethod.POST})
 	public String e003RelationLevel2Agree(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
@@ -139,7 +139,7 @@ public class S004001Controller {
 		
 		T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
 		input.setUid(userLoginInfo.getUid());
-		input.setRelationLevel2("同意");
+		input.setRelationLevel2("承認");
 		try {
 			output = s004001E003Service.execute(input);
 		} catch (BusinessException e) {
@@ -155,9 +155,9 @@ public class S004001Controller {
 	}
 	
 	/**
-	 * 拒绝操作
+	 * 拒否
 	 */
-	@PrintLog("拒绝操作")
+	@PrintLog("拒否")
 	@RequestMapping(value="/s004001/e003", params="reject",  method= {RequestMethod.POST})
 	public String e003Reject(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result, 
@@ -166,10 +166,10 @@ public class S004001Controller {
 		S004001E003Output output = new S004001E003Output();
 
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
-		// 拒绝时交友阶段1和2都更新为拒绝
+		// 拒否時リクエストレベル1とレベル2両方「拒否」に更新
         input.setUid(userLoginInfo.getUid());
-		input.setRelationLevel1("拒绝");
-		input.setRelationLevel2("拒绝");
+		input.setRelationLevel1("拒否");
+		input.setRelationLevel2("拒否");
 		try {
 			output = s004001E003Service.execute(input);
 		} catch (BusinessException e) {

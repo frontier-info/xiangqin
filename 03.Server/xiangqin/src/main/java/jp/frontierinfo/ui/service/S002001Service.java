@@ -25,7 +25,7 @@ public class S002001Service extends AbstractServiceImpl<S002001Input, S002001Out
 
 		T01UserSearchInfo searchInfo = t01UserSearchInfoAccess.selectByPrimaryKey(input.getUid());
 		
-		// 用户检索条件未设定时,处理结束
+		// ユーザー検索条件が未設定時,处理終了
 		if(searchInfo == null) {
 			return output;
 		}
@@ -33,7 +33,7 @@ public class S002001Service extends AbstractServiceImpl<S002001Input, S002001Out
 		List<UserSimpleInfo> userSimpleInfoLi = t01UserBasicInfoAccess.selectRecommendList(searchInfo);
 		output.setUserSimpleInfoLi(userSimpleInfoLi);
 		
-		// 符合条件的异性信息不满30名时,从数据库随机补位至30名
+		// 検索条件が一致する異性が30名未満の場合、ランダムで30名までDBから取得
 		List<String> exceptList = new ArrayList<>();
 		for(UserSimpleInfo userSimpleInfo : userSimpleInfoLi) {
 			exceptList.add(userSimpleInfo.getRelationId());
