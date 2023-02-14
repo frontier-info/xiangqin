@@ -5,14 +5,14 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>后台管理</title>
+<title>ユーザー管理</title>
 </head>
 <body>
 
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<!--   引入导航栏 -->
+			<!--   ナビゲーションバー -->
 			<%@include file="../common/header.jsp"%>
 		</div>
 		<div class="col-md-2"></div>
@@ -24,7 +24,7 @@
 			<div class="panel panel-pink">
 				<div class="panel-body pink">
 					<div class="row">
-					  <!-- 提示信息区域 -->
+					  <!-- 画面メッセージエリア -->
 					  <div class="col-md-3"></div>
 					  <div class="col-md-6">
 			          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
@@ -35,11 +35,11 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户基本信息 -->
+							<!-- ユーザー基本情報 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-3" style="height: 400px;">
-								  <!-- 显示用户照片和身份验证照片 -->
+								  <!-- ユーザー写真を表示 -->
 									<div class="swiper-container" >
 									    <div class="swiper-wrapper">
 										  <c:if test="${not empty s009020Form.userFullInfo.uimages1}">
@@ -63,18 +63,16 @@
 							      			</div>
 							      		  </c:if>
 									    </div>
-									    <!-- 导航按钮 -->
 									    <div class="swiper-button-prev"></div>
 									    <div class="swiper-button-next"></div>
 									    <div class="swiper-pagination"></div>
 									</div>
 								</div>
 								<div class="col-md-7">
-									<!-- 用户基本信息 -->
+									<!-- ユーザー基本情報 -->
 									<div class="row">
 										<div class="col-md-10">
-										  <!-- 显示用户基本信息 -->
-										  <h4 class="area-title">基本资料</h4>
+										  <h4 class="area-title">基本情報</h4>
 										</div>
 									</div>
 									<div class="row">
@@ -98,9 +96,9 @@
 											<div class="media">
 												<div class="media-body">
 												  <ul style="list-style-type: none;">
-													<li><span class="label label-pink">年龄:</span><div class="udata">${s009020Form.userFullInfo.age}岁</div></li>
-													<li><span class="label label-pink">身高:</span><div class="udata">${s009020Form.userFullInfo.uheight}cm</div></li>
-													<li><div class="udata introduce" style="width: 250px;"><font class="zeaicolor">自我介绍: </font>${s009020Form.userFullInfo.introduce}</div></li>
+													<li><span class="label label-pink">年齢:</span><div class="udata">${s009020Form.userFullInfo.age}歳</div></li>
+													<li><span class="label label-pink">身長:</span><div class="udata">${s009020Form.userFullInfo.uheight}cm</div></li>
+													<li><div class="udata introduce" style="width: 250px;"><font class="zeaicolor">自己紹介: </font>${s009020Form.userFullInfo.introduce}</div></li>
 												  </ul>
 												</div>
 											</div>
@@ -111,8 +109,8 @@
 											<br>
 											<div class="media">
 												<div class="media-body">
-													<span class="label label-pink">当前用户权限:</span><div class="udata">${s009020Form.userFullInfo.userRankName}</div>
-													<span class="label label-pink">当前用户审查状态:</span><div class="udata">${s009020Form.userFullInfo.userStatusName}</div>
+													<span class="label label-pink">ユーザー権限:</span><div class="udata">${s009020Form.userFullInfo.userRankName}</div>
+													<span class="label label-pink">ユーザー審査状態:</span><div class="udata">${s009020Form.userFullInfo.userStatusName}</div>
 												</div>
 											</div>
 										</div>
@@ -120,9 +118,9 @@
 									<hr>
 									<div class="row">
 										<div class="col-md-12">
-											<input type="button" class="button-success" data-toggle="modal" data-target="#changeUserRankModal" value="变更用户权限" />
-											<input type="button" class="button-success" data-toggle="modal" data-target="#updateUserStatusModal" value="新用户审查结果" />
-											<input type="button" class="button-danger" data-toggle="modal" data-target="#deleteUserModal" value="删除用户" />
+											<input type="button" class="button-success" data-toggle="modal" data-target="#changeUserRankModal" value="ユーザー権限变更" />
+											<input type="button" class="button-success" data-toggle="modal" data-target="#updateUserStatusModal" value="ユーザー審査结果更新" />
+											<input type="button" class="button-danger" data-toggle="modal" data-target="#deleteUserModal" value="ユーザー削除" />
 										</div>
 									</div>
 								</div>
@@ -141,12 +139,11 @@
 				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户详细信息 -->
+							<!-- ユーザー詳細情報 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
-								  <!-- 显示用户详细信息 -->
-								  <h4 class="area-title">详细资料</h4>
+								  <h4 class="area-title">詳細资料</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -154,24 +151,23 @@
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">出生地:</span><div class="udata">${s009020Form.userFullInfo.birthPlace}</div></li>
-									<li><span class="label label-pink">住所: </span><div class="udata">${s009020Form.userFullInfo.address}</div></li>
-									<li><span class="label label-pink">职业: </span><div class="udata">${s009020Form.userFullInfo.profession}</div></li>
+									<li><span class="label label-pink">居住地: </span><div class="udata">${s009020Form.userFullInfo.address}</div></li>
+									<li><span class="label label-pink">職業: </span><div class="udata">${s009020Form.userFullInfo.profession}</div></li>
 								  </ul>
 								</div>
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">体重: </span><div class="udata">${s009020Form.userFullInfo.uweight}kg</div></li>
-									<li><div class="udata interest"><font class="zeaicolor">兴趣: </font>${s009020Form.userFullInfo.interest}</div></li>
+									<li><div class="udata interest"><font class="zeaicolor">趣味: </font>${s009020Form.userFullInfo.interest}</div></li>
 								  </ul>
 								</div>
 							</div>
 							<hr>
-							<!-- 用户择偶要求 -->
+							<!-- ユーザー配偶者の要件 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
-								  <!-- 显示用户择偶要求 -->
-								  <h4 class="area-title">择偶要求</h4>
+								  <h4 class="area-title">配偶者の要件</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -179,15 +175,15 @@
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">出生地:</span><div class="udata">${s009020Form.userFullInfo.requireBirthPlace}</div></li>
-									<li><span class="label label-pink">住所: </span><div class="udata">${s009020Form.userFullInfo.requireAddress}</div></li>
-									<li><span class="label label-pink">职业: </span><div class="udata">${s009020Form.userFullInfo.requireProfession}</div></li>
+									<li><span class="label label-pink">居住地: </span><div class="udata">${s009020Form.userFullInfo.requireAddress}</div></li>
+									<li><span class="label label-pink">職業: </span><div class="udata">${s009020Form.userFullInfo.requireProfession}</div></li>
 								  </ul>
 								</div>
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
-									<li><span class="label label-pink">年龄范围:</span><div class="udata">${s009020Form.userFullInfo.requireAgeFrom}~${s009020Form.userFullInfo.requireAgeTo}岁</div></li>
-									<li><span class="label label-pink">身高范围:</span><div class="udata">${s009020Form.userFullInfo.requireHeightFrom}~${s009020Form.userFullInfo.requireHeightTo}cm</div></li>
-									<li><span class="label label-pink">体重范围:</span><div class="udata">${s009020Form.userFullInfo.requireWeightFrom}~${s009020Form.userFullInfo.requireWeightTo}kg</div></li>
+									<li><span class="label label-pink">年齢範囲:</span><div class="udata">${s009020Form.userFullInfo.requireAgeFrom}~${s009020Form.userFullInfo.requireAgeTo}歳</div></li>
+									<li><span class="label label-pink">身長範囲:</span><div class="udata">${s009020Form.userFullInfo.requireHeightFrom}~${s009020Form.userFullInfo.requireHeightTo}cm</div></li>
+									<li><span class="label label-pink">体重範囲:</span><div class="udata">${s009020Form.userFullInfo.requireWeightFrom}~${s009020Form.userFullInfo.requireWeightTo}kg</div></li>
 								  </ul>
 								</div>
 							</div>
@@ -197,7 +193,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- 模态框（Modal） -->
+	<!-- モーダル（Modal） -->
 	<div class="modal fade" id="changeUserRankModal" tabindex="-1" role="dialog" aria-labelledby="changeUserRankModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -206,17 +202,17 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="changeUserRankModalLabel">
-						变更用户权限
+						ユーザー権限变更
 					</h4>
 				</div>
 				<div class="modal-body">
 					<p>
-						<label>用户名:${s009020Form.userFullInfo.uname}</label>
+						<label>ユーザー名前:${s009020Form.userFullInfo.uname}</label>
 					</p>
 					<p>
-						<label for="userRankCode">用户权限:</label>
+						<label for="userRankCode">ユーザー権限:</label>
 						<select name="userRankCode" class="form-control">
-							<option value="">--请选择用户权限--</option>
+							<option value="">--ユーザー権限を選択してくださいを選択してください--</option>  
 							<c:forEach items="${s009020Form.userRankLi}" var="userRank">
 								<option value="${userRank.selectKey}">${userRank.selectValue}</option>
 							</c:forEach>
@@ -224,12 +220,12 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn button-success" name="changeUserRank" value="变更用户权限"/>
+					<input type="submit" class="btn button-success" name="changeUserRank" value="ユーザー権限变更"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
-	<!-- 模态框（Modal） -->
+	<!-- モーダル（Modal） -->
 	<div class="modal fade" id="updateUserStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateUserStatusModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -238,21 +234,21 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="updateUserStatusModalLabel">
-						新用户审查
+						新ユーザー審査
 					</h4>
 				</div>
 				<div class="modal-body">
 					<p>
-						<label>用户名:${s009020Form.userFullInfo.uname}</label>
+						<label>ユーザー名:${s009020Form.userFullInfo.uname}</label>
 					</p>
 					<p>
-						<label for="userCensorResult">新用户审查书面结果:</label>
+						<label for="userCensorResult">新ユーザー審査结果詳細:</label>
 						<input type="text" class="form-control" size="5" name="userCensorResult">
 					</p>
 					<p>
-						<label for="userStatusCode">新用户审查结果:</label>
+						<label for="userStatusCode">新ユーザー審査结果:</label>
 						<select name="userStatusCode" class="form-control">
-							<option value="">--请选择审查结果--</option>
+							<option value="">--審査结果を選択してくださいを選択してください--</option>  
 							<c:forEach items="${s009020Form.userStatusLi}" var="userStatus">
 								<option value="${userStatus.selectKey}">${userStatus.selectValue}</option>
 							</c:forEach>
@@ -260,12 +256,12 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn button-success" name="updateUserStatus" value="提交审查结果"/>
+					<input type="submit" class="btn button-success" name="updateUserStatus" value="審査结果更新"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
-	<!-- 模态框（Modal） -->
+	<!-- モーダル（Modal） -->
 	<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -274,16 +270,16 @@
 						&times;
 					</button>
 					<h4 class="modal-title" id="deleteUserModalLabel">
-						用户删除
+						ユーザー削除
 					</h4>
 				</div>
 				<div class="modal-body">
 					<p>
-						<label>确定要删除该用户吗?</label>
+						<label>このユーザーを削除してもよろしいでしょうか。</label>
 					</p>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn button-danger" name="deleteUser" value="删除用户"/>
+					<input type="submit" class="btn button-danger" name="deleteUser" value="ユーザー削除"/>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
@@ -294,7 +290,7 @@
 </body>
 <script>
 	var swiper = new Swiper('.swiper-container', {
-		loop : true, //允许从第一张到最后一张，或者从最后一张到第一张  循环属性
+		loop : true, //允许From第一张To最后一张，或者From最后一张To第一张  循环属性
 		slidesPerView : 1, // 设置显示1张
 		//centeredSlides : true,     //使当前图片居中显示
 		freeMode : true, // 使幻灯片滑动时不止滑动一格，且不会自动贴合 
@@ -311,7 +307,7 @@
 			el : ".swiper-pagination",
 			clickable : true,
 		},
-		// 如果需要前进后退按钮
+		// 如果需要前进后退ボタン
 		navigation : {
 			nextEl : '.swiper-button-next',
 			prevEl : '.swiper-button-prev',
