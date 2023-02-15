@@ -19,7 +19,7 @@ public class M01CodeMasterInfoAccess {
 		this.m01CodeMasterInfoDao = m01CodeMasterInfoDao;
 	}
 	
-	// 查询编码数据
+	// マスタ情報を取得
 	public List<PullDownBean> selectCodeMasterData(String codeType){
 		return m01CodeMasterInfoDao.selectCodeMasterData(codeType);
 	}

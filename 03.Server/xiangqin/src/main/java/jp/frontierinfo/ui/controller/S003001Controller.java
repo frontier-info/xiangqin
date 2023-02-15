@@ -35,13 +35,13 @@ public class S003001Controller {
 	private S003001E002Service s003001E002Service;
 
 	/**
-	 * リクエスト一覧ボタン
+	 * 友達申請済一覧ボタン
 	 */
 	@RequestMapping(value="/s003001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response,
 			S003001Form form, BindingResult result,
 			S003001E001Input input, Model model) {
-		System.out.println("リクエスト一覧");
+		System.out.println("友達申請済一覧");
 		S003001E001Output output = new S003001E001Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());

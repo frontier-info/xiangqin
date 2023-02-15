@@ -8,7 +8,7 @@ import jp.frontierinfo.db.entity.M01CodeMasterInfoKey;
 
 public interface M01CodeMasterInfoDao {
 	
-	// 查询编码数据
+	// マスタ情報を取得
 	List<PullDownBean> selectCodeMasterData(String codeType);
 	
     int deleteByPrimaryKey(M01CodeMasterInfoKey key);

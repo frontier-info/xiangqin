@@ -20,7 +20,7 @@ import jp.frontierinfo.common.constant.ConstantInfo;
 @Configuration
 public class ServletConfig {
 		/**
-		*配置DownloadServlet，拦截/static/* 和 /download/*的请求，且程序启动后就初始化而不是等第一次访问才初始化
+		*配置DownloadServlet，拦截/static/* 和 /download/*の请求，且程序启动后就初始化而不是等第一次访问才初始化
 		*
 		*/
 	@Bean
@@ -40,9 +40,9 @@ public class ServletConfig {
 
         /*
          *  String amount = "/download";  //从文件path中移除此路径,前置路径 如访问路径是 localhost/download/123.jpg,则真实查找路径是'/123.jpg'（即移除'/download')
-         *  String basePath = "d:/files"; //文件存储所在的文件夹绝对路径,末尾不要以‘/’结尾
+         *  String basePath = "d:/files"; //文件存储所在の文件夹绝对路径,末尾不要以‘/’结尾
          *  String internalPath = "/"; // 不知道有什么用，DirResourceSet应该没用到
-         *  DefaultServlet使用若干个ResourceSet进行读取资源，默认读取tomcat项目根目录下的文件，我们自己在设置两个，分别处理/static的和/download的请求
+         *  DefaultServlet使用若干个ResourceSet进行读取资源，默认读取tomcat项目根目录下の文件，我们自己在设置两个，分别处理/staticの和/downloadの请求
          * */
         @Override
         public void init() throws ServletException {
@@ -53,7 +53,7 @@ public class ServletConfig {
             super.init();
         }
 
-		//如果是/download开头的请求，则设置ContentType为流，否则servlet会自行推理，如图片就会直接打开而不是下载
+		//如果是/download开头の请求，则设置ContentType为流，否则servlet会自行推理，如图片就会直接打开而不是下载
         @Override
         public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             if (req.getRequestURI().startsWith("/download")) {

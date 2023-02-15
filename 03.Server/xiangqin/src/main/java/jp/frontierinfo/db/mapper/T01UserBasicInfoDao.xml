@@ -37,7 +37,7 @@
     require_age_from, require_age_to, require_birth_place, require_address, require_profession, 
     require_height_from, require_height_to, require_weight_from, require_weight_to
   </sql>
-  <!--   查询指定检索条件的30名异性信息 -->
+  <!--   指定検索条件で30名の異性情報を取得-->
   <select id="selectRecommendList" parameterType="jp.frontierinfo.db.entity.T01UserSearchInfo" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
       basic_info.uid relationId, 
@@ -88,7 +88,7 @@
     </where>
     limit 30   
   </select>
-  <!--   指定检索条件的查询结果不满30名时,从数据库随机补位至30名 -->
+  <!--   検索条件が一致する異性が30名未満の場合、ランダムで30名までDBから取得 -->
   <select id="selectRandomList" parameterType="java.util.Map" resultType="jp.frontierinfo.db.bean.UserSimpleInfo">
     select 
       basic_info.uid relationId, 
@@ -113,7 +113,7 @@
     order by random()
     limit #{limit}   
   </select>
-  <!--   获取点击用户的全部信息(业务页面用) -->
+  <!--   指定するユーザーの情報を取得(ユーザー画面用) -->
   <select id="selectUserFullInfoByUid" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
     select
         basic.uid relationId
@@ -155,7 +155,7 @@
     where
     	basic.uid = #{relationId,jdbcType=VARCHAR}
   </select>
-  <!--   获取点击用户的全部信息(业务页面用,向我打招呼的人用) -->
+  <!--   指定するユーザーの情報を取得(ユーザー画面用、申請された友達一覧用) -->
   <select id="selectUserFullInfoByRelationId" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
     select
         basic.uid relationId
@@ -197,7 +197,7 @@
     where
     	basic.uid = #{relationId,jdbcType=VARCHAR}
   </select>
-  <!--   查询指定检索条件的用户全部信息(管理员页面用) -->
+  <!--   指定する検索条件のユーザー情報を取得(管理員画面用) -->
   <select id="selectUserFullInfoLi" parameterType="jp.frontierinfo.db.bean.BackstageSerachInfo" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
 	    login.uid
@@ -288,7 +288,7 @@
     </where>
      
   </select>
-  <!--   查询指定用户的全部信息(管理员页面用) -->
+  <!--   指定するユーザーの情報を取得(管理員画面用) -->
   <select id="selectUserFullInfoByUidForBackstage" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.UserFullInfo">
 	select
 	    basic.uid

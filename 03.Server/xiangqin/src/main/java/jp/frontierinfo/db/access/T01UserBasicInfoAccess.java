@@ -22,12 +22,12 @@ public class T01UserBasicInfoAccess {
 		this.t01UserBasicInfoDao = t01UserBasicInfoDao;
 	}
 	
-	// 查询指定检索条件的30名异性信息
+	// 指定検索条件で30名の異性情報を取得
 	public List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo){
 		return t01UserBasicInfoDao.selectRecommendList(searchInfo);
 	}
 	
-	// 指定检索条件的查询结果不满30名时,从数据库随机补位至30名
+	// 検索条件が一致する異性が30名未満の場合、ランダムで30名までDBから取得
 	public List<UserSimpleInfo> selectRandomList(List<String> uids, int limit){
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("exceptList", uids);
@@ -35,22 +35,22 @@ public class T01UserBasicInfoAccess {
 		return t01UserBasicInfoDao.selectRandomList(params);
 	}
 	
-	// 获取点击用户的全部信息(业务页面用)
+	// 指定するユーザーの情報を取得(ユーザー画面用)
 	public UserFullInfo selectUserFullInfoByUid(String uid, String relationId){
 		return t01UserBasicInfoDao.selectUserFullInfoByUid(uid, relationId);
 	}
 	
-	// 获取点击用户的全部信息(业务页面用,向我打招呼的人用)
+	// 指定するユーザーの情報を取得(ユーザー画面用、申請された友達一覧用)
 	public UserFullInfo selectUserFullInfoByRelationId(String uid, String relationId){
 		return t01UserBasicInfoDao.selectUserFullInfoByRelationId(uid, relationId);
 	}
 	
-	// 查询指定检索条件的用户全部信息(管理员页面用)
+	// 指定する検索条件のユーザー情報を取得(管理員画面用)
 	public List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo){
 		return t01UserBasicInfoDao.selectUserFullInfoLi(searchInfo);
 	}
 	
-	// 查询指定用户的全部信息(管理员页面用)
+	// 指定するユーザーの情報を取得(管理員画面用)
 	public UserFullInfo selectUserFullInfoByUidForBackstage(String uid){
 		return t01UserBasicInfoDao.selectUserFullInfoByUidForBackstage(uid);
 	}

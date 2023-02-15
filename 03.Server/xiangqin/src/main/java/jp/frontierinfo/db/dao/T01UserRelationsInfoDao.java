@@ -8,19 +8,19 @@ import jp.frontierinfo.db.entity.T01UserRelationsInfoKey;
 
 public interface T01UserRelationsInfoDao {
 	
-	// 获取向我打过招呼的人的数据
+	// 申請された友達一覧を取得
 	List<UserSimpleInfo> selectReceiveRelation(String uid);
 	
-	// 获取我打过招呼的人的数据
+	// 友達申請済一覧を取得
 	List<UserSimpleInfo> selectSendRelation(String uid);
 	
-	// 查询当前用户是否已向该指定异性发送过邀约信息
+	// 指定する相手に申請しているかどうかを確認
 	int selectExist(T01UserRelationsInfoKey key);
 	
-	// 查询当前用户是否已向该指定异性发送过邀约信息
+	// ユーザーが友達申請の実施件数
 	int selectRelationCount(String uid);
 	
-	// 查询当前用户是否已向该指定异性发送过邀约信息
+	// ユーザーが友達申請の成功件数
 	int selectRelationSuccessCount(T01UserRelationsInfo record);
 	
     int deleteByPrimaryKey(T01UserRelationsInfoKey key);

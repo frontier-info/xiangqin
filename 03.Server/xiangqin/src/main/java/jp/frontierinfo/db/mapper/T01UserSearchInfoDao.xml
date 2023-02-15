@@ -20,7 +20,7 @@
     uid, sex, age_from, age_to, birth_place, address, profession, uheight_from, uheight_to, 
     uweight_from, uweight_to
   </sql>
-  <!--   查询当前用户是否已设置检索条件 -->
+  <!--   ユーザーが検索条件が設定しているかどうかの確認 -->
   <select id="selectExist" parameterType="java.lang.String" resultType="java.lang.Integer">
     select 
       count(*)

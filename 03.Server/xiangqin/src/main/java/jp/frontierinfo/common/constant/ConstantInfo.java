@@ -8,18 +8,18 @@ import java.util.Map;
 public class ConstantInfo {
 	
 	/**
-	 * SessionKey信息
+	 * SessionKey情報
 	 */
-	// 用户登录信息SessionKey
+	// ユーザーログイン情報SessionKey
 	public static final String USER_LOGIN_INFO = "USER_LOGIN_INFO";
 	
-	// 手机验证码SessionKey
+	// 認証コードSessionKey
 	public static final String REGISTER_SMS_CODE = "REGISTER_SMS_CODE";
 	
-	// 手机号SessionKey
+	// メールアドレスSessionKey
 	public static final String REGISTER_EMAIL = "REGISTER_EMAIL";
 	
-	// 后台管理页面:用户存续状态键值表
+	// ユーザー管理画面:ユーザー存在状態
 	public static Map<Object, String> DELETE_STATUS;
 	static {
 		DELETE_STATUS = new HashMap<>();
@@ -28,49 +28,49 @@ public class ConstantInfo {
 	}
 	
 	/**
-	 * 用户审查阶段数据
+	 * ユーザー審査情報
 	 */
-	// 00:未提交审核
+	// 00:審査未依頼
 	public static final String USER_CENSOR_STATUS_00 = "00";
-	// 01:审核中
+	// 01:審査中
 	public static final String USER_CENSOR_STATUS_01 = "01";
-	// 02:审核通过
+	// 02:審査完了
 	public static final String USER_CENSOR_STATUS_02 = "02";
-	// 03:审核拒绝
+	// 03:審査拒否
 	public static final String USER_CENSOR_STATUS_03 = "03";
 	
 	/**
-	 * 用户权限数据
+	 * ユーザー権限情報
 	 */
-	// 普通用户
+	// 一般ユーザー
 	public static final String USER_RANK_NORMAL = "01";
-	// VIP用户
+	// VIPユーザー
 	public static final String USER_RANK_VIP = "02";
-	// 普通管理员
+	// 一般管理員
 	public static final String USER_RANK_NORMAL_MANAGER = "08";
-	// 高级管理员
+	// 上級管理員
 	public static final String USER_RANK_HIGH_MANAGER = "09";
 	
 	/**
-	 * 用户操作数据
+	 * ユーザー操作情報
 	 */
-	// 向异性用户发起打招呼请求
-	public static final String RELATION_LEVEL_1_REQUEST = "请求";
-	// 异性用户同意打招呼请求
-	public static final String RELATION_LEVEL_1_AGREE = "同意";
-	// 异性用户拒绝打招呼请求
-	public static final String RELATION_LEVEL_1_DISAGREE = "拒绝";
-	// 异性用户同意获取联系方式
-	public static final String RELATION_LEVEL_2_AGREE = "同意";
-	// 异性用户拒绝获取联系方式
-	public static final String RELATION_LEVEL_2_DISAGREE = "拒绝";
+	// 異性ユーザーに友達リクエスト請求を実施
+	public static final String RELATION_LEVEL_1_REQUEST = "請求";
+	// 異性ユーザーから個人写真交換の請求を承認
+	public static final String RELATION_LEVEL_1_AGREE = "承認";
+	// 異性ユーザーから個人写真交換の請求を拒否
+	public static final String RELATION_LEVEL_1_DISAGREE = "拒否";
+	// 異性ユーザーから連絡先交換の請求を承認
+	public static final String RELATION_LEVEL_2_AGREE = "承認";
+	// 異性ユーザーから連絡先の請求を拒否
+	public static final String RELATION_LEVEL_2_DISAGREE = "拒否";
 	
 	/**
-	 * 普通用户的使用权限
+	 * 一般ユーザーの使用権限
 	 */
-	// 普通用户打招呼次数限制
+	// 一般ユーザー友達リクエスト回数制限
 	public static final int RELATION_COUNT = 10;
-	// 普通用户打招呼成功次数限制
+	// 一般ユーザー友達リクエスト成功の回数制限
 	public static final int RELATION_SUCCESS_COUNT = 3;
 	
 	/**
@@ -81,15 +81,15 @@ public class ConstantInfo {
 	
 	
 	/**
-	 * 用户上传照片大小
+	 * ユーザーがアップロードした写真のサイズ
 	 */
-	// 头像上限 100KB
+	// プロフィール写真上限 100KB
 	public static final long AVATAR_IMG_SIZE = 100*1024;
-	// 个人照片上限 3MB
+	// 個人写真上限 3MB
 	public static final long USER_IMG_SIZE = 3*1024*1024;
 	
 	/**
-	 * 页面用性别单选按钮数据
+	 * 画面用性别ラジオボタン
 	 */
 	public static List<String> sexLi;
 	static {
@@ -110,7 +110,7 @@ public class ConstantInfo {
 	public static final String DATASOURCE_PASSWORD = "spring.datasource.password";
 	
 	/**
-	 * 用户图片保存路径
+	 * ユーザー写真のサーバ保存パス
 	 */
 	public static final String FILE_SAVE_PATH = "/Frontier-info/xiangqin/userdata";
 	public static final String FILE_SAVE_UID_PATH = "/uid_";

@@ -57,61 +57,61 @@ public class S002001Controller {
 	}
 	
 	/**
-	 * 首页按钮
+	 * ホームページボタン
 	 */
-	@PrintLog("首页按钮点击")
+	@PrintLog("ホームページボタンクリック")
 	@RequestMapping(value="/s002001", method=RequestMethod.GET)
 	public String e010(HttpServletRequest request, HttpServletResponse response, 
 			Model model) {
 
-		// 获取用户登录信息
+		// ユーザーログイン情報を取得
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         
-        // 跳转普通管理员
+        // ユーザー管理画面(一般)に遷移
         if(ConstantInfo.USER_RANK_NORMAL_MANAGER.equals(userLoginInfo.getUserRankCode())) {
         	return "forward:/ui/s009010/e000";
         }
         
-        // 跳转高级管理员
+        // ユーザー管理画面(上級)に遷移
         if(ConstantInfo.USER_RANK_HIGH_MANAGER.equals(userLoginInfo.getUserRankCode())) {
         	return "forward:/ui/s009020/e000";
         }
         
-        // 跳转普通用户
+        // ユーザーホームページ画面に遷移
 		return "forward:/ui/s002001/e000";
 	}
 
 	/**
-	 * 用户主页
+	 * ユーザーホームページ画面
 	 */
-	@PrintLog("用户主页")
+	@PrintLog("ユーザーホームページ画面")
 	@RequestMapping(value="/s002001/e000", method= {RequestMethod.POST, RequestMethod.GET})
 	public String e000(HttpServletRequest request, HttpServletResponse response, 
 			S002001Form form, BindingResult result, 
 			S002001Input input, Model model) {
 
-		// 获取用户登录信息
+		// ユーザーログイン情報を取得
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());
         
-		// 普通用户检查用户状态,若未提交审核,则提示用户填写个人信息并提交审核
+		// ユーザー状態チェック
         if(ConstantInfo.USER_CENSOR_STATUS_00.equals(userLoginInfo.getUserStatusCode())) {
-			model.addAttribute("message", "请填写个人基本信息等待审核后使用.");
+			model.addAttribute("message", "基本情報を入力し、審査を待ってからご利用ください。");
 			return "s002001";
         }
-		// 若审核中时,提示用户个人信息正在审核,请等候审核结束后方可使用
+		// ユーザー状態チェック
         if(ConstantInfo.USER_CENSOR_STATUS_01.equals(userLoginInfo.getUserStatusCode())) {
-        	model.addAttribute("message", "您填写的个人基本信息正在审核中,请稍后登录查看");
+        	model.addAttribute("message", "入力した基本情報は審査中です。後でログインして確認してください");
         	return "s002001";
         }
-		// 若审核失败时,提示用户审核失败理由
+		// ユーザー状態チェック
         if(ConstantInfo.USER_CENSOR_STATUS_03.equals(userLoginInfo.getUserStatusCode())) {
-        	model.addAttribute("message", "审核因以下原因未通过:"+userLoginInfo.getUserCensorResult());
+        	model.addAttribute("message", "次の理由により、審査に失敗しました:"+userLoginInfo.getUserCensorResult());
         	return "s002001";
         }
-        // 当审核通过时,检索条件设定按钮显示为活性
+        // 審査結果がOKの場合のみ、検索条件設定ボタンが活性になる
         
-        // 获取符合检索条件的异性信息
+        // 検索条件に一致する異性情報を取得
 		S002001Output output = new S002001Output();
 		try {
 			output = s002001Service.execute(input);
@@ -120,15 +120,15 @@ public class S002001Controller {
         	return "s001001";
 		}
 		
-		// 用户未设置检索条件时,提示用户设置检索条件
+		// ユーザーの検索条件が未設定時、画面メッセージを出力
 		if(output.getUserSimpleInfoLi() == null) {
-			model.addAttribute("message", "设定检索条件后显示异性信息");
+			model.addAttribute("message", "検索条件を設定してから異性情報を表示する");
 			return "s002001";
 		}
 		
-		// 检索结果0件时
+		// 检索結果0件時
 		if(output.getUserSimpleInfoLi().size() == 0) {
-			model.addAttribute("message", "未查询到符合当前检索条件的异性信息,请变更检索条件.");
+			model.addAttribute("message", "検索条件に一致する異性の情報がありません。検索条件を変更してください。");
 			return "s002001";
 		}
 
@@ -138,9 +138,9 @@ public class S002001Controller {
 	return "s002001";
 	}
 	/**
-	 * 用户信息设定按钮
+	 * ユーザー情報設定ボタン
 	 */
-	@PrintLog("用户主页的用户信息设定按钮点击")
+	@PrintLog("ユーザー主页のユーザー情報設定ボタンクリック")
 	@RequestMapping(value="/s002001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute() S002002Form form, BindingResult result, 
@@ -162,9 +162,9 @@ public class S002001Controller {
 	}
 	
 	/**
-	 * 检索条件设定按钮
+	 * 検索条件設定ボタン
 	 */
-	@PrintLog("用户主页的检索条件设定按钮点击")
+	@PrintLog("ユーザー主页の検索条件設定ボタンクリック")
 	@RequestMapping(value="/s002001/e002", method=RequestMethod.GET)
 	public String e002(HttpServletRequest request, HttpServletResponse response, 
 			@ModelAttribute() S002003Form form, S002001E002Input input, Model model) {
@@ -179,8 +179,8 @@ public class S002001Controller {
 		}
 		
 		if(ConstantInfo.USER_RANK_NORMAL.equals(userLoginInfo.getUserRankCode())) {
-			// 普通用户在页面提示检索条件一条的限制
-			model.addAttribute("message", "普通用户只能设定一个检索条件.");
+			// 一般ユーザーは画面上に下記メッセージを表示する
+			model.addAttribute("message", "一般ユーザーは、検索条件を 1 つしか設定できません。");
 		}
 
 		BeanUtils.copyProperties(output, form);
@@ -190,14 +190,14 @@ public class S002001Controller {
 	}
 	
 	/**
-	 * 退出登录按钮
+	 * ログアウトボタン
 	 */
-	@PrintLog("用户主页的退出登录按钮点击")
+	@PrintLog("ユーザーホームページ画面のログアウトボタンクリック")
 	@RequestMapping(value="/s002001/e003", method=RequestMethod.GET)
 	public String e003(HttpServletRequest request, HttpServletResponse response, 
 			S001001Form form, S001001E001Input input) {
 		
-		// 退出登录时清空Session
+		// ログアウト時セッションをクリア
 		request.getSession().invalidate();
 		
 		return "s001001";

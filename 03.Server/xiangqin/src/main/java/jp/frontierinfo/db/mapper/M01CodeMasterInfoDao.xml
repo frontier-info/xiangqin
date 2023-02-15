@@ -13,7 +13,7 @@
     code_type, master_code, code_type_name, master_name
   </sql>
   
-  <!--   查询编码数据 -->
+  <!--   マスタ情報を取得 -->
   <select id="selectCodeMasterData" parameterType="java.lang.String" resultType="jp.frontierinfo.db.bean.PullDownBean">
     select 
      master_code selectKey

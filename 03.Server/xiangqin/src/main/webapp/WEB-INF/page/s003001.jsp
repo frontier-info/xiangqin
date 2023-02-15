@@ -6,14 +6,14 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>我打过招呼的人</title>
+<title>友達申請済一覧</title>
 </head>
 <body>
 
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<!--   引入导航栏 -->
+			<!--   ナビゲーションバー -->
 			<%@include file="../common/header.jsp"%>
 		</div>
 		<div class="col-md-3"></div>
@@ -25,7 +25,7 @@
 		<div class="col-md-8">
 			<div class="panel panel-pink">
 				<div class="panel-heading pink">
-					<h3 class="panel-title">我打过招呼的人</h3>
+					<h3 class="panel-title">友達申請済一覧</h3>
 				</div>
 				<div class="panel-body pink">
 					<div class="row">
@@ -51,16 +51,16 @@
 											<p>${userSimpleInfo.sex}</p>
 											<p>${userSimpleInfo.introduce}</p>
 								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_REQUEST}">
-								             <p>对方未回应</p>
+								             <p>相手が未返答</p>
 								            </c:if>
 								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_AGREE}">
-								             <p>对方同意查看个人照片</p>
+								             <p>個人写真の交換が承認済</p>
 								            </c:if>
 								            <c:if test="${userSimpleInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_DISAGREE}">
-								             <p>对方已拒绝</p>
+								             <p>相手が拒否された</p>
 								            </c:if>
 								            <c:if test="${userSimpleInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_AGREE}">
-								             <p>对方同意交换联系方式</p>
+								             <p>連絡先の交換が承認済</p>
 								            </c:if>
 										</div>
 									</div>

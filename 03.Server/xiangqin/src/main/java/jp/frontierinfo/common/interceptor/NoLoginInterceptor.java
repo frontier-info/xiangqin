@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import jp.frontierinfo.common.constant.ConstantInfo;
 
 /**
- * 用户登录状态校验用拦截器
+ * ユーザーログイン状態確認のインターセプター
  * 
  * @author wusongsong
  *
@@ -22,9 +22,9 @@ public class NoLoginInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// 判断当前用户是否登录
+		// ユーザーがログインしているかどうかを確認
 		if(request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO) == null) {
-			request.setAttribute("message", "登录过期,请重新登录");
+			request.setAttribute("message", "ログイン期間が過ぎましたため、再ログインしてください。");
 			logger.debug("URL:"+request.getRequestURL());
 			request.getRequestDispatcher("/ui/s001001").forward(request, response);
 			return false;

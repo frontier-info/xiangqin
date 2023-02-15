@@ -21,7 +21,7 @@ import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.db.entity.T01UserLoginInfo;
 
 /**
- * 控制器方法执行时的日志输出
+ * Controllerメソッド実行時のログ出力
  * @author wusongsong
  *
  */
@@ -33,32 +33,32 @@ public class PringLogInterceptor {
 
     @Pointcut("@annotation(jp.frontierinfo.common.annotation.PrintLog)")
     public void ControllerPointCut(){
-        // 以注解处为切入点
+        // PrintLogアノテーションからカット
     }
     
     @Before("ControllerPointCut()")
     public void doBefore(JoinPoint joinPoint){
-    	// Controller前置日志输出
+    	// Controller実行前のログ出力
         String value = getPringLogAnnoValue(joinPoint);
         logger.info("★★★★★  ["+value+"]处理开始  ★★★★★");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        // 获取url,请求方法，ip地址，类名以及方法名
+        // url、アクセスメソッド、ipアドレス
         logger.debug("★★★★★  url:[{}],method:[{}],ip:[{}]  ★★★★★", request.getRequestURI(),request.getMethod(),request.getRemoteAddr());
         
-        // 获取操作用户的ID
+        // 获取操作ユーザーのID
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         if(userLoginInfo != null) {
-        	logger.debug("★★★★★  当前操作用户:["+userLoginInfo.getUid()+"]  ★★★★★");
+        	logger.debug("★★★★★  ユーザー情報:["+userLoginInfo.getUid()+"]  ★★★★★");
         }
 
     }
     
     @AfterReturning(pointcut = "ControllerPointCut()")
     public void printLog(JoinPoint joinPoint){
-    	// Controller后置日志输出
+    	// Controller実行後のログ出力
         String value = getPringLogAnnoValue(joinPoint);
-        logger.info("★★★★★  ["+value+"]处理结束  ★★★★★");
+        logger.info("★★★★★  ["+value+"]处理終了  ★★★★★");
     }
     
     private String getPringLogAnnoValue(JoinPoint joinPoint) {

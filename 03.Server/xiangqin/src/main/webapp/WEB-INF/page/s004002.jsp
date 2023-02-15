@@ -5,14 +5,13 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>向我打过招呼的人 -详细信息</title>
+<title>申請された友達一覧 -詳細情報</title>
 </head>
 <body>
 
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-		   <!--   导航栏 -->
 			<%@include file="../common/header.jsp"%>
 		</div>	
 		<div class="col-md-2"></div>
@@ -24,7 +23,7 @@
 			<div class="panel panel-pink">
 				<div class="panel-body pink">
 					<div class="row">
-					  <!-- 提示信息区域 -->
+					  <!-- 画面メッセージエリア -->
 					  <div class="col-md-3"></div>
 					  <div class="col-md-6">
 			          <form:errors path="*" element="div" class="alert alert-danger" role="alert"/>
@@ -35,20 +34,20 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户基本信息 -->
+							<!-- ユーザー基本情報 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-3" style="height: 400px;">
-								  <!-- 显示用户照片和身份验证照片 -->
+								  <!-- ユーザー写真を表示 -->
 									<div class="swiper-container" >
 									    <div class="swiper-wrapper">
-								  		  <!-- 交友阶段1为同意以外时显示空白图片 -->
+								  		  <!-- リクエストステップ1为承認以外の場合空白の写真を表示 -->
 										  <c:if test="${s004001Form.userFullInfo.relationLevel1 != ConstantInfo.RELATION_LEVEL_1_AGREE}">
 							      			<div class="swiper-slide">
 							      				<img src="${pageContext.request.contextPath}/resources/image/blank_avatar.jfif" class="uimages"/>
 							      			</div>
 							      		  </c:if>
-								  		  <!-- 交友阶段1为同意时显示对方照片 -->
+								  		  <!-- リクエストステップ1が承認の場合相手の個人写真を表示 -->
 										  <c:if test="${s004001Form.userFullInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_AGREE}">
 							      			<div class="swiper-slide">
 							      				<img src="${pageContext.request.contextPath}/${s004001Form.userFullInfo.uimages1}" class="uimages"/>
@@ -61,26 +60,26 @@
 							      			</div>
 							      		  </c:if>
 									    </div>
-									    <!-- 导航按钮 -->
+									    <!-- ボタン -->
 									    <div class="swiper-button-prev"></div>
 									    <div class="swiper-button-next"></div>
 									    <div class="swiper-pagination"></div>
 									</div>
-									<!-- 交友阶段1为等待时:点击交换个人照片按钮显示对方照片 -->
+									<!-- リクエストステップ1が待ちの場合:クリック個人写真を交換ボタン显示对方照片 -->
 								  	<c:if test="${s004001Form.userFullInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_REQUEST}">
-								    	<div class="uimage_comment">※点击交换个人照片按钮显示对方照片</div>
+								    	<div class="uimage_comment">※クリック個人写真を交換ボタン显示对方照片</div>
 								    </c:if>
-									<!-- 交友阶段1为拒绝时:拒绝了对方的交友请求 -->
+									<!-- リクエストステップ1が拒否の場合:拒否了对方の交友请求 -->
 								  	<c:if test="${s004001Form.userFullInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_DISAGREE}">
-								    	<div class="uimage_comment">※拒绝了对方的交友请求</div>
+								    	<div class="uimage_comment">※拒否了对方の交友请求</div>
 								    </c:if>
 								</div>
 								<div class="col-md-7">
-									<!-- 用户基本信息 -->
+									<!-- ユーザー基本情報 -->
 									<div class="row">
 										<div class="col-md-10">
-										  <!-- 显示用户基本信息 -->
-										  <h4 class="area-title">基本资料</h4>
+										  <!-- 显示ユーザー基本情報 -->
+										  <h4 class="area-title">基本情報</h4>
 										</div>
 									</div>
 									<div class="row">
@@ -109,9 +108,9 @@
 											<div class="media">
 												<div class="media-body">
 												  <ul style="list-style-type: none;">
-													<li><span class="label label-pink">年龄:</span><div class="udata">${s004001Form.userFullInfo.age}岁</div></li>
-													<li><span class="label label-pink">身高:</span><div class="udata">${s004001Form.userFullInfo.uheight}cm</div></li>
-													<li><div class="udata introduce" style="width: 250px;"><font class="zeaicolor">自我介绍: </font>${s004001Form.userFullInfo.introduce}</div></li>
+													<li><span class="label label-pink">年齢:</span><div class="udata">${s004001Form.userFullInfo.age}歳</div></li>
+													<li><span class="label label-pink">身長:</span><div class="udata">${s004001Form.userFullInfo.uheight}cm</div></li>
+													<li><div class="udata introduce" style="width: 250px;"><font class="zeaicolor">自己紹介: </font>${s004001Form.userFullInfo.introduce}</div></li>
 												  </ul>
 												</div>
 											</div>
@@ -123,30 +122,30 @@
 											<div class="media">
 												<div class="media-body">
 												  <ul style="list-style-type: none;">
-													<li><span class="label label-pink">邮箱: </span>
-											  		    <!-- 交友阶段2为空时 -->
+													<li><span class="label label-pink">メールアドレス: </span>
+											  		    <!-- リクエストステップ2が空の場合 -->
 													    <c:if test="${empty s004001Form.userFullInfo.relationLevel2}">
-															<div class="udata lang">点击交换联系方式按钮后显示...</div>
+															<div class="udata lang">クリック連絡先を交換ボタン后显示...</div>
 										      		    </c:if>
-											  		    <!-- 交友阶段2为拒绝时 -->
+											  		    <!-- リクエストステップ2が拒否の場合 -->
 													    <c:if test="${s004001Form.userFullInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_DISAGREE}">
-															<div class="udata lang">拒绝了对方的交友请求...</div>
+															<div class="udata lang">拒否了对方の交友请求...</div>
 										      		    </c:if>
-											  		    <!-- 交友阶段2为同意时 -->
+											  		    <!-- リクエストステップ2が承認の場合 -->
 													    <c:if test="${s004001Form.userFullInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_AGREE}">
 															<div class="udata">${s004001Form.userFullInfo.email}</div>
 										      		    </c:if>
 										      		</li>
-													<li><span class="label label-pink">手机号:</span>
-											  		    <!-- 交友阶段2为空时 -->
+													<li><span class="label label-pink">連絡先:</span>
+											  		    <!-- リクエストステップ2が空の場合 -->
 													    <c:if test="${empty s004001Form.userFullInfo.relationLevel2}">
-															<div class="udata lang">点击交换联系方式按钮后显示...</div>
+															<div class="udata lang">クリック連絡先を交換ボタン后显示...</div>
 										      		    </c:if>
-											  		    <!-- 交友阶段2为拒绝时 -->
+											  		    <!-- リクエストステップ2が拒否の場合 -->
 													    <c:if test="${s004001Form.userFullInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_DISAGREE}">
-															<div class="udata lang">拒绝了对方的交友请求...</div>
+															<div class="udata lang">拒否了对方の交友请求...</div>
 										      		    </c:if>
-											  		    <!-- 交友阶段2为同意时 -->
+											  		    <!-- リクエストステップ2が承認の場合 -->
 													    <c:if test="${s004001Form.userFullInfo.relationLevel2 == ConstantInfo.RELATION_LEVEL_2_AGREE}">
 															<div class="udata">${s004001Form.userFullInfo.email}</div>
 										      		    </c:if>
@@ -160,31 +159,31 @@
 									<div class="row">
 										<div class="col-md-12">
 										    <input type="hidden" name="relationId" value="${s004001Form.userFullInfo.relationId}"> 
-								  		    <!-- 交友阶段1为请求时,交换个人照片按钮为活性 -->
+								  		    <!-- リクエストステップ1が請求の場合,個人写真を交換ボタンが活性 -->
 										    <c:if test="${s004001Form.userFullInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_REQUEST}">
-												<input type="submit" name="relationLevel1Agree" class="button-success" value="交换个人照片" />
+												<input type="submit" name="relationLevel1Agree" class="button-success" value="個人写真を交換" />
 							      		    </c:if>
-								  		    <!-- 交友阶段1为请求以外时,交换个人照片按钮为非活性 -->
+								  		    <!-- リクエストステップ1が請求以外の場合,個人写真を交換ボタンが非活性 -->
 										    <c:if test="${s004001Form.userFullInfo.relationLevel1 != ConstantInfo.RELATION_LEVEL_1_REQUEST}">
-												<input type="submit" name="relationLevel1Agree" class="button-disabled" value="交换个人照片" disabled="disabled"/>
+												<input type="submit" name="relationLevel1Agree" class="button-disabled" value="個人写真を交換" disabled="disabled"/>
 							      		    </c:if>
-								  		    <!-- 交友阶段2为空时,交换联系方式按钮为活性 -->
+								  		    <!-- リクエストステップ2が空の場合,連絡先を交換ボタンが活性 -->
 										    <c:if test="${empty s004001Form.userFullInfo.relationLevel2}">
-												<input type="submit" name="relationLevel2Agree" class="button-success" value="交换联系方式" />
+												<input type="submit" name="relationLevel2Agree" class="button-success" value="連絡先を交換" />
 							      		    </c:if>
-								  		    <!-- 交友阶段2不为空时,交换联系方式按钮为非活性 -->
+								  		    <!-- リクエストステップ2が空以外の場合,連絡先を交換ボタンが非活性 -->
 										    <c:if test="${not empty s004001Form.userFullInfo.relationLevel2}">
-												<input type="submit" name="relationLevel2Agree" class="button-disabled" value="交换联系方式"  disabled="disabled"/>
+												<input type="submit" name="relationLevel2Agree" class="button-disabled" value="連絡先を交換"  disabled="disabled"/>
 							      		    </c:if>
-								  		    <!-- 交友阶段1为请求或阶段2为空时,拒绝按钮为活性 -->
+								  		    <!-- リクエストステップ1が請求またはリクエストステップ2が空の場合,拒否ボタンが活性 -->
 										    <c:if test="${s004001Form.userFullInfo.relationLevel1 == ConstantInfo.RELATION_LEVEL_1_REQUEST or 
 										    				empty s004001Form.userFullInfo.relationLevel2}">
-												<input type="submit" name="reject" class="button-danger" value="拒绝" />
+												<input type="submit" name="reject" class="button-danger" value="拒否" />
 							      		    </c:if>
-								  		    <!-- 交友阶段1不为请求且阶段2不为空时,拒绝按钮为非活性 -->
+								  		    <!-- リクエストステップ1が請求以外かつリクエストステップ2が空以外の場合,拒否ボタンが非活性 -->
 										    <c:if test="${s004001Form.userFullInfo.relationLevel1 != ConstantInfo.RELATION_LEVEL_1_REQUEST and 
 										    				not empty s004001Form.userFullInfo.relationLevel2}">
-												<input type="submit" name="reject" class="button-disabled" value="拒绝"  disabled="disabled"/>
+												<input type="submit" name="reject" class="button-disabled" value="拒否"  disabled="disabled"/>
 							      		    </c:if>
 										</div>
 									</div>
@@ -204,12 +203,12 @@
 				<div class="panel-body pink">
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户详细信息 -->
+							<!-- ユーザー詳細情報 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
-								  <!-- 显示用户详细信息 -->
-								  <h4 class="area-title">详细资料</h4>
+								  <!-- 显示ユーザー詳細情報 -->
+								  <h4 class="area-title">詳細资料</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -217,24 +216,24 @@
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">出生地:</span><div class="udata">${s004001Form.userFullInfo.birthPlace}</div></li>
-									<li><span class="label label-pink">住所: </span><div class="udata">${s004001Form.userFullInfo.address}</div></li>
-									<li><span class="label label-pink">职业: </span><div class="udata">${s004001Form.userFullInfo.profession}</div></li>
+									<li><span class="label label-pink">居住地: </span><div class="udata">${s004001Form.userFullInfo.address}</div></li>
+									<li><span class="label label-pink">職業: </span><div class="udata">${s004001Form.userFullInfo.profession}</div></li>
 								  </ul>
 								</div>
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">体重: </span><div class="udata">${s004001Form.userFullInfo.uweight}kg</div></li>
-									<li><div class="udata interest"><font class="zeaicolor">兴趣: </font>${s004001Form.userFullInfo.interest}</div></li>
+									<li><div class="udata interest"><font class="zeaicolor">趣味: </font>${s004001Form.userFullInfo.interest}</div></li>
 								  </ul>
 								</div>
 							</div>
 							<hr>
-							<!-- 用户择偶要求 -->
+							<!-- ユーザー配偶者の要件 -->
 							<div class="row">
 								<div class="col-md-1"></div>
 								<div class="col-md-10">
-								  <!-- 显示用户择偶要求 -->
-								  <h4 class="area-title">择偶要求</h4>
+								  <!-- 显示ユーザー配偶者の要件 -->
+								  <h4 class="area-title">配偶者の要件</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -242,15 +241,15 @@
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
 									<li><span class="label label-pink">出生地:</span><div class="udata">${s004001Form.userFullInfo.requireBirthPlace}</div></li>
-									<li><span class="label label-pink">住所: </span><div class="udata">${s004001Form.userFullInfo.requireAddress}</div></li>
-									<li><span class="label label-pink">职业: </span><div class="udata">${s004001Form.userFullInfo.requireProfession}</div></li>
+									<li><span class="label label-pink">居住地: </span><div class="udata">${s004001Form.userFullInfo.requireAddress}</div></li>
+									<li><span class="label label-pink">職業: </span><div class="udata">${s004001Form.userFullInfo.requireProfession}</div></li>
 								  </ul>
 								</div>
 								<div class="col-md-3">
 								  <ul style="list-style-type: none;">
-									<li><span class="label label-pink">年龄范围:</span><div class="udata">${s004001Form.userFullInfo.requireAgeFrom}~${s004001Form.userFullInfo.requireAgeTo}岁</div></li>
-									<li><span class="label label-pink">身高范围:</span><div class="udata">${s004001Form.userFullInfo.requireHeightFrom}~${s004001Form.userFullInfo.requireHeightTo}cm</div></li>
-									<li><span class="label label-pink">体重范围:</span><div class="udata">${s004001Form.userFullInfo.requireWeightFrom}~${s004001Form.userFullInfo.requireWeightTo}kg</div></li>
+									<li><span class="label label-pink">年齢範囲:</span><div class="udata">${s004001Form.userFullInfo.requireAgeFrom}~${s004001Form.userFullInfo.requireAgeTo}歳</div></li>
+									<li><span class="label label-pink">身長範囲:</span><div class="udata">${s004001Form.userFullInfo.requireHeightFrom}~${s004001Form.userFullInfo.requireHeightTo}cm</div></li>
+									<li><span class="label label-pink">体重範囲:</span><div class="udata">${s004001Form.userFullInfo.requireWeightFrom}~${s004001Form.userFullInfo.requireWeightTo}kg</div></li>
 								  </ul>
 								</div>
 							</div>
@@ -265,7 +264,7 @@
 </body>
 <script>
 	var swiper = new Swiper('.swiper-container', {
-		loop : true, //允许从第一张到最后一张，或者从最后一张到第一张  循环属性
+		loop : true, //允许From第一张To最后一张，或者From最后一张To第一张  循环属性
 		slidesPerView : 1, // 设置显示1张
 		//centeredSlides : true,     //使当前图片居中显示
 		freeMode : true, // 使幻灯片滑动时不止滑动一格，且不会自动贴合 
@@ -282,7 +281,7 @@
 			el : ".swiper-pagination",
 			clickable : true,
 		},
-		// 如果需要前进后退按钮
+		// 如果需要前进后退ボタン
 		navigation : {
 			nextEl : '.swiper-button-next',
 			prevEl : '.swiper-button-prev',

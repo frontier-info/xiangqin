@@ -50,13 +50,13 @@ public class S004001Controller {
 	
 	
 	/**
-	 * 承認待ち一覧ボタン
+	 * 申請された友達一覧ボタン
 	 */
 	@RequestMapping(value="/s004001/e001", method=RequestMethod.GET)
 	public String e001(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("s004001Form") S004001Form form, BindingResult result,
 			S004001E001Input input, Model model) {
-		System.out.println("承認待ち一覧");
+		System.out.println("申請された友達一覧");
 		S004001E001Output output = new S004001E001Output();
         T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
         input.setUid(userLoginInfo.getUid());

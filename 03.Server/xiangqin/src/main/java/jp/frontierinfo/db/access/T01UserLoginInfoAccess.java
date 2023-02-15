@@ -19,7 +19,7 @@ public class T01UserLoginInfoAccess {
 	
 	
 	/**
-	 * 用户存在与否验证(邮箱)
+	 * メールアドレスでユーザーの存在確認
 	 * @param mobile
 	 * @return
 	 */
@@ -28,7 +28,7 @@ public class T01UserLoginInfoAccess {
 	}
 	
 	/**
-	 * 用户登录验证(邮箱)
+	 * ユーザーのメールアドレスとパスワードが一致するかのチェック
 	 * @return
 	 */
 	public T01UserLoginInfo loginVerifyWithEmail(String email, String password) {
@@ -39,7 +39,7 @@ public class T01UserLoginInfoAccess {
 	}
 	
 	/**
-	 * 用户注册
+	 * 新しいユーザーを登録
 	 * @return
 	 */
 	public int insert1(T01UserLoginInfo record) {

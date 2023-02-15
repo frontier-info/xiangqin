@@ -6,7 +6,7 @@
   <%@ include file="../common/include_script.jsp"%>
   <%@ include file="../common/include_css.jsp"%>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>相亲-找回密码</title>
+  <title>恋活-パスワード変更</title>
 </head>
 <body>
 <div class="row">								
@@ -21,29 +21,29 @@
 	<div class="col-md-4">							
 		<div class="panel panel-pink">						
 			<div class="panel-heading pink">					
-				<h3 class="panel-title">找回密码</h3>				
+				<h3 class="panel-title">パスワード変更</h3>				
 			</div>					
 			<div class="panel-body pink">					
 				<div class="row">				
 					<div class="col-md-3"></div>			
 					<div class="col-md-6">			
 						<form:form modelAttribute="s001003Form" action="/xiangqin/ui/s001003" method="post">	
-							<!--   引入页面提示信息 -->
+							<!--   画面メッセージエリア -->
 							<%@include file="../common/message.jsp"%>	
 							<div class="form-group">
 						        <div>
-									<label for="email">邮箱</label>	
-									<form:input class="form-control" type="text" path="email" placeholder="请输入邮箱"/>
-									<label for="smsCode">验证码</label>	
+									<label for="email">メールアドレス</label>	
+									<form:input class="form-control" type="text" path="email" placeholder="メールアドレスを入力してください"/>
+									<label for="smsCode">認証コード</label>	
 									<form:input class="form-control" type="text" path="smsCode" value=""/>
-									<button type="submit" class="button-success" name="getVerificationCode" >发送验证码</button>				
+									<button type="submit" class="button-success" name="getVerificationCode" >認証コードを送信</button>				
 									<hr>
-									<label for="password">密码</label>	
+									<label for="password">パスワード</label>	
 									<input class="form-control" type="password" name="password" value=""/>
-									<label for="repassword">重复密码</label>	
+									<label for="repassword">確認パスワード</label>	
 									<input class="form-control" type="password" name="repassword" value=""/>
 									<hr>	
-									<button type="submit" class="button-success" name="changePassword" >重置密码</button>
+									<button type="submit" class="button-success" name="changePassword" >パスワード変更</button>
 								</div>
 							</div>	
 						</form:form>

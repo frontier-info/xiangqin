@@ -15,7 +15,7 @@ public class T01UserSearchInfoAccess {
 		this.t01UserSearchInfoDao = t01UserSearchInfoDao;
 	}
 	
-	// 查询当前用户是否已设置检索条件
+	// ユーザーが検索条件が設定しているかどうかの確認
 	public int selectExist(String uid){
 		return t01UserSearchInfoDao.selectExist(uid);
 	}

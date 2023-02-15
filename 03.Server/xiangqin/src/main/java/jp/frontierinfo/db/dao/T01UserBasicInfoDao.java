@@ -11,22 +11,22 @@ import jp.frontierinfo.db.entity.T01UserSearchInfo;
 
 public interface T01UserBasicInfoDao {
 	
-	// 查询指定检索条件的30名异性信息
+	// 指定検索条件で30名の異性情報を取得
 	List<UserSimpleInfo> selectRecommendList(T01UserSearchInfo searchInfo);
 	
-	// 指定检索条件的查询结果不满30名时,从数据库随机补位至30名
+	// 検索条件が一致する異性が30名未満の場合、ランダムで30名までDBから取得
 	List<UserSimpleInfo> selectRandomList(Map<String, Object> params);
 	
-	// 获取点击用户的全部信息(业务页面用)
+	// 指定するユーザーの情報を取得(ユーザー画面用)
 	UserFullInfo selectUserFullInfoByUid(String uid, String relationId);
 	
-	// 获取点击用户的全部信息(业务页面用,向我打招呼的人用)
+	// 指定するユーザーの情報を取得(ユーザー画面用、申請された友達一覧用)
 	UserFullInfo selectUserFullInfoByRelationId(String uid, String relationId);
-	
-	// 查询指定检索条件的用户全部信息(管理员页面用)
+
+	// 指定する検索条件のユーザー情報を取得(管理員画面用)
 	List<UserFullInfo> selectUserFullInfoLi(BackstageSerachInfo searchInfo);
-	
-	// 查询指定用户的全部信息(管理员页面用)
+
+	// 指定するユーザーの情報を取得(管理員画面用)
 	UserFullInfo selectUserFullInfoByUidForBackstage(String uid);
 	
     int deleteByPrimaryKey(String uid);

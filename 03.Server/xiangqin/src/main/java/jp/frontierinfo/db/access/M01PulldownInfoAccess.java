@@ -17,7 +17,7 @@ public class M01PulldownInfoAccess {
 		this.m01PulldownInfoDao = m01PulldownInfoDao;
 	}
 	
-	// 查询指定编码的下拉列表数据
+	// 指定コードのプルダウンリスト情報を取得
 	public List<String> selectPulldownLi(String pulldownCde){
 		return m01PulldownInfoDao.selectPulldownLi(pulldownCde);
 	}
