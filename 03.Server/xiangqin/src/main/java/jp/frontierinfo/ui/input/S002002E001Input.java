@@ -2,6 +2,7 @@ package jp.frontierinfo.ui.input;
 
 import java.math.BigDecimal;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +22,7 @@ public class S002002E001Input {
 	
 	@NotBlank()
 	@Length(max=50)
+	@Email()
 	private String email;
 
 	@NotBlank()

@@ -53,7 +53,7 @@
 									<div style="display: inline-block; position: absolute; margin-left:20px;">
 										<p>
 											<label for="uname">名前:</label>
-											<form:input class="form-control" path="uname" maxlength="10" required="required"/>
+											<form:input class="form-control" path="uname" maxlength="10"/>
 										</p>
 									</div>
 								</div>
@@ -70,13 +70,13 @@
 									<p>
 										<label for="birthDate">出生年月:</label>
 										<fmt:formatDate pattern="yyyy-MM-dd" value="${s002002Form.birthDate}" var="userBirthDate"/>
-										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}" required="required">
+										<input type="date" class="form-control" name="birthDate" value="${userBirthDate}">
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
 										<label for="interest">趣味: </label>
-										<form:input class="form-control" path="interest" maxlength="50" required="required"/>
+										<form:input class="form-control" path="interest" maxlength="50"/>
 									</p>
 								</div>
 							</div>
@@ -100,13 +100,13 @@
 								<div class="col-md-3">
 									<p>
 										<label for="uheight">身長:  </label>
-										<form:input class="form-control" path="uheight" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/>
+										<form:input class="form-control" path="uheight" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/>
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
 										<label for="introduce">メールアドレス: </label>
-										<form:input class="form-control" path="email" maxlength="50" required="required"/>
+										<form:input class="form-control" path="email" maxlength="50"/>
 									</p>
 								</div>
 							</div>
@@ -124,13 +124,13 @@
 								<div class="col-md-3">
 									<p>
 										<label for="uweight">体重:  </label>
-										<form:input class="form-control" path="uweight" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/>
+										<form:input class="form-control" path="uweight" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/>
 									</p>
 								</div>
 								<div class="col-md-3">
 									<p>
 										<label for="introduce">自己紹介:</label>
-										<form:textarea class="form-control" path="introduce" rows="2" maxlength="100" required="required"/>
+										<form:textarea class="form-control" path="introduce" rows="2" maxlength="100"/>
 									</p>
 								</div>
 							</div>
@@ -157,9 +157,9 @@
 									<p>
 										<label>年齢：</label> 
 										<label for="ageFrom">From</label> 
-										<form:input class="form-control" size="3" path="requireAgeFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/> 
+										<form:input class="form-control" size="3" path="requireAgeFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/> 
 										<label for="ageTo">To</label> 
-										<form:input class="form-control" size="3" path="requireAgeTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/>
+										<form:input class="form-control" size="3" path="requireAgeTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/>
 									</p>
 								</div>
 							</div>
@@ -178,9 +178,9 @@
 									<p>
 										<label>身長：</label> 
 										<label for="uheightFrom">From</label> 
-										<form:input class="form-control" size="3" path="requireHeightFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/> 
+										<form:input class="form-control" size="3" path="requireHeightFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/> 
 										<label for="uheightTo">To</label> 
-										<form:input class="form-control" size="3" path="requireHeightTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/>
+										<form:input class="form-control" size="3" path="requireHeightTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/>
 									</p>
 								</div>
 							</div>
@@ -199,9 +199,9 @@
 									<p>
 										<label>体重：</label> 
 										<label for="uweightFrom">From</label> 
-										<form:input class="form-control" size="3" path="requireWeightFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/> 
+										<form:input class="form-control" size="3" path="requireWeightFrom" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/> 
 										<label for="uweightTo">To</label> 
-										<form:input class="form-control" size="3" path="requireWeightTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"  required="required"/>
+										<form:input class="form-control" size="3" path="requireWeightTo" pattern="[0-9]{1,3}" title="３桁以下の数字を入力してください"/>
 									</p>
 								</div>
 							</div>
