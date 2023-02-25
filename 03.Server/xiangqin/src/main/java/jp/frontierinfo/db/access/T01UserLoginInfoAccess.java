@@ -98,4 +98,11 @@ public class T01UserLoginInfoAccess {
 	public int updatePasswordByEmail(String password, String email) {
 		return t01UserLoginInfoDao.updatePasswordByEmail(password, email);
 	}
+	
+
+	public int updateDeleteFlg(String id) {
+		return t01UserLoginInfoDao.updateDeleteFlg(id);
+	}
 }
+
+	

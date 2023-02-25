@@ -23,9 +23,14 @@
 					<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s003001/e001" class="nav-link">友達申請済一覧</a></li>
 					<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s004001/e001" class="nav-link">申請された友達一覧</a></li>
 				</c:if>
+<<<<<<< HEAD
 				<li class="nav-item">
 				<a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a>
 				</li>
+=======
+				<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a><a href="${pageContext.request.contextPath}/ui/s002001/e004" class="nav-link">アカウント削除</a></li>
+
+>>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741
 			</ul>
 		</div>
 	</div>

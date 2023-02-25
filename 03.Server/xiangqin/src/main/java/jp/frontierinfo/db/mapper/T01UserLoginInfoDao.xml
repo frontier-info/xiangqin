@@ -83,6 +83,8 @@
     delete from xiangqin.t01_user_login_info
     where uid = #{uid,jdbcType=VARCHAR}
   </delete>
+  
+
   <insert id="insert" parameterType="jp.frontierinfo.db.entity.T01UserLoginInfo">
     insert into xiangqin.t01_user_login_info (uid, mobile, email, 
       password, user_status_code, user_censor_result, 
@@ -205,5 +207,13 @@
       last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       delete_flg = #{deleteFlg,jdbcType=BIT}
     where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  
+    <update id="updateDeleteFlg" parameterType="java.lang.String">
+    update xiangqin.t01_user_login_info
+    set 
+      delete_flg = true
+      where uid = #{uid,jdbcType=VARCHAR}
+ 
   </update>
 </mapper>

@@ -2,6 +2,7 @@ package jp.frontierinfo.ui.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,20 @@ import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.input.S002001E001Input;
 import jp.frontierinfo.ui.input.S002001E002Input;
 import jp.frontierinfo.ui.input.S002001Input;
+<<<<<<< HEAD
 import jp.frontierinfo.ui.input.S003001E001Input;
 import jp.frontierinfo.ui.output.S002001E001Output;
 import jp.frontierinfo.ui.output.S002001E002Output;
 import jp.frontierinfo.ui.output.S002001Output;
 import jp.frontierinfo.ui.output.S003001E001Output;
+=======
+import jp.frontierinfo.ui.output.S001001E001Output;
+import jp.frontierinfo.ui.output.S002001E001Output;
+import jp.frontierinfo.ui.output.S002001E002Output;
+import jp.frontierinfo.ui.output.S002001Output;
+import jp.frontierinfo.ui.output.S004001E002Output;
+import jp.frontierinfo.ui.service.S001001E001Service;
+>>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741
 import jp.frontierinfo.ui.service.S002001E001Service;
 import jp.frontierinfo.ui.service.S002001E002Service;
 import jp.frontierinfo.ui.service.S002001Service;
@@ -39,6 +49,9 @@ import jp.frontierinfo.ui.service.S002001Service;
 @RequestMapping("/ui")  
 @SessionAttributes(value= {"s002002Form", "s002003Form"}) 
 public class S002001Controller {
+	
+	@Autowired
+	private S001001E001Service s001001E001Service;
 	
 	@Autowired
 	private S002001E001Service s002001E001Service;
@@ -204,4 +217,41 @@ public class S002001Controller {
 		
 		return "s001001";
 	}
+<<<<<<< HEAD
 }
+=======
+	
+	/**
+	 * アカウント削除
+	 */
+	@PrintLog("ユーザーホームページ画面のアカウント削除")
+	@RequestMapping(value="/s002001/e004", method=RequestMethod.GET)
+	public String e004(HttpServletRequest request, HttpServletResponse response, 
+			S001001Form form, S001001E001Input input  ) {
+		
+	     T01UserLoginInfo userLoginInfo = (T01UserLoginInfo) request.getSession().getAttribute(ConstantInfo.USER_LOGIN_INFO);
+
+
+		// ログイン後ユーザーレベルをチェック
+		if("02".equals(userLoginInfo.getUserRankCode()) || "09".equals(userLoginInfo.getUserRankCode())) {
+		
+			   try{
+					int updRes = s001001E001Service.delete(userLoginInfo.getUid());
+					
+				} catch (BusinessException e) {
+		        	return "s001001";
+				}
+		}
+		else {
+			return "s002001";
+		}
+
+
+		return "s001001";
+		
+	}
+	
+
+	
+}
+>>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741

@@ -51,4 +51,14 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		return output;
 	}
 	
+<<<<<<< HEAD
+=======
+
+	public int delete(String input) throws BusinessException {
+
+		int updRes = t01UserLoginInfoAccess.updateDeleteFlg(input);
+		return updRes;
+	}
+
+>>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741
 }
