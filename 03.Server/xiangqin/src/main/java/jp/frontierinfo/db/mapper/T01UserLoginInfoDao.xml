@@ -19,6 +19,7 @@
     uid, mobile, email, password, user_status_code, user_censor_result, user_rank_code, 
     create_time, last_login_time, delete_flg
   </sql>
+  
   <!--   メールアドレスでユーザーの存在確認 -->
   <select id="userExistByEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
     select 
@@ -27,6 +28,16 @@
     where email = #{email,jdbcType=VARCHAR}
     and delete_flg = false
   </select>
+  
+  <!--   電話番号でユーザーの存在確認 -->
+  <select id="userExistByMobile" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select 
+      count(*)
+    from xiangqin.t01_user_login_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+    and delete_flg = false
+  </select>
+  
   <!--   ユーザーのメールアドレスとパスワードが一致するかのチェック-->
   <select id="loginVerifyWithEmail" parameterType="java.util.Map" resultMap="BaseResultMap">
     select 
@@ -36,6 +47,17 @@
       and password = #{password,jdbcType=VARCHAR}
       and delete_flg = false
   </select>
+  
+  <!--   ユーザーの電話番号とパスワードが一致するかのチェック-->
+  <select id="loginVerifyWithMobile" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiangqin.t01_user_login_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+      and password = #{password,jdbcType=VARCHAR}
+      and delete_flg = false
+  </select>
+  
   <!-- password変更 -->
   <update id="updateByEmail" parameterType="java.lang.String" >
     update xiangqin.t01_user_login_info

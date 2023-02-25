@@ -23,7 +23,9 @@
 					<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s003001/e001" class="nav-link">友達申請済一覧</a></li>
 					<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s004001/e001" class="nav-link">申請された友達一覧</a></li>
 				</c:if>
-				<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a></li>
+				<li class="nav-item">
+				<a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a>
+				</li>
 			</ul>
 		</div>
 	</div>

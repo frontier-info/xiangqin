@@ -60,6 +60,7 @@ public class A001001Controller extends AbstractController{
 	public AbstractOutput e001(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody A001001E001Input input) {
 		logger.debug(input.toString());
+		
 		AbstractOutput result = new AbstractOutput();
 		try {
 			result.setData(a001001E001Service.execute(input));

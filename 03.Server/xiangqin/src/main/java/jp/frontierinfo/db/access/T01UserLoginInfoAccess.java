@@ -17,25 +17,46 @@ public class T01UserLoginInfoAccess {
 		this.t01UserLoginInfoDao = t01UserLoginInfoDao;
 	}
 	
-	
 	/**
 	 * メールアドレスでユーザーの存在確認
-	 * @param mobile
 	 * @return
 	 */
+	
 	public int userExistByEmail(String email) {
 		return t01UserLoginInfoDao.userExistByEmail(email);
+	}
+	
+	/**
+	 * 電話番号でユーザーの存在確認
+	 * @return
+	 */
+	
+	public int userExistByMobile(String mobile) {
+		return t01UserLoginInfoDao.userExistByMobile(mobile);
 	}
 	
 	/**
 	 * ユーザーのメールアドレスとパスワードが一致するかのチェック
 	 * @return
 	 */
+	
 	public T01UserLoginInfo loginVerifyWithEmail(String email, String password) {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("email", email);
 		params.put("password", password);
 		return t01UserLoginInfoDao.loginVerifyWithEmail(params);
+	}
+	
+	/**
+	 * ユーザーの電話番号とパスワードが一致するかのチェック
+	 * @return
+	 */
+	
+	public T01UserLoginInfo loginVerifyWithMobile(String mobile, String password) {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("mobile", mobile);
+		params.put("password", password);
+		return t01UserLoginInfoDao.loginVerifyWithMobile(params);
 	}
 	
 	/**

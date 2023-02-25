@@ -50,5 +50,5 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		
 		return output;
 	}
-
+	
 }

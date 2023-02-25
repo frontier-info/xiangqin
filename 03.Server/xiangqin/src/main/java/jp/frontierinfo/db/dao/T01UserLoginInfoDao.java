@@ -9,7 +9,11 @@ public interface T01UserLoginInfoDao {
 	int userExistByEmail(String email);
 	
 	T01UserLoginInfo loginVerifyWithEmail(Map<String, String> params);
-    
+	
+    int userExistByMobile(String mobile);
+	
+	T01UserLoginInfo loginVerifyWithMobile(Map<String, String> params);
+	
     int updateByEmail(String email);
     
     int updatePasswordByEmail(String password,String email);

@@ -9,4 +9,5 @@ public class S001002E001Input {
 
 	@NotBlank()
 	private String email;
+	
 }
