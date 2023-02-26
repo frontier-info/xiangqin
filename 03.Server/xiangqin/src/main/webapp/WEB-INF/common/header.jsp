@@ -26,7 +26,9 @@
 				<li class="nav-item">
 				<a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a>
 				</li>
-				<li class="nav-item"><a href="${pageContext.request.contextPath}/ui/s002001/e003" class="nav-link">ログアウト</a><a href="${pageContext.request.contextPath}/ui/s002001/e004" class="nav-link">アカウント削除</a></li>
+				<li class="nav-item">
+				<a href="${pageContext.request.contextPath}/ui/s002001/e004" class="nav-link">アカウント削除</a>
+				</li>
 			</ul>
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 <%@ include file="../common/include_script.jsp"%>
 <%@ include file="../common/include_css.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>恋活-個人情報設定</title>
+<title>婚活-個人情報設定</title>
 </head>
 <body>
 

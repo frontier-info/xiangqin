@@ -6,7 +6,7 @@ import jp.frontierinfo.common.CommonTestCase;
 import jp.frontierinfo.start.XiangQinApplication;
 
 /**
- * 首页系的S001001Controller测试
+ * ホームページ系のS001001Controller测试
  * @author wusongsong
  *
  */

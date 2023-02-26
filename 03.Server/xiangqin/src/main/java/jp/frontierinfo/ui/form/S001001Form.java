@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class S001001Form {
 	
-	private String email;
+	private String loginType;
 	
-	private String mobile;
+	private String mobileOrEmail;
 
 	private String password;
 	

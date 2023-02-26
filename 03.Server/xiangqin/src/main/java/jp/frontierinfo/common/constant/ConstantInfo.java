@@ -116,5 +116,11 @@ public class ConstantInfo {
 	public static final String FILE_SAVE_UID_PATH = "/uid_";
 	public static final String FILE_STATIC_PATH = "static";
 	
+	/**
+	 * ログイン種別
+	 */
+	public static final String EMAIL = "email";
+	public static final String MOBILE = "mobile";
+	
 	
 }

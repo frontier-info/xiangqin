@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 
 import jp.frontierinfo.api.abstractcls.AbstractServiceImpl;
+import jp.frontierinfo.common.constant.ConstantInfo;
 import jp.frontierinfo.common.exception.BusinessException;
 import jp.frontierinfo.common.utils.SHA256Util;
 import jp.frontierinfo.common.utils.TokenUtils;
@@ -21,19 +22,39 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 	@Override
 	public S001001E001Output execute(S001001E001Input input) throws BusinessException {
 		S001001E001Output output = new S001001E001Output();
-		int count = t01UserLoginInfoAccess.userExistByEmail(input.getEmail());
-		if(count == 0) {
-			// ユーザーが存在しない
-			throw new BusinessException("ユーザーが存在しない");
-		}
-		T01UserLoginInfo userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithEmail(input.getEmail(), SHA256Util.getSHA256(input.getPassword()));
-		if(userLoginInfo != null) {
-			// ユーザーのメールアドレスとパスワードが認証成功
-			output.setUserLoginInfo(userLoginInfo);
-			output.setToken(TokenUtils.tokenForLogin(input.getEmail()));
+		T01UserLoginInfo userLoginInfo = null;
+		if(ConstantInfo.EMAIL.equals(input.getLoginType())) {
+			
+			int count = t01UserLoginInfoAccess.userExistByEmail(input.getMobileOrEmail());
+			if(count == 0) {
+				// ユーザーが存在しない
+				throw new BusinessException("ユーザーが存在しない");
+			}
+			userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithEmail(input.getMobileOrEmail(), SHA256Util.getSHA256(input.getPassword()));
+			if(userLoginInfo != null) {
+				// ユーザーのメールアドレスとパスワードが認証成功
+				output.setUserLoginInfo(userLoginInfo);
+				output.setToken(TokenUtils.tokenForLogin(input.getMobileOrEmail()));
+			} else {
+				// ユーザーのメールアドレスとパスワードが一致しない
+				throw new BusinessException("メールアドレスとパスワードが一致しない");
+			}
 		} else {
-			// ユーザーのメールアドレスとパスワードが一致しない
-			throw new BusinessException("メールアドレスとパスワードが一致しない");
+			int count = t01UserLoginInfoAccess.userExistByMobile(input.getMobileOrEmail());
+			if(count == 0) {
+				// ユーザーが存在しない
+				throw new BusinessException("ユーザーが存在しない");
+			}
+			userLoginInfo = t01UserLoginInfoAccess.loginVerifyWithMobile(input.getMobileOrEmail(), SHA256Util.getSHA256(input.getPassword()));
+			if(userLoginInfo != null) {
+				// ユーザーの電話番号とパスワードが認証成功
+				output.setUserLoginInfo(userLoginInfo);
+				output.setToken(TokenUtils.tokenForLogin(input.getMobileOrEmail()));
+			} else {
+				// ユーザーのメールアドレスとパスワードが一致しない
+				throw new BusinessException("電話番号とパスワードが一致しない");
+			}
+			
 		}
 		
 		// ユーザー基本情報を取得
@@ -50,9 +71,6 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		
 		return output;
 	}
-	
-<<<<<<< HEAD
-=======
 
 	public int delete(String input) throws BusinessException {
 
@@ -60,5 +78,4 @@ public class S001001E001Service extends AbstractServiceImpl<S001001E001Input, S0
 		return updRes;
 	}
 
->>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741
 }

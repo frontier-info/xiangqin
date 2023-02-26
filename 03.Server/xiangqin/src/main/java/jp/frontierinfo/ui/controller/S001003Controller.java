@@ -59,10 +59,11 @@ public class S001003Controller extends AbstractController {
 		
 		// メールアドレスと認証コードをsessionに保持
 		HttpSession session = request.getSession();
+		model.addAttribute("message", "测试用："+output.getVerificationCode());
 		session.setAttribute(ConstantInfo.REGISTER_SMS_CODE, output.getVerificationCode());
 		session.setAttribute(ConstantInfo.REGISTER_EMAIL, input.getEmail());
 		
-		model.addAttribute("message", "認証コードが送信されました、認証コードを入力してください"); 
+//		model.addAttribute("message", "認証コードが送信されました、認証コードを入力してください"); 
 		
 		return "s001003";
 	}

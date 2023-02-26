@@ -21,7 +21,7 @@ import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.output.S001001E001Output;
 
 /**
- * 登录页面的登录按钮点击的Service测试
+ * ログイン画面のログインボタンクリックのService测试
  * @author wusongsong
  *
  */
@@ -44,16 +44,16 @@ public class S001001E001ServiceTest extends CommonTestCase {
     }
 
     /**
-     * 用户不存在
+     * ユーザー不存在
      */
     @Test
     public void test_001() {
         // 导入测试数据
     	inputData("testfile/S001001E001Service");
     	
-    	// 准备测试对象方法的参数
+    	// 准备测试对象方法の参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setEmail("1235");
+    	input.setMobileOrEmail("1235");
     	input.setPassword("13245");
     	
     	try {
@@ -61,22 +61,22 @@ public class S001001E001ServiceTest extends CommonTestCase {
 			s001001E001Service.execute(input);
 		} catch (BusinessException e) {
 			// 验证错误信息
-			assertEquals("用户不存在", e.getMessage());
+			assertEquals("ユーザー不存在", e.getMessage());
 		}
     	
     }
 
     /**
-     * 用户密码输入错误
+     * ユーザー密码输入错误
      */
     @Test
     public void test_002() {
         // 导入测试数据
     	inputData("testfile/S001001E001Service");
     	
-    	// 准备测试对象方法的参数
+    	// 准备测试对象方法の参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setEmail("1234");
+    	input.setMobileOrEmail("1234");
     	input.setPassword("1234");
     	
     	try {
@@ -84,21 +84,21 @@ public class S001001E001ServiceTest extends CommonTestCase {
 			s001001E001Service.execute(input);
 		} catch (BusinessException e) {
 			// 验证错误信息
-			assertEquals("用户手机号或密码错误", e.getMessage());
+			assertEquals("ユーザー手机号或密码错误", e.getMessage());
 		}
     }
 
     /**
-     * 用户密码验证成功
+     * ユーザー密码验证成功
      */
     @Test
     public void test_003() {
         // 导入测试数据
     	inputData("testfile/S001001E001Service");
     	
-    	// 准备测试对象方法的参数
+    	// 准备测试对象方法の参数
     	S001001E001Input input = new S001001E001Input();
-    	input.setEmail("1234");
+    	input.setMobileOrEmail("1234");
     	input.setPassword("123");
     	
     	// 准备测试结果期待值
@@ -124,7 +124,7 @@ public class S001001E001ServiceTest extends CommonTestCase {
 			fail("发生异常");
 		}
     	
-    	// 验证Service返回值:用户Token
+    	// 验证Service返回值:ユーザーToken
     	assertTrue(!ObjectUtils.isEmpty(actualOutput.getToken()));
     	
     }

@@ -2,7 +2,6 @@ package jp.frontierinfo.ui.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,25 +21,14 @@ import jp.frontierinfo.ui.form.S001001Form;
 import jp.frontierinfo.ui.form.S002001Form;
 import jp.frontierinfo.ui.form.S002002Form;
 import jp.frontierinfo.ui.form.S002003Form;
-import jp.frontierinfo.ui.form.S003001Form;
 import jp.frontierinfo.ui.input.S001001E001Input;
 import jp.frontierinfo.ui.input.S002001E001Input;
 import jp.frontierinfo.ui.input.S002001E002Input;
 import jp.frontierinfo.ui.input.S002001Input;
-<<<<<<< HEAD
-import jp.frontierinfo.ui.input.S003001E001Input;
 import jp.frontierinfo.ui.output.S002001E001Output;
 import jp.frontierinfo.ui.output.S002001E002Output;
 import jp.frontierinfo.ui.output.S002001Output;
-import jp.frontierinfo.ui.output.S003001E001Output;
-=======
-import jp.frontierinfo.ui.output.S001001E001Output;
-import jp.frontierinfo.ui.output.S002001E001Output;
-import jp.frontierinfo.ui.output.S002001E002Output;
-import jp.frontierinfo.ui.output.S002001Output;
-import jp.frontierinfo.ui.output.S004001E002Output;
 import jp.frontierinfo.ui.service.S001001E001Service;
->>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741
 import jp.frontierinfo.ui.service.S002001E001Service;
 import jp.frontierinfo.ui.service.S002001E002Service;
 import jp.frontierinfo.ui.service.S002001Service;
@@ -217,9 +205,6 @@ public class S002001Controller {
 		
 		return "s001001";
 	}
-<<<<<<< HEAD
-}
-=======
 	
 	/**
 	 * アカウント削除
@@ -254,4 +239,3 @@ public class S002001Controller {
 
 	
 }
->>>>>>> e9351231ccf7ec74eb754c726ac1e8338e3c9741

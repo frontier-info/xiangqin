@@ -6,7 +6,7 @@
   <%@ include file="../common/include_script.jsp"%>
   <%@ include file="../common/include_css.jsp"%>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>恋活-パスワード変更</title>
+  <title>婚活-パスワード変更</title>
 </head>
 <body>
 <div class="row">								
